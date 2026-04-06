@@ -1,0 +1,70 @@
+'use client';
+
+import { styled } from '@mui/material/styles';
+import { useLang } from '@/context/LangContext';
+import { tokens } from '@/theme/theme';
+
+const Wrapper = styled('div')({
+  position: 'fixed',
+  top: 28,
+  right: 32,
+  zIndex: 1000,
+  display: 'flex',
+  border: `1.5px solid ${tokens.ink}`,
+  borderRadius: 2,
+  overflow: 'hidden',
+  fontFamily: "'DM Sans', sans-serif",
+  fontSize: 11,
+  fontWeight: 500,
+  letterSpacing: '0.08em',
+  textTransform: 'uppercase',
+  '@media (max-width: 900px)': {
+    top: 16,
+    right: 16,
+  },
+});
+
+const LangBtn = styled('button')<{ active?: boolean }>(({ active }) => ({
+  background: active ? tokens.ink : 'transparent',
+  border: 'none',
+  padding: '8px 16px',
+  cursor: 'none',
+  transition: 'background 0.2s, color 0.2s',
+  color: active ? tokens.cream : tokens.ink,
+  minWidth: 44,
+  minHeight: 44,
+  fontFamily: 'inherit',
+  fontSize: 'inherit',
+  fontWeight: 'inherit',
+  letterSpacing: 'inherit',
+  textTransform: 'inherit',
+  '&:hover:not([data-active])': {
+    background: tokens.mintLight,
+  },
+  '&:focus-visible': { outlineOffset: -3 },
+}));
+
+export default function LangToggle() {
+  const { locale, setLocale } = useLang();
+
+  return (
+    <Wrapper role="group" aria-label="Language selector">
+      <LangBtn
+        active={locale === 'en'}
+        onClick={() => setLocale('en')}
+        aria-pressed={locale === 'en'}
+        aria-label="Switch to English"
+      >
+        EN
+      </LangBtn>
+      <LangBtn
+        active={locale === 'pt'}
+        onClick={() => setLocale('pt')}
+        aria-pressed={locale === 'pt'}
+        aria-label="Mudar para Português"
+      >
+        PT
+      </LangBtn>
+    </Wrapper>
+  );
+}

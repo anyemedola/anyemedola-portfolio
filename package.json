@@ -1,0 +1,23 @@
+{
+  "name": "anyemedola-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "frontend",
+    "backoffice",
+    "backend"
+  ],
+  "scripts": {
+    "dev": "npm run dev -w frontend",
+    "dev:all": "concurrently --kill-others-on-fail --names \"frontend,backoffice,backend\" --prefix-colors \"cyan,magenta,yellow\" \"npm run dev -w frontend\" \"npm run dev -w backoffice\" \"npm run dev -w backend\"",
+    "dev:backoffice": "npm run dev -w backoffice",
+    "dev:backend": "npm run dev -w backend",
+    "build": "npm run build -w backend && npm run build -w frontend && npm run build -w backoffice",
+    "start": "npm run start -w frontend",
+    "start:all": "concurrently --kill-others-on-fail --names \"frontend,backoffice,backend\" --prefix-colors \"cyan,magenta,yellow\" \"npm run start -w frontend\" \"npm run start -w backoffice\" \"npm run start -w backend\"",
+    "lint": "npm run lint -w frontend && npm run lint -w backoffice"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}
