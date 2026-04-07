@@ -150,7 +150,8 @@ anyemedola-portfolio/                ← monorepo root
 │   └── src/
 │       ├── components/
 │       │   ├── AdminApp.tsx         # Main layout shell
-│       │   ├── LoginPage.tsx        # Login form
+│       │   ├── adminpage/           # AdminApp folder (styles.ts)
+│       │   ├── loginpage/           # LoginPage + styles.ts
 │       │   ├── layout/              # Sidebar, TopBar (each with styles.ts)
 │       │   ├── panels/              # ProjectPanel, BlogPanel — slide-in drawers (each with styles.ts)
 │       │   ├── views/               # DashboardView, ProjectsView, BlogView, SettingsView (each with styles.ts)
