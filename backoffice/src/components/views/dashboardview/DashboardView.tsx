@@ -1,173 +1,9 @@
 'use client';
 
-import { styled } from '@mui/material/styles';
 import { tokens } from '@/theme/tokens';
 import { useAdmin } from '@/context/AdminContext';
 import { useLang } from '@/context/LangContext';
-
-const StatsGrid = styled('div')({
-  display: 'grid',
-  gridTemplateColumns: 'repeat(4, 1fr)',
-  gap: 2,
-  marginBottom: 32,
-  '@media (max-width: 1024px)': { gridTemplateColumns: 'repeat(2, 1fr)' },
-  '@media (max-width: 480px)': { gap: 4 },
-});
-
-const StatCard = styled('div')<{ accent?: string }>(({ accent = tokens.mint }) => ({
-  background: tokens.surface,
-  border: `1px solid ${tokens.border}`,
-  padding: '24px 28px',
-  position: 'relative',
-  overflow: 'hidden',
-  transition: 'border-color 0.2s',
-  '--accent': accent,
-  '&:hover': { borderColor: tokens.borderHover },
-  '&::before': {
-    content: "''",
-    position: 'absolute',
-    top: 0, left: 0, right: 0,
-    height: 2,
-    background: accent,
-    opacity: 0,
-    transition: 'opacity 0.2s',
-  },
-  '&:hover::before': { opacity: 1 },
-  '@media (max-width: 480px)': { padding: '14px' },
-} as React.CSSProperties));
-
-const StatLabel = styled('div')({
-  fontSize: 9,
-  fontWeight: 500,
-  letterSpacing: '0.22em',
-  textTransform: 'uppercase',
-  color: tokens.textMuted,
-  marginBottom: 12,
-  fontFamily: "'DM Sans', sans-serif",
-  '@media (max-width: 480px)': { fontSize: 8 },
-});
-
-const StatValue = styled('div')({
-  fontFamily: "'Bebas Neue', sans-serif",
-  fontSize: 48,
-  lineHeight: 1,
-  color: tokens.cream,
-  letterSpacing: '0.02em',
-  '@media (max-width: 480px)': { fontSize: 30 },
-});
-
-const StatAccentSpan = styled('span')<{ accent?: string }>(({ accent = tokens.mint }) => ({
-  color: accent,
-}));
-
-const StatSub = styled('div')({
-  fontSize: 11,
-  color: tokens.textMuted,
-  marginTop: 8,
-  letterSpacing: '0.04em',
-  fontFamily: "'DM Sans', sans-serif",
-  '@media (max-width: 480px)': { fontSize: 10 },
-});
-
-const StatIcon = styled('span')({
-  position: 'absolute',
-  top: 20, right: 20,
-  fontSize: 22,
-  opacity: 0.15,
-  '@media (max-width: 480px)': { display: 'none' },
-});
-
-const DashGrid = styled('div')({
-  display: 'grid',
-  gridTemplateColumns: '1fr 340px',
-  gap: 20,
-  marginTop: 24,
-  '@media (max-width: 1024px)': { gridTemplateColumns: '1fr' },
-  '@media (max-width: 768px)': { gap: 16 },
-});
-
-const DashCard = styled('div')({
-  background: tokens.surface,
-  border: `1px solid ${tokens.border}`,
-});
-
-const DashCardHeader = styled('div')({
-  padding: '16px 20px',
-  borderBottom: `1px solid ${tokens.border}`,
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'space-between',
-});
-
-const DashCardTitle = styled('span')({
-  fontSize: 10,
-  fontWeight: 500,
-  letterSpacing: '0.18em',
-  textTransform: 'uppercase',
-  color: tokens.textMuted,
-  fontFamily: "'DM Sans', sans-serif",
-});
-
-const ActivityList = styled('div')({ display: 'flex', flexDirection: 'column' });
-
-const ActivityItem = styled('div')({
-  display: 'flex',
-  alignItems: 'flex-start',
-  gap: 14,
-  padding: '14px 20px',
-  borderBottom: `1px solid ${tokens.border}`,
-  transition: 'background 0.15s',
-  '&:last-child': { borderBottom: 'none' },
-  '&:hover': { background: 'rgba(255,255,255,0.02)' },
-});
-
-const ActivityDot = styled('div')<{ dotType: 'mint' | 'pink' | 'warn' }>(({ dotType }) => ({
-  width: 8, height: 8,
-  borderRadius: '50%',
-  background: dotType === 'mint' ? tokens.mint : dotType === 'pink' ? tokens.pink : tokens.warning,
-  flexShrink: 0,
-  marginTop: 4,
-}));
-
-const ActivityText = styled('div')({
-  fontSize: 12,
-  color: tokens.textDim,
-  lineHeight: 1.5,
-  fontFamily: "'DM Sans', sans-serif",
-  '& strong': { color: tokens.text, fontWeight: 500 },
-});
-
-const ActivityTime = styled('div')({
-  fontSize: 10,
-  color: tokens.textMuted,
-  marginTop: 2,
-  letterSpacing: '0.06em',
-  fontFamily: "'DM Sans', sans-serif",
-});
-
-const QuickActions = styled('div')({
-  display: 'grid',
-  gridTemplateColumns: '1fr 1fr',
-  gap: 2,
-});
-
-const QuickAction = styled('button')({
-  background: tokens.surface2,
-  border: 'none',
-  padding: 20,
-  cursor: 'pointer',
-  textAlign: 'left',
-  transition: 'background 0.2s',
-  display: 'flex',
-  flexDirection: 'column',
-  gap: 8,
-  '&:hover': { background: tokens.surface3 },
-});
-
-const QAIcon = styled('span')({ fontSize: 22, opacity: 0.6 });
-const QALabel = styled('div')({ fontSize: 12, fontWeight: 500, color: tokens.text, fontFamily: "'DM Sans', sans-serif" });
-const QASub = styled('div')({ fontSize: 10, color: tokens.textMuted, letterSpacing: '0.04em', fontFamily: "'DM Sans', sans-serif" });
-const QAArrow = styled('div')({ fontSize: 12, color: tokens.mint, marginTop: 4 });
+import * as S from './styles';
 
 export default function DashboardView() {
   const { projects, blogPosts, activities, setActiveView, openProjectPanel, openBlogPanel } = useAdmin();
@@ -181,84 +17,84 @@ export default function DashboardView() {
 
   return (
     <>
-      <StatsGrid>
-        <StatCard accent={tokens.mint}>
-          <StatIcon aria-hidden="true">◻</StatIcon>
-          <StatLabel>{d.totalProjects}</StatLabel>
-          <StatValue><StatAccentSpan accent={tokens.mint}>{projects.length}</StatAccentSpan></StatValue>
-          <StatSub>{pubProj} {d.published}</StatSub>
-        </StatCard>
-        <StatCard accent={tokens.pink}>
-          <StatIcon aria-hidden="true">✦</StatIcon>
-          <StatLabel>{d.blogPosts}</StatLabel>
-          <StatValue><StatAccentSpan accent={tokens.pink}>{blogPosts.length}</StatAccentSpan></StatValue>
-          <StatSub>{pubBlog} {d.published}</StatSub>
-        </StatCard>
-        <StatCard accent={tokens.warning}>
-          <StatIcon aria-hidden="true">◈</StatIcon>
-          <StatLabel>{d.drafts}</StatLabel>
-          <StatValue><StatAccentSpan accent={tokens.warning}>{drafts}</StatAccentSpan></StatValue>
-          <StatSub>{d.pendingReview}</StatSub>
-        </StatCard>
-        <StatCard accent="#8B7355">
-          <StatIcon aria-hidden="true">★</StatIcon>
-          <StatLabel>{d.featured}</StatLabel>
-          <StatValue><StatAccentSpan accent="#8B7355">{featured}</StatAccentSpan></StatValue>
-          <StatSub>{d.highlightedItems}</StatSub>
-        </StatCard>
-      </StatsGrid>
+      <S.StatsGrid>
+        <S.StatCard accent={tokens.mint}>
+          <S.StatIcon aria-hidden="true">◻</S.StatIcon>
+          <S.StatLabel>{d.totalProjects}</S.StatLabel>
+          <S.StatValue><S.StatAccentSpan accent={tokens.mint}>{projects.length}</S.StatAccentSpan></S.StatValue>
+          <S.StatSub>{pubProj} {d.published}</S.StatSub>
+        </S.StatCard>
+        <S.StatCard accent={tokens.pink}>
+          <S.StatIcon aria-hidden="true">✦</S.StatIcon>
+          <S.StatLabel>{d.blogPosts}</S.StatLabel>
+          <S.StatValue><S.StatAccentSpan accent={tokens.pink}>{blogPosts.length}</S.StatAccentSpan></S.StatValue>
+          <S.StatSub>{pubBlog} {d.published}</S.StatSub>
+        </S.StatCard>
+        <S.StatCard accent={tokens.warning}>
+          <S.StatIcon aria-hidden="true">◈</S.StatIcon>
+          <S.StatLabel>{d.drafts}</S.StatLabel>
+          <S.StatValue><S.StatAccentSpan accent={tokens.warning}>{drafts}</S.StatAccentSpan></S.StatValue>
+          <S.StatSub>{d.pendingReview}</S.StatSub>
+        </S.StatCard>
+        <S.StatCard accent="#8B7355">
+          <S.StatIcon aria-hidden="true">★</S.StatIcon>
+          <S.StatLabel>{d.featured}</S.StatLabel>
+          <S.StatValue><S.StatAccentSpan accent="#8B7355">{featured}</S.StatAccentSpan></S.StatValue>
+          <S.StatSub>{d.highlightedItems}</S.StatSub>
+        </S.StatCard>
+      </S.StatsGrid>
 
-      <DashGrid>
-        <DashCard>
-          <DashCardHeader>
-            <DashCardTitle>{d.recentActivity}</DashCardTitle>
+      <S.DashGrid>
+        <S.DashCard>
+          <S.DashCardHeader>
+            <S.DashCardTitle>{d.recentActivity}</S.DashCardTitle>
             <span style={{ fontSize: 10, color: tokens.textMuted, fontFamily: "'DM Sans', sans-serif" }}>{d.today}</span>
-          </DashCardHeader>
-          <ActivityList>
+          </S.DashCardHeader>
+          <S.ActivityList>
             {activities.map(a => (
-              <ActivityItem key={a.id}>
-                <ActivityDot dotType={a.type} aria-hidden="true" />
+              <S.ActivityItem key={a.id}>
+                <S.ActivityDot dotType={a.type} aria-hidden="true" />
                 <div>
-                  <ActivityText dangerouslySetInnerHTML={{ __html: a.msg }} />
-                  <ActivityTime>{a.time}</ActivityTime>
+                  <S.ActivityText dangerouslySetInnerHTML={{ __html: a.msg }} />
+                  <S.ActivityTime>{a.time}</S.ActivityTime>
                 </div>
-              </ActivityItem>
+              </S.ActivityItem>
             ))}
-          </ActivityList>
-        </DashCard>
+          </S.ActivityList>
+        </S.DashCard>
 
-        <DashCard>
-          <DashCardHeader>
-            <DashCardTitle>{d.quickActions}</DashCardTitle>
-          </DashCardHeader>
-          <QuickActions>
-            <QuickAction onClick={() => { setActiveView('projects'); openProjectPanel(); }}>
-              <QAIcon aria-hidden="true">◻</QAIcon>
-              <QALabel>{d.newProject}</QALabel>
-              <QASub>{d.addToPortfolio}</QASub>
-              <QAArrow>→</QAArrow>
-            </QuickAction>
-            <QuickAction onClick={() => { setActiveView('blog'); openBlogPanel(); }}>
-              <QAIcon aria-hidden="true">✦</QAIcon>
-              <QALabel>{d.newPost}</QALabel>
-              <QASub>{d.writeArticle}</QASub>
-              <QAArrow>→</QAArrow>
-            </QuickAction>
-            <QuickAction onClick={() => setActiveView('projects')}>
-              <QAIcon aria-hidden="true">◈</QAIcon>
-              <QALabel>{d.projects}</QALabel>
-              <QASub>{d.manageAll}</QASub>
-              <QAArrow>→</QAArrow>
-            </QuickAction>
-            <QuickAction onClick={() => setActiveView('blog')}>
-              <QAIcon aria-hidden="true">✐</QAIcon>
-              <QALabel>{d.blog}</QALabel>
-              <QASub>{d.managePosts}</QASub>
-              <QAArrow>→</QAArrow>
-            </QuickAction>
-          </QuickActions>
-        </DashCard>
-      </DashGrid>
+        <S.DashCard>
+          <S.DashCardHeader>
+            <S.DashCardTitle>{d.quickActions}</S.DashCardTitle>
+          </S.DashCardHeader>
+          <S.QuickActions>
+            <S.QuickAction onClick={() => { setActiveView('projects'); openProjectPanel(); }}>
+              <S.QAIcon aria-hidden="true">◻</S.QAIcon>
+              <S.QALabel>{d.newProject}</S.QALabel>
+              <S.QASub>{d.addToPortfolio}</S.QASub>
+              <S.QAArrow>→</S.QAArrow>
+            </S.QuickAction>
+            <S.QuickAction onClick={() => { setActiveView('blog'); openBlogPanel(); }}>
+              <S.QAIcon aria-hidden="true">✦</S.QAIcon>
+              <S.QALabel>{d.newPost}</S.QALabel>
+              <S.QASub>{d.writeArticle}</S.QASub>
+              <S.QAArrow>→</S.QAArrow>
+            </S.QuickAction>
+            <S.QuickAction onClick={() => setActiveView('projects')}>
+              <S.QAIcon aria-hidden="true">◈</S.QAIcon>
+              <S.QALabel>{d.projects}</S.QALabel>
+              <S.QASub>{d.manageAll}</S.QASub>
+              <S.QAArrow>→</S.QAArrow>
+            </S.QuickAction>
+            <S.QuickAction onClick={() => setActiveView('blog')}>
+              <S.QAIcon aria-hidden="true">✐</S.QAIcon>
+              <S.QALabel>{d.blog}</S.QALabel>
+              <S.QASub>{d.managePosts}</S.QASub>
+              <S.QAArrow>→</S.QAArrow>
+            </S.QuickAction>
+          </S.QuickActions>
+        </S.DashCard>
+      </S.DashGrid>
     </>
   );
 }

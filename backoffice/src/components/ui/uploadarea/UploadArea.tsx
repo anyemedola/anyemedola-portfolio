@@ -1,64 +1,7 @@
 'use client';
 
-import { useState, useRef } from 'react';
-import { styled } from '@mui/material/styles';
-import { tokens } from '@/theme/tokens';
-
-const Area = styled('div')({
-  border: `1.5px dashed ${tokens.border}`,
-  borderRadius: 2,
-  padding: '28px 20px',
-  textAlign: 'center',
-  cursor: 'pointer',
-  transition: 'border-color 0.2s, background 0.2s',
-  position: 'relative',
-  background: tokens.surface2,
-  '&:hover': { borderColor: tokens.mint, background: tokens.mintGlow },
-});
-
-const HiddenInput = styled('input')({
-  position: 'absolute',
-  inset: 0,
-  opacity: 0,
-  cursor: 'pointer',
-  width: '100%',
-  height: '100%',
-  border: 'none',
-  padding: 0,
-  background: 'none',
-});
-
-const Icon = styled('span')({
-  fontSize: 28,
-  opacity: 0.3,
-  marginBottom: 10,
-  display: 'block',
-});
-
-const Label = styled('div')({
-  fontSize: 12,
-  color: tokens.textDim,
-  fontWeight: 400,
-  fontFamily: "'DM Sans', sans-serif",
-  '& strong': { color: tokens.mint, fontWeight: 500 },
-});
-
-const Sub = styled('div')({
-  fontSize: 10,
-  color: tokens.textMuted,
-  marginTop: 4,
-  letterSpacing: '0.06em',
-  fontFamily: "'DM Sans', sans-serif",
-});
-
-const Preview = styled('img')({
-  width: '100%',
-  height: 140,
-  objectFit: 'cover',
-  borderRadius: 2,
-  marginBottom: 8,
-  display: 'block',
-});
+import { useState } from 'react';
+import * as S from './styles';
 
 interface Props {
   onFile: (dataUrl: string) => void;
@@ -86,21 +29,21 @@ export default function UploadArea({ onFile, ariaLabel }: Props) {
   };
 
   return (
-    <Area>
-      <HiddenInput type="file" accept="image/*" onChange={handleChange} aria-label={ariaLabel ?? 'Upload image'} />
+    <S.Area>
+      <S.HiddenInput type="file" accept="image/*" onChange={handleChange} aria-label={ariaLabel ?? 'Upload image'} />
       {preview ? (
         <>
-          <Preview src={preview} alt="Preview" />
-          <Label>{fileName}</Label>
-          <Sub>{fileSize}</Sub>
+          <S.Preview src={preview} alt="Preview" />
+          <S.UploadLabel>{fileName}</S.UploadLabel>
+          <S.UploadSub>{fileSize}</S.UploadSub>
         </>
       ) : (
         <>
-          <Icon aria-hidden="true">🖼</Icon>
-          <Label><strong>Click to upload</strong> or drag &amp; drop</Label>
-          <Sub>PNG, JPG, WEBP — max 2MB</Sub>
+          <S.UploadIcon aria-hidden="true">🖼</S.UploadIcon>
+          <S.UploadLabel><strong>Click to upload</strong> or drag &amp; drop</S.UploadLabel>
+          <S.UploadSub>PNG, JPG, WEBP — max 2MB</S.UploadSub>
         </>
       )}
-    </Area>
+    </S.Area>
   );
 }

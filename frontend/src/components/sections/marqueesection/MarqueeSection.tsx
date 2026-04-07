@@ -1,37 +1,6 @@
 'use client';
 
-import { styled, keyframes } from '@mui/material/styles';
-import { tokens } from '@/theme/theme';
-
-const marqueeAnim = keyframes`
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
-`;
-
-const Wrap = styled('div')({
-  background: tokens.ink,
-  overflow: 'hidden',
-  padding: '14px 0',
-});
-
-const Track = styled('div')({
-  display: 'flex',
-  animation: `${marqueeAnim} 22s linear infinite`,
-  width: 'max-content',
-});
-
-const Item = styled('span')({
-  fontFamily: "'Bebas Neue', sans-serif",
-  fontSize: 18,
-  letterSpacing: '0.12em',
-  color: tokens.cream,
-  padding: '0 40px',
-  whiteSpace: 'nowrap',
-  '& span': {
-    color: tokens.mintOnDark,
-    marginRight: 40,
-  },
-});
+import * as S from './styles';
 
 const skills = ['React.js', 'Next.js', 'TypeScript', 'UI/UX Design', 'Tailwind CSS', 'Figma', 'Ionic', 'React Query', 'Redux'];
 
@@ -39,14 +8,14 @@ export default function MarqueeSection() {
   const items = [...skills, ...skills];
 
   return (
-    <Wrap aria-hidden="true" role="presentation">
-      <Track>
+    <S.Wrap aria-hidden="true" role="presentation">
+      <S.Track>
         {items.map((skill, i) => (
-          <Item key={i}>
+          <S.Item key={i}>
             {skill} <span>✦</span>
-          </Item>
+          </S.Item>
         ))}
-      </Track>
-    </Wrap>
+      </S.Track>
+    </S.Wrap>
   );
 }
