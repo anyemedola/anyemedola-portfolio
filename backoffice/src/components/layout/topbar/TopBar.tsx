@@ -4,8 +4,6 @@ import { useAdmin, View } from '@/context/AdminContext';
 import { useLang } from '@/context/LangContext';
 import * as S from './styles';
 
-export { Btn } from './styles';
-
 export default function TopBar() {
   const { activeView, setSidebarOpen, sidebarOpen, openProjectPanel, openBlogPanel, addToast } = useAdmin();
   const { dict } = useLang();

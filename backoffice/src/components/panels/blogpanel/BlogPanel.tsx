@@ -6,7 +6,7 @@ import { useLang } from '@/context/LangContext';
 import TagsInput from '@/components/ui/tagsinput/TagsInput';
 import UploadArea from '@/components/ui/uploadarea/UploadArea';
 import RichEditor from '@/components/ui/richeditor/RichEditor';
-import { Btn } from '@/components/layout/topbar/TopBar';
+import { Btn } from '@/components/layout/topbar/styles';
 import * as S from './styles';
 
 interface FormState {

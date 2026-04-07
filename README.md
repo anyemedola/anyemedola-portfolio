@@ -33,6 +33,7 @@ Built by [Any Elis Medola](https://anyemedola.com.br) — Senior Front-End Devel
 - React 19
 - MUI v7 + Emotion (CSS-in-JS)
 - EN/PT i18n via React Context + localStorage
+- All styled components extracted to co-located `styles.ts` files, imported as `import * as S from './styles'`
 
 **Backoffice** (`/backoffice`) — admin dashboard
 - Next.js 16 (App Router)
@@ -40,6 +41,7 @@ Built by [Any Elis Medola](https://anyemedola.com.br) — Senior Front-End Devel
 - MUI v7 + Emotion
 - JWT auth via httpOnly cookie
 - EN/PT i18n (separate `bo_locale` key)
+- All styled components extracted to co-located `styles.ts` files, imported as `import * as S from './styles'`
 
 **Backend** (`/backend`) — REST API
 - Node.js + Express 4
@@ -124,9 +126,13 @@ anyemedola-portfolio/                ← monorepo root
 │   └── src/
 │       ├── components/
 │       │   ├── sections/            # Hero, About, Skills, Experience, Projects, Blog, Contact
+│       │   │   └── */styles.ts      # Styled components per section (import * as S)
 │       │   ├── blog/                # PostHero, PostBody, PostMore, PostFooter, PostNav
+│       │   │   └── */styles.ts      # Styled components per blog component
 │       │   ├── layout/              # Header (nav + lang toggle), Footer
-│       │   └── ui/                  # LangToggle, SkipLink, T (JSX translation)
+│       │   │   └── */styles.ts      # Styled components for layout
+│       │   └── ui/                  # LangToggle, SkipLink, CustomCursor, T
+│       │       └── */styles.ts      # Styled components per UI element
 │       ├── context/
 │       │   └── LangContext.tsx      # { locale, dict, setLocale } + localStorage
 │       └── i18n/
@@ -145,10 +151,10 @@ anyemedola-portfolio/                ← monorepo root
 │       ├── components/
 │       │   ├── AdminApp.tsx         # Main layout shell
 │       │   ├── LoginPage.tsx        # Login form
-│       │   ├── layout/              # Sidebar, TopBar
-│       │   ├── panels/              # ProjectPanel, BlogPanel (slide-in drawers)
-│       │   ├── views/               # DashboardView, ProjectsView, BlogView, SettingsView
-│       │   └── ui/                  # Badge, EmptyState, TagsInput, Toggle, UploadArea, Toast
+│       │   ├── layout/              # Sidebar, TopBar (each with styles.ts)
+│       │   ├── panels/              # ProjectPanel, BlogPanel — slide-in drawers (each with styles.ts)
+│       │   ├── views/               # DashboardView, ProjectsView, BlogView, SettingsView (each with styles.ts)
+│       │   └── ui/                  # Badge, EmptyState, TagsInput, Toggle, UploadArea, RichEditor, Toast (each with styles.ts)
 │       ├── context/
 │       │   ├── AdminContext.tsx     # Projects, posts, CRUD, toast, panel state
 │       │   └── LangContext.tsx      # { locale, dict, setLocale } + bo_locale in localStorage

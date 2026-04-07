@@ -1,6 +1,6 @@
 import { styled } from '@mui/material/styles';
 import { tokens } from '@/theme/tokens';
-import { Btn } from '@/components/layout/topbar/style';
+import { Btn } from '@/components/layout/topbar/styles';
 
 export const FilterBar = styled('div')({
   display: 'flex',

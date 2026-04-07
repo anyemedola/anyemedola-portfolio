@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { useAdmin } from '@/context/AdminContext';
 import { useLang } from '@/context/LangContext';
-import { Btn } from '@/components/layout/topbar/TopBar';
+import { Btn } from '@/components/layout/topbar/styles';
 import * as S from './styles';
 
 export default function SettingsView() {

@@ -6,7 +6,7 @@ import { useAdmin } from '@/context/AdminContext';
 import { useLang } from '@/context/LangContext';
 import Badge from '@/components/ui/badge/Badge';
 import EmptyState from '@/components/ui/emptystate/EmptyState';
-import { Btn } from '@/components/layout/topbar/TopBar';
+import { Btn } from '@/components/layout/topbar/styles';
 import * as S from './styles';
 
 type StatusFilter = 'all' | 'published' | 'draft';
