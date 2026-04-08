@@ -3,6 +3,7 @@ import express from "express";
 import jwt from "jsonwebtoken";
 import projectsRouter from "./routes/projects";
 import postsRouter from "./routes/posts";
+import { readDb } from "./db";
 
 const app  = express();
 const PORT = process.env.PORT ?? 4000;
@@ -66,6 +67,14 @@ app.get("/auth/verify", (req, res) => {
 
 app.use("/api/projects", projectsRouter);
 app.use("/api/posts",    postsRouter);
+
+// ── Debug (development only) ──────────────────────────────────────────────────
+
+if (process.env.NODE_ENV !== "production") {
+  app.get("/debug/db", (_req, res) => {
+    res.json(readDb());
+  });
+}
 
 // ─────────────────────────────────────────────────────────────────────────────
 
