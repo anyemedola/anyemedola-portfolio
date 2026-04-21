@@ -1,7 +1,7 @@
 'use client';
 
 import T from '@/components/ui/t/T';
-import { useLang } from '@/context/LangContext';
+import { useTranslation } from 'react-i18next';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
 import * as S from './styles';
 
@@ -51,18 +51,18 @@ const experiences = [
 
 export default function ExperienceSection() {
   const ref = useScrollReveal();
-  const { dict } = useLang();
+  const { t } = useTranslation();
 
   return (
     <S.ExpRoot id="experience" aria-labelledby="exp-heading" ref={ref}>
       <S.ExpHeader>
         <div>
-          <S.SectionLabel className="reveal" aria-hidden="true">{dict.experience.label}</S.SectionLabel>
+          <S.SectionLabel className="reveal" aria-hidden="true">{t('experience.label')}</S.SectionLabel>
           <S.SectionTitle className="reveal" id="exp-heading">
-            {dict.experience.headingLine1}<br /><em>{dict.experience.headingEm}</em>
+            {t('experience.headingLine1')}<br /><em>{t('experience.headingEm')}</em>
           </S.SectionTitle>
         </div>
-        <S.ExpIntro className="reveal">{dict.experience.intro}</S.ExpIntro>
+        <S.ExpIntro className="reveal">{t('experience.intro')}</S.ExpIntro>
       </S.ExpHeader>
       <S.Timeline aria-label="Work experience timeline">
         {experiences.map((exp, i) => (

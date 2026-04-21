@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import T from '@/components/ui/t/T';
-import { useLang } from '@/context/LangContext';
+import { useTranslation } from 'react-i18next';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
 import { posts as staticPosts, type BlogPost } from '@/data/posts';
 import * as S from './styles';
@@ -48,7 +48,7 @@ const delays = ['', ' reveal-delay-1', ' reveal-delay-2'];
 
 export default function BlogSection() {
   const ref = useScrollReveal();
-  const { dict } = useLang();
+  const { t } = useTranslation();
   const [apiPosts, setApiPosts] = useState<BlogPost[] | null>(null);
 
   useEffect(() => {
@@ -65,12 +65,12 @@ export default function BlogSection() {
       <S.Inner>
         <S.BlogHeader className="reveal">
           <S.BlogTitle id="blog-heading">
-            {dict.blog.headingLine1} &amp;<br /><em>{dict.blog.headingEm}</em>
+            {t('blog.headingLine1')} &amp;<br /><em>{t('blog.headingEm')}</em>
           </S.BlogTitle>
           <S.HeaderRight>
-            <S.BlogSubtitle>{dict.blog.subtitle}</S.BlogSubtitle>
+            <S.BlogSubtitle>{t('blog.subtitle')}</S.BlogSubtitle>
             <S.AllLink href="#" aria-label="View all blog posts">
-              {dict.blog.allPosts} →
+              {t('blog.allPosts')} →
             </S.AllLink>
           </S.HeaderRight>
         </S.BlogHeader>
@@ -94,7 +94,7 @@ export default function BlogSection() {
                     <T en={post.excerpt.en} pt={post.excerpt.pt} />
                   </S.Excerpt>
                   <S.CardFooter>
-                    <S.ReadTime>{post.readTime} {dict.blog.minRead}</S.ReadTime>
+                    <S.ReadTime>{post.readTime} {t('blog.minRead')}</S.ReadTime>
                     <S.Arrow className="card-arrow" aria-hidden="true">↗</S.Arrow>
                   </S.CardFooter>
                 </S.Body>

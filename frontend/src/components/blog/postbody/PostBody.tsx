@@ -1,11 +1,14 @@
 'use client';
 
 import * as S from './styles';
-import { useLang } from '@/context/LangContext';
+import { useTranslation } from 'react-i18next';
 import type { BlogPost } from '@/data/posts';
 
+type Locale = 'en' | 'pt';
+
 export default function PostBody({ post }: { post: BlogPost }) {
-  const { locale, dict } = useLang();
+  const { t, i18n } = useTranslation();
+  const locale = (i18n.language === 'pt' ? 'pt' : 'en') as Locale;
   const body = post.body[locale];
 
   const cover = (
@@ -15,12 +18,11 @@ export default function PostBody({ post }: { post: BlogPost }) {
           <S.CoverPlaceholderIcon aria-hidden="true">{post.icon}</S.CoverPlaceholderIcon>
           <S.CoverPlaceholderText>Cover image goes here</S.CoverPlaceholderText>
         </S.CoverImg>
-        <S.CoverCaption>{dict.post.caption}</S.CoverCaption>
+        <S.CoverCaption>{t('post.caption')}</S.CoverCaption>
       </figure>
     </S.Cover>
   );
 
-  // API posts have raw HTML from the rich editor
   if (body.html !== undefined) {
     return (
       <>

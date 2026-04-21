@@ -1,25 +1,21 @@
 'use client';
 
-import Image from 'next/image';
-import T from '@/components/ui/t/T';
-import { useLang } from '@/context/LangContext';
+import { useTranslation } from 'react-i18next';
+import { Translator } from '@/components/translator-i18n';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
 import * as S from './styles';
 
 export default function ContactSection() {
   const ref = useScrollReveal();
-  const { dict } = useLang();
+  const { t } = useTranslation();
 
   return (
     <S.ContactRoot id="contact" aria-labelledby="contact-heading" ref={ref}>
       <S.Left>
         <S.Title className="reveal" id="contact-heading">
-          <T
-            en={<>Let&apos;s<br />build<br /><em>together</em></>}
-            pt={<>Vamos<br />construir<br /><em>juntos</em></>}
-          />
+          <Translator path="contact.heading" html />
         </S.Title>
-        <S.ContactText className="reveal">{dict.contact.text}</S.ContactText>
+        <S.ContactText className="reveal">{t('contact.text')}</S.ContactText>
         <S.Links className="reveal" aria-label="Contact information">
           <S.ContactLink href="mailto:any@aeait.com">
             <S.LinkIcon aria-hidden="true">✉</S.LinkIcon>any@aeait.com
@@ -39,13 +35,6 @@ export default function ContactSection() {
         </S.Links>
       </S.Left>
       <S.Right aria-hidden="true">
-        <Image
-          src="/any_pink_fullbody.jpg"
-          alt=""
-          role="presentation"
-          fill
-          style={{ objectFit: 'cover', objectPosition: 'center top', opacity: 0.6, mixBlendMode: 'luminosity' }}
-        />
         <S.Overlay />
         <S.WatermarkText>ANY</S.WatermarkText>
       </S.Right>

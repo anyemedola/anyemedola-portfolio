@@ -1,28 +1,26 @@
 'use client';
 
 import Image from 'next/image';
-import T from '@/components/ui/t/T';
-import { useLang } from '@/context/LangContext';
+import { useTranslation } from 'react-i18next';
+import { Translator } from '@/components/translator-i18n';
 import * as S from './styles';
 
 export default function HeroSection() {
-  const { dict } = useLang();
+  const { t } = useTranslation();
   return (
     <S.HeroRoot aria-labelledby="hero-heading">
       <S.HeroLeft>
-        <S.Eyebrow aria-hidden="true">{dict.hero.eyebrow}</S.Eyebrow>
+        <S.Eyebrow aria-hidden="true">{t('hero.eyebrow')}</S.Eyebrow>
         <S.HeroTitle id="hero-heading">
           Any<br /><span>Medola</span>
         </S.HeroTitle>
         <S.HeroDesc>
-          <T
-            en={<><em>Crafting interfaces </em> that don&apos;t just work — they feel right. React, Next.js &amp; TypeScript with a designer&apos;s eye.</>}
-            pt={<><em>Criando interfaces </em> que não só funcionam — elas encantam. React, Next.js &amp; TypeScript com olhar de designer.</>}
-          />
+          <Translator path="hero.desc" html />
         </S.HeroDesc>
         <S.HeroCta>
-          <S.BtnFill href="#experience">{dict.hero.myWork}</S.BtnFill>
-          <S.BtnOutline href="#contact">{dict.hero.letsTalk}</S.BtnOutline>
+          <S.BtnFill href="#experience">{t('hero.myWork')}</S.BtnFill>
+          <S.BtnOutline href="#contact">{t('hero.letsTalk')}</S.BtnOutline>
+          <S.BtnOutline href="/any_medola_cv.pdf" download>{t('hero.downloadCV')}</S.BtnOutline>
         </S.HeroCta>
       </S.HeroLeft>
       <S.HeroRight aria-hidden="true">
@@ -36,7 +34,7 @@ export default function HeroSection() {
         />
         <S.HeroBadge aria-hidden="true">
           <strong>5+</strong>
-          <span>{dict.hero.badge}</span>
+          <span>{t('hero.badge')}</span>
         </S.HeroBadge>
       </S.HeroRight>
     </S.HeroRoot>

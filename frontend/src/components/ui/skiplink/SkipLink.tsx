@@ -1,9 +1,9 @@
 'use client';
 
-import { useLang } from '@/context/LangContext';
+import { useTranslation } from 'react-i18next';
 import * as S from './styles';
 
 export default function SkipLink() {
-  const { dict } = useLang();
-  return <S.SkipLinkEl href="#main-content">{dict.skipLink.label}</S.SkipLinkEl>;
+  const { t } = useTranslation();
+  return <S.SkipLinkEl href="#main-content">{t('skipLink.label')}</S.SkipLinkEl>;
 }

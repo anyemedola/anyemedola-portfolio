@@ -1,7 +1,7 @@
 'use client';
 
-import T from '@/components/ui/t/T';
-import { useLang } from '@/context/LangContext';
+import { useTranslation } from 'react-i18next';
+import { Translator } from '@/components/translator-i18n';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
 import * as S from './styles';
 
@@ -18,19 +18,16 @@ const delays = ['', ' reveal-delay-1', ' reveal-delay-2', '', ' reveal-delay-1',
 
 export default function SkillsSection() {
   const ref = useScrollReveal();
-  const { dict } = useLang();
+  const { t } = useTranslation();
 
   return (
     <S.SkillsRoot id="skills" aria-labelledby="skills-heading" ref={ref}>
       <S.Inner>
         <S.SkillsHeader className="reveal">
           <S.SkillsTitle id="skills-heading">
-            <T
-              en={<>What I<br /><em>build with</em></>}
-              pt={<>Com o que<br /><em>construo</em></>}
-            />
+            <Translator path="skills.title" html />
           </S.SkillsTitle>
-          <S.SkillsSubtitle>{dict.skills.subtitle}</S.SkillsSubtitle>
+          <S.SkillsSubtitle>{t('skills.subtitle')}</S.SkillsSubtitle>
         </S.SkillsHeader>
         <S.Grid role="list">
           {skillCards.map((card, i) => (

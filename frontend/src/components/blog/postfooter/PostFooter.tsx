@@ -1,17 +1,17 @@
 'use client';
 
 import * as S from './styles';
-import { useLang } from '@/context/LangContext';
+import { useTranslation } from 'react-i18next';
 
 export default function PostFooter() {
-  const { dict } = useLang();
+  const { t } = useTranslation();
   const copyLink = () => {
     navigator.clipboard.writeText(window.location.href).catch(() => {});
   };
 
   return (
     <S.Wrap>
-      <S.FooterTitle>{dict.post.share}</S.FooterTitle>
+      <S.FooterTitle>{t('post.share')}</S.FooterTitle>
       <S.ShareLinks role="list">
         <S.ShareBtn href="#" role="listitem" aria-label="Share on LinkedIn">
           <span aria-hidden="true">in</span> LinkedIn
@@ -21,7 +21,7 @@ export default function PostFooter() {
         </S.ShareBtn>
         <S.CopyBtn onClick={copyLink} aria-label="Copy link to clipboard">
           <span aria-hidden="true">⊕</span>
-          {dict.post.copyLink}
+          {t('post.copyLink')}
         </S.CopyBtn>
       </S.ShareLinks>
     </S.Wrap>

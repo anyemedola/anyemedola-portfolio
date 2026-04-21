@@ -1,6 +1,6 @@
 'use client';
 
-import { useLang } from '@/context/LangContext';
+import { useTranslation } from 'react-i18next';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
 import * as S from './styles';
 
@@ -12,14 +12,14 @@ const languages = [
 
 export default function LanguagesSection() {
   const ref = useScrollReveal();
-  const { dict } = useLang();
+  const { t } = useTranslation();
 
   return (
     <S.LangRoot id="languages" aria-labelledby="lang-heading" ref={ref}>
       <div className="reveal">
         <S.LangTitle id="lang-heading">
-          <span style={{ display: 'block' }}>{dict.languages.titleLine1}</span>
-          <span style={{ display: 'block' }}>{dict.languages.titleLine2}</span>
+          <span style={{ display: 'block' }}>{t('languages.titleLine1')}</span>
+          <span style={{ display: 'block' }}>{t('languages.titleLine2')}</span>
         </S.LangTitle>
       </div>
       <S.LangList role="list">

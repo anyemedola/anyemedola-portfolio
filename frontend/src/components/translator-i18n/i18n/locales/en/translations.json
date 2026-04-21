@@ -1,0 +1,73 @@
+{
+  "nav": {
+    "about": "About",
+    "skills": "Skills",
+    "experience": "Experience",
+    "projects": "Projects",
+    "blog": "Blog",
+    "contact": "Contact"
+  },
+  "hero": {
+    "eyebrow": "Senior Front-End Developer · Milan, Italy",
+    "desc": "<em>Crafting interfaces </em> that don't just work — they feel right. React, Next.js & TypeScript with a designer's eye.",
+    "myWork": "My Work",
+    "letsTalk": "Let's build",
+    "downloadCV": "Download CV",
+    "badge": "Years in Front-End"
+  },
+  "about": {
+    "label": "My Story",
+    "titleLine": "Code meets",
+    "titleEm": "design.",
+    "text1": "I started in tech over <strong>9 years ago</strong>, and for the last 5 I've focused entirely on front-end — the layer where logic becomes experience. Born in Brazil, currently living in <strong>Milan, Italy</strong>, working with teams across Europe and LATAM.",
+    "text2": "Today I lead front-end at <strong>Capgemini</strong>, building a streaming platform for the Portuguese Ministry of Health. I also act as UI/UX designer, creating Figma prototypes and turning them into pixel-perfect interfaces.",
+    "stat1": "Years in Tech",
+    "stat2": "Years Front-End",
+    "stat3": "Countries Worked"
+  },
+  "skills": {
+    "title": "What I<br><em>build with</em>",
+    "subtitle": "A toolkit forged through real projects, real teams, and real deadlines."
+  },
+  "experience": {
+    "label": "Career",
+    "headingLine1": "Experience",
+    "headingEm": "timeline",
+    "intro": "From early projects to enterprise-scale platforms — each role sharpened my skills and expanded my perspective."
+  },
+  "projects": {
+    "label": "Selected Work",
+    "headingLine1": "Projects",
+    "liveProject": "Live Project"
+  },
+  "blog": {
+    "headingLine1": "Thoughts",
+    "headingEm": "writings",
+    "subtitle": "On tech, design, career and life as a dev in Europe.",
+    "allPosts": "All posts",
+    "comingSoon": "Coming soon",
+    "minRead": "min read"
+  },
+  "languages": {
+    "titleLine1": "SPOKEN",
+    "titleLine2": "WORDS"
+  },
+  "contact": {
+    "heading": "Let's<br>build<br><em>together</em>",
+    "text": "Open to full remote roles across Europe and LATAM. Got a project that needs a developer with a designer's eye? Let's talk."
+  },
+  "post": {
+    "back": "Back to portfolio",
+    "caption": "Optional image caption or credit",
+    "share": "Share this article",
+    "copyLink": "Copy link",
+    "morePosts": "More",
+    "writings": "writings"
+  },
+  "footer": {
+    "location": "Milan, Italy 🇮🇹"
+  },
+  "skipLink": {
+    "label": "Skip to main content"
+  }
+}

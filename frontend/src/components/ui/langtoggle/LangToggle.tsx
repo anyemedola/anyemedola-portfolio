@@ -1,16 +1,17 @@
 'use client';
 
-import { useLang } from '@/context/LangContext';
+import { useTranslation } from 'react-i18next';
 import * as S from './styles';
 
 export default function LangToggle() {
-  const { locale, setLocale } = useLang();
+  const { i18n } = useTranslation();
+  const locale = i18n.language;
 
   return (
     <S.Wrapper role="group" aria-label="Language selector">
       <S.LangBtn
         active={locale === 'en'}
-        onClick={() => setLocale('en')}
+        onClick={() => i18n.changeLanguage('en')}
         aria-pressed={locale === 'en'}
         aria-label="Switch to English"
       >
@@ -18,7 +19,7 @@ export default function LangToggle() {
       </S.LangBtn>
       <S.LangBtn
         active={locale === 'pt'}
-        onClick={() => setLocale('pt')}
+        onClick={() => i18n.changeLanguage('pt')}
         aria-pressed={locale === 'pt'}
         aria-label="Mudar para Português"
       >

@@ -2,7 +2,7 @@
 
 import * as S from './styles';
 import { useState, useEffect } from 'react';
-import { useLang } from '@/context/LangContext';
+import { useTranslation } from 'react-i18next';
 
 const navKeys = ['about', 'skills', 'experience', 'projects', 'blog', 'contact'] as const;
 const navHrefs: Record<string, string> = {
@@ -11,7 +11,7 @@ const navHrefs: Record<string, string> = {
 };
 
 export default function Header() {
-  const { dict } = useLang();
+  const { t } = useTranslation();
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -28,7 +28,7 @@ export default function Header() {
         <ul role="list">
           {navKeys.map((key) => (
             <li key={key}>
-              <a href={navHrefs[key]}>{dict.nav[key]}</a>
+              <a href={navHrefs[key]}>{t(`nav.${key}`)}</a>
             </li>
           ))}
         </ul>

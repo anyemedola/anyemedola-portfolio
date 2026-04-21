@@ -3,11 +3,11 @@
 import * as S from './styles';
 import Image from 'next/image';
 import T from '@/components/ui/t/T';
-import { useLang } from '@/context/LangContext';
+import { useTranslation } from 'react-i18next';
 import type { BlogPost } from '@/data/posts';
 
 export default function PostHero({ post }: { post: BlogPost }) {
-  const { dict } = useLang();
+  const { t } = useTranslation();
   return (
     <S.Hero>
       <S.Tags role="list" aria-label="Post categories">
@@ -33,7 +33,7 @@ export default function PostHero({ post }: { post: BlogPost }) {
         <S.Divider aria-hidden="true" />
         <S.MetaItem><time dateTime={post.datetime}>{post.date}</time></S.MetaItem>
         <S.Divider aria-hidden="true" />
-        <S.MetaItem>{post.readTime} {dict.blog.minRead}</S.MetaItem>
+        <S.MetaItem>{post.readTime} {t('blog.minRead')}</S.MetaItem>
       </S.Meta>
     </S.Hero>
   );

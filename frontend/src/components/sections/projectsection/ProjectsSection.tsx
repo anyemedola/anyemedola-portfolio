@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import T from '@/components/ui/t/T';
-import { useLang } from '@/context/LangContext';
+import { useTranslation } from 'react-i18next';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
 import * as S from './styles';
 
@@ -23,23 +23,6 @@ type ProjectItem = {
   links: { label: string | { en: string; pt: string }; icon: string; href: string; disabled: boolean }[];
   flip: boolean;
 };
-
-function apiToProject(p: ApiProject, idx: number): ProjectItem {
-  return {
-    num: String(idx + 1).padStart(2, '0'),
-    accent: p.accentColor || '#4DB89E',
-    type: { en: p.type, pt: p.type },
-    name: p.title,
-    id: `proj-api-${p.id}`,
-    desc: { en: p.descEn, pt: p.descPt || p.descEn },
-    stack: p.stack || [],
-    links: [
-      { label: { en: tx.projects.liveProject.en, pt: tx.projects.liveProject.pt }, icon: '↗', href: p.url || '#', disabled: !p.url },
-      { label: 'GitHub', icon: '⌥', href: p.github || '#', disabled: !p.github },
-    ],
-    flip: idx % 2 === 1,
-  };
-}
 
 const staticProjects: ProjectItem[] = [
   {
@@ -71,19 +54,37 @@ const staticProjects: ProjectItem[] = [
   },
 ];
 
+function apiToProject(p: ApiProject, idx: number): ProjectItem {
+  return {
+    num: String(idx + 1).padStart(2, '0'),
+    accent: p.accentColor || '#4DB89E',
+    type: { en: p.type, pt: p.type },
+    name: p.title,
+    id: `proj-api-${p.id}`,
+    desc: { en: p.descEn, pt: p.descPt || p.descEn },
+    stack: p.stack || [],
+    links: [
+      { label: { en: 'Live Project', pt: 'Ver Projeto' }, icon: '↗', href: p.url || '#', disabled: !p.url },
+      { label: 'GitHub', icon: '⌥', href: p.github || '#', disabled: !p.github },
+    ],
+    flip: idx % 2 === 1,
+  };
+}
+
 export default function ProjectsSection() {
   const ref = useScrollReveal();
-  const { dict } = useLang();
-  const [apiProjects, setApiProjects] = useState<ProjectItem[] | null>(null);
+  const { t } = useTranslation();
+  const [projects, setProjects] = useState<ProjectItem[]>(staticProjects);
 
   useEffect(() => {
     fetch('/api/projects')
       .then(r => r.ok ? r.json() : [])
-      .then((data: ApiProject[]) => setApiProjects(data.length > 0 ? data.map(apiToProject) : []))
-      .catch(() => setApiProjects([]));
+      .then((data: ApiProject[]) => {
+        if (data.length > 0) setProjects(data.map(apiToProject));
+      })
+      .catch(() => {});
   }, []);
 
-  const projects = (apiProjects && apiProjects.length > 0) ? apiProjects : staticProjects;
   const count = String(projects.length).padStart(2, '0');
 
   return (
@@ -91,9 +92,9 @@ export default function ProjectsSection() {
       <S.Inner>
         <S.ProjectsHeader>
           <div>
-            <S.SectionLabel className="reveal" aria-hidden="true">{dict.projects.label}</S.SectionLabel>
+            <S.SectionLabel className="reveal" aria-hidden="true">{t('projects.label')}</S.SectionLabel>
             <S.SectionTitle className="reveal" id="projects-heading">
-              {dict.projects.headingLine1} &amp;<br /><em>freelance</em>
+              {t('projects.headingLine1')} &amp;<br /><em>freelance</em>
             </S.SectionTitle>
           </div>
           <S.Counter aria-hidden="true">{count}</S.Counter>
