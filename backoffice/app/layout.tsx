@@ -6,6 +6,7 @@ import Providers from './providers';
 const bebasNeue = Bebas_Neue({
   weight: '400',
   subsets: ['latin'],
+  variable: '--font-bebas',
   display: 'swap',
 });
 
@@ -13,12 +14,14 @@ const cormorant = Cormorant_Garamond({
   weight: ['300', '400', '600'],
   style: ['normal', 'italic'],
   subsets: ['latin'],
+  variable: '--font-cormorant',
   display: 'swap',
 });
 
 const dmSans = DM_Sans({
   weight: ['300', '400', '500'],
   subsets: ['latin'],
+  variable: '--font-dm-sans',
   display: 'swap',
 });
 
