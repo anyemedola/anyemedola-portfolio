@@ -26,6 +26,9 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
+  icons: {
+    icon: '/favicon.ico',
+  },
   title: 'Any Medola — Senior Front-End Developer',
   description:
     'Any Medola — Senior Front-End Developer based in Milan, Italy. 5+ years building scalable web apps with React, Next.js, and TypeScript.',
