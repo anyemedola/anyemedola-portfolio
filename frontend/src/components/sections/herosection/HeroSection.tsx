@@ -20,7 +20,13 @@ export default function HeroSection() {
         <S.HeroCta>
           <S.BtnFill href="#experience">{t('hero.myWork')}</S.BtnFill>
           <S.BtnOutline href="#contact">{t('hero.letsTalk')}</S.BtnOutline>
-          <S.BtnOutline href="/any_medola_cv.pdf" download>{t('hero.downloadCV')}</S.BtnOutline>
+          <S.BtnFill
+            href="/any_medola_cv.pdf"
+            download="Any_Medola_CV.pdf"
+            aria-label={`${t('hero.downloadCV')} (PDF)`}
+          >
+            {t('hero.downloadCV')}
+          </S.BtnFill>
         </S.HeroCta>
       </S.HeroLeft>
       <S.HeroRight aria-hidden="true">
