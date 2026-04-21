@@ -10,7 +10,7 @@ interface Props {
 export default function Badge({ variant, children }: Props) {
   return (
     <S.BadgeRoot variant={variant}>
-      <S.BadgeDot variant={variant} aria-hidden="true" />
+      <S.BadgeDot aria-hidden="true" />
       {children}
     </S.BadgeRoot>
   );
