@@ -29,11 +29,10 @@ export default function HeroSection() {
           </S.BtnFill>
         </S.HeroCta>
       </S.HeroLeft>
-      <S.HeroRight aria-hidden="true">
+      <S.HeroRight>
         <Image
           src="/any_blue_focus.JPG"
-          alt=""
-          role="presentation"
+          alt="Any Medola smiling, wearing a teal blouse with her hand resting on her chin"
           fill
           style={{ objectFit: 'cover', objectPosition: 'center top' }}
           priority
