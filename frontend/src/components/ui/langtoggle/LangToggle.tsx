@@ -25,6 +25,14 @@ export default function LangToggle() {
       >
         PT
       </S.LangBtn>
+      <S.LangBtn
+        active={locale === 'it'}
+        onClick={() => i18n.changeLanguage('it')}
+        aria-pressed={locale === 'it'}
+        aria-label="Passa all'italiano"
+      >
+        IT
+      </S.LangBtn>
     </S.Wrapper>
   );
 }

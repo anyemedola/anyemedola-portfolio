@@ -163,4 +163,8 @@ export const HeroBadge = styled('div')({
     textTransform: 'uppercase',
     color: tokens.mintOnDark,
   },
+  '@media (max-width: 768px)': {
+    maxWidth: 160,
+    left: 0,
+  },
 });

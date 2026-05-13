@@ -1,0 +1,73 @@
+{
+  "nav": {
+    "about": "Chi sono",
+    "skills": "Skills",
+    "experience": "Esperienza",
+    "projects": "Progetti",
+    "blog": "Blog",
+    "contact": "Contatti"
+  },
+  "hero": {
+    "eyebrow": "Senior Front-End Developer · Milano, Italia",
+    "desc": "<em>Creo interfacce </em> che non si limitano a funzionare — si sentono giuste. React, Next.js & TypeScript con occhio da designer.",
+    "myWork": "Il mio lavoro",
+    "letsTalk": "Costruiamo",
+    "downloadCV": "Scarica CV",
+    "badge": "Anni nel Front-End"
+  },
+  "about": {
+    "label": "La mia storia",
+    "titleLine": "Codice incontra",
+    "titleEm": "design.",
+    "text1": "Ho iniziato nel mondo tech oltre <strong>9 anni fa</strong>, e negli ultimi 5 mi sono concentrata interamente sul front-end — lo strato in cui la logica diventa esperienza. Nata in Brasile, attualmente vivo a <strong>Milano, Italia</strong>.",
+    "text2": "Oggi guido il front-end in <strong>Capgemini</strong>, sviluppando una piattaforma di streaming per il Ministero della Salute portoghese. Lavoro anche come designer UI/UX, creando prototipi in Figma e trasformandoli in interfacce pixel-perfect.",
+    "stat1": "Anni in Tech",
+    "stat2": "Anni nel Front-End",
+    "stat3": "Paesi di lavoro"
+  },
+  "skills": {
+    "title": "Con cosa<br><em>costruisco</em>",
+    "subtitle": "Un toolkit forgiato su progetti reali, team reali e scadenze reali."
+  },
+  "experience": {
+    "label": "Carriera",
+    "headingLine1": "Esperienza",
+    "headingEm": "timeline",
+    "intro": "Dai primi progetti alle piattaforme enterprise — ogni ruolo ha affinato le mie competenze e ampliato la mia prospettiva."
+  },
+  "projects": {
+    "label": "Lavori selezionati",
+    "headingLine1": "Progetti",
+    "liveProject": "Vedi progetto"
+  },
+  "blog": {
+    "headingLine1": "Pensieri",
+    "headingEm": "scritti",
+    "subtitle": "Su tech, design, carriera e vita da dev in Europa.",
+    "allPosts": "Tutti i post",
+    "comingSoon": "Prossimamente",
+    "minRead": "min di lettura"
+  },
+  "languages": {
+    "titleLine1": "PAROLE",
+    "titleLine2": "PARLATE"
+  },
+  "contact": {
+    "heading": "Costruiamo<br>insieme",
+    "text": "Aperta a posizioni completamente remote in Europa e LATAM. Hai un progetto che ha bisogno di una developer con occhio da designer? Parliamoci."
+  },
+  "post": {
+    "back": "Torna al portfolio",
+    "caption": "Didascalia o credito immagine opzionale",
+    "share": "Condividi questo articolo",
+    "copyLink": "Copia link",
+    "morePosts": "Altri",
+    "writings": "scritti"
+  },
+  "footer": {
+    "location": "Milano, Italia 🇮🇹"
+  },
+  "skipLink": {
+    "label": "Vai al contenuto principale"
+  }
+}
