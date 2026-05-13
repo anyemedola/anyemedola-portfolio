@@ -14,7 +14,7 @@ export default function AboutSection() {
     <S.AboutRoot id="about" aria-labelledby="about-heading" ref={ref}>
       <S.ImageCol>
         <Image
-          src="/any_pink_smile.jpg"
+          src="/any_pink_smile.JPG"
           alt="Any Medola, smiling with a teal top, arms crossed"
           fill
           style={{ objectFit: 'cover', objectPosition: 'center top' }}
