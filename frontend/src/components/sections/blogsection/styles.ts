@@ -234,6 +234,7 @@ export const CardLink = styled(Link)({
   flexDirection: 'column',
   flex: 1,
   color: 'inherit',
+  cursor: 'none',
   '&:focus-visible': {
     outline: `3px solid ${tokens.mintOnDark}`,
     outlineOffset: 2,

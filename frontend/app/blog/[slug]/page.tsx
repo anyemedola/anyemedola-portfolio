@@ -7,6 +7,7 @@ import PostHero from '@/components/blog/posthero/PostHero';
 import PostBody from '@/components/blog/postbody/PostBody';
 import PostFooter from '@/components/blog/postfooter/PostFooter';
 import PostMore from '@/components/blog/postmore/PostMore';
+import CustomCursor from '@/components/ui/customcursor/CustomCursor';
 
 export const dynamic = 'force-dynamic';
 
@@ -81,6 +82,7 @@ export default async function BlogPostPage({ params }: Props) {
 
   return (
     <div style={{ background: 'var(--cream, #F9F5EE)', minHeight: '100vh' }}>
+      <CustomCursor />
       <ReadingProgress />
       <PostNav />
       <article aria-labelledby="post-main-title">

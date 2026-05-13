@@ -11,7 +11,7 @@ export const CursorDot = styled('div')({
   zIndex: 9999,
   transform: 'translate(-50%, -50%)',
   transition: 'width 0.2s ease, height 0.2s ease, background 0.2s ease',
-  mixBlendMode: 'multiply',
+  mixBlendMode: 'difference',
   '&.big': {
     width: 48,
     height: 48,
