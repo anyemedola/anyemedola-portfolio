@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from 'react';
 
-export function useScrollReveal() {
+export function useScrollReveal(deps: unknown[] = []) {
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -21,11 +21,11 @@ export function useScrollReveal() {
       { threshold: 0.12 }
     );
 
-    const targets = el.querySelectorAll('.reveal');
-    targets.forEach((t) => observer.observe(t));
+    el.querySelectorAll('.reveal:not(.visible)').forEach((t) => observer.observe(t));
 
     return () => observer.disconnect();
-  }, []);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, deps);
 
   return ref;
 }

@@ -1,8 +1,8 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
+import { useTranslation } from 'react-i18next';
 import { useAdmin, View } from '@/context/AdminContext';
-import { useLang } from '@/context/LangContext';
 import * as S from './styles';
 
 const navKeys: View[] = ['dashboard', 'projects', 'blog', 'settings'];
@@ -16,7 +16,7 @@ const groupKey: Record<View, 'overview' | 'content' | 'settings'> = {
 
 export default function Sidebar() {
   const { activeView, setActiveView, projects, blogPosts, sidebarOpen, setSidebarOpen } = useAdmin();
-  const { dict, locale, setLocale } = useLang();
+  const { t, i18n } = useTranslation();
   const router = useRouter();
 
   const handleLogout = async () => {
@@ -31,15 +31,15 @@ export default function Sidebar() {
   };
 
   const navLabels: Record<View, string> = {
-    dashboard: dict.sidebar.dashboard,
-    projects:  dict.sidebar.projects,
-    blog:      dict.sidebar.blog,
-    settings:  dict.sidebar.siteInfo,
+    dashboard: t('sidebar.dashboard'),
+    projects:  t('sidebar.projects'),
+    blog:      t('sidebar.blog'),
+    settings:  t('sidebar.siteInfo'),
   };
   const groupLabels = {
-    overview: dict.sidebar.overview,
-    content:  dict.sidebar.content,
-    settings: dict.sidebar.settings,
+    overview: t('sidebar.overview'),
+    content:  t('sidebar.content'),
+    settings: t('sidebar.settings'),
   };
 
   let lastGroup = '';
@@ -55,7 +55,7 @@ export default function Sidebar() {
         <S.LogoArea>
           <div>
             <S.LogoMark>AM<span>·</span></S.LogoMark>
-            <S.LogoSub>{dict.sidebar.brand}</S.LogoSub>
+            <S.LogoSub>{t('sidebar.brand')}</S.LogoSub>
           </div>
         </S.LogoArea>
 
@@ -97,14 +97,15 @@ export default function Sidebar() {
             </div>
           </S.UserRow>
           <S.LangRow>
-            <S.LangToggle active={locale === 'en'} onClick={() => setLocale('en')} aria-pressed={locale === 'en'}>EN</S.LangToggle>
-            <S.LangToggle active={locale === 'pt'} onClick={() => setLocale('pt')} aria-pressed={locale === 'pt'}>PT</S.LangToggle>
+            <S.LangToggle active={i18n.language === 'en'} onClick={() => i18n.changeLanguage('en')} aria-pressed={i18n.language === 'en'}>EN</S.LangToggle>
+            <S.LangToggle active={i18n.language === 'pt'} onClick={() => i18n.changeLanguage('pt')} aria-pressed={i18n.language === 'pt'}>PT</S.LangToggle>
+            <S.LangToggle active={i18n.language === 'it'} onClick={() => i18n.changeLanguage('it')} aria-pressed={i18n.language === 'it'}>IT</S.LangToggle>
           </S.LangRow>
           <S.PreviewLink href="http://localhost:3000" target="_blank" rel="noopener noreferrer">
-            <span aria-hidden="true">↗</span> {dict.sidebar.viewPortfolio}
+            <span aria-hidden="true">↗</span> {t('sidebar.viewPortfolio')}
           </S.PreviewLink>
           <S.LogoutBtn onClick={handleLogout}>
-            <span aria-hidden="true">→</span> {dict.sidebar.signOut}
+            <span aria-hidden="true">→</span> {t('sidebar.signOut')}
           </S.LogoutBtn>
         </S.SidebarFooter>
       </S.Root>

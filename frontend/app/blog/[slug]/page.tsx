@@ -15,10 +15,10 @@ const BACKEND = process.env.BACKEND_URL ?? 'http://localhost:4000';
 
 interface ApiPost {
   id: number; slug: string;
-  title: string; titlePt: string;
-  subtitle: string; subtitlePt: string;
-  excerptEn: string; excerptPt: string;
-  bodyEn: string; bodyPt: string;
+  title: string; titlePt: string; titleIt: string;
+  subtitle: string; subtitlePt: string; subtitleIt: string;
+  excerptEn: string; excerptPt: string; excerptIt: string;
+  bodyEn: string; bodyPt: string; bodyIt: string;
   date: string; readTime: number;
   primaryTag: string; tags: string[];
   accentColor: string; icon: string;
@@ -34,17 +34,18 @@ function apiToPost(p: ApiPost): BlogPost {
     slug: p.slug,
     primaryTag: p.primaryTag || p.tags?.[0] || '',
     tags: p.tags || [],
-    title: { en: p.title, pt: p.titlePt || p.title },
-    subtitle: { en: p.subtitle, pt: p.subtitlePt || p.subtitle },
+    title: { en: p.title, pt: p.titlePt || p.title, it: p.titleIt || p.title },
+    subtitle: { en: p.subtitle, pt: p.subtitlePt || p.subtitle, it: p.subtitleIt || p.subtitle },
     date: formatDate(p.date),
     datetime: p.date,
     readTime: p.readTime || 5,
     accentColor: p.accentColor || '#4DB89E',
     icon: p.icon || '✦',
-    excerpt: { en: p.excerptEn, pt: p.excerptPt || p.excerptEn },
+    excerpt: { en: p.excerptEn, pt: p.excerptPt || p.excerptEn, it: p.excerptIt || p.excerptEn },
     body: {
       en: { intro: '', sections: [], closing: '', html: p.bodyEn },
       pt: { intro: '', sections: [], closing: '', html: p.bodyPt || p.bodyEn },
+      it: { intro: '', sections: [], closing: '', html: p.bodyIt || p.bodyEn },
     },
   };
 }

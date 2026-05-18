@@ -1,17 +1,17 @@
 'use client';
 
+import { useTranslation } from 'react-i18next';
 import { useAdmin, View } from '@/context/AdminContext';
-import { useLang } from '@/context/LangContext';
 import * as S from './styles';
 
 export default function TopBar() {
   const { activeView, setSidebarOpen, sidebarOpen, openProjectPanel, openBlogPanel, addToast } = useAdmin();
-  const { dict } = useLang();
+  const { t } = useTranslation();
   const titles: Record<View, string> = {
-    dashboard: dict.topbar.dashboard,
-    projects:  dict.topbar.projects,
-    blog:      dict.topbar.blog,
-    settings:  dict.topbar.settings,
+    dashboard: t('topbar.dashboard'),
+    projects:  t('topbar.projects'),
+    blog:      t('topbar.blog'),
+    settings:  t('topbar.settings'),
   };
   const title = titles[activeView];
 
@@ -34,22 +34,22 @@ export default function TopBar() {
       <S.Actions>
         {activeView === 'projects' && (
           <S.Btn variant="primary" onClick={() => openProjectPanel()}>
-            <span aria-hidden="true">+</span> <span>{dict.topbar.newProject}</span>
+            <span aria-hidden="true">+</span> <span>{t('topbar.newProject')}</span>
           </S.Btn>
         )}
         {activeView === 'blog' && (
           <>
             <S.Btn variant="ghost" onClick={() => openBlogPanel()}>
-              <span>{dict.topbar.saveDraft}</span>
+              <span>{t('topbar.saveDraft')}</span>
             </S.Btn>
             <S.Btn variant="primary" onClick={() => openBlogPanel()}>
-              <span aria-hidden="true">+</span> <span>{dict.topbar.newPost}</span>
+              <span aria-hidden="true">+</span> <span>{t('topbar.newPost')}</span>
             </S.Btn>
           </>
         )}
         {activeView === 'settings' && (
-          <S.Btn variant="primary" onClick={() => addToast(dict.settings.saved, 'success')}>
-            <span>{dict.topbar.saveChanges}</span>
+          <S.Btn variant="primary" onClick={() => addToast(t('settings.saved'), 'success')}>
+            <span>{t('topbar.saveChanges')}</span>
           </S.Btn>
         )}
       </S.Actions>

@@ -1,9 +1,10 @@
 'use client';
 
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { tokens } from '@/theme/tokens';
 import { useAdmin } from '@/context/AdminContext';
-import { useLang } from '@/context/LangContext';
+import T from '@/components/ui/t/T';
 import Badge from '@/components/ui/badge/Badge';
 import EmptyState from '@/components/ui/emptystate/EmptyState';
 import { Btn } from '@/components/layout/topbar/styles';
@@ -13,8 +14,7 @@ type StatusFilter = 'all' | 'published' | 'draft';
 
 export default function ProjectsView() {
   const { projects, openProjectPanel } = useAdmin();
-  const { dict } = useLang();
-  const p = dict.projects;
+  const { t } = useTranslation();
   const [search, setSearch] = useState('');
   const [status, setStatus] = useState<StatusFilter>('all');
 
@@ -32,14 +32,14 @@ export default function ProjectsView() {
           <S.SearchInput
             value={search}
             onChange={e => setSearch(e.target.value)}
-            placeholder={p.searchPlaceholder}
-            aria-label={p.searchPlaceholder}
+            placeholder={t('projects.searchPlaceholder')}
+            aria-label={t('projects.searchPlaceholder')}
           />
         </S.SearchWrap>
         <S.Segment role="group" aria-label="Filter by status">
           {(['all', 'published', 'draft'] as StatusFilter[]).map(s => (
             <S.SegBtn key={s} active={status === s} onClick={() => setStatus(s)}>
-              {s === 'all' ? p.all : s === 'published' ? p.published : p.drafts}
+              {s === 'all' ? t('projects.all') : s === 'published' ? t('projects.published') : t('projects.drafts')}
             </S.SegBtn>
           ))}
         </S.Segment>
@@ -48,9 +48,9 @@ export default function ProjectsView() {
       {list.length === 0 ? (
         <EmptyState
           icon="◻"
-          title={p.emptyTitle}
-          sub={p.emptySub}
-          action={<Btn variant="primary" onClick={() => openProjectPanel()}>{p.newProject}</Btn>}
+          title={t('projects.emptyTitle')}
+          sub={t('projects.emptySub')}
+          action={<Btn variant="primary" onClick={() => openProjectPanel()}>{t('projects.newProject')}</Btn>}
         />
       ) : (
         <S.TableWrap>
@@ -58,12 +58,12 @@ export default function ProjectsView() {
             <thead>
               <tr>
                 <S.Th style={{ width: 52 }} />
-                <S.Th>{p.colProject}</S.Th>
-                <S.Th>{p.colType}</S.Th>
-                <S.Th>{p.colStack}</S.Th>
-                <S.Th>{p.colStatus}</S.Th>
-                <S.Th>{p.colFeatured}</S.Th>
-                <S.Th style={{ textAlign: 'right' }}>{p.colActions}</S.Th>
+                <S.Th>{t('projects.colProject')}</S.Th>
+                <S.Th>{t('projects.colType')}</S.Th>
+                <S.Th>{t('projects.colStack')}</S.Th>
+                <S.Th>{t('projects.colStatus')}</S.Th>
+                <S.Th>{t('projects.colFeatured')}</S.Th>
+                <S.Th style={{ textAlign: 'right' }}>{t('projects.colActions')}</S.Th>
               </tr>
             </thead>
             <tbody>
@@ -78,24 +78,24 @@ export default function ProjectsView() {
                   </S.Td>
                   <S.Td>
                     <S.TdTitle>{p.title}</S.TdTitle>
-                    <S.TdSub>{p.descEn || '—'}</S.TdSub>
+                    <S.TdSub><T en={p.descEn || '—'} pt={p.descPt} it={p.descIt} /></S.TdSub>
                   </S.Td>
                   <S.Td><span style={{ fontSize: 11, color: tokens.textMuted }}>{p.type || '—'}</span></S.Td>
                   <S.Td>
                     <S.TagsRow>
-                      {p.stack.slice(0, 3).map(t => <S.TagPill key={t}>{t}</S.TagPill>)}
+                      {p.stack.slice(0, 3).map(tag => <S.TagPill key={tag}>{tag}</S.TagPill>)}
                       {p.stack.length > 3 && <S.TagPill>+{p.stack.length - 3}</S.TagPill>}
                     </S.TagsRow>
                   </S.Td>
-                  <S.Td><Badge variant={p.published ? 'published' : 'draft'}>{p.published ? dict.projects.statusPublished : dict.projects.statusDraft}</Badge></S.Td>
+                  <S.Td><Badge variant={p.published ? 'published' : 'draft'}>{p.published ? t('projects.statusPublished') : t('projects.statusDraft')}</Badge></S.Td>
                   <S.Td>
                     {p.featured
-                      ? <Badge variant="featured">{dict.projects.featuredBadge}</Badge>
+                      ? <Badge variant="featured">{t('projects.featuredBadge')}</Badge>
                       : <span style={{ color: tokens.textMuted, fontSize: 11 }}>—</span>}
                   </S.Td>
                   <S.Td>
                     <S.TdActions>
-                      <S.BtnSm variant="ghost" onClick={() => openProjectPanel(p.id)}>{dict.projects.edit}</S.BtnSm>
+                      <S.BtnSm variant="ghost" onClick={() => openProjectPanel(p.id)}>{t('projects.edit')}</S.BtnSm>
                     </S.TdActions>
                   </S.Td>
                 </S.Tr>

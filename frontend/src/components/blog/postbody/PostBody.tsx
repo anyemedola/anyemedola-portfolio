@@ -4,12 +4,13 @@ import * as S from './styles';
 import { useTranslation } from 'react-i18next';
 import type { BlogPost } from '@/data/posts';
 
-type Locale = 'en' | 'pt';
+type Locale = 'en' | 'pt' | 'it';
 
 export default function PostBody({ post }: { post: BlogPost }) {
   const { t, i18n } = useTranslation();
-  const locale = (i18n.language === 'pt' ? 'pt' : 'en') as Locale;
-  const body = post.body[locale];
+  const lang = i18n.language;
+  const locale: Locale = lang === 'pt' ? 'pt' : lang === 'it' ? 'it' : 'en';
+  const body = post.body[locale] ?? post.body.en;
 
   const cover = (
     <S.Cover>

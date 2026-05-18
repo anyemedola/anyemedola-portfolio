@@ -10,6 +10,7 @@ export interface DbProject {
   order: number;
   descEn: string;
   descPt: string;
+  descIt: string;
   url: string;
   github: string;
   published: boolean;
@@ -25,12 +26,16 @@ export interface DbPost {
   slug: string;
   title: string;
   titlePt: string;
+  titleIt: string;
   subtitle: string;
   subtitlePt: string;
+  subtitleIt: string;
   excerptEn: string;
   excerptPt: string;
+  excerptIt: string;
   bodyEn: string;
   bodyPt: string;
+  bodyIt: string;
   date: string;
   readTime: number;
   primaryTag: string;

@@ -2,17 +2,18 @@ export interface BlogPost {
   slug: string;
   primaryTag: string;
   tags: string[];
-  title: { en: string; pt: string };
-  subtitle: { en: string; pt: string };
+  title: { en: string; pt: string; it?: string };
+  subtitle: { en: string; pt: string; it?: string };
   date: string;
   datetime: string;
   readTime: number;
   accentColor: string;
   icon: string;
-  excerpt: { en: string; pt: string };
+  excerpt: { en: string; pt: string; it?: string };
   body: {
     en: PostBody;
     pt: PostBody;
+    it?: PostBody;
   };
 }
 

@@ -2,16 +2,14 @@
 
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter';
 import { AdminProvider } from '@/context/AdminContext';
-import { LangProvider } from '@/context/LangContext';
+import '@/components/translator-i18n/i18n';
 
 export default function Providers({ children }: { children: React.ReactNode }) {
   return (
     <AppRouterCacheProvider>
-      <LangProvider>
-        <AdminProvider>
-          {children}
-        </AdminProvider>
-      </LangProvider>
+      <AdminProvider>
+        {children}
+      </AdminProvider>
     </AppRouterCacheProvider>
   );
 }

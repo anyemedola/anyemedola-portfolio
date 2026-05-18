@@ -9,10 +9,10 @@ import * as S from './styles';
 
 interface ApiPost {
   id: number; slug: string;
-  title: string; titlePt: string;
-  subtitle: string; subtitlePt: string;
-  excerptEn: string; excerptPt: string;
-  bodyEn: string; bodyPt: string;
+  title: string; titlePt: string; titleIt: string;
+  subtitle: string; subtitlePt: string; subtitleIt: string;
+  excerptEn: string; excerptPt: string; excerptIt: string;
+  bodyEn: string; bodyPt: string; bodyIt: string;
   date: string; readTime: number;
   primaryTag: string; tags: string[];
   accentColor: string; icon: string;
@@ -29,17 +29,18 @@ function apiToPost(p: ApiPost): BlogPost {
     slug: p.slug,
     primaryTag: p.primaryTag || p.tags?.[0] || '',
     tags: p.tags || [],
-    title: { en: p.title, pt: p.titlePt || p.title },
-    subtitle: { en: p.subtitle, pt: p.subtitlePt || p.subtitle },
+    title: { en: p.title, pt: p.titlePt || p.title, it: p.titleIt || p.title },
+    subtitle: { en: p.subtitle, pt: p.subtitlePt || p.subtitle, it: p.subtitleIt || p.subtitle },
     date: formatDate(p.date),
     datetime: p.date,
     readTime: p.readTime || 5,
     accentColor: p.accentColor || '#4DB89E',
     icon: p.icon || '✦',
-    excerpt: { en: p.excerptEn, pt: p.excerptPt || p.excerptEn },
+    excerpt: { en: p.excerptEn, pt: p.excerptPt || p.excerptEn, it: p.excerptIt || p.excerptEn },
     body: {
       en: { intro: '', sections: [], closing: '', html: p.bodyEn },
       pt: { intro: '', sections: [], closing: '', html: p.bodyPt || p.bodyEn },
+      it: { intro: '', sections: [], closing: '', html: p.bodyIt || p.bodyEn },
     },
   };
 }
@@ -47,9 +48,9 @@ function apiToPost(p: ApiPost): BlogPost {
 const delays = ['', ' reveal-delay-1', ' reveal-delay-2'];
 
 export default function BlogSection() {
-  const ref = useScrollReveal();
-  const { t } = useTranslation();
   const [apiPosts, setApiPosts] = useState<BlogPost[] | null>(null);
+  const ref = useScrollReveal([apiPosts]);
+  const { t } = useTranslation();
 
   useEffect(() => {
     fetch('/api/posts')
@@ -88,10 +89,10 @@ export default function BlogSection() {
                     <S.DateEl dateTime={post.datetime}>{post.date}</S.DateEl>
                   </S.Meta>
                   <S.CardTitle className="card-title">
-                    <T en={post.title.en} pt={post.title.pt} />
+                    <T en={post.title.en} pt={post.title.pt} it={post.title.it} />
                   </S.CardTitle>
                   <S.Excerpt>
-                    <T en={post.excerpt.en} pt={post.excerpt.pt} />
+                    <T en={post.excerpt.en} pt={post.excerpt.pt} it={post.excerpt.it} />
                   </S.Excerpt>
                   <S.CardFooter>
                     <S.ReadTime>{post.readTime} {t('blog.minRead')}</S.ReadTime>

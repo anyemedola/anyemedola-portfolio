@@ -1,14 +1,13 @@
 'use client';
 
 import { useState, FormEvent } from 'react';
-import * as S from './styles';
+import { useTranslation } from 'react-i18next';
 import { useRouter } from 'next/navigation';
-import { useLang } from '@/context/LangContext';
+import * as S from './styles';
 
 export default function LoginPage() {
   const router = useRouter();
-  const { dict } = useLang();
-  const l = dict.login;
+  const { t } = useTranslation();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError]       = useState('');
@@ -46,8 +45,8 @@ export default function LoginPage() {
         <S.LogoMark>AM<span>·</span></S.LogoMark>
         <S.LogoSub>Portfolio Admin</S.LogoSub>
 
-        <S.Title>{l.title}</S.Title>
-        <S.Subtitle>{l.subtitle}</S.Subtitle>
+        <S.Title>{t('login.title')}</S.Title>
+        <S.Subtitle>{t('login.subtitle')}</S.Subtitle>
 
         {error && (
           <S.ErrorMsg>
@@ -58,7 +57,7 @@ export default function LoginPage() {
 
         <form onSubmit={handleSubmit} noValidate>
           <S.FormGroup>
-            <S.Label htmlFor="username">{l.labelUser}</S.Label>
+            <S.Label htmlFor="username">{t('login.labelUser')}</S.Label>
             <S.Input
               id="username"
               type="text"
@@ -71,7 +70,7 @@ export default function LoginPage() {
             />
           </S.FormGroup>
           <S.FormGroup>
-            <S.Label htmlFor="password">{l.labelPass}</S.Label>
+            <S.Label htmlFor="password">{t('login.labelPass')}</S.Label>
             <S.Input
               id="password"
               type="password"
@@ -83,7 +82,7 @@ export default function LoginPage() {
             />
           </S.FormGroup>
           <S.SubmitBtn type="submit" loading={loading} disabled={loading}>
-            {loading ? l.submitting : l.submit}
+            {loading ? t('login.submitting') : t('login.submit')}
           </S.SubmitBtn>
         </form>
 

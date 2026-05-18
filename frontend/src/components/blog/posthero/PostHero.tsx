@@ -17,9 +17,9 @@ export default function PostHero({ post }: { post: BlogPost }) {
         ))}
       </S.Tags>
       <S.Title id="post-main-title">
-        <T en={post.title.en} pt={post.title.pt} />
+        <T en={post.title.en} pt={post.title.pt} it={post.title.it} />
       </S.Title>
-      <S.Subtitle><T en={post.subtitle.en} pt={post.subtitle.pt} /></S.Subtitle>
+      <S.Subtitle><T en={post.subtitle.en} pt={post.subtitle.pt} it={post.subtitle.it} /></S.Subtitle>
       <S.Meta>
         <S.Author>
           <S.Avatar>

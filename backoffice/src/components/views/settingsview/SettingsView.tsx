@@ -1,15 +1,14 @@
 'use client';
 
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useAdmin } from '@/context/AdminContext';
-import { useLang } from '@/context/LangContext';
 import { Btn } from '@/components/layout/topbar/styles';
 import * as S from './styles';
 
 export default function SettingsView() {
   const { addToast } = useAdmin();
-  const { dict } = useLang();
-  const s = dict.settings;
+  const { t } = useTranslation();
   const [form, setForm] = useState({
     name: 'Any Elis Mendonça Medola',
     role: 'Senior Front-End Developer',
@@ -26,42 +25,42 @@ export default function SettingsView() {
 
   return (
     <S.Root>
-      <S.SectionTitle>{s.siteInfo}</S.SectionTitle>
+      <S.SectionTitle>{t('settings.siteInfo')}</S.SectionTitle>
       <S.FormGroup>
-        <S.Label htmlFor="s-name">{s.fullName} *</S.Label>
+        <S.Label htmlFor="s-name">{t('settings.fullName')} *</S.Label>
         <S.Input id="s-name" value={form.name} onChange={set('name')} />
       </S.FormGroup>
       <S.FormGroup>
-        <S.Label htmlFor="s-role">{s.roleTitle}</S.Label>
+        <S.Label htmlFor="s-role">{t('settings.roleTitle')}</S.Label>
         <S.Input id="s-role" value={form.role} onChange={set('role')} />
       </S.FormGroup>
       <S.FormGroup>
-        <S.Label htmlFor="s-location">{s.location}</S.Label>
+        <S.Label htmlFor="s-location">{t('settings.location')}</S.Label>
         <S.Input id="s-location" value={form.location} onChange={set('location')} />
       </S.FormGroup>
       <S.FormGroup>
-        <S.Label htmlFor="s-email">{s.email}</S.Label>
+        <S.Label htmlFor="s-email">{t('settings.email')}</S.Label>
         <S.Input id="s-email" value={form.email} onChange={set('email')} />
       </S.FormGroup>
       <S.FormGroup>
-        <S.Label htmlFor="s-linkedin">{s.linkedin}</S.Label>
+        <S.Label htmlFor="s-linkedin">{t('settings.linkedin')}</S.Label>
         <S.Input id="s-linkedin" type="url" value={form.linkedin} onChange={set('linkedin')} />
       </S.FormGroup>
       <S.FormGroup>
-        <S.Label htmlFor="s-github">{s.github}</S.Label>
+        <S.Label htmlFor="s-github">{t('settings.github')}</S.Label>
         <S.Input id="s-github" type="url" value={form.github} onChange={set('github')} />
       </S.FormGroup>
       <S.FormGroup>
-        <S.Label htmlFor="s-site">{s.website}</S.Label>
+        <S.Label htmlFor="s-site">{t('settings.website')}</S.Label>
         <S.Input id="s-site" type="url" value={form.site} onChange={set('site')} />
       </S.FormGroup>
       <S.FormGroup>
-        <S.Label htmlFor="s-bio">{s.bioEn}</S.Label>
+        <S.Label htmlFor="s-bio">{t('settings.bioEn')}</S.Label>
         <S.Textarea id="s-bio" rows={3} value={form.bio} onChange={set('bio')} />
       </S.FormGroup>
       <div style={{ marginTop: 8 }}>
-        <Btn variant="primary" onClick={() => addToast(s.saved, 'success')}>
-          {s.save}
+        <Btn variant="primary" onClick={() => addToast(t('settings.saved'), 'success')}>
+          {t('settings.save')}
         </Btn>
       </div>
     </S.Root>

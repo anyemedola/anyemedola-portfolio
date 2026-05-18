@@ -9,6 +9,7 @@ export interface Project {
   order: number;
   descEn: string;
   descPt: string;
+  descIt: string;
   url: string;
   github: string;
   published: boolean;
@@ -24,12 +25,16 @@ export interface BlogPost {
   slug?: string;
   title: string;
   titlePt: string;
+  titleIt: string;
   subtitle: string;
   subtitlePt: string;
+  subtitleIt: string;
   excerptEn: string;
   excerptPt: string;
+  excerptIt: string;
   bodyEn: string;
   bodyPt: string;
+  bodyIt: string;
   date: string;
   readTime: string;
   status: 'draft' | 'published';
