@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { useTranslation } from 'react-i18next';
 import { Translator } from '@/components/translator-i18n';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
+import BtnFill from '@/components/ui/btnFill/BtnFill';
 import * as S from './styles';
 
 export default function AboutSection() {
@@ -45,6 +46,15 @@ export default function AboutSection() {
             <S.StatLabel>{t('about.stat3')}</S.StatLabel>
           </div>
         </S.Stats>
+        <BtnFill
+          href="/any_medola_cv.pdf"
+          download="Any_Medola_CV.pdf"
+          aria-label={`${t('hero.downloadCV')} (PDF)`}
+          className="reveal reveal-delay-3"
+          style={{ marginTop: 32 }}
+        >
+          {t('hero.downloadCV')}
+        </BtnFill>
       </S.Content>
     </S.AboutRoot>
   );

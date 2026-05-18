@@ -87,40 +87,6 @@ export const HeroCta = styled('div')({
   animation: `${fadeUp} 0.9s 0.65s forwards`,
 });
 
-const Btn = styled('a')({
-  fontFamily: "'DM Sans', sans-serif",
-  fontSize: 12,
-  fontWeight: 500,
-  letterSpacing: '0.12em',
-  textTransform: 'uppercase',
-  textDecoration: 'none',
-  padding: '14px 32px',
-  border: `2px solid ${tokens.ink}`,
-  cursor: 'none',
-  transition: 'all 0.25s ease',
-  display: 'inline-block',
-  minHeight: 44,
-});
-
-export const BtnFill = styled(Btn)({
-  background: tokens.ink,
-  color: tokens.cream,
-  '&:hover': {
-    background: tokens.pink,
-    borderColor: tokens.pink,
-    transform: 'translateY(-2px)',
-  },
-});
-
-export const BtnOutline = styled(Btn)({
-  color: tokens.ink,
-  background: 'transparent',
-  '&:hover': {
-    background: tokens.mintLight,
-    transform: 'translateY(-2px)',
-  },
-});
-
 export const HeroRight = styled('div')({
   position: 'relative',
   overflow: 'hidden',

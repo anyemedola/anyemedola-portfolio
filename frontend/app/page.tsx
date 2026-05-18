@@ -1,6 +1,5 @@
 import SkipLink from '@/components/ui/skiplink/SkipLink';
 import CustomCursor from '@/components/ui/customcursor/CustomCursor';
-import LangToggle from '@/components/ui/langtoggle/LangToggle';
 import Header from '@/components/layout/Header/Header';
 import Footer from '@/components/layout/Footer/Footer';
 import HeroSection from '@/components/sections/herosection/HeroSection';
@@ -18,7 +17,6 @@ export default function HomePage() {
     <>
       <SkipLink />
       <CustomCursor />
-      <LangToggle />
       <Header />
       <main id="main-content">
         <HeroSection />

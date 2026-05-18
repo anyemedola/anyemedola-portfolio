@@ -23,7 +23,7 @@ export default function PostHero({ post }: { post: BlogPost }) {
       <S.Meta>
         <S.Author>
           <S.Avatar>
-            <Image src="/IMG_2338.jpg" alt="Any Medola" fill style={{ objectFit: 'cover', objectPosition: 'center top' }} />
+            <Image src="/any_pink_focus.JPG" alt="Any Medola" fill style={{ objectFit: 'cover', objectPosition: 'center top' }} />
           </S.Avatar>
           <div>
             <S.AuthorName>Any Medola</S.AuthorName>

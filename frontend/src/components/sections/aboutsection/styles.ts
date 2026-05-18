@@ -38,7 +38,7 @@ export const ImageCol = styled('div')({
 });
 
 export const Content = styled('div')({
-  padding: '80px 72px 80px 64px',
+  padding: '70px 72px 70px 64px',
   '@media (max-width: 900px)': {
     padding: '48px 24px',
   },

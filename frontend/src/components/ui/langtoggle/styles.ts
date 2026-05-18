@@ -2,7 +2,6 @@ import { styled } from '@mui/material/styles';
 import { tokens } from '@/theme/theme';
 
 export const Wrapper = styled('div')({
-  position: 'fixed',
   top: 28,
   right: 32,
   zIndex: 1000,
@@ -37,6 +36,10 @@ export const LangBtn = styled('button')<{ active?: boolean }>(({ active }) => ({
   textTransform: 'inherit',
   '&:hover:not([data-active])': {
     background: tokens.mintLight,
+  },
+  '&:nth-of-type(2)': {
+    borderLeft: `1.5px solid ${tokens.ink}`,
+    borderRight: `1.5px solid ${tokens.ink}`,
   },
   '&:focus-visible': { outlineOffset: -3 },
 }));

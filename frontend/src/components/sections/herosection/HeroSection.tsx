@@ -3,6 +3,8 @@
 import Image from 'next/image';
 import { useTranslation } from 'react-i18next';
 import { Translator } from '@/components/translator-i18n';
+import BtnFill from '@/components/ui/btnFill/BtnFill';
+import BtnOutline from '@/components/ui/btnOutline/BtnOutline';
 import * as S from './styles';
 
 export default function HeroSection() {
@@ -18,15 +20,8 @@ export default function HeroSection() {
           <Translator path="hero.desc" html />
         </S.HeroDesc>
         <S.HeroCta>
-          <S.BtnFill href="#experience">{t('hero.myWork')}</S.BtnFill>
-          <S.BtnOutline href="#contact">{t('hero.letsTalk')}</S.BtnOutline>
-          <S.BtnFill
-            href="/any_medola_cv.pdf"
-            download="Any_Medola_CV.pdf"
-            aria-label={`${t('hero.downloadCV')} (PDF)`}
-          >
-            {t('hero.downloadCV')}
-          </S.BtnFill>
+          <BtnFill href="#experience">{t('hero.myWork')}</BtnFill>
+          <BtnOutline href="#contact">{t('hero.letsTalk')}</BtnOutline>
         </S.HeroCta>
       </S.HeroLeft>
       <S.HeroRight>

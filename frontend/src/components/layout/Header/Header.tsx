@@ -1,5 +1,6 @@
 'use client';
 
+import LangToggle from '@/components/ui/langtoggle/LangToggle';
 import * as S from './styles';
 import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -33,6 +34,8 @@ export default function Header() {
           ))}
         </ul>
       </S.DesktopNav>
+
+      <LangToggle />
     </S.HeaderRoot>
   );
 }

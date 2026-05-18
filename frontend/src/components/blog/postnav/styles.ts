@@ -17,7 +17,7 @@ export const Nav = styled('nav')({
     },
 });
 
-export const BackBtn = styled('button')({
+export const BackBtn = styled(Link)({
     display: 'inline-flex',
     alignItems: 'center',
     gap: 10,
@@ -56,29 +56,3 @@ export const NavLogo = styled(Link)({
     color: tokens.ink,
     textDecoration: 'none',
 });
-
-export const InlineLangToggle = styled('div')({
-    display: 'flex',
-    border: `1.5px solid ${tokens.ink}`,
-    borderRadius: 2,
-    overflow: 'hidden',
-    fontFamily: "'DM Sans', sans-serif",
-    fontSize: 11,
-    fontWeight: 500,
-    letterSpacing: '0.08em',
-    textTransform: 'uppercase',
-});
-
-export const LangBtn = styled('button')<{ active?: boolean }>(({ active }) => ({
-    background: active ? tokens.ink : 'transparent',
-    border: 'none',
-    padding: '6px 14px',
-    cursor: 'pointer',
-    color: active ? tokens.cream : tokens.ink,
-    minHeight: 36,
-    fontFamily: 'inherit',
-    fontSize: 'inherit',
-    fontWeight: 'inherit',
-    letterSpacing: 'inherit',
-    textTransform: 'inherit',
-}));

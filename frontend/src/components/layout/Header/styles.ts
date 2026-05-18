@@ -28,7 +28,7 @@ export const Logo = styled('a')({
 });
 
 export const DesktopNav = styled('nav')({
-    '& ul': { display: 'flex', gap: 36, listStyle: 'none', marginRight: 110 },
+    '& ul': { display: 'flex', gap: 36, listStyle: 'none' },
     '& a': {
         fontFamily: "'DM Sans', sans-serif",
         fontSize: 12,
