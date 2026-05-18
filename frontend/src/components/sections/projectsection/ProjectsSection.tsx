@@ -72,9 +72,9 @@ function apiToProject(p: ApiProject, idx: number): ProjectItem {
 }
 
 export default function ProjectsSection() {
-  const ref = useScrollReveal();
   const { t } = useTranslation();
   const [projects, setProjects] = useState<ProjectItem[]>(staticProjects);
+  const ref = useScrollReveal([projects]);
 
   useEffect(() => {
     fetch('/api/projects')
