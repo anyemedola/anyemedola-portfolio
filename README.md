@@ -1,62 +1,70 @@
 # AM· Portfolio
 
-Full-stack personal portfolio with a headless backoffice — built to showcase projects and blog posts with full EN/PT bilingual support.
+Full-stack personal portfolio monorepo — public portfolio, private admin backoffice and REST API, with Firebase Authentication, Firestore and EN/PT/IT trilingual support.
 
-![Next.js](https://img.shields.io/badge/Next.js-black?logo=next.js) ![Node.js](https://img.shields.io/badge/Node.js-339933?logo=node.js&logoColor=white) ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white) ![MUI](https://img.shields.io/badge/MUI-007FFF?logo=mui&logoColor=white) ![License](https://img.shields.io/badge/license-MIT-blue)
+![Next.js](https://img.shields.io/badge/Next.js-black?logo=next.js) ![Node.js](https://img.shields.io/badge/Node.js-339933?logo=node.js&logoColor=white) ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white) ![Firebase](https://img.shields.io/badge/Firebase-FFCA28?logo=firebase&logoColor=black) ![MUI](https://img.shields.io/badge/MUI-007FFF?logo=mui&logoColor=white) ![License](https://img.shields.io/badge/license-MIT-blue)
 
 ---
 
-## ✨ About
+## About
 
-A production-ready personal portfolio monorepo with three apps working together: a public-facing Next.js portfolio, a private admin backoffice for managing content, and an Express backend that serves the data.
+A production-ready personal portfolio with three apps working together:
+
+| App | Description | Port |
+|---|---|---|
+| `frontend` | Public-facing Next.js portfolio | 3000 |
+| `backoffice` | Private CMS dashboard for managing content | 3001 |
+| `backend` | Express REST API + Firebase Admin SDK | 4000 |
 
 Built by [Any Elis Medola](https://anyemedola.com.br) — Senior Front-End Developer based in Milan, Italy.
 
 ---
 
-## 🚀 Features
+## Features
 
-- 🌍 **EN / PT i18n** — full bilingual support (English & Portuguese), toggled in the nav and persisted to localStorage
-- 🖼️ **Portfolio sections** — Hero, About, Skills, Experience, Projects, Blog, Languages, Contact
-- 📝 **Blog** — individual post pages with rich HTML body, read time, tags and bilingual content
-- 🔐 **Backoffice** — private CMS dashboard with JWT auth, project & blog post management, live/draft toggling
-- 🎨 **Design system** — dark theme with mint + pink accent palette, Bebas Neue + DM Sans + Cormorant Garamond
-- 📱 **Fully responsive** — optimized for mobile, tablet and desktop
-- ⚡ **Next.js proxy** — backoffice communicates with the backend through server-side API routes (no token exposure)
+- **EN / PT / IT i18n** — trilingual support (English, Portuguese, Italian) via react-i18next, persisted to localStorage and applied client-side after mount to avoid SSR hydration mismatches
+- **Portfolio sections** — Hero, About, Skills, Experience, Projects, Blog, Languages, Contact
+- **Blog** — individual post pages with rich HTML body, read time, tags and trilingual content
+- **Backoffice** — private CMS with Firebase Authentication, project & blog post management, live/draft toggling
+- **Firestore** — all projects and posts are stored in Firebase Firestore; no local database file
+- **Firebase Auth** — admin login uses Firebase email/password authentication; the backend verifies Firebase session cookies
+- **Next.js proxy** — backoffice communicates with the backend through server-side API routes (session cookie never exposed to client JavaScript)
+- **Design system** — dark theme with mint + pink accent palette, Bebas Neue + DM Sans + Cormorant Garamond
+- **Fully responsive** — optimized for mobile, tablet and desktop
+- **Test suite** — 62 Jest + React Testing Library tests covering components, hooks, sections and API fetch flows
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
-**Frontend** (`/frontend`) — public portfolio
-- Next.js 16 (App Router)
-- React 19
+**Frontend** (`/frontend`)
+- Next.js 16 (App Router), React 19
 - MUI v7 + Emotion (CSS-in-JS)
-- EN/PT i18n via React Context + localStorage
-- All styled components extracted to co-located `styles.ts` files, imported as `import * as S from './styles'`
+- react-i18next — EN / PT / IT, initialized server-safe with `'en'`, language detected from localStorage after mount
+- Jest + React Testing Library — unit and integration tests
 
-**Backoffice** (`/backoffice`) — admin dashboard
-- Next.js 16 (App Router)
-- React 19
+**Backoffice** (`/backoffice`)
+- Next.js 16 (App Router), React 19
 - MUI v7 + Emotion
-- JWT auth via httpOnly cookie
-- EN/PT i18n (separate `bo_locale` key)
-- All styled components extracted to co-located `styles.ts` files, imported as `import * as S from './styles'`
+- Firebase Client SDK — email/password sign-in
+- Session managed via httpOnly cookie (`am_token`) containing a Firebase session cookie
 
-**Backend** (`/backend`) — REST API
-- Node.js + Express 4
-- JSON file database (`db.json`)
-- JWT authentication (`jsonwebtoken`)
-- Organized into `routes/`, `middleware/`, `db.ts`, `server.ts`
+**Backend** (`/backend`)
+- Node.js + Express 4, TypeScript
+- Firebase Admin SDK — initializes from `FIREBASE_SERVICE_ACCOUNT` env var
+- Firestore — `projects` and `posts` collections
+- `POST /auth/session` — verifies Firebase ID token, creates a 8h session cookie
+- `requireAuth` middleware — verifies session cookies on every protected route
 
 ---
 
-## 📦 Getting Started
+## Getting Started
 
 ### Prerequisites
 
-- Node.js 18+
-- npm 9+
+- Node.js 20+
+- npm 10+
+- A Firebase project with **Authentication (Email/Password)** and **Firestore** enabled
 
 ### Installation
 
@@ -68,54 +76,63 @@ npm install
 
 ### Environment Variables
 
-In `backend/`, create a `.env` file:
+**`backend/.env`**
 
 ```env
-ADMIN_USER=anyemedola
-ADMIN_PASS=your_password_here
-JWT_SECRET=your_secret_here
+FIREBASE_SERVICE_ACCOUNT='{ ... }'   # Full service account JSON from Firebase Console
 BACKOFFICE_URL=http://localhost:3001
 FRONTEND_URL=http://localhost:3000
 PORT=4000
 ```
 
-In `backoffice/`, create a `.env.local` file:
+**`backoffice/.env.local`**
 
 ```env
+NEXT_PUBLIC_FIREBASE_API_KEY=AIza...
+NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=your-project.firebaseapp.com
+NEXT_PUBLIC_FIREBASE_PROJECT_ID=your-project-id
 BACKEND_URL=http://localhost:4000
 ```
 
+> The Firebase service account JSON is available in Firebase Console → Project Settings → Service accounts → Generate new private key.  
+> The web API key is in Project Settings → General → Your apps.
+
 ### Run locally
 
-Start all three apps together from the root:
-
 ```bash
+# All three apps together
 npm run dev:all
+
+# Individually
+npm run dev            # frontend  → http://localhost:3000
+npm run dev:backoffice # backoffice → http://localhost:3001
+npm run dev:backend    # backend   → http://localhost:4000
 ```
 
-Or run them individually:
+### Tests
 
 ```bash
-npm run dev              # frontend on http://localhost:3000
-npm run dev:backoffice   # backoffice on http://localhost:3001
-npm run dev:backend      # backend on http://localhost:4000
+cd frontend
+npm test              # run all 62 tests
+npm run test:coverage # with coverage report
 ```
 
 ---
 
-## 🔐 How Authentication Works
+## Authentication Flow
 
-1. User submits credentials on `/login`
-2. Backoffice calls `/api/login` (Next.js route handler)
-3. Route handler proxies to `POST /auth/login` on the backend
-4. Backend validates credentials, returns a signed JWT
-5. Next.js sets the token as an `httpOnly` cookie (`am_token`)
-6. All subsequent API calls read the cookie server-side and forward it as `Authorization: Bearer <token>`
-7. The JWT is never exposed to the browser
+1. Admin enters email + password on `/login`
+2. Firebase Client SDK authenticates and returns a short-lived **ID token**
+3. Backoffice POSTs the ID token to `/api/login` (Next.js route handler)
+4. Next.js calls `POST /auth/session` on the backend with the ID token
+5. Backend verifies the ID token via Firebase Admin SDK, creates an 8h **session cookie**
+6. Next.js stores the session cookie as an `httpOnly` cookie (`am_token`)
+7. All subsequent API calls read `am_token` server-side and forward it as `Authorization: Bearer`
+8. Backend `requireAuth` middleware verifies the session cookie on every protected route
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 anyemedola-portfolio/                ← monorepo root
@@ -126,62 +143,69 @@ anyemedola-portfolio/                ← monorepo root
 │   └── src/
 │       ├── components/
 │       │   ├── sections/            # Hero, About, Skills, Experience, Projects, Blog, Contact
-│       │   │   └── */styles.ts      # Styled components per section (import * as S)
 │       │   ├── blog/                # PostHero, PostBody, PostMore, PostFooter, PostNav
-│       │   │   └── */styles.ts      # Styled components per blog component
 │       │   ├── layout/              # Header (nav + lang toggle), Footer
-│       │   │   └── */styles.ts      # Styled components for layout
 │       │   └── ui/                  # LangToggle, SkipLink, CustomCursor, T
-│       │       └── */styles.ts      # Styled components per UI element
-│       ├── context/
-│       │   └── LangContext.tsx      # { locale, dict, setLocale } + localStorage
-│       └── i18n/
-│           ├── en.ts                # English dictionary + Dict type
-│           └── pt.ts                # Portuguese dictionary
+│       ├── hooks/
+│       │   ├── useScrollReveal.ts   # IntersectionObserver-based reveal animation
+│       │   └── useCustomCursor.ts   # Custom cursor tracking
+│       ├── translator-i18n/
+│       │   └── i18n/
+│       │       ├── index.tsx        # i18next init (lng: 'en', no LanguageDetector)
+│       │       └── locales/         # en / pt / it translations
+│       └── data/posts.ts            # Static blog post fallback data
 │
 ├── backoffice/                      ← admin dashboard (port 3001)
 │   ├── app/
-│   │   ├── page.tsx                 # Admin shell (auth-gated)
-│   │   ├── login/page.tsx           # Login page
+│   │   ├── page.tsx                 # Admin shell (auth-gated by middleware)
+│   │   ├── login/page.tsx           # Firebase email/password login
 │   │   └── api/
-│   │       ├── login/route.ts       # Auth proxy → /auth/login
+│   │       ├── login/route.ts       # Exchanges Firebase ID token → session cookie
 │   │       ├── logout/route.ts      # Clears am_token cookie
-│   │       └── data/[...path]/      # Generic proxy → /api/*
+│   │       └── data/[...path]/      # Generic proxy → backend /api/*
 │   └── src/
 │       ├── components/
-│       │   ├── AdminApp.tsx         # Main layout shell
-│       │   ├── adminpage/           # AdminApp folder (styles.ts)
-│       │   ├── loginpage/           # LoginPage + styles.ts
-│       │   ├── layout/              # Sidebar, TopBar (each with styles.ts)
-│       │   ├── panels/              # ProjectPanel, BlogPanel — slide-in drawers (each with styles.ts)
-│       │   ├── views/               # DashboardView, ProjectsView, BlogView, SettingsView (each with styles.ts)
-│       │   └── ui/                  # Badge, EmptyState, TagsInput, Toggle, UploadArea, RichEditor, Toast (each with styles.ts)
+│       │   ├── loginpage/           # LoginPage (Firebase sign-in)
+│       │   ├── layout/              # Sidebar, TopBar
+│       │   ├── panels/              # ProjectPanel, BlogPanel — slide-in drawers
+│       │   └── views/               # Dashboard, Projects, Blog, Settings views
 │       ├── context/
-│       │   ├── AdminContext.tsx     # Projects, posts, CRUD, toast, panel state
-│       │   └── LangContext.tsx      # { locale, dict, setLocale } + bo_locale in localStorage
-│       └── i18n/
-│           ├── en.ts                # English dictionary + Dict type
-│           └── pt.ts                # Portuguese dictionary
+│       │   └── AdminContext.tsx     # Projects, posts, CRUD, toast, panel state
+│       └── lib/
+│           └── firebase.ts          # Firebase Client SDK initialization
 │
 ├── backend/                         ← REST API (port 4000)
 │   └── src/
-│       ├── server.ts                # App setup, CORS, auth routes, router mounts
-│       ├── db.ts                    # readDb(), writeDb(), slugify(), interfaces
+│       ├── server.ts                # Express app, CORS, auth endpoints
+│       ├── firebase.ts              # Firebase Admin SDK init (auth + firestore)
+│       ├── db.ts                    # DbProject / DbPost interfaces, slugify()
 │       ├── middleware/
-│       │   └── auth.ts              # requireAuth() JWT middleware
+│       │   └── auth.ts              # requireAuth() — verifies Firebase session cookie
 │       └── routes/
-│           ├── projects.ts          # GET /api/projects, POST, PUT /:id, DELETE /:id
-│           └── posts.ts             # GET /api/posts, GET /api/posts/:slug, POST, PUT /:id, DELETE /:id
+│           ├── projects.ts          # CRUD for /api/projects (Firestore)
+│           └── posts.ts             # CRUD for /api/posts (Firestore)
 │
+├── ecosystem.config.js              ← PM2 config for production
 └── package.json                     ← monorepo scripts (concurrently)
 ```
 
 ---
 
-## 📄 License
+## Deployment
+
+The `ecosystem.config.js` at the root is configured for [PM2](https://pm2.keymetrics.io/) on a Linux server (e.g. Laravel Forge):
+
+```bash
+npm run build        # build all three apps
+pm2 start ecosystem.config.js
+```
+
+---
+
+## License
 
 MIT — feel free to fork and adapt.
 
 ---
 
-Made with ☕ from Milan
+Made with coffee from Milan

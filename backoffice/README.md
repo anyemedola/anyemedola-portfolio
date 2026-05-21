@@ -1,36 +1,70 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# AM· Portfolio — Backoffice
 
-## Getting Started
+Private CMS dashboard for managing portfolio projects and blog posts. Built with Next.js 16, React 19, MUI v7 and Firebase Authentication.
 
-First, run the development server:
+---
+
+## Features
+
+- **Firebase login** — email/password sign-in via Firebase Authentication
+- **Projects** — create, edit, delete, reorder, toggle publish/featured
+- **Blog posts** — create, edit, delete, draft/publish toggle, trilingual content (EN/PT/IT)
+- **Dashboard** — activity feed, quick stats
+- **Secure session** — Firebase session cookie stored as `httpOnly` (`am_token`), never exposed to client JavaScript
+- **Route protection** — Next.js middleware redirects unauthenticated requests to `/login`
+
+---
+
+## Scripts
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm run dev    # development server on http://localhost:3001
+npm run build  # production build
+npm run start  # start production build on port 3001
+npm run lint
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Environment Variables
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Create `backoffice/.env.local`:
 
-## Learn More
+```env
+NEXT_PUBLIC_FIREBASE_API_KEY=AIza...
+NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=your-project.firebaseapp.com
+NEXT_PUBLIC_FIREBASE_PROJECT_ID=your-project-id
 
-To learn more about Next.js, take a look at the following resources:
+BACKEND_URL=http://localhost:4000
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Authentication Flow
 
-## Deploy on Vercel
+1. User enters email + password on `/login`
+2. Firebase Client SDK (`src/lib/firebase.ts`) calls `signInWithEmailAndPassword`
+3. On success, gets a short-lived Firebase **ID token**
+4. POSTs the ID token to `/api/login` (Next.js route handler)
+5. Next.js calls `POST /auth/session` on the backend
+6. Backend verifies the ID token via Firebase Admin SDK and returns a **session cookie**
+7. Next.js stores the session cookie as `am_token` (httpOnly, 8h)
+8. All `/api/data/*` requests read `am_token` from the cookie and forward it as `Authorization: Bearer` to the backend
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## API Routes
+
+| Route | Description |
+|---|---|
+| `POST /api/login` | Exchanges Firebase ID token for a session cookie |
+| `POST /api/logout` | Clears the `am_token` cookie |
+| `GET/POST/PUT/DELETE /api/data/[...path]` | Proxy to backend `/api/*` with session cookie auth |
+
+---
+
+## Key Conventions
+
+- Styled components are co-located as `styles.ts` in each component folder, imported as `import * as S from './styles'`
+- All data state and CRUD operations live in `src/context/AdminContext.tsx`
+- The `middleware.ts` at the root checks for the `am_token` cookie on every non-API, non-login route

@@ -1,36 +1,80 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# AM· Portfolio — Frontend
 
-## Getting Started
+Public-facing portfolio built with Next.js 16, React 19, MUI v7 and react-i18next (EN / PT / IT).
 
-First, run the development server:
+---
+
+## Sections
+
+| Section | Description |
+|---|---|
+| Hero | Introduction, CTA buttons, years-of-experience badge |
+| About | Bio, stats, CV download |
+| Skills | Six skill cards (Frontend, Styling, State, UX, Testing, DevOps) |
+| Experience | Timeline of past roles |
+| Projects | Cards fetched from the backend API with static fallback |
+| Blog | Post cards fetched from the backend API with static fallback |
+| Languages | Language proficiency display |
+| Contact | Email, LinkedIn, GitHub, phone links |
+
+---
+
+## Scripts
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm run dev          # development server on http://localhost:3000
+npm run build        # production build
+npm run start        # start production build on port 3000
+npm run lint         # ESLint
+npm test             # Jest + React Testing Library (62 tests)
+npm run test:coverage
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## i18n
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Translations live in `src/components/translator-i18n/i18n/locales/{en,pt,it}/translations.json`.
 
-## Learn More
+i18next is initialized with `lng: 'en'` (no `LanguageDetector` at init time) to produce consistent server-rendered HTML. After mount, `app/providers.tsx` reads the saved language from `localStorage` and calls `i18n.changeLanguage()`. Changes made via the `LangToggle` in the header are automatically persisted back to localStorage via an `i18n.on('languageChanged')` listener.
 
-To learn more about Next.js, take a look at the following resources:
+**Usage patterns:**
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```tsx
+// Hook
+const { t } = useTranslation();
+<span>{t('nav.about')}</span>
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+// Inline multi-locale component
+<T en="Hello" pt="Olá" it="Ciao" />
 
-## Deploy on Vercel
+// Translated HTML
+<Translator path="hero.desc" html />
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Tests
+
+Jest + React Testing Library. Run with `npm test`.
+
+| Suite | Coverage |
+|---|---|
+| `T` | EN / PT / IT rendering, fallback |
+| `LangToggle` | Buttons, `aria-pressed`, `changeLanguage` calls |
+| `useScrollReveal` | Observer creation, threshold, `visible` class, cleanup |
+| `useCustomCursor` | Event listeners, cursor position, `big` class, cleanup |
+| `Header` | Banner, logo, nav links, scroll state |
+| `Footer` | Copyright, website link |
+| `SkillsSection` | All 6 cards, tags, ARIA labels |
+| `ContactSection` | All contact links and `href` values |
+| `BlogSection` | API data, empty fallback, static fallback, card links |
+| `ProjectsSection` | API data, fallback, stack tags, project type |
+
+---
+
+## Key Conventions
+
+- Styled components are co-located as `styles.ts` in each component folder and imported as `import * as S from './styles'`
+- All sections use `useScrollReveal()` for intersection-based reveal animations
+- Sections fetch from `/api/projects` and `/api/posts` (Next.js route handlers that proxy to the backend) with static data as fallback
