@@ -10,6 +10,7 @@ export default function Providers({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     const saved = localStorage.getItem('locale');
     if (saved && saved !== i18n.language) {
+      i18n.changeLanguage(saved);
     }
     const persist = (lang: string) => localStorage.setItem('locale', lang);
     i18n.on('languageChanged', persist);
