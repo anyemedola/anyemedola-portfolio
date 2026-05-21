@@ -1,17 +1,14 @@
+import "dotenv/config";
 import cors from "cors";
 import express from "express";
-import jwt from "jsonwebtoken";
 import projectsRouter from "./routes/projects";
 import postsRouter from "./routes/posts";
-import { readDb } from "./db";
+import { auth } from "./firebase";
 
 const app  = express();
 const PORT = process.env.PORT ?? 4000;
 
-const ADMIN_USER = process.env.ADMIN_USER ?? "anyemedola";
-const ADMIN_PASS = process.env.ADMIN_PASS ?? "ShawnMendes01";
-const JWT_SECRET = process.env.JWT_SECRET ?? "am-portfolio-secret-change-in-prod";
-const TOKEN_TTL  = "8h";
+const SESSION_DURATION_MS = 60 * 60 * 8 * 1000; // 8 h
 
 const allowedOrigins = [
   process.env.BACKOFFICE_URL ?? "http://localhost:3001",
@@ -35,31 +32,35 @@ app.get("/health", (_req, res) => {
 
 // ── Auth ──────────────────────────────────────────────────────────────────────
 
-app.post("/auth/login", (req, res) => {
-  const { username, password } = req.body ?? {};
-  if (typeof username !== "string" || typeof password !== "string") {
-    res.status(400).json({ error: "username and password are required" });
+// Exchange a Firebase ID token for a short-lived session cookie
+app.post("/auth/session", async (req, res) => {
+  const { idToken } = req.body ?? {};
+  if (typeof idToken !== "string") {
+    res.status(400).json({ error: "idToken is required" });
     return;
   }
-  if (username !== ADMIN_USER || password !== ADMIN_PASS) {
-    res.status(401).json({ error: "Invalid credentials" });
-    return;
+  try {
+    const sessionCookie = await auth.createSessionCookie(idToken, {
+      expiresIn: SESSION_DURATION_MS,
+    });
+    res.json({ sessionCookie });
+  } catch {
+    res.status(401).json({ error: "Invalid ID token" });
   }
-  const token = jwt.sign({ username }, JWT_SECRET, { expiresIn: TOKEN_TTL });
-  res.json({ token });
 });
 
-app.get("/auth/verify", (req, res) => {
-  const auth = req.headers.authorization;
-  if (!auth?.startsWith("Bearer ")) {
+// Verify a session cookie
+app.get("/auth/verify", async (req, res) => {
+  const authHeader = req.headers.authorization;
+  if (!authHeader?.startsWith("Bearer ")) {
     res.status(401).json({ error: "No token provided" });
     return;
   }
   try {
-    const payload = jwt.verify(auth.slice(7), JWT_SECRET);
-    res.json({ valid: true, payload });
+    const decoded = await auth.verifySessionCookie(authHeader.slice(7), true);
+    res.json({ valid: true, uid: decoded.uid, email: decoded.email });
   } catch {
-    res.status(401).json({ error: "Invalid or expired token" });
+    res.status(401).json({ error: "Invalid or expired session" });
   }
 });
 
@@ -70,11 +71,6 @@ app.use("/api/posts",    postsRouter);
 
 // ── Debug (development only) ──────────────────────────────────────────────────
 
-if (process.env.NODE_ENV !== "production") {
-  app.get("/debug/db", (_req, res) => {
-    res.json(readDb());
-  });
-}
 
 // ─────────────────────────────────────────────────────────────────────────────
 

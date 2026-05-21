@@ -1,18 +1,16 @@
 import { Request, Response, NextFunction } from "express";
-import jwt from "jsonwebtoken";
+import { auth } from "../firebase";
 
-const JWT_SECRET = process.env.JWT_SECRET ?? "am-portfolio-secret-change-in-prod";
-
-export function requireAuth(req: Request, res: Response, next: NextFunction): void {
-  const auth = req.headers.authorization;
-  if (!auth?.startsWith("Bearer ")) {
+export async function requireAuth(req: Request, res: Response, next: NextFunction): Promise<void> {
+  const header = req.headers.authorization;
+  if (!header?.startsWith("Bearer ")) {
     res.status(401).json({ error: "Unauthorized" });
     return;
   }
   try {
-    jwt.verify(auth.slice(7), JWT_SECRET);
+    await auth.verifySessionCookie(header.slice(7), true);
     next();
   } catch {
-    res.status(401).json({ error: "Invalid or expired token" });
+    res.status(401).json({ error: "Invalid or expired session" });
   }
 }

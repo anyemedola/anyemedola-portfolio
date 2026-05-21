@@ -1,8 +1,3 @@
-import fs from "fs";
-import path from "path";
-
-export const DB_PATH = path.join(process.cwd(), "data", "db.json");
-
 export interface DbProject {
   id: number;
   title: string;
@@ -45,26 +40,6 @@ export interface DbPost {
   status: "draft" | "published";
   image: string | null;
   updatedAt: string;
-}
-
-export interface Db {
-  projects: DbProject[];
-  posts: DbPost[];
-}
-
-export function readDb(): Db {
-  try {
-    if (!fs.existsSync(DB_PATH)) return { projects: [], posts: [] };
-    return JSON.parse(fs.readFileSync(DB_PATH, "utf8")) as Db;
-  } catch {
-    return { projects: [], posts: [] };
-  }
-}
-
-export function writeDb(db: Db): void {
-  const dir = path.dirname(DB_PATH);
-  if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
-  fs.writeFileSync(DB_PATH, JSON.stringify(db, null, 2));
 }
 
 export function slugify(text: string): string {
