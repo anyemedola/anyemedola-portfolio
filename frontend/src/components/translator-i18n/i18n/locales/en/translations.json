@@ -1,60 +1,163 @@
 {
   "nav": {
     "about": "About",
-    "skills": "Skills",
-    "experience": "Experience",
+    "work": "Work",
     "projects": "Projects",
-    "blog": "Blog",
-    "contact": "Contact"
+    "create": "Design",
+    "travel": "Travel",
+    "writing": "Writing",
+    "cta": "Let's talk"
   },
   "hero": {
-    "eyebrow": "Senior Front-End Developer · Milan, Italy",
-    "desc": "<em>Crafting interfaces </em> that don't just work — they feel right. React, Next.js & TypeScript with a designer's eye.",
-    "myWork": "My Work",
-    "letsTalk": "Let's build",
-    "downloadCV": "Download CV",
-    "badge": "Years in Front-End"
+    "eyebrow": "Brazil → Sicily",
+    "tag": "Front-end developer. Incurable traveler. Writer in the making. All in the same woman.",
+    "sub": "I've been building interfaces for 5+ years — and collecting sunsets, time zones and chapters of a book I'm yet to write.",
+    "cta1": "Let's talk",
+    "cta2": "See my work",
+    "cap1": "Ragusa Ibla, Sicily",
+    "cap2": "Sunset, always",
+    "cap3": "Loud music, good life"
   },
   "about": {
-    "label": "My Story",
-    "titleLine": "Code meets",
-    "titleEm": "design.",
-    "text1": "I started in tech over <strong>9 years ago</strong>, and for the last 5 I've focused entirely on front-end — the layer where logic becomes experience. Born in Brazil, currently living in <strong>Milan, Italy</strong>, working with teams across Europe and LATAM.",
-    "text2": "Today I lead front-end at <strong>Capgemini</strong>, building a streaming platform for the Portuguese Ministry of Health. I also act as UI/UX designer, creating Figma prototypes and turning them into pixel-perfect interfaces.",
-    "stat1": "Years in Tech",
-    "stat2": "Years Front-End",
-    "stat3": "Countries Worked"
+    "eyebrow": "About me",
+    "title": "Brazilian by birth, <em>Sicilian by sunset.</em> Three years ago I claimed my Italian citizenship and crossed an ocean to make the Mediterranean my time zone.",
+    "p1": "I was born in Brazil with a thirst for the world no map could satisfy. Three years ago I claimed my Italian citizenship, packed my bags and moved to Sicily — not Milan, as my old résumé kept insisting. My time zone is the Mediterranean now, and the golden late-afternoon light has become part of who I am.",
+    "p2": "I'm a Leo through and through: I love forging my own path, helping the people beside me, and being recognized for who I truly am — not just the developer who delivers, but the woman who travels, writes, reads, plays music and turns life into a collection of stories.",
+    "stat1": "years in front-end",
+    "stat2": "countries lived & worked",
+    "stat3": "languages spoken"
   },
-  "skills": {
-    "title": "What I<br><em>build with</em>",
-    "subtitle": "A toolkit forged through real projects, real teams, and real deadlines."
+  "work": {
+    "eyebrow": "Experience",
+    "title": "Five years building on the web",
+    "meta": "Senior Front-End Developer",
+    "job1": {
+      "period": "Aug 2023 — present",
+      "company": "Capgemini · Remote",
+      "role": "Senior Front-End Developer",
+      "desc": "I lead the front-end of a large-scale streaming platform for the Portuguese Ministry of Health. React, Next.js and TypeScript, with reusable MUI components — also acting as UI/UX designer and building the Figma prototypes from inception."
+    },
+    "job2": {
+      "period": "Sep 2022 — Aug 2023",
+      "company": "Ambisig · Remote",
+      "role": "Front-End Developer",
+      "desc": "I built complex applications for government systems for traffic management and environmental monitoring. Responsive layouts, data-driven UI and UX refinement cycles at government scale."
+    },
+    "job3": {
+      "period": "Feb — Sep 2022",
+      "company": "S2 Pets · Remote",
+      "role": "Front-End Developer",
+      "desc": "I built mobile and web features with Ionic, Angular and Firebase for the MEUPET app — including a geolocation-based lost & found feature and a BMI calculator."
+    },
+    "job4": {
+      "period": "2018 — 2022",
+      "company": "Early career",
+      "role": "Web Developer",
+      "desc": "Web and mobile projects with PHP, JavaScript, Ionic and Angular — building solid foundations in systems analysis, databases and interface development."
+    }
   },
-  "experience": {
-    "label": "Career",
-    "headingLine1": "Experience",
-    "headingEm": "timeline",
-    "intro": "From early projects to enterprise-scale platforms — each role sharpened my skills and expanded my perspective."
+  "stacks": {
+    "eyebrow": "Toolkit",
+    "title": "The stacks I work with",
+    "frontend": "Front-end",
+    "styling": "Styling & UI",
+    "state": "State & Data",
+    "quality": "Quality & Collab"
   },
   "projects": {
-    "label": "Selected Work",
-    "headingLine1": "Projects",
-    "liveProject": "Live Project"
+    "eyebrow": "Selected work",
+    "title": "Projects",
+    "request": "Full case studies on request →",
+    "p1": {
+      "tag": "Capgemini · Lead FE",
+      "title": "Streaming platform — Portugal Health",
+      "desc": "Large-scale platform for the Portuguese Ministry of Health. Front-end lead in React/Next.js/TypeScript, MUI design system and Figma prototypes."
+    },
+    "p2": {
+      "tag": "Ambisig · Front-end",
+      "title": "Government systems",
+      "desc": "Traffic management and environmental monitoring for the public sector. Data-driven UI, responsive layouts and UX refinement at national scale."
+    },
+    "p3": {
+      "tag": "S2 Pets · Mobile",
+      "title": "MEUPET — pet app",
+      "desc": "Mobile app in Ionic + Angular + Firebase. Geolocation-based lost & found and a BMI calculator for pets."
+    }
   },
-  "blog": {
-    "headingLine1": "Thoughts",
-    "headingEm": "writings",
-    "subtitle": "On tech, design, career and life as a dev in Europe.",
-    "allPosts": "All posts",
-    "comingSoon": "Coming soon",
-    "minRead": "min read"
+  "create": {
+    "eyebrow": "Creativity + Code",
+    "title": "More than code: design and sensibility",
+    "lead": "Years of building interfaces took me beyond code. The same creative curiosity that makes me write and travel led me to Figma and design — and gave me a rare sensibility for what people want to see, feel and solve.",
+    "mocklabel": "From wireframe to clickable prototype — in Figma.",
+    "t1title": "The user's eyes",
+    "t1desc": "I see the product through the user's eyes — behavior, experience and meaning before the pixel.",
+    "t2title": "From problem to solution",
+    "t2desc": "Design that solves, not just decorates. Every screen exists to clear an obstacle from someone's path.",
+    "t3title": "A bridge between worlds",
+    "t3desc": "I translate ideas between design, product and engineering — because I move naturally between logic and creativity.",
+    "createH": "What I create",
+    "c1title": "Design & UI",
+    "c1desc": "Prototypes and interfaces in Figma, built around the people who use them.",
+    "c2title": "Travel · @anyemedola",
+    "c2desc": "Videos and photos from my travels around the world.",
+    "c3title": "Unboxings & reviews",
+    "c3desc": "Books that marked me, opened and told on video.",
+    "c4title": "Expat · @anyinsicily",
+    "c4desc": "Content in English and Italian about starting over on an island."
   },
-  "languages": {
-    "titleLine1": "SPOKEN",
-    "titleLine2": "WORDS"
+  "travel": {
+    "eyebrow": "Travel journal",
+    "title": "The places I collected",
+    "lead": "Every sunset is a stamp in the passport of the soul. I share the routes, the tips and the mishaps with whoever travels with me — come along.",
+    "cap1": "Ragusa Ibla, Sicily",
+    "cap2": "Sunset over the Mediterranean",
+    "cap3": "Next destination<br>coming soon ✦",
+    "cap4": "your photo<br>here",
+    "twmEyebrow": "Travel with me",
+    "twmTitle": "Travel with me",
+    "twmP": "In my WhatsApp group I share travel tips, itineraries, experiences and the mishaps no one tells you about. Come collect sunsets with me.",
+    "twmCta": "Join the group"
+  },
+  "expat": {
+    "eyebrow": "@anyinsicily",
+    "title": "Expat life on the island",
+    "p": "On <strong>@anyinsicily</strong> I share, in English and Italian, what it's like to be a Brazilian building a life in Sicily — the bureaucracy, the beauty, the food, the small wins of starting over in a new country. It's the Any who helps those dreaming of the same path.",
+    "cta": "Follow on Instagram"
+  },
+  "writing": {
+    "eyebrow": "From the notebook",
+    "title": "Words, books and what's coming",
+    "lead": "Before I was a developer, I was already a storyteller. That part doesn't fit in a README.",
+    "featCta": "Read the essay →",
+    "notebookTitle": "A blog & a book, in the making.",
+    "notebookLead": "I've always written to make sense of moving. The blog is where the essays live between trips; the book is the longer story of leaving Brazil, reclaiming Italy, and learning that home is something you carry, not somewhere you land.",
+    "notebookCta": "Read the latest essay",
+    "nb1kicker": "Essay · Book",
+    "nb1title": "Inteira",
+    "nb1desc": "On becoming whole — the woman who wants to help others but first had to build her own way and be seen for who she really is.",
+    "nb2kicker": "Travel diary",
+    "nb2title": "Getting around Sicily",
+    "nb2desc": "Real routes, transport and mobility apps for the places guidebooks — and Rome2Rio — quietly skip."
+  },
+  "woman": {
+    "eyebrow": "The woman behind the code",
+    "title": "A Leo sun with a Leo rising — someone who longs to help people, yet needs to carve her own path and be recognized for who she truly is.",
+    "sub": "I don't take the stars too seriously — but I like what they whisper about me. This year is a quiet one: a chapter of study, intuition and getting ready for what comes next.",
+    "c1num": "Life Path 9",
+    "c1label": "humanitarian & inspiring",
+    "c2num": "Destiny 6",
+    "c2label": "to care & harmonize",
+    "c3num": "Soul Urge 1",
+    "c3label": "independence & leadership",
+    "c4num": "Year 7 · 2026",
+    "c4label": "study & intuition"
   },
   "contact": {
-    "heading": "Let's<br>build<br><em>together</em>",
-    "text": "Open to full remote roles across Europe and LATAM. Got a project that needs a developer with a designer's eye? Let's talk."
+    "eyebrow": "Let's create something",
+    "title": "Call me.",
+    "p": "Full-remote roles in Europe or LATAM, freelance, content partnerships, or just a good chat about code, travel and books — I'm one click away.",
+    "footerMade": "Made with sun and saudade in Sicily",
+    "footerRights": "© 2026 Any Medola · Brazil → Italy"
   },
   "post": {
     "back": "Back to portfolio",
@@ -64,10 +167,10 @@
     "morePosts": "More",
     "writings": "writings"
   },
-  "footer": {
-    "location": "Milan, Italy 🇮🇹"
-  },
   "skipLink": {
     "label": "Skip to main content"
+  },
+  "blog": {
+    "minRead": "min read"
   }
 }

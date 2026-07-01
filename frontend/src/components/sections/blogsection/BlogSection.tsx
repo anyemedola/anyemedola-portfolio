@@ -1,109 +1,41 @@
 'use client';
 
-import { useState, useEffect } from 'react';
-import T from '@/components/ui/t/T';
 import { useTranslation } from 'react-i18next';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
-import { posts as staticPosts, type BlogPost } from '@/data/posts';
 import * as S from './styles';
 
-interface ApiPost {
-  id: number; slug: string;
-  title: string; titlePt: string; titleIt: string;
-  subtitle: string; subtitlePt: string; subtitleIt: string;
-  excerptEn: string; excerptPt: string; excerptIt: string;
-  bodyEn: string; bodyPt: string; bodyIt: string;
-  date: string; readTime: number;
-  primaryTag: string; tags: string[];
-  accentColor: string; icon: string;
-  status: string;
-}
-
-function formatDate(d: string): string {
-  try { return new Date(d + 'T00:00:00').toLocaleDateString('en-US', { month: 'short', year: 'numeric' }); }
-  catch { return d; }
-}
-
-function apiToPost(p: ApiPost): BlogPost {
-  return {
-    slug: p.slug,
-    primaryTag: p.primaryTag || p.tags?.[0] || '',
-    tags: p.tags || [],
-    title: { en: p.title, pt: p.titlePt || p.title, it: p.titleIt || p.title },
-    subtitle: { en: p.subtitle, pt: p.subtitlePt || p.subtitle, it: p.subtitleIt || p.subtitle },
-    date: formatDate(p.date),
-    datetime: p.date,
-    readTime: p.readTime || 5,
-    accentColor: p.accentColor || '#4DB89E',
-    icon: p.icon || '✦',
-    excerpt: { en: p.excerptEn, pt: p.excerptPt || p.excerptEn, it: p.excerptIt || p.excerptEn },
-    body: {
-      en: { intro: '', sections: [], closing: '', html: p.bodyEn },
-      pt: { intro: '', sections: [], closing: '', html: p.bodyPt || p.bodyEn },
-      it: { intro: '', sections: [], closing: '', html: p.bodyIt || p.bodyEn },
-    },
-  };
-}
-
-const delays = ['', ' reveal-delay-1', ' reveal-delay-2'];
-
 export default function BlogSection() {
-  const [apiPosts, setApiPosts] = useState<BlogPost[] | null>(null);
-  const ref = useScrollReveal([apiPosts]);
+  const ref = useScrollReveal();
   const { t } = useTranslation();
 
-  useEffect(() => {
-    fetch('/api/posts')
-      .then(r => r.ok ? r.json() : [])
-      .then((data: ApiPost[]) => setApiPosts(data.length > 0 ? data.map(apiToPost) : []))
-      .catch(() => setApiPosts([]));
-  }, []);
-
-  const posts = (apiPosts && apiPosts.length > 0) ? apiPosts : staticPosts;
-
   return (
-    <S.BlogRoot id="blog" aria-labelledby="blog-heading" ref={ref}>
+    <S.EscritaRoot id="escrita" aria-labelledby="escrita-heading" ref={ref}>
       <S.Inner>
-        <S.BlogHeader className="reveal">
-          <S.BlogTitle id="blog-heading">
-            {t('blog.headingLine1')} &amp;<br /><em>{t('blog.headingEm')}</em>
-          </S.BlogTitle>
-          <S.HeaderRight>
-            <S.BlogSubtitle>{t('blog.subtitle')}</S.BlogSubtitle>
-            <S.AllLink href="#" aria-label="View all blog posts">
-              {t('blog.allPosts')} →
-            </S.AllLink>
-          </S.HeaderRight>
-        </S.BlogHeader>
-        <S.Grid role="list">
-          {posts.map((post, i) => (
-            <S.Card key={post.slug} className={`reveal${delays[i]}`} cardColor={post.accentColor}>
-              <S.CardLink href={`/blog/${post.slug}`}>
-                <S.CardBar className="card-bar" aria-hidden="true" />
-                <S.Cover aria-hidden="true">
-                  <S.PlaceholderIcon>{post.icon}</S.PlaceholderIcon>
-                </S.Cover>
-                <S.Body>
-                  <S.Meta>
-                    <S.Tag>{post.primaryTag}</S.Tag>
-                    <S.DateEl dateTime={post.datetime}>{post.date}</S.DateEl>
-                  </S.Meta>
-                  <S.CardTitle className="card-title">
-                    <T en={post.title.en} pt={post.title.pt} it={post.title.it} />
-                  </S.CardTitle>
-                  <S.Excerpt>
-                    <T en={post.excerpt.en} pt={post.excerpt.pt} it={post.excerpt.it} />
-                  </S.Excerpt>
-                  <S.CardFooter>
-                    <S.ReadTime>{post.readTime} {t('blog.minRead')}</S.ReadTime>
-                    <S.Arrow className="card-arrow" aria-hidden="true">↗</S.Arrow>
-                  </S.CardFooter>
-                </S.Body>
-              </S.CardLink>
-            </S.Card>
-          ))}
-        </S.Grid>
+        <S.Left>
+          <S.Eyebrow className="reveal">{t('writing.eyebrow')}</S.Eyebrow>
+          <S.Title className="reveal" id="escrita-heading">
+            {t('writing.notebookTitle')}
+          </S.Title>
+          <S.Lead className="reveal">{t('writing.notebookLead')}</S.Lead>
+          <S.CtaBtn href="/blog/inteira" className="reveal">
+            {t('writing.notebookCta')}
+          </S.CtaBtn>
+        </S.Left>
+
+        <S.Cards>
+          <S.NotebookCard accent="#E0568A" className="reveal" aria-labelledby="nb1-title">
+            <S.CardKicker>{t('writing.nb1kicker')}</S.CardKicker>
+            <S.CardTitle id="nb1-title">{t('writing.nb1title')}</S.CardTitle>
+            <S.CardDesc>{t('writing.nb1desc')}</S.CardDesc>
+          </S.NotebookCard>
+
+          <S.NotebookCard accent="#F39C7E" className="reveal" aria-labelledby="nb2-title">
+            <S.CardKicker>{t('writing.nb2kicker')}</S.CardKicker>
+            <S.CardTitle id="nb2-title">{t('writing.nb2title')}</S.CardTitle>
+            <S.CardDesc>{t('writing.nb2desc')}</S.CardDesc>
+          </S.NotebookCard>
+        </S.Cards>
       </S.Inner>
-    </S.BlogRoot>
+    </S.EscritaRoot>
   );
 }

@@ -5,9 +5,9 @@ import ReadingProgress from '@/components/blog/readingpostprogress/ReadingProgre
 import PostNav from '@/components/blog/postnav/PostNav';
 import PostHero from '@/components/blog/posthero/PostHero';
 import PostBody from '@/components/blog/postbody/PostBody';
-import PostFooter from '@/components/blog/postfooter/PostFooter';
 import PostMore from '@/components/blog/postmore/PostMore';
-import CustomCursor from '@/components/ui/customcursor/CustomCursor';
+import LemonCursor from '@/components/ui/cursor/lemonCursor';
+import PostPageFooter from '@/components/blog/postpagefooter/PostPageFooter';
 
 export const dynamic = 'force-dynamic';
 
@@ -25,7 +25,7 @@ interface ApiPost {
 }
 
 function formatDate(d: string): string {
-  try { return new Date(d + 'T00:00:00').toLocaleDateString('en-US', { month: 'short', year: 'numeric' }); }
+  try { return new Date(d + 'T00:00:00').toLocaleDateString('pt-BR', { month: 'long', year: 'numeric' }); }
   catch { return d; }
 }
 
@@ -39,7 +39,7 @@ function apiToPost(p: ApiPost): BlogPost {
     date: formatDate(p.date),
     datetime: p.date,
     readTime: p.readTime || 5,
-    accentColor: p.accentColor || '#4DB89E',
+    accentColor: p.accentColor || '#B5546A',
     icon: p.icon || '✦',
     excerpt: { en: p.excerptEn, pt: p.excerptPt || p.excerptEn, it: p.excerptIt || p.excerptEn },
     body: {
@@ -70,8 +70,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const post = apiPost ?? getPost(slug);
   if (!post) return {};
   return {
-    title: `${post.title.en} — Any Medola`,
-    description: post.excerpt.en,
+    title: `${post.title.pt ?? post.title.en} — Any Medola`,
+    description: post.excerpt.pt ?? post.excerpt.en,
   };
 }
 
@@ -82,16 +82,16 @@ export default async function BlogPostPage({ params }: Props) {
   if (!post) notFound();
 
   return (
-    <div style={{ background: 'var(--cream, #F9F5EE)', minHeight: '100vh' }}>
-      <CustomCursor />
+    <div style={{ background: '#FBF1E6', minHeight: '100vh' }}>
+      <LemonCursor />
       <ReadingProgress />
       <PostNav />
       <article aria-labelledby="post-main-title">
         <PostHero post={post} />
         <PostBody post={post} />
       </article>
-      <PostFooter />
       <PostMore currentSlug={slug} />
+      <PostPageFooter />
     </div>
   );
 }

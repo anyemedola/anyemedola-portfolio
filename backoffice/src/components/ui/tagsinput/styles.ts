@@ -33,7 +33,7 @@ export const RemoveBtn = styled('button')({
   background: 'none',
   border: 'none',
   color: 'inherit',
-  cursor: 'pointer',
+  cursor: 'none',
   fontSize: 13,
   lineHeight: 1,
   padding: 0,

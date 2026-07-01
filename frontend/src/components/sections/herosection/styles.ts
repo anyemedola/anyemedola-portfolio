@@ -1,136 +1,210 @@
-import { styled, keyframes } from '@mui/material/styles';
+import { styled } from '@mui/material/styles';
+import { keyframes } from '@emotion/react';
 import { tokens } from '@/theme/theme';
+import { Eyebrow as BaseEyebrow } from '@/components/ui/sectionheader/styles';
+import Polaroid from '@/components/ui/polaroid/Polaroid';
 
-const fadeUp = keyframes`
-  to { opacity: 1; transform: translateY(0); }
-`;
+const slowDrift = keyframes({
+  from: { transform: 'rotate(-4deg) translateY(0)' },
+  to: { transform: 'rotate(-4deg) translateY(-14px)' },
+});
 
-const fadeIn = keyframes`
-  to { opacity: 1; }
-`;
-
-export const HeroRoot = styled('section')({
-  minHeight: '100vh',
+export const HeroRoot = styled('header')({
+  maxWidth: 1240,
+  margin: '0 auto',
+  padding: '64px 40px 96px',
   display: 'grid',
-  gridTemplateColumns: '1fr 1fr',
-  position: 'relative',
-  overflow: 'hidden',
-  '@media (max-width: 900px)': {
+  gridTemplateColumns: '1.04fr .96fr',
+  gap: 36,
+  alignItems: 'center',
+  scrollMarginTop: 70,
+  '@media (max-width: 1024px)': {
+    padding: '48px 32px 72px',
+    gap: 28,
+  },
+  '@media (max-width: 760px)': {
     gridTemplateColumns: '1fr',
+    gap: 20,
+    padding: '32px 22px 56px',
+  },
+  '@media (max-width: 480px)': {
+    gap: 16,
+    padding: '24px 18px 48px',
+  },
+  '@media (max-width: 380px)': {
+    gap: 12,
+    padding: '20px 16px 40px',
   },
 });
 
-export const HeroLeft = styled('div')({
+export const Collage = styled('div')({
+  position: 'relative',
+  height: 600,
+  '@media (max-width: 1024px)': { height: 480 },
+  '@media (max-width: 760px)': { height: 'auto' },
+});
+
+export const GlowOrb = styled('div')({
+  position: 'absolute',
+  top: 24,
+  right: 30,
+  width: '58%',
+  height: '78%',
+  borderRadius: '220px 220px 18px 18px',
+  background: `linear-gradient(180deg, ${tokens.goldLight}, ${tokens.roseMid} 55%, ${tokens.rose})`,
+  opacity: 0.22,
+  filter: 'blur(2px)',
+  '@media (max-width: 760px)': { display: 'none' },
+});
+
+export const MainFrame = styled(Polaroid)({
+  position: 'absolute',
+  top: 0,
+  left: 8,
+  width: 300,
+  height: 392,
+  animation: `${slowDrift} 5s ease-in-out infinite alternate`,
+  '&:hover': { animation: 'none' },
+  '@media (max-width: 760px)': {
+    position: 'relative',
+    left: 0,
+    top: 0,
+    width: '100%',
+    height: 320,
+    transform: 'none',
+    animation: 'none',
+  },
+  '@media (max-width: 480px)': {
+    height: 280,
+  },
+  '@media (max-width: 380px)': {
+    height: 240,
+  },
+});
+
+export const SmallFrameRight = styled(Polaroid)({
+  position: 'absolute',
+  bottom: 26,
+  right: 28,
+  width: 232,
+  height: 300,
+  '@media (max-width: 760px)': { display: 'none' },
+});
+
+export const SmallFrameLeft = styled(Polaroid)({
+  position: 'absolute',
+  bottom: 0,
+  left: 40,
+  width: 168,
+  height: 210,
+  '@media (max-width: 760px)': { display: 'none' },
+});
+
+export const Content = styled('div')({
   display: 'flex',
   flexDirection: 'column',
-  justifyContent: 'flex-end',
-  padding: '0 56px 80px 56px',
-  position: 'relative',
-  zIndex: 2,
-  '@media (max-width: 900px)': {
-    padding: '100px 24px 48px',
-  },
+  '@media (max-width: 760px)': { order: -1 },
 });
 
-export const Eyebrow = styled('p')({
-  fontFamily: "'DM Sans', sans-serif",
-  fontSize: 11,
-  fontWeight: 500,
-  letterSpacing: '0.2em',
-  textTransform: 'uppercase',
-  color: tokens.warmGray,
-  marginBottom: 24,
-  opacity: 0,
-  transform: 'translateY(20px)',
-  animation: `${fadeUp} 0.8s 0.2s forwards`,
+export const Eyebrow = styled(BaseEyebrow)({
+  letterSpacing: '.34em',
+  marginBottom: 22,
+  '@media (max-width: 480px)': { marginBottom: 14 },
+  '@media (max-width: 380px)': { marginBottom: 10 },
 });
 
 export const HeroTitle = styled('h1')({
-  fontFamily: "'Bebas Neue', sans-serif",
-  fontSize: 'clamp(72px, 9vw, 130px)',
-  lineHeight: 0.88,
-  letterSpacing: '0.02em',
+  fontFamily: "'Bodoni Moda', var(--font-bodoni), serif",
+  fontWeight: 900,
+  fontSize: 'clamp(64px, 7vw, 104px)',
+  lineHeight: 0.9,
+  letterSpacing: '-0.015em',
+  margin: 0,
   color: tokens.ink,
-  marginBottom: 32,
-  opacity: 0,
-  transform: 'translateY(30px)',
-  animation: `${fadeUp} 0.9s 0.35s forwards`,
-  '& span': {
-    color: tokens.pink,
-    display: 'block',
-  },
+  '@media (max-width: 1024px)': { fontSize: 'clamp(52px, 6vw, 88px)' },
+  '@media (max-width: 760px)': { fontSize: 56 },
+  '@media (max-width: 480px)': { fontSize: 48 },
+  '@media (max-width: 380px)': { fontSize: 42 },
 });
 
-export const HeroDesc = styled('p')({
-  fontFamily: "'Cormorant Garamond', serif",
-  fontSize: 20,
-  fontWeight: 300,
-  lineHeight: 1.65,
-  color: tokens.warmGray,
-  maxWidth: 420,
-  marginBottom: 48,
-  opacity: 0,
-  transform: 'translateY(20px)',
-  animation: `${fadeUp} 0.9s 0.5s forwards`,
-  '& em': {
-    color: tokens.ink,
-    fontStyle: 'italic',
-  },
+export const TitleItalic = styled('span')({
+  fontStyle: 'italic',
+  fontWeight: 500,
+  color: '#E0568A',
+  display: 'block',
 });
 
-export const HeroCta = styled('div')({
+export const HeroTag = styled('p')({
+  fontFamily: "'Hanken Grotesk', var(--font-hanken), sans-serif",
+  fontSize: 21,
+  lineHeight: 1.45,
+  color: tokens.ink,
+  fontWeight: 500,
+  margin: '28px 0 14px',
+  maxWidth: 460,
+  '@media (max-width: 760px)': { fontSize: 18, margin: '22px 0 12px' },
+  '@media (max-width: 480px)': { fontSize: 17, margin: '18px 0 10px' },
+  '@media (max-width: 380px)': { fontSize: 16, margin: '14px 0 8px' },
+});
+
+export const HeroSub = styled('p')({
+  fontFamily: "'Hanken Grotesk', var(--font-hanken), sans-serif",
+  fontSize: 16,
+  lineHeight: 1.6,
+  color: tokens.warmBrownMid,
+  margin: '0 0 34px',
+  maxWidth: 460,
+  '@media (max-width: 760px)': { margin: '0 0 28px' },
+  '@media (max-width: 480px)': { fontSize: 15, margin: '0 0 24px' },
+  '@media (max-width: 380px)': { margin: '0 0 20px' },
+});
+
+export const Cta = styled('div')({
   display: 'flex',
-  gap: 16,
+  gap: 14,
   flexWrap: 'wrap',
-  opacity: 0,
-  transform: 'translateY(20px)',
-  animation: `${fadeUp} 0.9s 0.65s forwards`,
-});
-
-export const HeroRight = styled('div')({
-  position: 'relative',
-  overflow: 'hidden',
-  opacity: 0,
-  animation: `${fadeIn} 1.2s 0.4s forwards`,
-  '&::before': {
-    content: "''",
-    position: 'absolute',
-    inset: 0,
-    background: `linear-gradient(135deg, ${tokens.mint} 0%, transparent 60%)`,
-    opacity: 0.25,
-    zIndex: 1,
-    pointerEvents: 'none',
-  },
-  '@media (max-width: 900px)': {
-    minHeight: '55vw',
+  '@media (max-width: 380px)': {
+    flexDirection: 'column',
+    gap: 10,
   },
 });
 
-export const HeroBadge = styled('div')({
-  position: 'absolute',
-  bottom: 48,
-  left: -24,
-  background: tokens.ink,
-  color: tokens.cream,
-  padding: '20px 32px',
-  zIndex: 2,
-  opacity: 0,
-  animation: `${fadeUp} 0.9s 0.9s forwards`,
-  '& strong': {
-    fontFamily: "'Bebas Neue', sans-serif",
-    fontSize: 36,
-    letterSpacing: '0.04em',
-    display: 'block',
+export const BtnPrimary = styled('a')({
+  fontFamily: "'Hanken Grotesk', var(--font-hanken), sans-serif",
+  fontSize: 14.5,
+  fontWeight: 700,
+  padding: '14px 26px',
+  borderRadius: 999,
+  background: '#E0568A',
+  color: '#fff',
+  boxShadow: '0 12px 30px rgba(224,86,138,0.32)',
+  transition: 'background .25s, box-shadow .25s',
+  '&:hover': {
+    background: '#C24C76',
+    boxShadow: '0 8px 20px rgba(224,86,138,0.4)',
   },
-  '& span': {
-    fontFamily: "'DM Sans', sans-serif",
-    fontSize: 11,
-    letterSpacing: '0.15em',
-    textTransform: 'uppercase',
-    color: tokens.mintOnDark,
+  '@media (max-width: 380px)': {
+    textAlign: 'center',
+    padding: '13px 24px',
   },
-  '@media (max-width: 768px)': {
-    maxWidth: 160,
-    left: 0,
+});
+
+export const BtnGhost = styled('a')({
+  fontFamily: "'Hanken Grotesk', var(--font-hanken), sans-serif",
+  fontSize: 14.5,
+  fontWeight: 700,
+  padding: '14px 26px',
+  borderRadius: 999,
+  background: 'rgba(255,255,255,0.6)',
+  border: '1px solid rgba(168,66,94,0.3)',
+  color: '#A8425E',
+  transition: 'background .25s, color .25s',
+  '&:hover': {
+    background: 'rgba(255,255,255,0.85)',
+    color: '#C24C76',
+  },
+  '@media (max-width: 380px)': {
+    textAlign: 'center',
+    padding: '13px 24px',
   },
 });

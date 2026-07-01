@@ -9,6 +9,8 @@ export default function PostMore({ currentSlug }: { currentSlug: string }) {
   const { t } = useTranslation();
   const others = posts.filter((p) => p.slug !== currentSlug).slice(0, 2);
 
+  if (others.length === 0) return null;
+
   return (
     <S.Section aria-labelledby="more-posts-heading">
       <S.Inner>
@@ -17,9 +19,9 @@ export default function PostMore({ currentSlug }: { currentSlug: string }) {
         </S.Title>
         <S.Grid role="list">
           {others.map((post) => (
-            <S.Card key={post.slug} cardColor={post.accentColor}>
+            <S.Card key={post.slug}>
               <S.CardLink href={`/blog/${post.slug}`}>
-                <S.CardBar className="card-bar" aria-hidden="true" />
+                <S.CardBar color={post.accentColor} />
                 <S.CardBody>
                   <S.Meta>
                     <S.Tag>{post.primaryTag}</S.Tag>
@@ -30,7 +32,7 @@ export default function PostMore({ currentSlug }: { currentSlug: string }) {
                   </S.CardTitle>
                   <S.Footer>
                     <S.ReadTime>{post.readTime} {t('blog.minRead')}</S.ReadTime>
-                    <S.Arrow className="card-arrow" aria-hidden="true">↗</S.Arrow>
+                    <S.Arrow className="card-arrow" aria-hidden="true">→</S.Arrow>
                   </S.Footer>
                 </S.CardBody>
               </S.CardLink>

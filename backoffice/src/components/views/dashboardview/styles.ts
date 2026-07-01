@@ -151,7 +151,7 @@ export const QuickAction = styled('button')({
   background: tokens.surface2,
   border: 'none',
   padding: 20,
-  cursor: 'pointer',
+  cursor: 'none',
   textAlign: 'left',
   transition: 'background 0.2s',
   display: 'flex',

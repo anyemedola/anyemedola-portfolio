@@ -1,120 +1,80 @@
 import { styled } from '@mui/material/styles';
 import { tokens } from '@/theme/theme';
+import { SectionInner } from '@/components/ui/sectioninner/styles';
+import { Eyebrow as BaseEyebrow, SectionTitle } from '@/components/ui/sectionheader/styles';
+import { ImageFrame as BaseImageFrame } from '@/components/ui/imageframe/styles';
 
-export const AboutRoot = styled('section')({
+export { SectionRootBordered as AboutRoot } from '@/components/ui/sectionroot/styles';
+
+export const Inner = styled(SectionInner)({
   display: 'grid',
-  gridTemplateColumns: '1fr 1fr',
-  minHeight: '80vh',
+  gridTemplateColumns: '.82fr 1.18fr',
+  gap: 64,
   alignItems: 'center',
   '@media (max-width: 900px)': {
     gridTemplateColumns: '1fr',
+    gap: 40,
   },
 });
 
-export const ImageCol = styled('div')({
-  position: 'relative',
-  height: '100%',
-  minHeight: 600,
-  overflow: 'hidden',
-  '& img': {
-    transition: 'transform 0.6s ease',
-  },
-  '&:hover img': {
-    transform: 'scale(1.03)',
-  },
-  '&::after': {
-    content: "''",
-    position: 'absolute',
-    bottom: 0,
-    right: 0,
-    width: 80,
-    height: 80,
-    background: tokens.pink,
-    pointerEvents: 'none',
-  },
-  '@media (max-width: 900px)': {
-    minHeight: 280,
-  },
+export const ImageFrame = styled(BaseImageFrame)({
+  height: 520,
+  '@media (max-width: 900px)': { height: 340 },
 });
 
 export const Content = styled('div')({
-  padding: '70px 72px 70px 64px',
-  '@media (max-width: 900px)': {
-    padding: '48px 24px',
-  },
-});
-
-export const SectionLabel = styled('p')({
-  fontFamily: "'DM Sans', sans-serif",
-  fontSize: 10,
-  fontWeight: 500,
-  letterSpacing: '0.25em',
-  textTransform: 'uppercase',
-  color: tokens.pink,
-  marginBottom: 20,
   display: 'flex',
-  alignItems: 'center',
-  gap: 12,
-  '&::before': {
-    content: "''",
-    display: 'block',
-    width: 32,
-    height: 1.5,
-    background: tokens.pink,
-    flexShrink: 0,
-  },
+  flexDirection: 'column',
 });
 
-export const SectionTitle = styled('h2')({
-  fontFamily: "'Bebas Neue', sans-serif",
-  fontSize: 'clamp(48px, 5vw, 72px)',
-  lineHeight: 0.9,
-  letterSpacing: '0.02em',
-  color: tokens.ink,
-  marginBottom: 32,
+export const Eyebrow = styled(BaseEyebrow)({
+  color: '#E0568A',
+  marginBottom: 18,
+});
+
+export const Title = styled(SectionTitle)({
+  fontSize: 'clamp(20px, 2vw, 26px)',
+  fontWeight: 400,
+  lineHeight: 1.5,
+  letterSpacing: '-0.005em',
+  margin: '0 0 28px',
   '& em': {
-    fontFamily: "'Cormorant Garamond', serif",
     fontStyle: 'italic',
-    fontWeight: 300,
-    color: tokens.mint,
+    color: '#E0568A',
   },
 });
 
-export const AboutText = styled('p')({
-  fontFamily: "'Cormorant Garamond', serif",
-  fontSize: 19,
-  fontWeight: 300,
-  lineHeight: 1.7,
-  color: '#3D3830',
-  marginBottom: 16,
-  '& strong': { fontWeight: 600, color: tokens.ink },
+export const Para = styled('p')({
+  fontFamily: "'Hanken Grotesk', var(--font-hanken), sans-serif",
+  fontSize: 18,
+  lineHeight: 1.65,
+  color: tokens.warmBrown,
+  margin: '0 0 20px',
+  '&:last-of-type': { marginBottom: 30 },
 });
 
 export const Stats = styled('div')({
-  display: 'grid',
-  gridTemplateColumns: 'repeat(3, 1fr)',
-  gap: 24,
-  marginTop: 48,
-  paddingTop: 40,
-  borderTop: `1px solid ${tokens.border}`,
-  '@media (max-width: 900px)': {
-    gridTemplateColumns: '1fr 1fr',
-  },
+  display: 'flex',
+  gap: 40,
+  marginTop: 30,
+  flexWrap: 'wrap',
+  '@media (max-width: 480px)': { gap: 28 },
 });
 
-export const StatNum = styled('div')({
-  fontFamily: "'Bebas Neue', sans-serif",
-  fontSize: 52,
+export const Stat = styled('div')({});
+
+export const StatNumber = styled('div')({
+  fontFamily: "'Bodoni Moda', var(--font-bodoni), serif",
+  fontSize: 40,
+  fontWeight: 700,
+  color: '#E0568A',
   lineHeight: 1,
-  color: tokens.ink,
-  '& span': { color: tokens.pink },
 });
 
 export const StatLabel = styled('div')({
-  fontFamily: "'DM Sans', sans-serif",
-  fontSize: 11,
-  letterSpacing: '0.12em',
-  textTransform: 'uppercase',
-  color: tokens.warmGray,
+  fontFamily: "'Hanken Grotesk', var(--font-hanken), sans-serif",
+  fontSize: 13,
+  fontWeight: 600,
+  color: tokens.warmBrownMid,
   marginTop: 4,
 });

@@ -59,7 +59,7 @@ export const SegBtn = styled('button')<{ active?: boolean }>(({ active }) => ({
   border: 'none',
   borderRight: `1px solid ${tokens.border}`,
   color: active ? tokens.mint : tokens.textMuted,
-  cursor: 'pointer',
+  cursor: 'none',
   transition: 'all 0.15s',
   '&:last-child': { borderRight: 'none' },
   '&:hover': { color: tokens.text, background: 'rgba(255,255,255,0.03)' },
