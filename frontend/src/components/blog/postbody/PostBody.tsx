@@ -1,6 +1,7 @@
 'use client';
 
 import * as S from './styles';
+import Image from 'next/image';
 import { useTranslation } from 'react-i18next';
 import type { BlogPost } from '@/data/posts';
 
@@ -12,7 +13,20 @@ export default function PostBody({ post }: { post: BlogPost }) {
   const locale: Locale = lang === 'pt' ? 'pt' : lang === 'it' ? 'it' : 'en';
   const body = post.body[locale] ?? post.body.en;
 
-  const cover = (
+  const cover = post.coverImage ? (
+    <S.CoverWide>
+      <S.CoverReal>
+        <Image
+          src={post.coverImage}
+          alt=""
+          fill
+          style={{ objectFit: 'cover', objectPosition: 'center 40%' }}
+          sizes="(max-width: 900px) 100vw, 920px"
+          priority
+        />
+      </S.CoverReal>
+    </S.CoverWide>
+  ) : (
     <S.Cover>
       <figure>
         <S.CoverImg role="img" aria-label="Post cover image placeholder">

@@ -32,7 +32,7 @@ export const SwitchLabel = styled('label')({
   height: 22,
   flexShrink: 0,
   marginLeft: 16,
-  cursor: 'pointer',
+  cursor: 'none',
   '& input': { opacity: 0, width: 0, height: 0, position: 'absolute' },
 });
 

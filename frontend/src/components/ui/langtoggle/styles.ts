@@ -2,44 +2,32 @@ import { styled } from '@mui/material/styles';
 import { tokens } from '@/theme/theme';
 
 export const Wrapper = styled('div')({
-  top: 28,
-  right: 32,
-  zIndex: 1000,
   display: 'flex',
-  border: `1.5px solid ${tokens.ink}`,
-  borderRadius: 2,
-  overflow: 'hidden',
-  fontFamily: "'DM Sans', sans-serif",
-  fontSize: 11,
-  fontWeight: 500,
-  letterSpacing: '0.08em',
-  textTransform: 'uppercase',
-  '@media (max-width: 900px)': {
-    top: 16,
-    right: 16,
-  },
+  alignItems: 'center',
+  gap: 4,
+  background: tokens.borderForm,
+  padding: 4,
+  borderRadius: 999,
+  fontFamily: "'Hanken Grotesk', var(--font-hanken), sans-serif",
+  fontSize: 12,
+  fontWeight: 600,
 });
 
 export const LangBtn = styled('button')<{ active?: boolean }>(({ active }) => ({
-  background: active ? tokens.ink : 'transparent',
+  background: active ? '#E0568A' : 'transparent',
   border: 'none',
-  padding: '8px 16px',
+  padding: '6px 11px',
+  borderRadius: 999,
   cursor: 'none',
   transition: 'background 0.2s, color 0.2s',
-  color: active ? tokens.cream : tokens.ink,
-  minWidth: 44,
-  minHeight: 44,
+  color: active ? '#fff' : tokens.warmBrownLight,
   fontFamily: 'inherit',
   fontSize: 'inherit',
   fontWeight: 'inherit',
-  letterSpacing: 'inherit',
-  textTransform: 'inherit',
-  '&:hover:not([data-active])': {
-    background: tokens.mintLight,
-  },
-  '&:nth-of-type(2)': {
-    borderLeft: `1.5px solid ${tokens.ink}`,
-    borderRight: `1.5px solid ${tokens.ink}`,
+  minWidth: 36,
+  minHeight: 32,
+  '&:hover': {
+    color: active ? tokens.cream : tokens.ink,
   },
   '&:focus-visible': { outlineOffset: -3 },
 }));

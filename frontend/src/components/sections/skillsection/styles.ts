@@ -1,133 +1,64 @@
 import { styled } from '@mui/material/styles';
 import { tokens } from '@/theme/theme';
+import { SectionInner } from '@/components/ui/sectioninner/styles';
+import { Eyebrow as BaseEyebrow, SectionTitle } from '@/components/ui/sectionheader/styles';
 
-export const SkillsRoot = styled('section')({
-  background: tokens.ink,
-  padding: '100px 0',
-  position: 'relative',
-  overflow: 'hidden',
-  '&::before': {
-    content: "'SKILLS'",
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    fontFamily: "'Bebas Neue', sans-serif",
-    fontSize: 280,
-    color: 'rgba(255,255,255,0.02)',
-    pointerEvents: 'none',
-    whiteSpace: 'nowrap',
-    letterSpacing: '0.1em',
-  },
+export { SectionRootBordered as StacksRoot } from '@/components/ui/sectionroot/styles';
+
+export const Inner = styled(SectionInner)({
+  padding: '96px 40px',
 });
 
-export const Inner = styled('div')({
-  maxWidth: 1200,
-  margin: '0 auto',
-  padding: '0 56px',
-  '@media (max-width: 900px)': {
-    padding: '0 24px',
-  },
+export const Eyebrow = styled(BaseEyebrow)({
+  color: tokens.goldDeep,
 });
 
-export const SkillsHeader = styled('div')({
-  display: 'flex',
-  alignItems: 'flex-end',
-  justifyContent: 'space-between',
-  marginBottom: 64,
+export const Title = styled(SectionTitle)({
+  fontSize: 'clamp(32px, 3.8vw, 52px)',
+  margin: '0 0 48px',
 });
 
-export const SkillsTitle = styled('h2')({
-  fontFamily: "'Bebas Neue', sans-serif",
-  fontSize: 'clamp(52px, 6vw, 88px)',
-  lineHeight: 0.9,
-  color: tokens.cream,
-  '& em': {
-    fontFamily: "'Cormorant Garamond', serif",
-    fontStyle: 'italic',
-    color: tokens.mintOnDark,
-  },
-});
-
-export const SkillsSubtitle = styled('p')({
-  fontFamily: "'Cormorant Garamond', serif",
-  fontSize: 18,
-  fontWeight: 300,
-  fontStyle: 'italic',
-  color: 'rgba(249,245,238,0.65)',
-  maxWidth: 280,
-  textAlign: 'right',
-  lineHeight: 1.5,
-});
-
-export const Grid = styled('ul')({
+export const Grid = styled('div')({
   display: 'grid',
-  gridTemplateColumns: 'repeat(3, 1fr)',
-  gap: 2,
-  listStyle: 'none',
-  '@media (max-width: 900px)': {
-    gridTemplateColumns: '1fr 1fr',
-  },
-  '@media (max-width: 600px)': {
-    gridTemplateColumns: '1fr',
-  },
+  gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
+  gap: 18,
 });
 
-export const Card = styled('li')({
-  background: 'rgba(255,255,255,0.04)',
-  padding: '36px 32px',
-  border: '1px solid rgba(255,255,255,0.06)',
-  transition: 'background 0.3s ease, transform 0.3s ease',
-  position: 'relative',
-  overflow: 'hidden',
-  '&::before': {
-    content: "''",
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    width: 3,
-    height: 0,
-    background: tokens.mintOnDark,
-    transition: 'height 0.4s ease',
-    pointerEvents: 'none',
-  },
-  '&:hover::before': { height: '100%' },
+export const Card = styled('div')({
+  background: tokens.cream,
+  border: `1px solid ${tokens.borderLight}`,
+  borderRadius: 18,
+  padding: 26,
+  transition: 'transform .4s cubic-bezier(.2,.7,.2,1), box-shadow .4s',
   '&:hover': {
-    background: 'rgba(110,207,184,0.07)',
-    transform: 'translateY(-3px)',
-    '& .skill-tag': {
-      color: tokens.cream,
-      borderColor: 'rgba(110,207,184,0.3)',
-    },
+    transform: 'translateY(-4px)',
+    boxShadow: '0 24px 44px -26px rgba(120,60,50,.35)',
   },
 });
 
-export const CardIcon = styled('div')({ fontSize: 28, marginBottom: 16 });
-
-export const CardTitle = styled('h3')({
-  fontFamily: "'DM Sans', sans-serif",
-  fontSize: 11,
-  fontWeight: 500,
-  letterSpacing: '0.18em',
+export const CardGroup = styled('div')({
+  fontFamily: "'Hanken Grotesk', var(--font-hanken), sans-serif",
+  fontSize: 12,
+  letterSpacing: '.18em',
   textTransform: 'uppercase',
-  color: tokens.mintOnDark,
-  marginBottom: 20,
+  color: tokens.roseDeep,
+  fontWeight: 700,
+  marginBottom: 16,
 });
 
 export const TagList = styled('ul')({
   display: 'flex',
   flexWrap: 'wrap',
-  gap: 8,
+  gap: 9,
   listStyle: 'none',
 });
 
 export const Tag = styled('li')({
-  fontFamily: "'DM Sans', sans-serif",
-  fontSize: 12,
-  color: 'rgba(249,245,238,0.85)',
-  background: 'rgba(255,255,255,0.06)',
-  padding: '5px 12px',
-  borderRadius: 2,
-  border: '1px solid rgba(255,255,255,0.1)',
-  transition: 'all 0.2s',
+  fontFamily: "'Hanken Grotesk', var(--font-hanken), sans-serif",
+  fontSize: 14,
+  background: tokens.creamLight,
+  border: `1px solid ${tokens.borderLight}`,
+  padding: '7px 14px',
+  borderRadius: 999,
+  color: tokens.ink,
 });

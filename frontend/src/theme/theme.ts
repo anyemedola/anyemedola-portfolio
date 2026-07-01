@@ -1,49 +1,63 @@
 import { createTheme } from '@mui/material/styles';
 
 export const tokens = {
-  mint: '#4DB89E',
-  mintLight: '#a8e8d8',
-  mintOnDark: '#6ECFB8',
-  pink: '#C43560',
-  pinkOnDark: '#E8547A',
-  cream: '#F9F5EE',
-  ink: '#1A1410',
-  warmGray: '#6B6560',
-  border: 'rgba(26,20,16,0.15)',
-  focusRing: '#1A1410',
+  // Sunset pinks (from favicon)
+  rose: '#FF7C95',
+  roseDeep: '#B3294A',
+  roseMid: '#FF8CA3',
+  // Golds
+  gold: '#DDA94A',
+  goldLight: '#F6D79A',
+  goldDeep: '#C28A2C',
+  // Creams
+  cream: '#FBF1E6',
+  creamLight: '#FFFBF5',
+  // Dark
+  ink: '#2E211F',
+  warmBrown: '#5A463F',
+  warmBrownMid: '#6B554F',
+  warmBrownLight: '#9C8478',
+  // Borders
+  border: '#EBDAC9',
+  borderLight: '#ECDBCB',
+  borderForm: '#F3E3D3',
+  focusRing: '#2E211F',
 };
 
 declare module '@mui/material/styles' {
   interface Palette {
-    cream: { main: string };
-    ink: { main: string };
-    mint: { main: string; light: string; onDark: string };
-    warmGray: { main: string };
+    rose: { main: string; mid: string };
+    gold: { main: string; light: string; deep: string };
+    cream: { main: string; light: string };
+    inkPalette: { main: string };
+    warmBrown: { main: string; mid: string; light: string };
   }
   interface PaletteOptions {
-    cream?: { main: string };
-    ink?: { main: string };
-    mint?: { main: string; light: string; onDark: string };
-    warmGray?: { main: string };
+    rose?: { main: string; mid: string };
+    gold?: { main: string; light: string; deep: string };
+    cream?: { main: string; light: string };
+    inkPalette?: { main: string };
+    warmBrown?: { main: string; mid: string; light: string };
   }
 }
 
 const theme = createTheme({
   palette: {
-    primary: { main: tokens.pink },
-    secondary: { main: tokens.mint },
+    primary: { main: tokens.rose },
+    secondary: { main: tokens.gold },
     background: { default: tokens.cream },
-    text: { primary: tokens.ink, secondary: tokens.warmGray },
-    cream: { main: tokens.cream },
-    ink: { main: tokens.ink },
-    mint: { main: tokens.mint, light: tokens.mintLight, onDark: tokens.mintOnDark },
-    warmGray: { main: tokens.warmGray },
+    text: { primary: tokens.ink, secondary: tokens.warmBrownMid },
+    rose: { main: tokens.rose, mid: tokens.roseMid },
+    gold: { main: tokens.gold, light: tokens.goldLight, deep: tokens.goldDeep },
+    cream: { main: tokens.cream, light: tokens.creamLight },
+    inkPalette: { main: tokens.ink },
+    warmBrown: { main: tokens.warmBrown, mid: tokens.warmBrownMid, light: tokens.warmBrownLight },
   },
   typography: {
-    fontFamily: "'DM Sans', sans-serif",
-    h1: { fontFamily: "'Bebas Neue', sans-serif" },
-    h2: { fontFamily: "'Bebas Neue', sans-serif" },
-    h3: { fontFamily: "'Bebas Neue', sans-serif" },
+    fontFamily: "'Hanken Grotesk', sans-serif",
+    h1: { fontFamily: "'Bodoni Moda', serif" },
+    h2: { fontFamily: "'Bodoni Moda', serif" },
+    h3: { fontFamily: "'Bodoni Moda', serif" },
   },
   breakpoints: {
     values: { xs: 0, sm: 600, md: 900, lg: 1200, xl: 1536 },
@@ -56,7 +70,7 @@ const theme = createTheme({
         body: {
           backgroundColor: tokens.cream,
           color: tokens.ink,
-          fontFamily: "'DM Sans', sans-serif",
+          fontFamily: "'Hanken Grotesk', sans-serif",
           fontWeight: 300,
           overflowX: 'hidden',
           cursor: 'none',
@@ -66,6 +80,7 @@ const theme = createTheme({
         '@media (pointer: coarse)': {
           body: { cursor: 'auto' },
         },
+        '::selection': { background: tokens.roseMid, color: tokens.ink },
         '@media (prefers-reduced-motion: reduce)': {
           '*, *::before, *::after': {
             animationDuration: '0.01ms !important',
@@ -80,6 +95,7 @@ const theme = createTheme({
           borderRadius: '2px',
         },
         ':focus:not(:focus-visible)': { outline: 'none' },
+        a: { textDecoration: 'none', color: 'inherit' },
       },
     },
   },

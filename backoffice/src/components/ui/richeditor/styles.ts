@@ -34,7 +34,7 @@ export const ToolBtn = styled('button')({
   fontWeight: 500,
   padding: '4px 8px',
   borderRadius: 2,
-  cursor: 'pointer',
+  cursor: 'none',
   transition: 'all 0.15s',
   minWidth: 28,
   minHeight: 26,

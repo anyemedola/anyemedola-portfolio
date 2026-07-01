@@ -1,242 +1,118 @@
 import { styled } from '@mui/material/styles';
-import Link from 'next/link';
 import { tokens } from '@/theme/theme';
 
-export const BlogRoot = styled('section')({
-  background: tokens.ink,
-  padding: '120px 0',
-  position: 'relative',
-  overflow: 'hidden',
-  '&::after': {
-    content: "'BLOG'",
-    position: 'absolute',
-    bottom: -40,
-    right: -20,
-    fontFamily: "'Bebas Neue', sans-serif",
-    fontSize: 220,
-    color: 'rgba(255,255,255,0.025)',
-    pointerEvents: 'none',
-    lineHeight: 1,
-  },
+export const EscritaRoot = styled('section')({
+  scrollMarginTop: 70,
+  background: 'linear-gradient(180deg,#FCE7DD,#FBEFE6)',
+  padding: '84px 40px',
+  '@media (max-width: 900px)': { padding: '64px 22px' },
 });
 
 export const Inner = styled('div')({
-  maxWidth: 1200,
+  maxWidth: 1240,
   margin: '0 auto',
-  padding: '0 56px',
-  '@media (max-width: 900px)': {
-    padding: '0 24px',
-  },
-});
-
-export const BlogHeader = styled('div')({
-  display: 'flex',
-  alignItems: 'flex-end',
-  justifyContent: 'space-between',
-  marginBottom: 64,
-  '@media (max-width: 900px)': {
-    flexDirection: 'column',
-    alignItems: 'flex-start',
-    gap: 24,
-  },
-});
-
-export const BlogTitle = styled('h2')({
-  fontFamily: "'Bebas Neue', sans-serif",
-  fontSize: 'clamp(52px, 6vw, 88px)',
-  lineHeight: 0.9,
-  color: tokens.cream,
-  '& em': {
-    fontFamily: "'Cormorant Garamond', serif",
-    fontStyle: 'italic',
-    color: tokens.pinkOnDark,
-    fontWeight: 300,
-  },
-});
-
-export const HeaderRight = styled('div')({
-  textAlign: 'right',
-  '@media (max-width: 900px)': {
-    textAlign: 'left',
-  },
-});
-
-export const BlogSubtitle = styled('p')({
-  fontFamily: "'Cormorant Garamond', serif",
-  fontSize: 18,
-  fontWeight: 300,
-  fontStyle: 'italic',
-  color: 'rgba(249,245,238,0.55)',
-  maxWidth: 260,
-  lineHeight: 1.6,
-  marginBottom: 20,
-});
-
-export const AllLink = styled('a')({
-  fontFamily: "'DM Sans', sans-serif",
-  fontSize: 11,
-  fontWeight: 500,
-  letterSpacing: '0.16em',
-  textTransform: 'uppercase',
-  textDecoration: 'none',
-  color: tokens.mintOnDark,
-  display: 'inline-flex',
-  alignItems: 'center',
-  gap: 8,
-  transition: 'gap 0.2s',
-  minHeight: 44,
-  '&:hover': { gap: 14 },
-});
-
-export const Grid = styled('ul')({
   display: 'grid',
-  gridTemplateColumns: 'repeat(3, 1fr)',
-  gap: 2,
-  listStyle: 'none',
-  '@media (max-width: 900px)': {
+  gridTemplateColumns: '1fr 1fr',
+  gap: 50,
+  alignItems: 'center',
+  '@media (max-width: 760px)': {
     gridTemplateColumns: '1fr',
+    gap: 36,
   },
 });
 
-export const Card = styled('li')<{ cardColor?: string }>(({ cardColor }) => ({
-  background: 'rgba(255,255,255,0.04)',
-  border: '1px solid rgba(255,255,255,0.06)',
-  display: 'flex',
-  flexDirection: 'column',
-  overflow: 'hidden',
-  transition: 'transform 0.3s ease, background 0.3s ease',
-  cursor: 'none',
-  position: 'relative',
-  '--card-color': cardColor ?? tokens.mintOnDark,
-  '&:hover': {
-    background: 'rgba(255,255,255,0.07)',
-    transform: 'translateY(-4px)',
-    '& .card-bar': { transform: 'scaleX(1)' },
-    '& .card-title': { color: 'var(--card-color)' },
-    '& .card-arrow': {
-      background: 'var(--card-color)',
-      borderColor: 'var(--card-color)',
-      color: tokens.ink,
-      transform: 'rotate(45deg)',
-    },
-  },
-} as React.CSSProperties));
+export const Left = styled('div')({});
 
-export const CardBar = styled('div')({
-  height: 3,
-  width: '100%',
-  background: 'var(--card-color)',
-  transform: 'scaleX(0)',
-  transformOrigin: 'left',
-  transition: 'transform 0.4s ease',
-});
-
-export const Cover = styled('div')({
-  width: '100%',
-  aspectRatio: '16/9',
-  overflow: 'hidden',
-  position: 'relative',
-  background: 'rgba(255,255,255,0.03)',
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-});
-
-export const PlaceholderIcon = styled('span')({ fontSize: 36, opacity: 0.12, zIndex: 1 });
-
-export const Body = styled('div')({
-  padding: '28px 28px 32px',
-  display: 'flex',
-  flexDirection: 'column',
-  flex: 1,
-});
-
-export const Meta = styled('div')({
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'space-between',
-  marginBottom: 16,
-});
-
-export const Tag = styled('span')({
-  fontFamily: "'DM Sans', sans-serif",
-  fontSize: 10,
-  fontWeight: 500,
-  letterSpacing: '0.18em',
+export const Eyebrow = styled('p')({
+  fontFamily: "'Hanken Grotesk', var(--font-hanken), sans-serif",
+  fontSize: 13,
+  letterSpacing: '.3em',
   textTransform: 'uppercase',
-  color: 'var(--card-color)',
-  background: 'rgba(255,255,255,0.05)',
-  padding: '4px 10px',
-  borderRadius: 2,
+  color: '#E0568A',
+  fontWeight: 700,
+  margin: '0 0 16px',
 });
 
-export const DateEl = styled('time')({
-  fontFamily: "'DM Sans', sans-serif",
-  fontSize: 10,
-  letterSpacing: '0.1em',
-  color: 'rgba(249,245,238,0.4)',
+export const Title = styled('h2')({
+  fontFamily: "'Bodoni Moda', var(--font-bodoni), serif",
+  fontWeight: 700,
+  fontSize: 'clamp(28px, 3.5vw, 40px)',
+  lineHeight: 1.2,
+  margin: '0 0 18px',
+  color: tokens.ink,
+});
+
+export const Lead = styled('p')({
+  fontFamily: "'Hanken Grotesk', var(--font-hanken), sans-serif",
+  fontSize: 16,
+  lineHeight: 1.7,
+  color: '#564650',
+  margin: '0 0 28px',
+});
+
+export const CtaBtn = styled('a')({
+  display: 'inline-block',
+  fontFamily: "'Hanken Grotesk', var(--font-hanken), sans-serif",
+  fontSize: 14.5,
+  fontWeight: 700,
+  color: '#fff',
+  background: '#E0568A',
+  padding: '13px 24px',
+  borderRadius: 999,
+  textDecoration: 'none',
+  boxShadow: '0 10px 24px rgba(224,86,138,0.28)',
+  transition: 'background .25s, box-shadow .25s',
+  '&:hover': {
+    background: '#C24C76',
+    boxShadow: '0 6px 16px rgba(224,86,138,0.36)',
+  },
+});
+
+export const Cards = styled('div')({
+  display: 'flex',
+  flexDirection: 'column',
+  gap: 16,
+});
+
+export const NotebookCard = styled('article', {
+  shouldForwardProp: (prop) => prop !== 'accent',
+})<{ accent: string }>(({ accent }) => ({
+  background: '#fff',
+  borderRadius: 16,
+  padding: '24px 26px',
+  borderLeft: `4px solid ${accent}`,
+  boxShadow: '0 4px 18px -6px rgba(58,30,40,0.1)',
+  transition: 'transform .3s, box-shadow .3s',
+  '&:hover': {
+    transform: 'translateX(4px)',
+    boxShadow: '0 8px 24px -8px rgba(58,30,40,0.18)',
+  },
+}));
+
+export const CardKicker = styled('div')({
+  fontFamily: "'Hanken Grotesk', var(--font-hanken), sans-serif",
+  fontSize: 12,
+  fontWeight: 700,
+  letterSpacing: '0.12em',
+  textTransform: 'uppercase',
+  color: '#A85A6E',
+  marginBottom: 7,
 });
 
 export const CardTitle = styled('h3')({
-  fontFamily: "'Bebas Neue', sans-serif",
-  fontSize: 24,
-  letterSpacing: '0.03em',
-  lineHeight: 1.05,
-  color: tokens.cream,
-  marginBottom: 14,
-  transition: 'color 0.2s',
-});
-
-export const Excerpt = styled('p')({
-  fontFamily: "'Cormorant Garamond', serif",
-  fontSize: 15,
-  fontWeight: 300,
-  lineHeight: 1.65,
-  color: 'rgba(249,245,238,0.55)',
-  flex: 1,
-  marginBottom: 24,
-});
-
-export const CardFooter = styled('div')({
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'space-between',
-  paddingTop: 20,
-  borderTop: '1px solid rgba(255,255,255,0.07)',
-});
-
-export const ReadTime = styled('span')({
-  fontFamily: "'DM Sans', sans-serif",
-  fontSize: 10,
+  fontFamily: "'Bodoni Moda', var(--font-bodoni), serif",
+  fontStyle: 'italic',
   fontWeight: 500,
-  letterSpacing: '0.15em',
-  textTransform: 'uppercase',
-  color: 'rgba(249,245,238,0.4)',
+  fontSize: 26,
+  color: tokens.ink,
+  margin: '0 0 6px',
+  '@media (max-width: 480px)': { fontSize: 22 },
 });
 
-export const Arrow = styled('div')({
-  width: 32,
-  height: 32,
-  borderRadius: '50%',
-  border: '1px solid rgba(255,255,255,0.15)',
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
+export const CardDesc = styled('p')({
+  fontFamily: "'Hanken Grotesk', var(--font-hanken), sans-serif",
   fontSize: 14,
-  color: 'rgba(249,245,238,0.5)',
-  transition: 'all 0.25s',
-  flexShrink: 0,
-});
-
-export const CardLink = styled(Link)({
-  textDecoration: 'none',
-  display: 'flex',
-  flexDirection: 'column',
-  flex: 1,
-  color: 'inherit',
-  cursor: 'none',
-  '&:focus-visible': {
-    outline: `3px solid ${tokens.mintOnDark}`,
-    outlineOffset: 2,
-  },
+  lineHeight: 1.6,
+  color: '#6E5A63',
+  margin: 0,
 });

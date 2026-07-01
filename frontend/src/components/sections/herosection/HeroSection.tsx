@@ -1,42 +1,52 @@
 'use client';
 
-import Image from 'next/image';
 import { useTranslation } from 'react-i18next';
-import { Translator } from '@/components/translator-i18n';
-import BtnFill from '@/components/ui/btnFill/BtnFill';
-import BtnOutline from '@/components/ui/btnOutline/BtnOutline';
 import * as S from './styles';
 
 export default function HeroSection() {
   const { t } = useTranslation();
+
   return (
-    <S.HeroRoot aria-labelledby="hero-heading">
-      <S.HeroLeft>
-        <S.Eyebrow aria-hidden="true">{t('hero.eyebrow')}</S.Eyebrow>
-        <S.HeroTitle id="hero-heading">
-          Any<br /><span>Medola</span>
-        </S.HeroTitle>
-        <S.HeroDesc>
-          <Translator path="hero.desc" html />
-        </S.HeroDesc>
-        <S.HeroCta>
-          <BtnFill href="#experience">{t('hero.myWork')}</BtnFill>
-          <BtnOutline href="#contact">{t('hero.letsTalk')}</BtnOutline>
-        </S.HeroCta>
-      </S.HeroLeft>
-      <S.HeroRight>
-        <Image
-          src="/any_blue_focus.JPG"
-          alt="Any Medola smiling, wearing a teal blouse with her hand resting on her chin"
-          fill
-          style={{ objectFit: 'cover', objectPosition: 'center top' }}
+    <S.HeroRoot id="top" aria-labelledby="hero-heading">
+      <S.Collage aria-hidden="true">
+        <S.GlowOrb />
+        <S.MainFrame
+          src="/sicily-ragusa.jpg"
+          alt="Any em Ragusa Ibla, Sicília, ao pôr do sol"
+          objectPosition="center 30%"
+          rotate={-4}
+          caption={t('hero.cap1')}
           priority
         />
-        <S.HeroBadge aria-hidden="true">
-          <strong>5+</strong>
-          <span>{t('hero.badge')}</span>
-        </S.HeroBadge>
-      </S.HeroRight>
+        <S.SmallFrameRight
+          src="/sunset-sea.jpg"
+          alt="Any ao pôr do sol no mar"
+          rotate={4}
+          caption={t('hero.cap2')}
+          captionSize="sm"
+          priority
+        />
+        <S.SmallFrameLeft
+          src="/concert.jpg"
+          alt="Any em um show"
+          rotate={-7}
+          caption={t('hero.cap3')}
+          captionSize="sm"
+        />
+      </S.Collage>
+
+      <S.Content>
+        <S.Eyebrow>{t('hero.eyebrow')}</S.Eyebrow>
+        <S.HeroTitle id="hero-heading">
+          Any<br /><S.TitleItalic>Medola</S.TitleItalic>
+        </S.HeroTitle>
+        <S.HeroTag>{t('hero.tag')}</S.HeroTag>
+        <S.HeroSub>{t('hero.sub')}</S.HeroSub>
+        <S.Cta>
+          <S.BtnPrimary href="#contato">{t('hero.cta1')}</S.BtnPrimary>
+          <S.BtnGhost href="#projetos">{t('hero.cta2')}</S.BtnGhost>
+        </S.Cta>
+      </S.Content>
     </S.HeroRoot>
   );
 }
