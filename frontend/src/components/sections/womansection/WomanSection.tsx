@@ -5,11 +5,11 @@ import { useScrollReveal } from '@/hooks/useScrollReveal';
 import * as S from './styles';
 
 const stars = [
-  { top: '8%',  left: '12%', size: 4, delay: '0s',    color: '#FBE6C8' },
-  { top: '22%', left: '78%', size: 3, delay: '0.5s',  color: '#F3A98C' },
-  { top: '64%', left: '24%', size: 3, delay: '1s',    color: '#FBE6C8' },
-  { top: '40%', left: '60%', size: 5, delay: '0.8s',  color: '#E0568A' },
-  { top: '78%', left: '84%', size: 4, delay: '0.3s',  color: '#FBE6C8' },
+  { top: '8%',  left: '12%', size: 4, delay: '0s',    color: '#F5C0C3' },
+  { top: '22%', left: '78%', size: 3, delay: '0.5s',  color: '#EFA8AC' },
+  { top: '64%', left: '24%', size: 3, delay: '1s',    color: '#F5C0C3' },
+  { top: '40%', left: '60%', size: 5, delay: '0.8s',  color: '#C24C76' },
+  { top: '78%', left: '84%', size: 4, delay: '0.3s',  color: '#F5C0C3' },
 ] as const;
 
 export default function WomanSection() {

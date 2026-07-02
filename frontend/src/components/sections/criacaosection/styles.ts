@@ -35,7 +35,7 @@ export const FigmaMock = styled('div')({
   border: `1px solid ${tokens.borderLight}`,
   borderRadius: 22,
   padding: 22,
-  boxShadow: '0 30px 60px -42px rgba(120,60,50,.45)',
+  boxShadow: '0 30px 60px -42px rgba(18,59,55,.45)',
 });
 
 export const MockWindow = styled('div')({
@@ -187,7 +187,7 @@ export const ContentCard = styled('div')({
   transition: 'transform .4s cubic-bezier(.2,.7,.2,1), box-shadow .4s',
   '&:hover': {
     transform: 'translateY(-6px)',
-    boxShadow: '0 34px 60px -36px rgba(120,60,50,.55)',
+    boxShadow: '0 34px 60px -36px rgba(18,59,55,.55)',
   },
 });
 
@@ -202,7 +202,7 @@ export const ContentCardLink = styled('a')({
   transition: 'transform .4s cubic-bezier(.2,.7,.2,1), box-shadow .4s',
   '&:hover': {
     transform: 'translateY(-6px)',
-    boxShadow: '0 34px 60px -36px rgba(120,60,50,.55)',
+    boxShadow: '0 34px 60px -36px rgba(18,59,55,.55)',
   },
 });
 

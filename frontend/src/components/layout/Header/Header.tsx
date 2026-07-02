@@ -30,7 +30,7 @@ export default function Header() {
       <S.Inner>
         <S.Logo href="#top" aria-label="Any Medola — Home">
           <Image
-            src="/favicon-256x256.ico"
+            src="/android-chrome-192x192.png"
             alt="Logotipo de Any Medola"
             width={80}
             height={80}

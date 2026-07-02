@@ -183,9 +183,9 @@
     "submitting": "Entrando..."
   },
   "colors": {
-    "mint": "Menta",
-    "pink": "Rosa",
-    "warm": "Quente",
+    "rose": "Rosa",
+    "gold": "Dourado",
+    "teal": "Verde-água",
     "blue": "Azul",
     "purple": "Roxo"
   }

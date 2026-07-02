@@ -2,14 +2,23 @@ import { styled, keyframes } from '@mui/material/styles';
 import { tokens } from '@/theme/theme';
 import { SectionTitle, Lead as BaseLead } from '@/components/ui/sectionheader/styles';
 import Polaroid from '@/components/ui/polaroid/Polaroid';
+import { SectionInner } from '@/components/ui/sectioninner/styles';
 
 const floatTwinkle = keyframes`
   0%, 100% { opacity: 0.2; }
   50%       { opacity: 0.85; }
 `;
 
+const slowDrift = keyframes`
+  from { transform: rotate(-4deg) translateY(0); }
+  to   { transform: rotate(-4deg) translateY(-14px); }
+`;
+
 export { SectionRootBordered as ViagensRoot } from '@/components/ui/sectionroot/styles';
-export { SectionInner as Inner } from '@/components/ui/sectioninner/styles';
+export const Inner = styled(SectionInner)({
+  padding: '56px 40px',
+  '@media (max-width: 900px)': { padding: '40px 22px' },
+});
 export { Eyebrow } from '@/components/ui/sectionheader/styles';
 export { Frame as PolaroidFrame } from '@/components/ui/polaroid/styles';
 
@@ -26,12 +35,12 @@ export const HeaderWrap = styled('div')({});
 export const TopGrid = styled('div')({
   display: 'grid',
   gridTemplateColumns: '0.9fr 1.25fr',
-  gap: 56,
+  gap: 36,
   alignItems: 'center',
-  marginBottom: 28,
+  marginBottom: 16,
   '@media (max-width: 900px)': {
     gridTemplateColumns: '1fr',
-    gap: 40,
+    gap: 28,
   },
 });
 
@@ -82,9 +91,58 @@ export const PlaceholderGold = styled('div')({
   padding: 14,
   fontFamily: "'Bodoni Moda', var(--font-bodoni), serif",
   fontStyle: 'italic',
-  color: '#5A2E2E',
+  color: '#123B37',
   fontSize: 15,
   lineHeight: 1.45,
+});
+
+export const TravelCollage = styled('div')({
+  position: 'relative',
+  height: 440,
+  justfyItems: 'center',
+  alignItems: 'center',
+  display: 'grid',
+  '@media (max-width: 1024px)': { height: 360 },
+  '@media (max-width: 900px)': { display: 'none' },
+});
+
+export const TravelGlowOrb = styled('div')({
+  position: 'absolute',
+  top: 24,
+  right: 30,
+  width: '58%',
+  height: '78%',
+  borderRadius: '220px 220px 18px 18px',
+  background: `linear-gradient(180deg, ${tokens.goldLight}, ${tokens.roseMid} 55%, ${tokens.rose})`,
+  opacity: 0.22,
+  filter: 'blur(2px)',
+});
+
+export const TravelMainFrame = styled(Polaroid)({
+  position: 'absolute',
+  top: 0,
+  left: 80,
+  width: 224,
+  height: 292,
+  zIndex: 1,
+  animation: `${slowDrift} 5s ease-in-out infinite alternate`,
+  '&:hover': { animation: 'none' },
+});
+
+export const TravelSmallRight = styled(Polaroid)({
+  position: 'absolute',
+  bottom: 20,
+  right: 200,
+  width: 174,
+  height: 224,
+});
+
+export const TravelSmallLeft = styled(Polaroid)({
+  position: 'absolute',
+  bottom: 0,
+  left: 10,
+  width: 200,
+  height: 230,
 });
 
 export const TravelWithMe = styled('div')({
@@ -92,7 +150,7 @@ export const TravelWithMe = styled('div')({
   gridTemplateColumns: '1.35fr .65fr',
   gap: 28,
   alignItems: 'center',
-  background: 'linear-gradient(165deg,#1F1430 0%,#3A1E3A 50%,#5A2742 100%)',
+  background: 'linear-gradient(165deg,#0C2926 0%,#123B37 50%,#14403C 100%)',
   borderRadius: 24,
   padding: '44px 48px',
   position: 'relative',
@@ -128,7 +186,7 @@ export const TwmGlow = styled('div')({
   width: 280,
   height: 280,
   borderRadius: '50%',
-  background: `radial-gradient(circle, ${tokens.goldLight} 0%, rgba(221,169,74,0) 70%)`,
+  background: `radial-gradient(circle, ${tokens.goldLight} 0%, rgba(26,97,93,0) 70%)`,
   opacity: 0.5,
   pointerEvents: 'none',
 });
@@ -160,7 +218,7 @@ export const TwmP = styled('p')({
   fontFamily: "'Hanken Grotesk', var(--font-hanken), sans-serif",
   fontSize: 16,
   lineHeight: 1.6,
-  color: '#E7CFC4',
+  color: 'rgba(184,200,151,0.8)',
   margin: 0,
   maxWidth: 460,
 });

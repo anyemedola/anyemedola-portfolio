@@ -10,8 +10,8 @@ export const WomanRoot = styled('section')({
   position: 'relative',
   scrollMarginTop: 70,
   padding: '90px 40px',
-  background: 'linear-gradient(165deg,#1F1430 0%,#3A1E3A 50%,#5A2742 100%)',
-  color: '#F6E4EC',
+  background: 'linear-gradient(165deg,#0C2926 0%,#123B37 50%,#14403C 100%)',
+  color: '#F5C0C3',
   overflow: 'hidden',
   '@media (max-width: 900px)': { padding: '64px 22px' },
 });
@@ -46,7 +46,7 @@ export const Eyebrow = styled('p')({
   fontWeight: 800,
   letterSpacing: '0.24em',
   textTransform: 'uppercase',
-  color: '#F3A98C',
+  color: '#EFA8AC',
   margin: '0 0 18px',
 });
 
@@ -55,7 +55,7 @@ export const Title = styled('h2')({
   fontWeight: 300,
   fontSize: 'clamp(24px, 3.5vw, 34px)',
   lineHeight: 1.4,
-  color: '#F9EAF0',
+  color: '#F5C0C3',
   margin: '0 0 14px',
 });
 
@@ -63,7 +63,7 @@ export const Sub = styled('p')({
   fontFamily: "'Hanken Grotesk', var(--font-hanken), sans-serif",
   fontSize: 15,
   lineHeight: 1.7,
-  color: '#D9BFCB',
+  color: 'rgba(184,200,151,0.8)',
   margin: '0 auto 40px',
   maxWidth: '60ch',
 });
@@ -88,13 +88,13 @@ export const NumerologyCard = styled('div')({
 export const CardNum = styled('div')({
   fontFamily: "'Bodoni Moda', var(--font-bodoni), serif",
   fontSize: 28,
-  color: '#F3A98C',
+  color: '#EFA8AC',
   lineHeight: 1.1,
 });
 
 export const CardLabel = styled('div')({
   fontFamily: "'Hanken Grotesk', var(--font-hanken), sans-serif",
   fontSize: 12.5,
-  color: '#CDAFBD',
+  color: 'rgba(184,200,151,0.7)',
   marginTop: 4,
 });

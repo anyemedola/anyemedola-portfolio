@@ -28,7 +28,7 @@ export const Content = styled('div')({
 });
 
 export const Eyebrow = styled(BaseEyebrow)({
-  color: '#E0568A',
+  color: '#1A615D',
   marginBottom: 18,
 });
 
@@ -40,7 +40,7 @@ export const Title = styled(SectionTitle)({
   margin: '0 0 28px',
   '& em': {
     fontStyle: 'italic',
-    color: '#E0568A',
+    color: '#EFA8AC',
   },
 });
 
@@ -67,7 +67,7 @@ export const StatNumber = styled('div')({
   fontFamily: "'Bodoni Moda', var(--font-bodoni), serif",
   fontSize: 40,
   fontWeight: 700,
-  color: '#E0568A',
+  color: '#EFA8AC',
   lineHeight: 1,
 });
 

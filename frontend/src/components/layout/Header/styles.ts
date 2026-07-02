@@ -6,11 +6,11 @@ export const HeaderRoot = styled('header')({
   top: 0,
   zIndex: 50,
   backdropFilter: 'blur(14px)',
-  background: 'rgba(251,241,230,.82)',
+  background: 'rgba(251,237,238,.82)',
   borderBottom: `1px solid ${tokens.border}`,
   transition: 'box-shadow 0.3s ease',
   '&[data-scrolled="true"]': {
-    boxShadow: '0 2px 20px -10px rgba(46,33,31,.2)',
+    boxShadow: '0 2px 20px -10px rgba(18,59,55,.2)',
   },
 });
 
@@ -73,12 +73,12 @@ export const CtaLink = styled('a')({
   fontWeight: 700,
   padding: '9px 18px',
   borderRadius: 999,
-  background: '#E0568A',
+  background: '#1A615D',
   color: '#fff',
   transition: 'background .25s',
   whiteSpace: 'nowrap',
   '&:hover': {
-    background: '#C24C76',
+    background: '#0E4E4A',
   },
   '@media (max-width: 900px)': {
     display: 'none',

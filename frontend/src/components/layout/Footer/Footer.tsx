@@ -10,13 +10,12 @@ export default function ContactSection() {
 
   return (
     <S.ContactRoot id="contato" aria-labelledby="contact-heading" ref={ref}>
-      <S.Star top="6%"  left="8%"  size={3} delay="0s"    color="#FBE6C8" aria-hidden="true" />
-      <S.Star top="14%" left="55%" size={4} delay="0.6s"  color="#F3A98C" aria-hidden="true" />
-      <S.Star top="38%" left="72%" size={3} delay="1.1s"  color="#FBE6C8" aria-hidden="true" />
-      <S.Star top="62%" left="18%" size={5} delay="0.3s"  color="#E0568A" aria-hidden="true" />
-      <S.Star top="80%" left="42%" size={3} delay="0.9s"  color="#FBE6C8" aria-hidden="true" />
-      <S.Star top="22%" left="88%" size={4} delay="1.4s"  color="#F3A98C" aria-hidden="true" />
-      <S.SunGlow aria-hidden="true" />
+      <S.Star top="6%"  left="8%"  size={3} delay="0s"    color="#F5C0C3" aria-hidden="true" />
+      <S.Star top="14%" left="55%" size={4} delay="0.6s"  color="#EFA8AC" aria-hidden="true" />
+      <S.Star top="38%" left="72%" size={3} delay="1.1s"  color="#F5C0C3" aria-hidden="true" />
+      <S.Star top="62%" left="18%" size={5} delay="0.3s"  color="#C24C76" aria-hidden="true" />
+      <S.Star top="80%" left="42%" size={3} delay="0.9s"  color="#F5C0C3" aria-hidden="true" />
+      <S.Star top="22%" left="88%" size={4} delay="1.4s"  color="#EFA8AC" aria-hidden="true" />
       <S.Inner>
         <S.Eyebrow className="reveal">{t('contact.eyebrow')}</S.Eyebrow>
         <S.Title className="reveal" id="contact-heading">{t('contact.title')}</S.Title>

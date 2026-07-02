@@ -32,7 +32,7 @@ export const Card = styled('div')({
   transition: 'transform .4s cubic-bezier(.2,.7,.2,1), box-shadow .4s',
   '&:hover': {
     transform: 'translateY(-4px)',
-    boxShadow: '0 24px 44px -26px rgba(120,60,50,.35)',
+    boxShadow: '0 24px 44px -26px rgba(18,59,55,.35)',
   },
 });
 

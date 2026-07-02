@@ -5,24 +5,24 @@ export const BadgeRoot = styled('span')<{ variant: 'published' | 'draft' | 'feat
   display: 'inline-flex',
   alignItems: 'center',
   gap: 5,
+  fontFamily: "'Hanken Grotesk', var(--font-hanken), sans-serif",
   fontSize: 10,
-  fontWeight: 500,
+  fontWeight: 700,
   letterSpacing: '0.1em',
   textTransform: 'uppercase',
   padding: '3px 10px',
-  borderRadius: 2,
-  fontFamily: "'DM Sans', sans-serif",
+  borderRadius: 6,
   ...(variant === 'published' && {
-    background: 'rgba(110,207,184,0.12)',
-    color: tokens.mint,
+    background: 'rgba(79,184,154,0.12)',
+    color: tokens.published,
   }),
   ...(variant === 'draft' && {
-    background: 'rgba(255,255,255,0.05)',
-    color: tokens.textMuted,
+    background: 'rgba(217,138,91,0.12)',
+    color: tokens.draft,
   }),
   ...(variant === 'featured' && {
-    background: 'rgba(240,168,48,0.12)',
-    color: tokens.warning,
+    background: tokens.goldGlow,
+    color: tokens.gold,
   }),
 }));
 

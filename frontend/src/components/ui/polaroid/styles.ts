@@ -9,12 +9,12 @@ export const Frame = styled('div', {
   background: tokens.creamLight,
   borderRadius: 10,
   padding: '10px 10px 16px',
-  boxShadow: '0 16px 32px -18px rgba(46,33,31,.4)',
+  boxShadow: '0 16px 32px -18px rgba(18,59,55,.4)',
   transform: `rotate(${rotate}deg)`,
   transition: 'transform .45s cubic-bezier(.2,.7,.2,1), box-shadow .45s',
   '&:hover': {
     transform: 'rotate(0deg) translateY(-6px)',
-    boxShadow: '0 26px 44px -20px rgba(46,33,31,.5)',
+    boxShadow: '0 26px 44px -20px rgba(18,59,55,.5)',
   },
   '&:hover img': { transform: 'scale(1.06)' },
 }));

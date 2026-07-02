@@ -12,7 +12,7 @@ export default function SettingsView() {
   const [form, setForm] = useState({
     name: 'Any Elis Mendonça Medola',
     role: 'Senior Front-End Developer',
-    location: 'Milan, Italy',
+    location: 'Sicily, Italy',
     email: 'any@aeait.com',
     linkedin: 'https://linkedin.com/in/dev-anyemedola',
     github: 'https://github.com/anyemedola',

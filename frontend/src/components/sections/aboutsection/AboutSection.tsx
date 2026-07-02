@@ -15,7 +15,7 @@ export default function AboutSection() {
       <S.Inner>
         <S.ImageFrame className="reveal">
           <Image
-            src="/sicily-ragusa.jpg"
+            src="/about_me.jpeg"
             alt="Any na Sicília"
             fill
             style={{ objectFit: 'cover', objectPosition: 'center 28%' }}

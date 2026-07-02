@@ -3,7 +3,7 @@ import { styled } from '@mui/material/styles';
 
 export const Section = styled('section')({
   padding: '64px 56px',
-  background: 'linear-gradient(180deg,#FBEFE6,#FCE7DD)',
+  background: 'linear-gradient(180deg,#FBEDEE,#EEF2E4)',
   '@media (max-width: 760px)': { padding: '52px 24px' },
 });
 
@@ -18,7 +18,7 @@ export const Eyebrow = styled('h2')({
   fontWeight: 800,
   letterSpacing: '0.22em',
   textTransform: 'uppercase',
-  color: '#E0568A',
+  color: '#1A615D',
   margin: '0 0 24px',
   textAlign: 'center',
 });
@@ -35,17 +35,17 @@ export const CardLink = styled(Link)({
   background: '#fff',
   borderRadius: 16,
   padding: 26,
-  border: '1px solid rgba(224,86,138,0.12)',
+  border: '1px solid rgba(239,168,172,0.25)',
   textDecoration: 'none',
   display: 'block',
   transition: 'transform .3s cubic-bezier(.2,.7,.2,1), box-shadow .3s',
   '&:hover': {
     transform: 'translateY(-4px)',
-    boxShadow: '0 20px 48px -20px rgba(180,60,100,.25)',
+    boxShadow: '0 20px 48px -20px rgba(26,97,93,.25)',
   },
-  '&:hover h3': { color: '#E0568A' },
+  '&:hover h3': { color: '#EFA8AC' },
   '&:focus-visible': {
-    outline: '3px solid #DDA94A',
+    outline: '3px solid #1A615D',
     outlineOffset: 2,
   },
 });
@@ -56,7 +56,7 @@ export const Kicker = styled('div')({
   fontWeight: 700,
   letterSpacing: '0.12em',
   textTransform: 'uppercase',
-  color: '#A85A6E',
+  color: '#C24C76',
   marginBottom: 10,
 });
 
@@ -65,7 +65,7 @@ export const CardTitle = styled('h3')({
   fontSize: 23,
   fontWeight: 500,
   lineHeight: 1.15,
-  color: '#33212B',
+  color: '#123B37',
   margin: '0 0 8px',
   transition: 'color .2s',
 });
@@ -74,6 +74,6 @@ export const Excerpt = styled('p')({
   fontFamily: "'Hanken Grotesk', var(--font-hanken), sans-serif",
   fontSize: 13.5,
   lineHeight: 1.55,
-  color: '#6E5A63',
+  color: '#4A5D58',
   margin: 0,
 });

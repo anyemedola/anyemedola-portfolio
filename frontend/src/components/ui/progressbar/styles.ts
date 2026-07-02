@@ -10,6 +10,6 @@ export const BarFill = styled('div', {
   transition: 'width 0.1s linear',
   background:
     variant === 'gradient'
-      ? 'linear-gradient(90deg,#F6D79A,#E79CA8 55%,#B5546A)'
+      ? 'linear-gradient(90deg,#B8C897,#EFA8AC 55%,#C24C76)'
       : tokens.gold,
 }));

@@ -21,7 +21,7 @@ interface FormState {
 const empty: FormState = {
   title: '', type: '', order: '', descEn: '', descPt: '', descIt: '',
   url: '', github: '', published: false, featured: false,
-  stack: [], image: null, accentColor: '#4DB89E',
+  stack: [], image: null, accentColor: '#EFA8AC',
 };
 
 export default function ProjectPanel() {
@@ -49,7 +49,7 @@ export default function ProjectPanel() {
         featured:    p.featured    ?? false,
         stack:       p.stack       ?? [],
         image:       p.image       ?? null,
-        accentColor: p.accentColor ?? '#4DB89E',
+        accentColor: p.accentColor ?? '#EFA8AC',
       });
     } else {
       setForm(empty);
@@ -174,13 +174,13 @@ export default function ProjectPanel() {
             <S.Label htmlFor="p-color">{t('projectPanel.labelColor')}</S.Label>
             <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
               <S.Select id="p-color" value={form.accentColor} onChange={set('accentColor')} style={{ flex: 1 }}>
-                <option value="#4DB89E">{t('colors.mint')}</option>
-                <option value="#C43560">{t('colors.pink')}</option>
-                <option value="#8B7355">{t('colors.warm')}</option>
-                <option value="#6B7BA4">{t('colors.blue')}</option>
-                <option value="#A855F7">{t('colors.purple')}</option>
+                <option value="#EFA8AC">{t('colors.rose')}</option>
+                <option value="#1A615D">{t('colors.teal')}</option>
+                <option value="#B8C897">{t('colors.sage')}</option>
+                <option value="#3B82F6">{t('colors.blue')}</option>
+                <option value="#7C3AED">{t('colors.purple')}</option>
               </S.Select>
-              <div style={{ width: 36, height: 36, borderRadius: 4, background: form.accentColor, border: '1px solid rgba(255,255,255,0.1)', flexShrink: 0 }} />
+              <div style={{ width: 36, height: 36, borderRadius: 8, background: form.accentColor, border: '1px solid rgba(239,168,172,0.25)', flexShrink: 0 }} />
             </div>
           </S.FormGroup>
           <Toggle label={t('projectPanel.labelPublished')} sub={t('projectPanel.subPublished')} checked={form.published} onChange={v => setForm(p => ({ ...p, published: v }))} />

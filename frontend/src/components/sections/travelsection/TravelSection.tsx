@@ -1,7 +1,6 @@
 'use client';
 
 import { useTranslation } from 'react-i18next';
-import { Translator } from '@/components/translator-i18n';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
 import * as S from './styles';
 
@@ -19,44 +18,39 @@ export default function TravelSection() {
             <S.Lead className="reveal">{t('travel.lead')}</S.Lead>
           </S.HeaderWrap>
 
-          <S.Gallery className="reveal" aria-label="Travel gallery">
-            <S.GalleryMain
-              src="/sicily-ragusa.jpg"
-              alt="Ragusa Ibla, Sicily"
+          <S.TravelCollage aria-hidden="true">
+            <S.TravelGlowOrb />
+            <S.TravelMainFrame
+              src="/verona.jpeg"
+              alt="Casa di Giulietta, Verona"
               objectPosition="center 30%"
-              rotate={-1.5}
+              rotate={-4}
               caption={t('travel.cap1')}
             />
-
-            <S.GallerySmall
-              src="/sunset-sea.jpg"
-              alt="Sunset over the Mediterranean"
+            <S.TravelSmallRight
+              src="/brazil.jpeg"
+              alt="Any torcendo pelo Brasil na Copa do Mundo 2026"
               objectPosition="center 35%"
-              rotate={1.2}
+              rotate={4}
               caption={t('travel.cap2')}
               captionSize="sm"
             />
-
-            <S.PolaroidFrame rotate={2}>
-              <S.PlaceholderPink>
-                <Translator path="travel.cap3" html />
-              </S.PlaceholderPink>
-            </S.PolaroidFrame>
-
-            <S.PolaroidFrame rotate={-1.8}>
-              <S.PlaceholderGold>
-                <Translator path="travel.cap4" html />
-              </S.PlaceholderGold>
-            </S.PolaroidFrame>
-          </S.Gallery>
+            <S.TravelSmallLeft
+            src="/snow.jpeg"
+              alt="Etna, Sicília"
+              rotate={-7}
+              caption={t('travel.cap3')}
+              captionSize="sm"
+            />
+          </S.TravelCollage>
         </S.TopGrid>
 
         <S.TravelWithMe className="reveal" aria-label="Travel with me group">
-          <S.TwmStar top="10%" left="8%"  size={3} delay="0s"   color="#FBE6C8" aria-hidden="true" />
-          <S.TwmStar top="25%" left="52%" size={4} delay="0.7s" color="#F3A98C" aria-hidden="true" />
-          <S.TwmStar top="65%" left="20%" size={3} delay="1.2s" color="#FBE6C8" aria-hidden="true" />
-          <S.TwmStar top="45%" left="75%" size={5} delay="0.4s" color="#E0568A" aria-hidden="true" />
-          <S.TwmStar top="82%" left="60%" size={3} delay="1.0s" color="#FBE6C8" aria-hidden="true" />
+          <S.TwmStar top="10%" left="8%"  size={3} delay="0s"   color="#F5C0C3" aria-hidden="true" />
+          <S.TwmStar top="25%" left="52%" size={4} delay="0.7s" color="#EFA8AC" aria-hidden="true" />
+          <S.TwmStar top="65%" left="20%" size={3} delay="1.2s" color="#F5C0C3" aria-hidden="true" />
+          <S.TwmStar top="45%" left="75%" size={5} delay="0.4s" color="#C24C76" aria-hidden="true" />
+          <S.TwmStar top="82%" left="60%" size={3} delay="1.0s" color="#F5C0C3" aria-hidden="true" />
           <S.TwmGlow aria-hidden="true" />
           <S.TwmLeft>
             <S.TwmEyebrow>{t('travel.twmEyebrow')}</S.TwmEyebrow>

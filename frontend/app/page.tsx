@@ -29,6 +29,7 @@ export default function HomePage() {
         <WomanSection />
         <TravelSection />
         <ExpatSection />
+        <div aria-hidden="true" style={{ height: 1, background: 'rgba(239,168,172,0.35)', margin: '0 40px' }} />
         <BlogSection />
       </main>
       <Footer />

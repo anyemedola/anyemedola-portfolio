@@ -183,9 +183,9 @@
     "submitting": "Signing in..."
   },
   "colors": {
-    "mint": "Mint",
-    "pink": "Pink",
-    "warm": "Warm",
+    "rose": "Rose",
+    "gold": "Gold",
+    "teal": "Teal",
     "blue": "Blue",
     "purple": "Purple"
   }

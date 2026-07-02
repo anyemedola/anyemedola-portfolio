@@ -5,7 +5,7 @@ import { tokens } from '@/theme/theme';
 export const Nav = styled('nav')({
   position: 'sticky',
   top: 0,
-  background: 'rgba(251,241,230,.92)',
+  background: 'rgba(251,237,238,.92)',
   backdropFilter: 'blur(14px)',
   borderBottom: `1px solid ${tokens.border}`,
   zIndex: 50,
@@ -34,7 +34,7 @@ export const BackBtn = styled(Link)({
   transition: 'color .2s',
   minHeight: 44,
   padding: 0,
-  '&:hover': { color: '#E0568A' },
+  '&:hover': { color: '#1A615D' },
   '&:hover .back-arrow': { transform: 'translateX(-4px)' },
 });
 
@@ -49,5 +49,5 @@ export const NavLogo = styled(Link)({
   fontSize: 19,
   textDecoration: 'none',
   color: tokens.ink,
-  '& em': { fontStyle: 'italic', color: '#E0568A' },
+  '& em': { fontStyle: 'italic', color: '#EFA8AC' },
 });

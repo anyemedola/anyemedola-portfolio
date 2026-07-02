@@ -27,7 +27,7 @@ const empty: FormState = {
   subtitle: '', subtitlePt: '', subtitleIt: '',
   excerptEn: '', excerptPt: '', excerptIt: '',
   date: '', readTime: '', status: 'draft',
-  primaryTag: '', tags: [], accentColor: '#4DB89E', icon: '✦', image: null,
+  primaryTag: '', tags: [], accentColor: '#EFA8AC', icon: '✦', image: null,
 };
 
 export default function BlogPanel() {
@@ -58,7 +58,7 @@ export default function BlogPanel() {
           status:     p.status      ?? 'draft',
           primaryTag: p.primaryTag  ?? '',
           tags:       p.tags        ?? [],
-          accentColor: p.accentColor ?? '#4DB89E',
+          accentColor: p.accentColor ?? '#EFA8AC',
           icon:       p.icon        ?? '✦',
           image:      p.image       ?? null,
         });
@@ -220,16 +220,16 @@ export default function BlogPanel() {
             <div>
               <S.Label htmlFor="b-color">{t('blogPanel.labelColor')}</S.Label>
               <S.Select id="b-color" value={form.accentColor} onChange={set('accentColor')}>
-                <option value="#4DB89E">{t('colors.mint')}</option>
-                <option value="#C43560">{t('colors.pink')}</option>
-                <option value="#8B7355">{t('colors.warm')}</option>
-                <option value="#6B7BA4">{t('colors.blue')}</option>
-                <option value="#A855F7">{t('colors.purple')}</option>
+                <option value="#EFA8AC">{t('colors.rose')}</option>
+                <option value="#1A615D">{t('colors.teal')}</option>
+                <option value="#B8C897">{t('colors.sage')}</option>
+                <option value="#3B82F6">{t('colors.blue')}</option>
+                <option value="#7C3AED">{t('colors.purple')}</option>
               </S.Select>
             </div>
             <div>
               <S.Label>{t('blogPanel.labelColorSwatch')}</S.Label>
-              <div style={{ width: 40, height: 40, borderRadius: 4, background: form.accentColor, border: '1px solid rgba(255,255,255,0.1)', marginTop: 2 }} />
+              <div style={{ width: 40, height: 40, borderRadius: 8, background: form.accentColor, border: '1px solid rgba(239,168,172,0.25)', marginTop: 2 }} />
             </div>
             <div>
               <S.Label htmlFor="b-icon">{t('blogPanel.labelIcon')}</S.Label>

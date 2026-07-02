@@ -3,7 +3,7 @@ import { tokens } from '@/theme/theme';
 
 export const ProjectsRoot = styled('section')({
   scrollMarginTop: 70,
-  background: 'linear-gradient(180deg,#FBEFE6,#FCE7DD)',
+  background: 'linear-gradient(180deg,#FBEDEE,#EEF2E4)',
   padding: '84px 40px',
   '@media (max-width: 900px)': { padding: '64px 22px' },
 });
@@ -29,7 +29,7 @@ export const Eyebrow = styled('p')({
   fontSize: 13,
   letterSpacing: '.3em',
   textTransform: 'uppercase',
-  color: '#E0568A',
+  color: '#1A615D',
   fontWeight: 700,
   margin: '0 0 10px',
 });
@@ -50,7 +50,7 @@ export const RequestLink = styled('a')({
   color: '#C24C76',
   textDecoration: 'none',
   whiteSpace: 'nowrap',
-  '&:hover': { color: '#E0568A' },
+  '&:hover': { color: '#EFA8AC' },
 });
 
 export const Grid = styled('div')({
@@ -66,14 +66,14 @@ export const FeaturedCard = styled('article')({
   gridColumn: '1 / -1',
   display: 'grid',
   gridTemplateColumns: '1.1fr 1fr',
-  background: '#33212B',
+  background: '#123B37',
   borderRadius: 22,
   overflow: 'hidden',
   color: '#fff',
   transition: 'transform .3s, box-shadow .3s',
   '&:hover': {
     transform: 'translateY(-4px)',
-    boxShadow: '0 24px 50px -20px rgba(50,15,30,0.5)',
+    boxShadow: '0 24px 50px -20px rgba(18,59,55,0.5)',
   },
   '@media (max-width: 760px)': { gridTemplateColumns: '1fr' },
 });
@@ -106,12 +106,12 @@ export const FeaturedDesc = styled('p')({
   fontFamily: "'Hanken Grotesk', var(--font-hanken), sans-serif",
   fontSize: 15,
   lineHeight: 1.65,
-  color: '#E4CDD3',
+  color: '#C8DED9',
   margin: '0 0 18px',
 });
 
 export const FeaturedVisual = styled('div')({
-  background: 'linear-gradient(150deg,#E0568A,#F39C7E)',
+  background: 'linear-gradient(150deg,#EFA8AC,#F5C0C3)',
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
@@ -146,11 +146,11 @@ export const Card = styled('article')({
   background: '#fff',
   borderRadius: 22,
   padding: '34px 32px',
-  border: '1px solid rgba(224,86,138,0.12)',
+  border: '1px solid rgba(239,168,172,0.25)',
   transition: 'transform .3s, box-shadow .3s',
   '&:hover': {
     transform: 'translateY(-4px)',
-    boxShadow: '0 20px 40px -20px rgba(160,60,90,0.2)',
+    boxShadow: '0 20px 40px -20px rgba(18,59,55,0.2)',
   },
   '@media (max-width: 600px)': { padding: '26px 22px' },
 });
@@ -168,7 +168,7 @@ export const CardTitle = styled('h3')({
   fontFamily: "'Bodoni Moda', var(--font-bodoni), serif",
   fontWeight: 500,
   fontSize: 26,
-  color: '#33212B',
+  color: '#123B37',
   margin: '12px 0 10px',
   '@media (max-width: 480px)': { fontSize: 22 },
 });
@@ -177,7 +177,7 @@ export const CardDesc = styled('p')({
   fontFamily: "'Hanken Grotesk', var(--font-hanken), sans-serif",
   fontSize: 14.5,
   lineHeight: 1.6,
-  color: '#564650',
+  color: '#4A5D58',
   margin: '0 0 16px',
 });
 
@@ -185,8 +185,8 @@ export const TagLight = styled('span')({
   fontFamily: "'Hanken Grotesk', var(--font-hanken), sans-serif",
   fontSize: 11.5,
   fontWeight: 600,
-  color: '#3F2F38',
-  background: '#FBEAE0',
+  color: '#123B37',
+  background: '#E4EAD6',
   borderRadius: 7,
   padding: '5px 9px',
 });

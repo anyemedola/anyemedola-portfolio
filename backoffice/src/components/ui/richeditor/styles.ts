@@ -3,10 +3,10 @@ import { tokens } from '@/theme/tokens';
 
 export const Wrap = styled('div')({
   border: `1px solid ${tokens.border}`,
-  borderRadius: 2,
+  borderRadius: 10,
   overflow: 'hidden',
-  transition: 'border-color 0.2s',
-  '&:focus-within': { borderColor: tokens.mint },
+  transition: 'border-color 0.2s, box-shadow 0.2s',
+  '&:focus-within': { borderColor: tokens.rose, boxShadow: `0 0 0 3px ${tokens.roseGlow}` },
 });
 
 export const Toolbar = styled('div')({
@@ -33,15 +33,15 @@ export const ToolBtn = styled('button')({
   fontSize: 12,
   fontWeight: 500,
   padding: '4px 8px',
-  borderRadius: 2,
-  cursor: 'none',
+  borderRadius: 6,
+  cursor: 'pointer',
   transition: 'all 0.15s',
   minWidth: 28,
   minHeight: 26,
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
-  fontFamily: "'DM Sans', sans-serif",
+  fontFamily: "'Hanken Grotesk', var(--font-hanken), sans-serif",
   '&:hover': { background: tokens.surface3, color: tokens.text },
 });
 
@@ -49,8 +49,8 @@ export const Body = styled('div')({
   background: tokens.surface2,
   minHeight: 240,
   padding: 16,
-  fontFamily: "'Cormorant Garamond', serif",
-  fontSize: 17,
+  fontFamily: "'Newsreader', var(--font-newsreader), serif",
+  fontSize: 16,
   color: tokens.text,
   lineHeight: 1.7,
   outline: 'none',

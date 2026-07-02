@@ -15,4 +15,5 @@ export const CursorWrapper = styled("div")({
 
   willChange: "transform",
   backfaceVisibility: "hidden",
+  '@media (pointer: coarse)': { display: 'none' },
 });

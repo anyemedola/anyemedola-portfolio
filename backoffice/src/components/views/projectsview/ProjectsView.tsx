@@ -80,7 +80,7 @@ export default function ProjectsView() {
                     <S.TdTitle>{p.title}</S.TdTitle>
                     <S.TdSub><T en={p.descEn || '—'} pt={p.descPt} it={p.descIt} /></S.TdSub>
                   </S.Td>
-                  <S.Td><span style={{ fontSize: 11, color: tokens.textMuted }}>{p.type || '—'}</span></S.Td>
+                  <S.Td><span style={{ fontSize: 11, color: tokens.textMuted, fontFamily: "'Hanken Grotesk', var(--font-hanken), sans-serif" }}>{p.type || '—'}</span></S.Td>
                   <S.Td>
                     <S.TagsRow>
                       {p.stack.slice(0, 3).map(tag => <S.TagPill key={tag}>{tag}</S.TagPill>)}

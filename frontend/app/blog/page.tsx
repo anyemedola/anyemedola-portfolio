@@ -1,13 +1,52 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { styled } from '@mui/material/styles';
 import { tokens } from '@/theme/theme';
-import { posts } from '@/data/posts';
+import { posts, type BlogPost } from '@/data/posts';
 import { useTranslation } from 'react-i18next';
 import T from '@/components/ui/t/T';
 import LemonCursor from '@/components/ui/cursor/lemonCursor';
+
+interface ApiPost {
+  id: number; slug: string;
+  title: string; titlePt: string; titleIt: string;
+  subtitle: string; subtitlePt: string; subtitleIt: string;
+  excerptEn: string; excerptPt: string; excerptIt: string;
+  bodyEn: string; bodyPt: string; bodyIt: string;
+  date: string; readTime: number;
+  primaryTag: string; tags: string[];
+  accentColor: string; icon: string; image: string | null;
+  status: 'published' | 'draft';
+}
+
+function apiToPost(p: ApiPost): BlogPost {
+  const fmt = (d: string) => {
+    try { return new Date(d + 'T00:00:00').toLocaleDateString('pt-BR', { month: 'long', year: 'numeric' }); }
+    catch { return d; }
+  };
+  return {
+    slug: p.slug,
+    primaryTag: p.primaryTag || p.tags?.[0] || '',
+    tags: p.tags || [],
+    title: { en: p.title, pt: p.titlePt || p.title, it: p.titleIt || p.title },
+    subtitle: { en: p.subtitle, pt: p.subtitlePt || p.subtitle, it: p.subtitleIt || p.subtitle },
+    date: fmt(p.date),
+    datetime: p.date,
+    readTime: p.readTime || 5,
+    accentColor: p.accentColor || '#B5546A',
+    icon: p.icon || '✦',
+    coverImage: p.image ?? undefined,
+    excerpt: { en: p.excerptEn, pt: p.excerptPt || p.excerptEn, it: p.excerptIt || p.excerptEn },
+    body: {
+      en: { intro: '', sections: [], closing: '', html: p.bodyEn },
+      pt: { intro: '', sections: [], closing: '', html: p.bodyPt || p.bodyEn },
+      it: { intro: '', sections: [], closing: '', html: p.bodyIt || p.bodyEn },
+    },
+  };
+}
 
 const Root = styled('div')({
   background: tokens.cream,
@@ -271,16 +310,27 @@ const ClosingText = styled('p')({
   fontStyle: 'italic',
 });
 
-const upcomingPosts = [
-  { period: 'Próximo', category: 'Crônica · expat', title: 'Dois idiomas, uma casa', desc: 'Sobre criar conteúdo em inglês e italiano, e o que é construir pertencimento numa ilha que não te viu nascer.' },
-  { period: 'Próximo', category: 'Ensaio · design', title: 'O que o frontend me ensinou sobre pessoas', desc: 'Como anos olhando interfaces viraram uma sensibilidade para o que as pessoas realmente querem ver — e sentir.' },
-  { period: 'Próximo', category: 'Guia · viagem', title: 'Mala de mão', desc: 'As dicas que eu compartilho com quem viaja comigo: o que levar, o que deixar, e como colecionar pôr do sol sem pressa.' },
-];
 
 export default function BlogListingPage() {
   const { t } = useTranslation();
+  const [apiPosts, setApiPosts] = useState<BlogPost[]>([]);
 
-  const featured = posts.find((p) => p.slug === 'inteira');
+  useEffect(() => {
+    fetch('/api/posts')
+      .then(r => r.ok ? r.json() : [])
+      .then((data: ApiPost[]) => setApiPosts(data.map(apiToPost)))
+      .catch(() => {});
+  }, []);
+
+  const apiSlugs = new Set(apiPosts.map(p => p.slug));
+  // Only "inteira" is a real static essay; other static posts are design placeholders
+  const inteira = posts.find(p => p.slug === 'inteira');
+  const staticEssays = inteira && !apiSlugs.has('inteira') ? [inteira] : [];
+  const allPosts = [...apiPosts, ...staticEssays]
+    .sort((a, b) => (b.datetime ?? '').localeCompare(a.datetime ?? ''));
+
+  const featured = allPosts[0] ?? null;
+  const restPosts = allPosts.slice(1);
 
   return (
     <Root>
@@ -318,8 +368,8 @@ export default function BlogListingPage() {
             <FeatImgWrap>
               <Image
                 className="featimg"
-                src="/sunset-sea.jpg"
-                alt="Inteira"
+                src={featured.coverImage ?? '/sunset-sea.jpg'}
+                alt={featured.title.pt ?? featured.title.en}
                 fill
                 style={{ objectFit: 'cover' }}
                 sizes="(max-width: 760px) 100vw, 45vw"
@@ -329,28 +379,32 @@ export default function BlogListingPage() {
         </FeatSection>
       )}
 
-      <UpcomingSection aria-label="Em breve">
-        <SectionDivider>
-          <SectionLabel>Em breve</SectionLabel>
-          <DividerLine aria-hidden="true" />
-        </SectionDivider>
+      {restPosts.length > 0 && (
+        <UpcomingSection aria-label="Mais artigos">
+          <SectionDivider>
+            <SectionLabel>Mais artigos</SectionLabel>
+            <DividerLine aria-hidden="true" />
+          </SectionDivider>
 
-        {upcomingPosts.map((post, i) => (
-          <PostRow key={i}>
-            <PostMeta className="post-meta">
-              <PostPeriod>{post.period}</PostPeriod>
-              <PostCategory>{post.category}</PostCategory>
-            </PostMeta>
-            <PostContent>
-              <PostTitle>{post.title}</PostTitle>
-              <PostDesc>{post.desc}</PostDesc>
-            </PostContent>
-            <PostArrow className="post-arrow" aria-hidden="true">→</PostArrow>
-          </PostRow>
-        ))}
+          {restPosts.map((post) => (
+            <Link key={post.slug} href={`/blog/${post.slug}`} style={{ textDecoration: 'none', color: 'inherit' }}>
+              <PostRow>
+                <PostMeta className="post-meta">
+                  <PostPeriod>{post.date}</PostPeriod>
+                  <PostCategory>{post.primaryTag}</PostCategory>
+                </PostMeta>
+                <PostContent>
+                  <PostTitle><T en={post.title.en} pt={post.title.pt} it={post.title.it ?? post.title.en} /></PostTitle>
+                  <PostDesc><T en={post.excerpt.en} pt={post.excerpt.pt} it={post.excerpt.it ?? post.excerpt.en} /></PostDesc>
+                </PostContent>
+                <PostArrow className="post-arrow" aria-hidden="true">→</PostArrow>
+              </PostRow>
+            </Link>
+          ))}
 
-        <ClosingText>A escrita é uma viagem que nunca termina. Volte sempre. ✦</ClosingText>
-      </UpcomingSection>
+          <ClosingText>A escrita é uma viagem que nunca termina. Volte sempre. ✦</ClosingText>
+        </UpcomingSection>
+      )}
     </Root>
   );
 }

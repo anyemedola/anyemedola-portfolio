@@ -183,9 +183,9 @@
     "submitting": "Accesso in corso..."
   },
   "colors": {
-    "mint": "Menta",
-    "pink": "Rosa",
-    "warm": "Caldo",
+    "rose": "Rosa",
+    "gold": "Oro",
+    "teal": "Acquamarina",
     "blue": "Blu",
     "purple": "Viola"
   }

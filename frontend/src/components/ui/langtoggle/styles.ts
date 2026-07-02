@@ -14,7 +14,7 @@ export const Wrapper = styled('div')({
 });
 
 export const LangBtn = styled('button')<{ active?: boolean }>(({ active }) => ({
-  background: active ? '#E0568A' : 'transparent',
+  background: active ? '#EFA8AC' : 'transparent',
   border: 'none',
   padding: '6px 11px',
   borderRadius: 999,

@@ -19,23 +19,24 @@ export const Container = styled('div')({
 });
 
 export const ToastEl = styled('div')<{ toastType: ToastItem['type'] }>(({ toastType }) => ({
-  background: tokens.surface3,
+  background: tokens.cream,
   border: `1px solid ${tokens.border}`,
   borderLeft: `3px solid ${
     toastType === 'error' ? tokens.danger :
     toastType === 'warning' ? tokens.warning :
-    tokens.mint
+    tokens.success
   }`,
   padding: '12px 18px',
-  borderRadius: 2,
-  fontSize: 12,
+  borderRadius: 12,
+  fontFamily: "'Hanken Grotesk', var(--font-hanken), sans-serif",
+  fontSize: 12.5,
   color: tokens.text,
   minWidth: 240,
   animation: `${toastIn} 0.25s ease`,
   display: 'flex',
   alignItems: 'center',
   gap: 10,
-  fontFamily: "'DM Sans', sans-serif",
+  boxShadow: '0 4px 20px -4px rgba(18,59,55,0.14)',
   '@media (max-width: 768px)': { minWidth: 'unset' },
 }));
 

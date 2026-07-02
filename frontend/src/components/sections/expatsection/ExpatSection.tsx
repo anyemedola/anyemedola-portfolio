@@ -31,8 +31,8 @@ export default function ExpatSection() {
 
         <S.ImageFrame className="reveal">
           <Image
-            src="/concert.jpg"
-            alt="Any em um show na Itália"
+            src="/expat.jpeg"
+            alt="Any no Al Gradino, Ragusa Ibla"
             fill
             style={{ objectFit: 'cover', transition: 'transform .6s cubic-bezier(.2,.7,.2,1)' }}
           />

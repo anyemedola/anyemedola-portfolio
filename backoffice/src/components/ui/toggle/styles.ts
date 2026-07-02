@@ -13,17 +13,17 @@ export const Row = styled('div')({
 export const Info = styled('div')({ flex: 1 });
 
 export const LabelText = styled('div')({
+  fontFamily: "'Hanken Grotesk', var(--font-hanken), sans-serif",
   fontSize: 13,
-  fontWeight: 400,
+  fontWeight: 500,
   color: tokens.text,
-  fontFamily: "'DM Sans', sans-serif",
 });
 
 export const LabelSub = styled('div')({
+  fontFamily: "'Hanken Grotesk', var(--font-hanken), sans-serif",
   fontSize: 11,
   color: tokens.textMuted,
   marginTop: 2,
-  fontFamily: "'DM Sans', sans-serif",
 });
 
 export const SwitchLabel = styled('label')({
@@ -32,7 +32,7 @@ export const SwitchLabel = styled('label')({
   height: 22,
   flexShrink: 0,
   marginLeft: 16,
-  cursor: 'none',
+  cursor: 'pointer',
   '& input': { opacity: 0, width: 0, height: 0, position: 'absolute' },
 });
 
@@ -52,11 +52,11 @@ export const Slider = styled('span')({
     transition: 'transform 0.2s, background 0.2s',
   },
   'input:checked + &': {
-    background: tokens.mintGlow,
-    border: `1px solid ${tokens.mint}`,
+    background: tokens.roseGlow,
+    border: `1px solid ${tokens.rose}`,
   },
   'input:checked + &::before': {
     transform: 'translateX(18px)',
-    background: tokens.mint,
+    background: tokens.rose,
   },
 });

@@ -3,7 +3,7 @@ import { tokens } from '@/theme/theme';
 
 export const EscritaRoot = styled('section')({
   scrollMarginTop: 70,
-  background: 'linear-gradient(180deg,#FCE7DD,#FBEFE6)',
+  background: 'linear-gradient(180deg,#FBEDEE,#EEF2E4)',
   padding: '84px 40px',
   '@media (max-width: 900px)': { padding: '64px 22px' },
 });
@@ -28,7 +28,7 @@ export const Eyebrow = styled('p')({
   fontSize: 13,
   letterSpacing: '.3em',
   textTransform: 'uppercase',
-  color: '#E0568A',
+  color: '#1A615D',
   fontWeight: 700,
   margin: '0 0 16px',
 });
@@ -46,7 +46,7 @@ export const Lead = styled('p')({
   fontFamily: "'Hanken Grotesk', var(--font-hanken), sans-serif",
   fontSize: 16,
   lineHeight: 1.7,
-  color: '#564650',
+  color: '#4A5D58',
   margin: '0 0 28px',
 });
 
@@ -56,15 +56,15 @@ export const CtaBtn = styled('a')({
   fontSize: 14.5,
   fontWeight: 700,
   color: '#fff',
-  background: '#E0568A',
+  background: '#1A615D',
   padding: '13px 24px',
   borderRadius: 999,
   textDecoration: 'none',
-  boxShadow: '0 10px 24px rgba(224,86,138,0.28)',
+  boxShadow: '0 10px 24px rgba(26,97,93,0.28)',
   transition: 'background .25s, box-shadow .25s',
   '&:hover': {
-    background: '#C24C76',
-    boxShadow: '0 6px 16px rgba(224,86,138,0.36)',
+    background: '#0E4E4A',
+    boxShadow: '0 6px 16px rgba(26,97,93,0.36)',
   },
 });
 
@@ -81,11 +81,11 @@ export const NotebookCard = styled('article', {
   borderRadius: 16,
   padding: '24px 26px',
   borderLeft: `4px solid ${accent}`,
-  boxShadow: '0 4px 18px -6px rgba(58,30,40,0.1)',
+  boxShadow: '0 4px 18px -6px rgba(18,59,55,0.1)',
   transition: 'transform .3s, box-shadow .3s',
   '&:hover': {
     transform: 'translateX(4px)',
-    boxShadow: '0 8px 24px -8px rgba(58,30,40,0.18)',
+    boxShadow: '0 8px 24px -8px rgba(18,59,55,0.18)',
   },
 }));
 
@@ -95,7 +95,7 @@ export const CardKicker = styled('div')({
   fontWeight: 700,
   letterSpacing: '0.12em',
   textTransform: 'uppercase',
-  color: '#A85A6E',
+  color: '#C24C76',
   marginBottom: 7,
 });
 
@@ -113,6 +113,12 @@ export const CardDesc = styled('p')({
   fontFamily: "'Hanken Grotesk', var(--font-hanken), sans-serif",
   fontSize: 14,
   lineHeight: 1.6,
-  color: '#6E5A63',
+  color: '#4A5D58',
   margin: 0,
+});
+
+export const CardLink = styled('a')({
+  textDecoration: 'none',
+  color: 'inherit',
+  display: 'block',
 });

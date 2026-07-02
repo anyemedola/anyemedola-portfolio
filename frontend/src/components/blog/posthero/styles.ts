@@ -25,11 +25,11 @@ export const Tags = styled('div')({
 });
 
 export const TagPrimary = styled('span')({
-  color: '#E0568A',
+  color: '#EFA8AC',
 });
 
 export const Sep = styled('span')({
-  color: '#D9C3AE',
+  color: '#F2D8DA',
 });
 
 export const TagMeta = styled('span')({
@@ -52,7 +52,7 @@ export const Subtitle = styled('p')({
   fontWeight: 500,
   fontSize: 'clamp(22px, 3vw, 30px)',
   lineHeight: 1.3,
-  color: '#E0568A',
+  color: '#EFA8AC',
   margin: '26px auto 0',
   maxWidth: 560,
 });
@@ -75,7 +75,7 @@ export const AuthorName = styled('span')({
 
 export const Rule = styled('div')({
   height: 1,
-  background: '#E2CDB8',
+  background: '#F2D8DA',
   maxWidth: 80,
   margin: '40px auto 0',
 });

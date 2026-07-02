@@ -33,7 +33,7 @@ export const CoverReal = styled('div')({
   overflow: 'hidden',
   height: 420,
   position: 'relative',
-  boxShadow: '0 34px 64px -38px rgba(120,60,50,.5)',
+  boxShadow: '0 34px 64px -38px rgba(18,59,55,.5)',
   '@media (max-width: 900px)': { height: 260 },
 });
 
@@ -54,8 +54,8 @@ export const CoverImg = styled('div')({
     position: 'absolute',
     inset: 0,
     background: `
-      repeating-linear-gradient(45deg, rgba(221,169,74,0.05) 0px, rgba(221,169,74,0.05) 1px, transparent 1px, transparent 48px),
-      repeating-linear-gradient(-45deg, rgba(181,84,106,0.05) 0px, rgba(181,84,106,0.05) 1px, transparent 1px, transparent 48px)
+      repeating-linear-gradient(45deg, rgba(26,97,93,0.05) 0px, rgba(26,97,93,0.05) 1px, transparent 1px, transparent 48px),
+      repeating-linear-gradient(-45deg, rgba(239,168,172,0.05) 0px, rgba(239,168,172,0.05) 1px, transparent 1px, transparent 48px)
     `,
   },
 });
@@ -71,7 +71,7 @@ export const CoverPlaceholderText = styled('span')({
   fontSize: 11,
   letterSpacing: '0.25em',
   textTransform: 'uppercase',
-  color: 'rgba(251,241,230,0.2)',
+  color: 'rgba(251,237,238,0.2)',
   zIndex: 1,
 });
 
@@ -90,7 +90,7 @@ export const Body = styled('article')({
     fontSize: 20,
     fontWeight: 400,
     lineHeight: 1.85,
-    color: '#3A2A28',
+    color: '#123B37',
     marginBottom: 28,
   },
   '& h2': {
@@ -114,7 +114,7 @@ export const Body = styled('article')({
   '& strong': { fontWeight: 700, color: tokens.ink },
   '& em': { fontStyle: 'italic', color: tokens.warmBrownMid },
   '& a': {
-    color: '#E0568A',
+    color: '#EFA8AC',
     textDecoration: 'underline',
     textUnderlineOffset: 3,
     transition: 'color 0.2s',
@@ -125,7 +125,7 @@ export const Body = styled('article')({
     fontSize: 20,
     fontWeight: 400,
     lineHeight: 1.7,
-    color: '#3A2A28',
+    color: '#123B37',
     paddingLeft: 28,
     marginBottom: 28,
   },
@@ -167,7 +167,7 @@ export const Body = styled('article')({
   '& code': {
     fontFamily: "'Courier New', monospace",
     fontSize: 14,
-    background: 'rgba(46,33,31,.07)',
+    background: 'rgba(18,59,55,.07)',
     padding: '2px 8px',
     borderRadius: 4,
     color: tokens.ink,
@@ -197,7 +197,7 @@ export const Pullquote = styled('div')({
     position: 'absolute',
     top: 60,
     left: -20,
-    color: '#E0568A',
+    color: '#EFA8AC',
     opacity: 0.12,
   },
 });

@@ -6,6 +6,7 @@ export const Root = styled('div')({
   padding: '72px 40px',
   border: `1px dashed ${tokens.border}`,
   background: tokens.surface,
+  borderRadius: 16,
 });
 
 export const Icon = styled('span')({
@@ -16,15 +17,17 @@ export const Icon = styled('span')({
 });
 
 export const Title = styled('div')({
-  fontFamily: "'Bebas Neue', sans-serif",
-  fontSize: 24,
-  letterSpacing: '0.06em',
-  color: tokens.cream,
+  fontFamily: "'Newsreader', var(--font-newsreader), serif",
+  fontStyle: 'italic',
+  fontSize: 26,
+  fontWeight: 400,
+  color: tokens.ink,
   opacity: 0.4,
   marginBottom: 8,
 });
 
 export const Sub = styled('div')({
+  fontFamily: "'Hanken Grotesk', var(--font-hanken), sans-serif",
   fontSize: 12,
   color: tokens.textMuted,
   marginBottom: 24,

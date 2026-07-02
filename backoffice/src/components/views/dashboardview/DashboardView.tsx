@@ -17,16 +17,16 @@ export default function DashboardView() {
   return (
     <>
       <S.StatsGrid>
-        <S.StatCard accent={tokens.mint}>
+        <S.StatCard accent={tokens.rose}>
           <S.StatIcon aria-hidden="true">◻</S.StatIcon>
           <S.StatLabel>{t('dashboard.totalProjects')}</S.StatLabel>
-          <S.StatValue><S.StatAccentSpan accent={tokens.mint}>{projects.length}</S.StatAccentSpan></S.StatValue>
+          <S.StatValue><S.StatAccentSpan accent={tokens.rose}>{projects.length}</S.StatAccentSpan></S.StatValue>
           <S.StatSub>{pubProj} {t('dashboard.published')}</S.StatSub>
         </S.StatCard>
-        <S.StatCard accent={tokens.pink}>
+        <S.StatCard accent={tokens.success}>
           <S.StatIcon aria-hidden="true">✦</S.StatIcon>
           <S.StatLabel>{t('dashboard.blogPosts')}</S.StatLabel>
-          <S.StatValue><S.StatAccentSpan accent={tokens.pink}>{blogPosts.length}</S.StatAccentSpan></S.StatValue>
+          <S.StatValue><S.StatAccentSpan accent={tokens.success}>{blogPosts.length}</S.StatAccentSpan></S.StatValue>
           <S.StatSub>{pubBlog} {t('dashboard.published')}</S.StatSub>
         </S.StatCard>
         <S.StatCard accent={tokens.warning}>
@@ -35,10 +35,10 @@ export default function DashboardView() {
           <S.StatValue><S.StatAccentSpan accent={tokens.warning}>{drafts}</S.StatAccentSpan></S.StatValue>
           <S.StatSub>{t('dashboard.pendingReview')}</S.StatSub>
         </S.StatCard>
-        <S.StatCard accent="#8B7355">
+        <S.StatCard accent={tokens.gold}>
           <S.StatIcon aria-hidden="true">★</S.StatIcon>
           <S.StatLabel>{t('dashboard.featured')}</S.StatLabel>
-          <S.StatValue><S.StatAccentSpan accent="#8B7355">{featured}</S.StatAccentSpan></S.StatValue>
+          <S.StatValue><S.StatAccentSpan accent={tokens.gold}>{featured}</S.StatAccentSpan></S.StatValue>
           <S.StatSub>{t('dashboard.highlightedItems')}</S.StatSub>
         </S.StatCard>
       </S.StatsGrid>
@@ -47,7 +47,7 @@ export default function DashboardView() {
         <S.DashCard>
           <S.DashCardHeader>
             <S.DashCardTitle>{t('dashboard.recentActivity')}</S.DashCardTitle>
-            <span style={{ fontSize: 10, color: tokens.textMuted, fontFamily: "'DM Sans', sans-serif" }}>{t('dashboard.today')}</span>
+            <span style={{ fontSize: 10, color: tokens.textMuted, fontFamily: "'Hanken Grotesk', var(--font-hanken), sans-serif" }}>{t('dashboard.today')}</span>
           </S.DashCardHeader>
           <S.ActivityList>
             {activities.map(a => (

@@ -3,8 +3,7 @@ import { tokens } from '@/theme/tokens';
 
 export const Root = styled('aside')({
   width: tokens.sidebarW,
-  background: tokens.surface,
-  borderRight: `1px solid ${tokens.border}`,
+  background: tokens.sidebar,
   display: 'flex',
   flexDirection: 'column',
   position: 'fixed',
@@ -12,40 +11,41 @@ export const Root = styled('aside')({
   height: '100vh',
   zIndex: 50,
   transition: 'transform 0.3s ease',
-  '@media (max-width: 1024px)': { width: 200 },
+  '@media (max-width: 1024px)': { width: 220 },
   '@media (max-width: 768px)': {
     width: tokens.sidebarW,
     transform: 'translateX(-100%)',
-    boxShadow: '4px 0 24px rgba(0,0,0,0.4)',
+    boxShadow: '4px 0 32px rgba(18,59,55,0.5)',
     '&[data-open="true"]': { transform: 'translateX(0)' },
   },
 });
 
 export const LogoArea = styled('div')({
-  padding: '28px 24px 24px',
-  borderBottom: `1px solid ${tokens.border}`,
+  padding: '28px 24px 22px',
+  borderBottom: `1px solid ${tokens.sidebarBorder}`,
   display: 'flex',
   alignItems: 'center',
   gap: 12,
 });
 
 export const LogoMark = styled('div')({
-  fontFamily: "'Bebas Neue', sans-serif",
-  fontSize: 28,
-  letterSpacing: '0.1em',
-  color: tokens.cream,
+  fontFamily: "'Newsreader', var(--font-newsreader), serif",
+  fontStyle: 'italic',
+  fontSize: 30,
+  fontWeight: 400,
+  color: tokens.sideText,
   lineHeight: 1,
-  '& span': { color: tokens.mint },
+  '& span': { color: tokens.rose },
 });
 
 export const LogoSub = styled('div')({
+  fontFamily: "'Hanken Grotesk', var(--font-hanken), sans-serif",
   fontSize: 9,
-  fontWeight: 500,
-  letterSpacing: '0.2em',
+  fontWeight: 600,
+  letterSpacing: '0.22em',
   textTransform: 'uppercase',
-  color: tokens.textMuted,
+  color: tokens.sideTextMuted,
   lineHeight: 1.4,
-  fontFamily: "'DM Sans', sans-serif",
 });
 
 export const Nav = styled('nav')({
@@ -55,13 +55,13 @@ export const Nav = styled('nav')({
 });
 
 export const GroupLabel = styled('div')({
+  fontFamily: "'Hanken Grotesk', var(--font-hanken), sans-serif",
   fontSize: 9,
-  fontWeight: 500,
+  fontWeight: 700,
   letterSpacing: '0.22em',
   textTransform: 'uppercase',
-  color: tokens.textMuted,
+  color: tokens.sideTextMuted,
   padding: '16px 24px 8px',
-  fontFamily: "'DM Sans', sans-serif",
 });
 
 export const NavBtn = styled('button')<{ active?: boolean }>(({ active }) => ({
@@ -69,20 +69,20 @@ export const NavBtn = styled('button')<{ active?: boolean }>(({ active }) => ({
   alignItems: 'center',
   gap: 12,
   padding: '10px 24px',
+  fontFamily: "'Hanken Grotesk', var(--font-hanken), sans-serif",
   fontSize: 13,
-  fontWeight: active ? 500 : 400,
-  color: active ? tokens.mint : tokens.textDim,
-  background: active ? tokens.mintGlow : 'none',
+  fontWeight: active ? 600 : 400,
+  color: active ? '#fff' : tokens.sideTextDim,
+  background: active ? tokens.sidebarSurf : 'none',
   border: 'none',
   borderLeftStyle: 'solid',
   borderLeftWidth: 2,
-  borderLeftColor: active ? tokens.mint : 'transparent',
-  cursor: 'none',
+  borderLeftColor: active ? tokens.rose : 'transparent',
+  cursor: 'pointer',
   width: '100%',
   textAlign: 'left',
   transition: 'color 0.2s, background 0.2s',
-  fontFamily: "'DM Sans', sans-serif",
-  '&:hover': { color: tokens.text, background: 'rgba(255,255,255,0.03)' },
+  '&:hover': { color: '#fff', background: tokens.sidebarSurf },
 }));
 
 export const NavIcon = styled('span')({
@@ -94,19 +94,19 @@ export const NavIcon = styled('span')({
 
 export const NavBadge = styled('span')<{ active?: boolean }>(({ active }) => ({
   marginLeft: 'auto',
-  background: active ? tokens.mintGlow : tokens.surface3,
-  color: active ? tokens.mint : tokens.textDim,
+  background: active ? tokens.roseGlow : 'rgba(255,255,255,0.08)',
+  color: active ? tokens.rose : tokens.sideTextDim,
+  fontFamily: "'Hanken Grotesk', var(--font-hanken), sans-serif",
   fontSize: 10,
-  fontWeight: 500,
+  fontWeight: 600,
   padding: '2px 7px',
   borderRadius: 10,
   letterSpacing: '0.04em',
-  fontFamily: "'DM Sans', sans-serif",
 }));
 
 export const SidebarFooter = styled('div')({
   padding: '20px 24px',
-  borderTop: `1px solid ${tokens.border}`,
+  borderTop: `1px solid ${tokens.sidebarBorder}`,
 });
 
 export const UserRow = styled('div')({
@@ -116,31 +116,32 @@ export const UserRow = styled('div')({
 });
 
 export const Avatar = styled('div')({
-  width: 32, height: 32,
+  width: 34, height: 34,
   borderRadius: '50%',
-  overflow: 'hidden',
-  border: `1.5px solid ${tokens.border}`,
+  border: `1.5px solid ${tokens.sidebarBorder}`,
   flexShrink: 0,
-  background: tokens.surface3,
+  background: tokens.roseGlow,
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
-  color: tokens.textMuted,
-  fontSize: 13,
+  color: tokens.rose,
+  fontFamily: "'Hanken Grotesk', var(--font-hanken), sans-serif",
+  fontSize: 12,
+  fontWeight: 700,
 });
 
 export const UserName = styled('div')({
+  fontFamily: "'Hanken Grotesk', var(--font-hanken), sans-serif",
   fontSize: 12,
-  fontWeight: 500,
-  color: tokens.text,
-  fontFamily: "'DM Sans', sans-serif",
+  fontWeight: 600,
+  color: tokens.sideText,
 });
 
 export const UserRole = styled('div')({
+  fontFamily: "'Hanken Grotesk', var(--font-hanken), sans-serif",
   fontSize: 10,
-  color: tokens.textMuted,
+  color: tokens.sideTextMuted,
   letterSpacing: '0.06em',
-  fontFamily: "'DM Sans', sans-serif",
 });
 
 export const LogoutBtn = styled('button')({
@@ -148,38 +149,38 @@ export const LogoutBtn = styled('button')({
   alignItems: 'center',
   gap: 8,
   marginTop: 10,
+  fontFamily: "'Hanken Grotesk', var(--font-hanken), sans-serif",
   fontSize: 11,
-  fontWeight: 500,
+  fontWeight: 600,
   letterSpacing: '0.12em',
   textTransform: 'uppercase',
   background: 'none',
   border: 'none',
-  cursor: 'none',
-  color: tokens.textMuted,
+  cursor: 'pointer',
+  color: tokens.sideTextMuted,
   padding: 0,
   transition: 'color 0.2s',
-  fontFamily: "'DM Sans', sans-serif",
-  '&:hover': { color: tokens.pink },
+  '&:hover': { color: tokens.rose },
 });
 
 export const LangToggle = styled('button')<{ active?: boolean }>(({ active }) => ({
   display: 'inline-flex',
   alignItems: 'center',
   justifyContent: 'center',
-  fontFamily: "'DM Sans', sans-serif",
+  fontFamily: "'Hanken Grotesk', var(--font-hanken), sans-serif",
   fontSize: 10,
-  fontWeight: 500,
+  fontWeight: 700,
   letterSpacing: '0.12em',
   textTransform: 'uppercase',
-  background: active ? tokens.mint : 'transparent',
-  color: active ? tokens.ink : tokens.textMuted,
-  border: `1px solid ${active ? tokens.mint : tokens.border}`,
+  background: active ? tokens.rose : 'transparent',
+  color: active ? '#fff' : tokens.sideTextDim,
+  border: `1px solid ${active ? tokens.rose : tokens.sidebarBorder}`,
   padding: '4px 10px',
-  borderRadius: 2,
-  cursor: 'none',
+  borderRadius: 6,
+  cursor: 'pointer',
   transition: 'all 0.15s',
   minHeight: 28,
-  '&:hover': { borderColor: tokens.mint, color: active ? tokens.ink : tokens.mint },
+  '&:hover': { borderColor: tokens.rose, color: active ? '#fff' : tokens.rose },
 }));
 
 export const LangRow = styled('div')({
@@ -193,15 +194,15 @@ export const PreviewLink = styled('a')({
   alignItems: 'center',
   gap: 8,
   marginTop: 14,
+  fontFamily: "'Hanken Grotesk', var(--font-hanken), sans-serif",
   fontSize: 11,
-  fontWeight: 500,
+  fontWeight: 600,
   letterSpacing: '0.12em',
   textTransform: 'uppercase',
   textDecoration: 'none',
-  color: tokens.mint,
+  color: tokens.gold,
   opacity: 0.7,
   transition: 'opacity 0.2s, gap 0.2s',
-  fontFamily: "'DM Sans', sans-serif",
   '&:hover': { opacity: 1, gap: 12 },
 });
 
@@ -209,7 +210,7 @@ export const SidebarOverlay = styled('div')({
   display: 'none',
   position: 'fixed',
   inset: 0,
-  background: 'rgba(0,0,0,0.6)',
+  background: 'rgba(18,59,55,0.55)',
   zIndex: 49,
   backdropFilter: 'blur(2px)',
   '@media (max-width: 768px)': {

@@ -54,7 +54,10 @@ export default function LoginPage() {
   return (
     <S.Root>
       <S.Card>
-        <S.LogoMark>AM<span>·</span></S.LogoMark>
+        <S.LogoMark>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/android-chrome-192x192.png" alt="Logotipo de Any Medola" width={80} height={80} />
+        </S.LogoMark>
         <S.LogoSub>Portfolio Admin</S.LogoSub>
 
         <S.Title>{t('login.title')}</S.Title>

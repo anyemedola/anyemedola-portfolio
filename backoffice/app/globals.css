@@ -8,10 +8,10 @@ html { scroll-behavior: smooth; }
   }
 }
 
-:focus-visible { outline: 2px solid #6ECFB8; outline-offset: 2px; border-radius: 2px; }
+:focus-visible { outline: 2px solid #1A615D; outline-offset: 2px; border-radius: 6px; }
 :focus:not(:focus-visible) { outline: none; }
 
 ::-webkit-scrollbar { width: 5px; }
-::-webkit-scrollbar-track { background: #111009; }
-::-webkit-scrollbar-thumb { background: #2E2B22; border-radius: 10px; }
-::-webkit-scrollbar-thumb:hover { background: #4DB89E; }
+::-webkit-scrollbar-track { background: #FBEDEE; }
+::-webkit-scrollbar-thumb { background: #B8C897; border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: #1A615D; }

@@ -9,15 +9,6 @@ const floatTwinkle = keyframes`
   50%       { opacity: 0.85; }
 `;
 
-const sunPulse = keyframes`
-  0%, 100% { opacity: .88; transform: translateY(-50%) scale(1); }
-  50%       { opacity: 1;   transform: translateY(-50%) scale(1.06); }
-`;
-
-const raysSpin = keyframes`
-  from { transform: rotate(0deg); }
-  to   { transform: rotate(360deg); }
-`;
 
 export const Star = styled('div', {
   shouldForwardProp: (p) => !['top', 'left', 'size', 'delay', 'color'].includes(p as string),
@@ -37,48 +28,20 @@ export const Star = styled('div', {
 );
 
 export const ContactRoot = styled(SectionRoot)({
-  background: 'linear-gradient(165deg,#1F1430 0%,#3A1E3A 50%,#5A2742 100%)',
+  background: 'linear-gradient(165deg,#0C2926 0%,#123B37 50%,#14403C 100%)',
   color: tokens.cream,
   position: 'relative',
   overflow: 'hidden',
 });
 
-export const SunGlow = styled('div')({
-  position: 'absolute',
-  right: -100,
-  top: '50%',
-  width: 440,
-  height: 440,
-  borderRadius: '50%',
-  background: `radial-gradient(circle, ${tokens.goldLight} 0%, ${tokens.gold} 38%, rgba(221,169,74,0.08) 66%, transparent 70%)`,
-  animation: `${sunPulse} 7s ease-in-out infinite`,
-  pointerEvents: 'none',
-
-  /* sun rays via conic-gradient, masked to appear only outside the disc */
-  '&::before': {
-    content: '""',
-    position: 'absolute',
-    inset: -90,
-    borderRadius: '50%',
-    background: `conic-gradient(
-      rgba(246,215,154,0.55)  0deg,   transparent  22deg,
-      rgba(246,215,154,0.45) 45deg,   transparent  67deg,
-      rgba(246,215,154,0.55) 90deg,   transparent 112deg,
-      rgba(246,215,154,0.45) 135deg,  transparent 157deg,
-      rgba(246,215,154,0.55) 180deg,  transparent 202deg,
-      rgba(246,215,154,0.45) 225deg,  transparent 247deg,
-      rgba(246,215,154,0.55) 270deg,  transparent 292deg,
-      rgba(246,215,154,0.45) 315deg,  transparent 337deg
-    )`,
-    maskImage: 'radial-gradient(circle 175px at center, transparent 100%, black 100%)',
-    WebkitMaskImage: 'radial-gradient(circle 175px at center, transparent 100%, black 100%)',
-    animation: `${raysSpin} 36s linear infinite`,
-  },
-});
 
 export const Inner = styled(SectionInner)({
   padding: '120px 40px',
   position: 'relative',
+  textAlign: 'center',
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
   '@media (max-width: 900px)': { padding: '80px 22px' },
 });
 
@@ -101,7 +64,7 @@ export const ContactP = styled('p')({
   fontFamily: "'Hanken Grotesk', var(--font-hanken), sans-serif",
   fontSize: 19,
   lineHeight: 1.6,
-  color: '#E7CFC4',
+  color: 'rgba(245,192,195,0.85)',
   maxWidth: 520,
   margin: '0 0 44px',
 });
@@ -110,6 +73,7 @@ export const Links = styled('div')({
   display: 'flex',
   flexWrap: 'wrap',
   gap: 14,
+  justifyContent: 'center',
 });
 
 export const ContactLink = styled('a')({
@@ -121,7 +85,7 @@ export const ContactLink = styled('a')({
   fontWeight: 500,
   padding: '14px 24px',
   borderRadius: 999,
-  border: `1px solid rgba(110,90,82,.55)`,
+  border: `1px solid rgba(26,97,93,.55)`,
   color: tokens.cream,
   textDecoration: 'none',
   transition: 'border-color .2s, background .2s',
@@ -130,7 +94,7 @@ export const ContactLink = styled('a')({
     background: tokens.cream,
     color: tokens.ink,
     border: 'none',
-    '&:hover': { background: '#F3E3D3' },
+    '&:hover': { background: '#FBE0E2' },
   },
   '&:not(:first-of-type):hover': {
     borderColor: tokens.gold,
@@ -139,7 +103,7 @@ export const ContactLink = styled('a')({
 });
 
 export const FooterBar = styled('footer')({
-  borderTop: `1px solid rgba(74,58,53,.8)`,
+  borderTop: `1px solid rgba(26,97,93,.4)`,
   position: 'relative',
 });
 
@@ -148,9 +112,11 @@ export const FooterInner = styled('div')({
   margin: '0 auto',
   padding: '28px 40px',
   display: 'flex',
-  justifyContent: 'space-between',
+  justifyContent: 'center',
+  alignItems: 'center',
   flexWrap: 'wrap',
-  gap: 10,
+  gap: 16,
+  textAlign: 'center',
   '@media (max-width: 900px)': { padding: '28px 22px' },
 });
 
@@ -158,7 +124,7 @@ export const FooterMade = styled('span')({
   fontFamily: "'Bodoni Moda', var(--font-bodoni), serif",
   fontStyle: 'italic',
   fontSize: 16,
-  color: '#C9B4AA',
+  color: 'rgba(245,192,195,0.7)',
 });
 
 export const FooterRights = styled('span')({

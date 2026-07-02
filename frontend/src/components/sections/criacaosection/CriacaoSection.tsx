@@ -5,10 +5,10 @@ import { useScrollReveal } from '@/hooks/useScrollReveal';
 import * as S from './styles';
 
 const contentCards: { key: string; icon: string; iconColor: string; href?: string }[] = [
-  { key: 'c1', icon: '◑', iconColor: '#B5546A' },
-  { key: 'c2', icon: '✈', iconColor: '#DDA94A', href: 'https://instagram.com/anyemedola' },
-  { key: 'c3', icon: '❧', iconColor: '#E79CA8' },
-  { key: 'c4', icon: '☼', iconColor: '#C28A2C', href: 'https://instagram.com/anyinsicily' },
+  { key: 'c1', icon: '◑', iconColor: '#C24C76' },
+  { key: 'c2', icon: '✈', iconColor: '#1A615D', href: 'https://instagram.com/anyemedola' },
+  { key: 'c3', icon: '❧', iconColor: '#EFA8AC' },
+  { key: 'c4', icon: '☼', iconColor: '#B8C897', href: 'https://instagram.com/anyinsicily' },
 ];
 
 const traitCards = ['t1', 't2', 't3'] as const;
@@ -28,16 +28,16 @@ export default function CriacaoSection() {
           <S.FigmaMock aria-hidden="true">
             <S.MockWindow>
               <S.MockBar>
-                <S.MockDot color="#E79CA8" />
-                <S.MockDot color="#DDA94A" />
-                <S.MockDot color="#B5546A" />
+                <S.MockDot color="#EFA8AC" />
+                <S.MockDot color="#1A615D" />
+                <S.MockDot color="#C24C76" />
               </S.MockBar>
               <S.MockContent>
                 <S.MockSidebar>
-                  <S.MockLine h={10} w="100%" bg="#E79CA8" />
-                  <S.MockLine h={10} w="100%" bg="#EFD9C0" />
-                  <S.MockLine h={10} w="100%" bg="#EFD9C0" />
-                  <S.MockLine h={10} w="100%" bg="#EFD9C0" />
+                  <S.MockLine h={10} w="100%" bg="#EFA8AC" />
+                  <S.MockLine h={10} w="100%" bg="#E4EAD6" />
+                  <S.MockLine h={10} w="100%" bg="#E4EAD6" />
+                  <S.MockLine h={10} w="100%" bg="#E4EAD6" />
                 </S.MockSidebar>
                 <S.MockMain>
                   <S.MockHero />
@@ -45,7 +45,7 @@ export default function CriacaoSection() {
                     <S.MockBlock h={42} />
                     <S.MockBlock h={42} />
                   </S.MockRow>
-                  <S.MockLine h={14} w="70%" bg="#EFD9C0" />
+                  <S.MockLine h={14} w="70%" bg="#E4EAD6" />
                   <S.MockBtn />
                 </S.MockMain>
               </S.MockContent>

@@ -9,10 +9,16 @@ const slowDrift = keyframes({
   to: { transform: 'rotate(-4deg) translateY(-14px)' },
 });
 
+const portraitDrift = keyframes({
+  from: { transform: 'translateY(0)' },
+  to: { transform: 'translateY(-14px)' },
+});
+
 export const HeroRoot = styled('header')({
   maxWidth: 1240,
   margin: '0 auto',
   padding: '64px 40px 96px',
+  minHeight: '100dvh',
   display: 'grid',
   gridTemplateColumns: '1.04fr .96fr',
   gap: 36,
@@ -100,6 +106,51 @@ export const SmallFrameLeft = styled(Polaroid)({
   '@media (max-width: 760px)': { display: 'none' },
 });
 
+export const PortraitArea = styled('div')({
+  position: 'relative',
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  alignSelf: 'stretch',
+  '@media (max-width: 760px)': { display: 'none' },
+});
+
+export const PortraitGlow = styled('div')({
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -52%)',
+  width: 460,
+  height: 580,
+  borderRadius: '230px 230px 22px 22px',
+  background: `linear-gradient(180deg, ${tokens.goldLight}, ${tokens.roseMid} 55%, ${tokens.rose})`,
+  opacity: 0.2,
+  filter: 'blur(8px)',
+  pointerEvents: 'none',
+});
+
+export const PortraitWrap = styled('div')({
+  position: 'relative',
+  zIndex: 1,
+  width: 380,
+  height: 500,
+  borderRadius: '190px 190px 22px 22px',
+  padding: 9,
+  background: 'linear-gradient(160deg,#F2C6C9,#EFA8AC 52%,#1A615D)',
+  boxShadow: '0 30px 70px rgba(20,48,45,0.32)',
+  animation: `${portraitDrift} 5s ease-in-out infinite alternate`,
+  flexShrink: 0,
+  '@media (max-width: 1024px)': { width: 320, height: 422 },
+});
+
+export const PortraitImgWrap = styled('div')({
+  position: 'relative',
+  width: '100%',
+  height: '100%',
+  borderRadius: '181px 181px 14px 14px',
+  overflow: 'hidden',
+});
+
 export const Content = styled('div')({
   display: 'flex',
   flexDirection: 'column',
@@ -130,7 +181,7 @@ export const HeroTitle = styled('h1')({
 export const TitleItalic = styled('span')({
   fontStyle: 'italic',
   fontWeight: 500,
-  color: '#E0568A',
+  color: '#EFA8AC',
   display: 'block',
 });
 
@@ -175,13 +226,13 @@ export const BtnPrimary = styled('a')({
   fontWeight: 700,
   padding: '14px 26px',
   borderRadius: 999,
-  background: '#E0568A',
+  background: '#1A615D',
   color: '#fff',
-  boxShadow: '0 12px 30px rgba(224,86,138,0.32)',
+  boxShadow: '0 12px 30px rgba(26,97,93,0.32)',
   transition: 'background .25s, box-shadow .25s',
   '&:hover': {
-    background: '#C24C76',
-    boxShadow: '0 8px 20px rgba(224,86,138,0.4)',
+    background: '#0E4E4A',
+    boxShadow: '0 8px 20px rgba(26,97,93,0.4)',
   },
   '@media (max-width: 380px)': {
     textAlign: 'center',
@@ -196,12 +247,12 @@ export const BtnGhost = styled('a')({
   padding: '14px 26px',
   borderRadius: 999,
   background: 'rgba(255,255,255,0.6)',
-  border: '1px solid rgba(168,66,94,0.3)',
-  color: '#A8425E',
+  border: '1px solid rgba(26,97,93,0.3)',
+  color: '#1A615D',
   transition: 'background .25s, color .25s',
   '&:hover': {
     background: 'rgba(255,255,255,0.85)',
-    color: '#C24C76',
+    color: '#0E4E4A',
   },
   '@media (max-width: 380px)': {
     textAlign: 'center',

@@ -1,27 +1,23 @@
 import { createTheme } from '@mui/material/styles';
 
 export const tokens = {
-  // Sunset pinks (from favicon)
-  rose: '#FF7C95',
-  roseDeep: '#B3294A',
-  roseMid: '#FF8CA3',
-  // Golds
-  gold: '#DDA94A',
-  goldLight: '#F6D79A',
-  goldDeep: '#C28A2C',
-  // Creams
-  cream: '#FBF1E6',
-  creamLight: '#FFFBF5',
-  // Dark
-  ink: '#2E211F',
-  warmBrown: '#5A463F',
-  warmBrownMid: '#6B554F',
-  warmBrownLight: '#9C8478',
-  // Borders
-  border: '#EBDAC9',
-  borderLight: '#ECDBCB',
-  borderForm: '#F3E3D3',
-  focusRing: '#2E211F',
+  // 1C Blossom Bloom
+  rose: '#EFA8AC',
+  roseDeep: '#C24C76',
+  roseMid: '#F5C0C3',
+  gold: '#1A615D',
+  goldLight: '#B8C897',
+  goldDeep: '#123B37',
+  cream: '#FBEDEE',
+  creamLight: '#F6F2EA',
+  ink: '#123B37',
+  warmBrown: '#4A5D58',
+  warmBrownMid: '#5A6863',
+  warmBrownLight: '#8A9591',
+  border: '#F2D8DA',
+  borderLight: '#EED6D8',
+  borderForm: '#F0D4D6',
+  focusRing: '#1A615D',
 };
 
 declare module '@mui/material/styles' {
