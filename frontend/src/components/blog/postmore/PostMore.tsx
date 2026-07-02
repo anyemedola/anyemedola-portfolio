@@ -7,36 +7,25 @@ import { posts } from '@/data/posts';
 
 export default function PostMore({ currentSlug }: { currentSlug: string }) {
   const { t } = useTranslation();
-  const others = posts.filter((p) => p.slug !== currentSlug).slice(0, 2);
+  const others = posts.filter((p) => p.slug !== currentSlug).slice(0, 3);
 
   if (others.length === 0) return null;
 
   return (
     <S.Section aria-labelledby="more-posts-heading">
       <S.Inner>
-        <S.Title id="more-posts-heading">
-          {t('post.morePosts')} <em>{t('post.writings')}</em>
-        </S.Title>
-        <S.Grid role="list">
+        <S.Eyebrow id="more-posts-heading">{t('post.keepReading')}</S.Eyebrow>
+        <S.Grid>
           {others.map((post) => (
-            <S.Card key={post.slug}>
-              <S.CardLink href={`/blog/${post.slug}`}>
-                <S.CardBar color={post.accentColor} />
-                <S.CardBody>
-                  <S.Meta>
-                    <S.Tag>{post.primaryTag}</S.Tag>
-                    <S.DateEl dateTime={post.datetime}>{post.date}</S.DateEl>
-                  </S.Meta>
-                  <S.CardTitle className="card-title">
-                    <T en={post.title.en} pt={post.title.pt} />
-                  </S.CardTitle>
-                  <S.Footer>
-                    <S.ReadTime>{post.readTime} {t('blog.minRead')}</S.ReadTime>
-                    <S.Arrow className="card-arrow" aria-hidden="true">→</S.Arrow>
-                  </S.Footer>
-                </S.CardBody>
-              </S.CardLink>
-            </S.Card>
+            <S.CardLink key={post.slug} href={`/blog/${post.slug}`}>
+              <S.Kicker>{post.primaryTag}</S.Kicker>
+              <S.CardTitle>
+                <T en={post.title.en} pt={post.title.pt} it={post.title.it ?? post.title.en} />
+              </S.CardTitle>
+              <S.Excerpt>
+                <T en={post.excerpt.en} pt={post.excerpt.pt} it={post.excerpt.it ?? post.excerpt.en} />
+              </S.Excerpt>
+            </S.CardLink>
           ))}
         </S.Grid>
       </S.Inner>

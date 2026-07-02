@@ -22,7 +22,7 @@ jest.mock('@/data/posts', () => ({
       readTime: 5,
       accentColor: '#FF0000',
       icon: '📝',
-      excerpt: { en: '', pt: '' },
+      excerpt: { en: 'Alpha excerpt', pt: 'Trecho alpha' },
       body: { en: { intro: '', sections: [], closing: '' }, pt: { intro: '', sections: [], closing: '' } },
     },
     {
@@ -36,7 +36,7 @@ jest.mock('@/data/posts', () => ({
       readTime: 3,
       accentColor: '#00FF00',
       icon: '🌿',
-      excerpt: { en: '', pt: '' },
+      excerpt: { en: 'Beta excerpt', pt: 'Trecho beta' },
       body: { en: { intro: '', sections: [], closing: '' }, pt: { intro: '', sections: [], closing: '' } },
     },
     {
@@ -50,7 +50,7 @@ jest.mock('@/data/posts', () => ({
       readTime: 4,
       accentColor: '#0000FF',
       icon: '✈',
-      excerpt: { en: '', pt: '' },
+      excerpt: { en: 'Gamma excerpt', pt: 'Trecho gamma' },
       body: { en: { intro: '', sections: [], closing: '' }, pt: { intro: '', sections: [], closing: '' } },
     },
   ],
@@ -84,26 +84,32 @@ describe('PostMore', () => {
     expect(document.querySelector('[aria-labelledby="more-posts-heading"]')).toBeInTheDocument();
   });
 
-  it('has a heading with id="more-posts-heading"', () => {
+  it('renders the keepReading translation key as eyebrow', () => {
     render(<PostMore currentSlug="post-a" />);
-    expect(document.getElementById('more-posts-heading')).toBeInTheDocument();
+    expect(screen.getByText('post.keepReading')).toBeInTheDocument();
   });
 
-  it('renders the morePosts and writings translation keys', () => {
-    render(<PostMore currentSlug="post-a" />);
-    expect(screen.getByText(/post\.morePosts/)).toBeInTheDocument();
-    expect(screen.getByText('post.writings')).toBeInTheDocument();
-  });
-
-  it('excludes the current post slug from the list', () => {
+  it('excludes the current post from the list', () => {
     render(<PostMore currentSlug="post-a" />);
     expect(screen.queryByText('Post Alpha')).not.toBeInTheDocument();
   });
 
-  it('renders at most 2 other posts', () => {
+  it('renders up to 3 other posts', () => {
     render(<PostMore currentSlug="post-a" />);
     expect(screen.getByText('Post Beta')).toBeInTheDocument();
     expect(screen.getByText('Post Gamma')).toBeInTheDocument();
+  });
+
+  it('renders the category kicker for each card', () => {
+    render(<PostMore currentSlug="post-a" />);
+    expect(screen.getByText('Life')).toBeInTheDocument();
+    expect(screen.getByText('Travel')).toBeInTheDocument();
+  });
+
+  it('renders the excerpt for each card', () => {
+    render(<PostMore currentSlug="post-a" />);
+    expect(screen.getByText('Beta excerpt')).toBeInTheDocument();
+    expect(screen.getByText('Gamma excerpt')).toBeInTheDocument();
   });
 
   it('renders links to the other posts', () => {
@@ -114,20 +120,8 @@ describe('PostMore', () => {
     expect(hrefs).toContain('/blog/post-c');
   });
 
-  it('renders the read time for each card', () => {
-    render(<PostMore currentSlug="post-a" />);
-    expect(screen.getAllByText(/blog\.minRead/).length).toBeGreaterThanOrEqual(1);
-  });
-
-  it('renders the primary tag of each card', () => {
-    render(<PostMore currentSlug="post-a" />);
-    expect(screen.getByText('Life')).toBeInTheDocument();
-    expect(screen.getByText('Travel')).toBeInTheDocument();
-  });
-
   it('returns null when there are no other posts', () => {
     const { container } = render(<PostMore currentSlug="post-a" />);
-    // With our mock data having posts, the section renders
     expect(container.firstChild).not.toBeNull();
   });
 });

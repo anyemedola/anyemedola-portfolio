@@ -24,16 +24,16 @@ export const HeroRoot = styled('header')({
   },
   '@media (max-width: 760px)': {
     gridTemplateColumns: '1fr',
-    gap: 20,
-    padding: '32px 22px 56px',
+    minHeight: '100dvh',
+    alignItems: 'center',
+    gap: 0,
+    padding: '0 22px',
   },
   '@media (max-width: 480px)': {
-    gap: 16,
-    padding: '24px 18px 48px',
+    padding: '0 18px',
   },
   '@media (max-width: 380px)': {
-    gap: 12,
-    padding: '20px 16px 40px',
+    padding: '0 16px',
   },
 });
 
@@ -41,7 +41,7 @@ export const Collage = styled('div')({
   position: 'relative',
   height: 600,
   '@media (max-width: 1024px)': { height: 480 },
-  '@media (max-width: 760px)': { height: 'auto' },
+  '@media (max-width: 760px)': { display: 'none' },
 });
 
 export const GlowOrb = styled('div')({
