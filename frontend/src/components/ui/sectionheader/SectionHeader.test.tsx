@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import { Eyebrow, SectionTitle, Lead } from '../styles';
+import { Eyebrow, SectionTitle, Lead } from './styles';
 
 describe('Eyebrow', () => {
   it('renders as a <p> element', () => {

@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import { SectionInner } from '../styles';
+import { SectionInner } from './styles';
 
 describe('SectionInner', () => {
   it('renders as a <div>', () => {

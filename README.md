@@ -16,22 +16,22 @@ A production-ready personal portfolio with three apps working together:
 | `backoffice` | Private CMS dashboard for managing content | 3001 |
 | `backend` | Express REST API + Firebase Admin SDK | 4000 |
 
-Built by [Any Elis Medola](https://anyemedola.com.br) — Senior Front-End Developer based in Milan, Italy.
+Built by [Any Elis Medola](https://anyemedola.com.br) — Senior Front-End Developer based in Sicily, Italy.
 
 ---
 
 ## Features
 
 - **EN / PT / IT i18n** — trilingual support (English, Portuguese, Italian) via react-i18next, persisted to localStorage and applied client-side after mount to avoid SSR hydration mismatches
-- **Portfolio sections** — Hero, About, Skills, Experience, Projects, Blog, Languages, Contact
+- **Portfolio sections** — Hero, About, Skills, Experience, Projects, Criação, Viagens, Expat, Mulher, Blog (Escrita), Contact
 - **Blog** — individual post pages with rich HTML body, read time, tags and trilingual content
 - **Backoffice** — private CMS with Firebase Authentication, project & blog post management, live/draft toggling
 - **Firestore** — all projects and posts are stored in Firebase Firestore; no local database file
 - **Firebase Auth** — admin login uses Firebase email/password authentication; the backend verifies Firebase session cookies
 - **Next.js proxy** — backoffice communicates with the backend through server-side API routes (session cookie never exposed to client JavaScript)
-- **Design system** — dark theme with mint + pink accent palette, Bebas Neue + DM Sans + Cormorant Garamond
+- **Design system** — warm sunset palette (pink `#B5546A`, gold `#DDA94A`, cream `#FBF1E6`) with Bodoni Moda (editorial headings) + Hanken Grotesk (body)
 - **Fully responsive** — optimized for mobile, tablet and desktop
-- **Test suite** — 62 Jest + React Testing Library tests covering components, hooks, sections and API fetch flows
+- **Test suite** — 227 Jest + React Testing Library tests covering all components, hooks and sections; co-located next to each source file
 
 ---
 
@@ -41,7 +41,7 @@ Built by [Any Elis Medola](https://anyemedola.com.br) — Senior Front-End Devel
 - Next.js 16 (App Router), React 19
 - MUI v7 + Emotion (CSS-in-JS)
 - react-i18next — EN / PT / IT, initialized server-safe with `'en'`, language detected from localStorage after mount
-- Jest + React Testing Library — unit and integration tests
+- Jest 30 + React Testing Library — unit and integration tests (Node 20+ required)
 
 **Backoffice** (`/backoffice`)
 - Next.js 16 (App Router), React 19
@@ -111,11 +111,14 @@ npm run dev:backend    # backend   → http://localhost:4000
 
 ### Tests
 
+Requires Node 20+. If using nvm: `nvm use 20`.
+
 ```bash
-cd frontend
-npm test              # run all 62 tests
-npm run test:coverage # with coverage report
+npm test -w frontend              # run all 227 tests
+npm run test:coverage -w frontend # with coverage report
 ```
+
+Tests are co-located next to their source files (e.g. `Header.test.tsx` lives alongside `Header.tsx`).
 
 ---
 
@@ -142,18 +145,22 @@ anyemedola-portfolio/                ← monorepo root
 │   │   └── blog/[slug]/page.tsx     # Individual blog post pages
 │   └── src/
 │       ├── components/
-│       │   ├── sections/            # Hero, About, Skills, Experience, Projects, Blog, Contact
-│       │   ├── blog/                # PostHero, PostBody, PostMore, PostFooter, PostNav
+│       │   ├── sections/            # Hero, About, Skills, Experience, Projects,
+│       │   │                        # Criação, Viagens, Expat, Mulher, Escrita, Contact
+│       │   ├── blog/                # PostHero, PostBody, PostMore, PostPageFooter, PostNav,
+│       │   │                        # ReadingProgress
 │       │   ├── layout/              # Header (nav + lang toggle), Footer
-│       │   └── ui/                  # LangToggle, SkipLink, CustomCursor, T
+│       │   ├── seo/                 # JsonLd structured data
+│       │   └── ui/                  # LangToggle, SkipLink, LemonCursor, T, Polaroid,
+│       │                            # SectionRoot, SectionInner, SectionHeader, ImageFrame
 │       ├── hooks/
-│       │   ├── useScrollReveal.ts   # IntersectionObserver-based reveal animation
-│       │   └── useCustomCursor.ts   # Custom cursor tracking
+│       │   └── useScrollReveal.ts   # IntersectionObserver-based reveal animation
 │       ├── translator-i18n/
 │       │   └── i18n/
 │       │       ├── index.tsx        # i18next init (lng: 'en', no LanguageDetector)
 │       │       └── locales/         # en / pt / it translations
-│       └── data/posts.ts            # Static blog post fallback data
+│       ├── data/posts.ts            # Static blog post data
+│       └── theme/theme.ts           # Design tokens (rose, gold, cream, ink, warmBrown*)
 │
 ├── backoffice/                      ← admin dashboard (port 3001)
 │   ├── app/
@@ -208,4 +215,4 @@ MIT — feel free to fork and adapt.
 
 ---
 
-Made with coffee from Milan
+Made with coffee from Sicily

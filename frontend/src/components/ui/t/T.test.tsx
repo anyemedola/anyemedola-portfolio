@@ -1,11 +1,15 @@
 import { render, screen } from '@testing-library/react';
-import T from '../T';
+import T from './T';
 
 let mockLanguage = 'en';
 jest.mock('react-i18next', () => ({
   useTranslation: () => ({
     t: (k: string) => k,
-    i18n: { get language() { return mockLanguage; } },
+    i18n: {
+      get language() { return mockLanguage; },
+      on: jest.fn(),
+      off: jest.fn(),
+    },
   }),
 }));
 

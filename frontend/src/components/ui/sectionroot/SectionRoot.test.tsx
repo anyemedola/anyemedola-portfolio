@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import { SectionRoot, SectionRootBordered } from '../styles';
+import { SectionRoot, SectionRootBordered } from './styles';
 
 describe('SectionRoot', () => {
   it('renders as a <section> element', () => {

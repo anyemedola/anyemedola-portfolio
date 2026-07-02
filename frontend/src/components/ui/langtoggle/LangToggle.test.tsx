@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import LangToggle from '../LangToggle';
+import LangToggle from './LangToggle';
 
 const mockChangeLanguage = jest.fn();
 let mockLanguage = 'en';

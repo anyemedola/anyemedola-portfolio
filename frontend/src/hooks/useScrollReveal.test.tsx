@@ -1,6 +1,6 @@
 import React from 'react';
 import { renderHook } from '@testing-library/react';
-import { useScrollReveal } from '../useScrollReveal';
+import { useScrollReveal } from './useScrollReveal';
 
 let observerCallback: IntersectionObserverCallback;
 let observeSpy: jest.Mock;

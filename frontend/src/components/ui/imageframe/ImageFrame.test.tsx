@@ -1,5 +1,5 @@
 import { render } from '@testing-library/react';
-import { ImageFrame } from '../styles';
+import { ImageFrame } from './styles';
 
 describe('ImageFrame', () => {
   it('renders as a <div>', () => {
