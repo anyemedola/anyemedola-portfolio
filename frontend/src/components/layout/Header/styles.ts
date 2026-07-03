@@ -28,12 +28,6 @@ export const Inner = styled('div')({
 });
 
 export const Logo = styled('a')({
-  fontFamily: "'Bodoni Moda', var(--font-bodoni), serif",
-  fontWeight: 700,
-  fontSize: 22,
-  letterSpacing: '0.01em',
-  color: tokens.ink,
-  textDecoration: 'none',
   display: 'flex',
   gap: 5,
 });

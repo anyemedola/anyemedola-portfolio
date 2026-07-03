@@ -4,6 +4,7 @@ import { styled } from '@mui/material/styles';
 export const Section = styled('section')({
   padding: '64px 56px',
   background: 'linear-gradient(180deg,#FBEDEE,#EEF2E4)',
+  borderTop: '1px solid rgba(242,216,218,0.8)',
   '@media (max-width: 760px)': { padding: '52px 24px' },
 });
 

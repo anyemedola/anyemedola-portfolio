@@ -3,12 +3,12 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { styled } from '@mui/material/styles';
-import { tokens } from '@/theme/theme';
 import { posts, type BlogPost } from '@/data/posts';
 import { useTranslation } from 'react-i18next';
 import T from '@/components/ui/t/T';
 import LemonCursor from '@/components/ui/cursor/lemonCursor';
+import Header from '@/components/layout/Header/Header';
+import * as S from './styles';
 
 interface ApiPost {
   id: number; slug: string;
@@ -48,269 +48,6 @@ function apiToPost(p: ApiPost): BlogPost {
   };
 }
 
-const Root = styled('div')({
-  background: tokens.cream,
-  color: tokens.ink,
-  fontFamily: "'Hanken Grotesk', var(--font-hanken), sans-serif",
-  minHeight: '100vh',
-});
-
-const Nav = styled('nav')({
-  position: 'sticky',
-  top: 0,
-  zIndex: 50,
-  backdropFilter: 'blur(14px)',
-  background: 'rgba(251,241,230,.82)',
-  borderBottom: `1px solid ${tokens.border}`,
-});
-
-const NavInner = styled('div')({
-  maxWidth: 920,
-  margin: '0 auto',
-  padding: '0 32px',
-  height: 64,
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'space-between',
-  '@media (max-width: 600px)': { padding: '0 22px' },
-});
-
-const BackLink = styled(Link)({
-  fontSize: 14,
-  fontWeight: 500,
-  color: tokens.warmBrown,
-  textDecoration: 'none',
-  transition: 'color .2s',
-  '&:hover': { color: tokens.rose },
-});
-
-const NavLogo = styled(Link)({
-  fontFamily: "'Bodoni Moda', var(--font-bodoni), serif",
-  fontWeight: 700,
-  fontSize: 19,
-  textDecoration: 'none',
-  color: tokens.ink,
-  '& em': { fontStyle: 'italic', color: tokens.rose },
-});
-
-const PageHeader = styled('header')({
-  maxWidth: 920,
-  margin: '0 auto',
-  padding: '84px 32px 48px',
-  '@media (max-width: 600px)': { padding: '56px 22px 40px' },
-});
-
-const Eyebrow = styled('div')({
-  fontSize: 13,
-  letterSpacing: '.3em',
-  textTransform: 'uppercase',
-  color: tokens.rose,
-  fontWeight: 700,
-  marginBottom: 22,
-});
-
-const PageTitle = styled('h1')({
-  fontFamily: "'Bodoni Moda', var(--font-bodoni), serif",
-  fontWeight: 900,
-  fontSize: 'clamp(52px, 9vw, 104px)',
-  lineHeight: 0.92,
-  letterSpacing: '-.02em',
-  margin: 0,
-  color: tokens.ink,
-});
-
-const PageLead = styled('p')({
-  fontSize: 19,
-  lineHeight: 1.55,
-  color: tokens.warmBrown,
-  maxWidth: 540,
-  margin: '26px 0 0',
-});
-
-const FeatSection = styled('section')({
-  maxWidth: 920,
-  margin: '0 auto',
-  padding: '0 32px 16px',
-  '@media (max-width: 600px)': { padding: '0 22px 16px' },
-});
-
-const FeatCard = styled(Link)({
-  display: 'grid',
-  gridTemplateColumns: '1.05fr .95fr',
-  background: tokens.creamLight,
-  border: `1px solid ${tokens.borderLight}`,
-  borderRadius: 24,
-  overflow: 'hidden',
-  textDecoration: 'none',
-  color: 'inherit',
-  transition: 'transform .4s, box-shadow .4s',
-  '&:hover': {
-    transform: 'translateY(-4px)',
-    boxShadow: '0 34px 60px -38px rgba(120,60,50,.5)',
-  },
-  '&:hover .featimg': { transform: 'scale(1.05)' },
-  '@media (max-width: 760px)': { gridTemplateColumns: '1fr' },
-});
-
-const FeatContent = styled('div')({
-  padding: '44px 46px',
-  display: 'flex',
-  flexDirection: 'column',
-  justifyContent: 'center',
-  '@media (max-width: 600px)': { padding: '32px 28px' },
-});
-
-const FeatMeta = styled('div')({
-  display: 'flex',
-  gap: 12,
-  alignItems: 'center',
-  marginBottom: 18,
-});
-
-const FeatTag = styled('span')({
-  fontSize: 11,
-  fontWeight: 700,
-  letterSpacing: '.14em',
-  textTransform: 'uppercase',
-  color: tokens.ink,
-  background: tokens.gold,
-  padding: '5px 11px',
-  borderRadius: 999,
-});
-
-const FeatDate = styled('span')({
-  fontSize: 13,
-  color: tokens.warmBrownLight,
-});
-
-const FeatTitle = styled('h2')({
-  fontFamily: "'Bodoni Moda', var(--font-bodoni), serif",
-  fontWeight: 900,
-  fontSize: 'clamp(40px, 5vw, 60px)',
-  lineHeight: 0.96,
-  margin: '0 0 16px',
-  color: tokens.ink,
-});
-
-const FeatExcerpt = styled('p')({
-  fontSize: 16,
-  lineHeight: 1.6,
-  color: tokens.warmBrown,
-  margin: '0 0 22px',
-});
-
-const FeatCta = styled('span')({
-  fontSize: 15,
-  fontWeight: 600,
-  color: tokens.ink,
-  borderBottom: `2px solid ${tokens.gold}`,
-  paddingBottom: 3,
-  alignSelf: 'flex-start',
-});
-
-const FeatImgWrap = styled('div')({
-  overflow: 'hidden',
-  minHeight: 320,
-  position: 'relative',
-  '& img': { transition: 'transform .6s' },
-  '@media (max-width: 760px)': { minHeight: 220, height: 240 },
-});
-
-const UpcomingSection = styled('section')({
-  maxWidth: 920,
-  margin: '0 auto',
-  padding: '40px 32px 100px',
-  '@media (max-width: 600px)': { padding: '32px 22px 80px' },
-});
-
-const SectionDivider = styled('div')({
-  display: 'flex',
-  alignItems: 'center',
-  gap: 16,
-  marginBottom: 8,
-});
-
-const SectionLabel = styled('span')({
-  fontSize: 12,
-  letterSpacing: '.24em',
-  textTransform: 'uppercase',
-  color: tokens.warmBrownLight,
-  fontWeight: 700,
-  whiteSpace: 'nowrap',
-});
-
-const DividerLine = styled('span')({
-  flex: 1,
-  height: 1,
-  background: '#E2CDB8',
-});
-
-const PostRow = styled('div')({
-  display: 'grid',
-  gridTemplateColumns: '150px 1fr 40px',
-  gap: 24,
-  alignItems: 'center',
-  padding: '26px 14px',
-  borderBottom: `1px solid ${tokens.border}`,
-  borderRadius: 12,
-  transition: 'background .3s',
-  cursor: 'default',
-  '&:hover': { background: tokens.creamLight },
-  '&:hover .post-arrow': { transform: 'translateX(4px)', color: tokens.rose },
-  '@media (max-width: 600px)': { gridTemplateColumns: '1fr', gap: 8 },
-});
-
-const PostMeta = styled('div')({
-  '@media (max-width: 600px)': { order: -1 },
-});
-
-const PostPeriod = styled('div')({
-  fontFamily: "'Bodoni Moda', var(--font-bodoni), serif",
-  fontSize: 15,
-  color: tokens.goldDeep,
-  fontWeight: 700,
-});
-
-const PostCategory = styled('div')({
-  fontSize: 13,
-  color: tokens.warmBrownLight,
-  marginTop: 2,
-});
-
-const PostContent = styled('div')({});
-
-const PostTitle = styled('h3')({
-  fontSize: 22,
-  margin: '0 0 6px',
-  fontWeight: 700,
-  color: tokens.ink,
-  fontFamily: "'Hanken Grotesk', var(--font-hanken), sans-serif",
-});
-
-const PostDesc = styled('p')({
-  fontSize: 15,
-  color: '#7A635C',
-  lineHeight: 1.5,
-  margin: 0,
-});
-
-const PostArrow = styled('span')({
-  fontSize: 22,
-  color: '#D9C3AE',
-  textAlign: 'right',
-  transition: 'transform .3s, color .3s',
-});
-
-const ClosingText = styled('p')({
-  textAlign: 'center',
-  fontSize: 15,
-  color: tokens.warmBrownLight,
-  margin: '48px 0 0',
-  fontFamily: "'Bodoni Moda', var(--font-bodoni), serif",
-  fontStyle: 'italic',
-});
-
-
 export default function BlogListingPage() {
   const { t } = useTranslation();
   const [apiPosts, setApiPosts] = useState<BlogPost[]>([]);
@@ -323,7 +60,6 @@ export default function BlogListingPage() {
   }, []);
 
   const apiSlugs = new Set(apiPosts.map(p => p.slug));
-  // Only "inteira" is a real static essay; other static posts are design placeholders
   const inteira = posts.find(p => p.slug === 'inteira');
   const staticEssays = inteira && !apiSlugs.has('inteira') ? [inteira] : [];
   const allPosts = [...apiPosts, ...staticEssays]
@@ -333,78 +69,72 @@ export default function BlogListingPage() {
   const restPosts = allPosts.slice(1);
 
   return (
-    <Root>
+    <S.Root>
       <LemonCursor />
+      <Header />
 
-      <Nav aria-label="Blog navigation">
-        <NavInner>
-          <BackLink href="/#escrita">← {t('post.back')}</BackLink>
-          <NavLogo href="/">Any <em>Medola</em></NavLogo>
-        </NavInner>
-      </Nav>
-
-      <PageHeader>
-        <Eyebrow>O Blog</Eyebrow>
-        <PageTitle>Escritos</PageTitle>
-        <PageLead>Ensaios sobre código, recomeços, viagens e a coragem de ser inteira. Palavras que não cabem num README.</PageLead>
-      </PageHeader>
+      <S.PageHeader>
+        <S.Eyebrow>{t('blog.eyebrow')}</S.Eyebrow>
+        <S.PageTitle>{t('blog.title')}</S.PageTitle>
+        <S.PageLead>{t('blog.lead')}</S.PageLead>
+      </S.PageHeader>
 
       {featured && (
-        <FeatSection aria-label="Destaque">
-          <FeatCard href={`/blog/${featured.slug}`}>
-            <FeatContent>
-              <FeatMeta>
-                <FeatTag>{featured.primaryTag}</FeatTag>
-                <FeatDate>{featured.date} · {featured.readTime} min</FeatDate>
-              </FeatMeta>
-              <FeatTitle>
+        <S.FeatSection aria-label={t('blog.eyebrow')}>
+          <S.FeatCard href={`/blog/${featured.slug}`}>
+            <S.FeatContent>
+              <S.FeatMeta>
+                <S.FeatTag>{featured.primaryTag}</S.FeatTag>
+                <S.FeatDate>{featured.date} · {featured.readTime} min</S.FeatDate>
+              </S.FeatMeta>
+              <S.FeatTitle>
                 <T en={featured.title.en} pt={featured.title.pt} it={featured.title.it ?? featured.title.en} />
-              </FeatTitle>
-              <FeatExcerpt>
+              </S.FeatTitle>
+              <S.FeatExcerpt>
                 <T en={featured.excerpt.en} pt={featured.excerpt.pt} it={featured.excerpt.it ?? featured.excerpt.en} />
-              </FeatExcerpt>
-              <FeatCta>{t('writing.featCta')}</FeatCta>
-            </FeatContent>
-            <FeatImgWrap>
+              </S.FeatExcerpt>
+              <S.FeatCta>{t('writing.featCta')}</S.FeatCta>
+            </S.FeatContent>
+            <S.FeatImgWrap>
               <Image
                 className="featimg"
-                src={featured.coverImage ?? '/sunset-sea.jpg'}
+                src={featured.coverImage ?? '/inteira.jpeg'}
                 alt={featured.title.pt ?? featured.title.en}
                 fill
                 style={{ objectFit: 'cover' }}
                 sizes="(max-width: 760px) 100vw, 45vw"
               />
-            </FeatImgWrap>
-          </FeatCard>
-        </FeatSection>
+            </S.FeatImgWrap>
+          </S.FeatCard>
+        </S.FeatSection>
       )}
 
       {restPosts.length > 0 && (
-        <UpcomingSection aria-label="Mais artigos">
-          <SectionDivider>
-            <SectionLabel>Mais artigos</SectionLabel>
-            <DividerLine aria-hidden="true" />
-          </SectionDivider>
+        <S.UpcomingSection aria-label={t('blog.moreArticles')}>
+          <S.SectionDivider>
+            <S.SectionLabel>{t('blog.moreArticles')}</S.SectionLabel>
+            <S.DividerLine aria-hidden="true" />
+          </S.SectionDivider>
 
           {restPosts.map((post) => (
             <Link key={post.slug} href={`/blog/${post.slug}`} style={{ textDecoration: 'none', color: 'inherit' }}>
-              <PostRow>
-                <PostMeta className="post-meta">
-                  <PostPeriod>{post.date}</PostPeriod>
-                  <PostCategory>{post.primaryTag}</PostCategory>
-                </PostMeta>
-                <PostContent>
-                  <PostTitle><T en={post.title.en} pt={post.title.pt} it={post.title.it ?? post.title.en} /></PostTitle>
-                  <PostDesc><T en={post.excerpt.en} pt={post.excerpt.pt} it={post.excerpt.it ?? post.excerpt.en} /></PostDesc>
-                </PostContent>
-                <PostArrow className="post-arrow" aria-hidden="true">→</PostArrow>
-              </PostRow>
+              <S.PostRow>
+                <S.PostMeta className="post-meta">
+                  <S.PostPeriod>{post.date}</S.PostPeriod>
+                  <S.PostCategory>{post.primaryTag}</S.PostCategory>
+                </S.PostMeta>
+                <S.PostContent>
+                  <S.PostTitle><T en={post.title.en} pt={post.title.pt} it={post.title.it ?? post.title.en} /></S.PostTitle>
+                  <S.PostDesc><T en={post.excerpt.en} pt={post.excerpt.pt} it={post.excerpt.it ?? post.excerpt.en} /></S.PostDesc>
+                </S.PostContent>
+                <S.PostArrow className="post-arrow" aria-hidden="true">→</S.PostArrow>
+              </S.PostRow>
             </Link>
           ))}
 
-          <ClosingText>A escrita é uma viagem que nunca termina. Volte sempre. ✦</ClosingText>
-        </UpcomingSection>
+          <S.ClosingText>{t('blog.closingText')}</S.ClosingText>
+        </S.UpcomingSection>
       )}
-    </Root>
+    </S.Root>
   );
 }

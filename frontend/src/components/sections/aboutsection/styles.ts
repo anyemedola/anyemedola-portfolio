@@ -78,3 +78,10 @@ export const StatLabel = styled('div')({
   color: tokens.warmBrownMid,
   marginTop: 4,
 });
+
+export const StatSub = styled('div')({
+  fontFamily: "'Hanken Grotesk', var(--font-hanken), sans-serif",
+  fontSize: 11,
+  color: tokens.warmBrownLight,
+  marginTop: 2,
+});

@@ -27,9 +27,9 @@ export default function PostHero({ post }: { post: BlogPost }) {
       </S.Subtitle>
 
       <S.Author>
-        <S.AuthorName>por Any Medola</S.AuthorName>
+        <S.AuthorName>{t('post.by')} Any Medola</S.AuthorName>
         <S.Sep aria-hidden="true">·</S.Sep>
-        <span>Sicília, Itália</span>
+        <span>{t('post.location')}</span>
       </S.Author>
 
       <S.Rule aria-hidden="true" />

@@ -21,7 +21,10 @@
     "p1": "Sono nata in Brasile con una sete di mondo che nessuna mappa può saziare. Tre anni fa ho ottenuto la cittadinanza italiana, ho fatto le valigie e mi sono trasferita in Sicilia — non a Milano, come insisteva il mio vecchio curriculum. Ora il mio fuso è quello del Mediterraneo, e la luce dorata del tardo pomeriggio è diventata parte di me.",
     "p2": "Sono leonina fino in fondo: amo crearmi la mia strada, aiutare chi mi sta accanto ed essere riconosciuta per ciò che sono davvero — non solo la sviluppatrice che consegna, ma la donna che viaggia, scrive, legge, suona e fa della vita una collezione di storie.",
     "stat1": "anni in front-end",
-    "stat2": "paesi vissuti e lavorati",
+    "stat2": "paesi in cui ho vissuto",
+    "stat2sub": "Brasile & Italia",
+    "stat2b": "paesi in cui ho lavorato",
+    "stat2bsub": "Brasile, Italia & Portogallo",
     "stat3": "lingue parlate"
   },
   "work": {
@@ -98,7 +101,7 @@
     "c2title": "Viaggi · @anyemedola",
     "c2desc": "Video e foto dei miei viaggi per il mondo.",
     "c3title": "Unboxing & recensioni",
-    "c3desc": "Libri che mi hanno segnata, aperti e raccontati in video.",
+    "c3desc": "Unboxing e recensioni: da libri, make-up fino all'elettronica in video.",
     "c4title": "Expat · @anyinsicily",
     "c4desc": "Contenuti in inglese e italiano sul ricominciare su un'isola."
   },
@@ -157,6 +160,9 @@
   },
   "post": {
     "back": "Torna al portfolio",
+    "by": "di",
+    "location": "Sicilia, Italia",
+    "footerText": "Il primo di tanti. Altri saggi su codice, nuovi inizi e il coraggio di essere intera — presto.",
     "caption": "Didascalia o credito immagine opzionale",
     "share": "Condividi questo articolo",
     "copyLink": "Copia link",
@@ -166,6 +172,11 @@
     "label": "Vai al contenuto principale"
   },
   "blog": {
-    "minRead": "min di lettura"
+    "minRead": "min di lettura",
+    "eyebrow": "Il Blog",
+    "title": "Scrittura",
+    "lead": "Saggi su codice, nuovi inizi, viaggi e il coraggio di essere intera. Parole che non entrano in un README.",
+    "moreArticles": "Altri articoli",
+    "closingText": "La scrittura è un viaggio che non finisce mai. Torna presto. ✦"
   }
 }

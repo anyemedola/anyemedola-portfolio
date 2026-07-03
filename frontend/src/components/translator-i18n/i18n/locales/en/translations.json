@@ -21,7 +21,10 @@
     "p1": "I was born in Brazil with a thirst for the world no map could satisfy. Three years ago I claimed my Italian citizenship, packed my bags and moved to Sicily — not Milan, as my old résumé kept insisting. My time zone is the Mediterranean now, and the golden late-afternoon light has become part of who I am.",
     "p2": "I'm a Leo through and through: I love forging my own path, helping the people beside me, and being recognized for who I truly am — not just the developer who delivers, but the woman who travels, writes, reads, plays music and turns life into a collection of stories.",
     "stat1": "years in front-end",
-    "stat2": "countries lived & worked",
+    "stat2": "countries I've lived in",
+    "stat2sub": "Brazil & Italy",
+    "stat2b": "countries I've worked in",
+    "stat2bsub": "Brazil, Italy & Portugal",
     "stat3": "languages spoken"
   },
   "work": {
@@ -98,7 +101,7 @@
     "c2title": "Travel · @anyemedola",
     "c2desc": "Videos and photos from my travels around the world.",
     "c3title": "Unboxings & reviews",
-    "c3desc": "Books that marked me, opened and told on video.",
+    "c3desc": "Unboxing and reviews: from books, makeup to electronics on video.",
     "c4title": "Expat · @anyinsicily",
     "c4desc": "Content in English and Italian about starting over on an island."
   },
@@ -157,6 +160,9 @@
   },
   "post": {
     "back": "Back to portfolio",
+    "by": "by",
+    "location": "Sicily, Italy",
+    "footerText": "The first of many. More essays on code, new beginnings and the courage to be whole — coming soon.",
     "caption": "Optional image caption or credit",
     "share": "Share this article",
     "copyLink": "Copy link",
@@ -166,6 +172,11 @@
     "label": "Skip to main content"
   },
   "blog": {
-    "minRead": "min read"
+    "minRead": "min read",
+    "eyebrow": "The Blog",
+    "title": "Writing",
+    "lead": "Essays on code, new beginnings, travel and the courage to be whole. Words that don't fit in a README.",
+    "moreArticles": "More articles",
+    "closingText": "Writing is a journey that never ends. Come back soon. ✦"
   }
 }

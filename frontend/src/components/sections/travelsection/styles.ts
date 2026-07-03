@@ -3,11 +3,9 @@ import { tokens } from '@/theme/theme';
 import { SectionTitle, Lead as BaseLead } from '@/components/ui/sectionheader/styles';
 import Polaroid from '@/components/ui/polaroid/Polaroid';
 import { SectionInner } from '@/components/ui/sectioninner/styles';
+import { StarDot } from '@/components/ui/stardot/styles';
 
-const floatTwinkle = keyframes`
-  0%, 100% { opacity: 0.2; }
-  50%       { opacity: 0.85; }
-`;
+export { StarDot as TwmStar };
 
 const slowDrift = keyframes`
   from { transform: rotate(-4deg) translateY(0); }
@@ -20,7 +18,6 @@ export const Inner = styled(SectionInner)({
   '@media (max-width: 900px)': { padding: '40px 22px' },
 });
 export { Eyebrow } from '@/components/ui/sectionheader/styles';
-export { Frame as PolaroidFrame } from '@/components/ui/polaroid/styles';
 
 export const Title = styled(SectionTitle)({
   fontSize: 'clamp(30px, 3.6vw, 46px)',
@@ -42,58 +39,6 @@ export const TopGrid = styled('div')({
     gridTemplateColumns: '1fr',
     gap: 28,
   },
-});
-
-export const Gallery = styled('div')({
-  display: 'grid',
-  gridTemplateColumns: 'repeat(4, 1fr)',
-  gridAutoRows: 150,
-  gap: 18,
-  '@media (max-width: 760px)': { gridTemplateColumns: '1fr 1fr' },
-});
-
-export const GalleryMain = styled(Polaroid)({
-  gridColumn: 'span 2',
-  gridRow: 'span 2',
-});
-
-export const GallerySmall = styled(Polaroid)({
-  gridColumn: 'span 2',
-  gridRow: 'span 1',
-});
-
-export const PlaceholderPink = styled('div')({
-  flex: '1 1 auto',
-  minHeight: 0,
-  borderRadius: 4,
-  background: `linear-gradient(150deg, ${tokens.roseMid}, ${tokens.rose})`,
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  textAlign: 'center',
-  padding: 14,
-  fontFamily: "'Bodoni Moda', var(--font-bodoni), serif",
-  fontStyle: 'italic',
-  color: '#FFF7EE',
-  fontSize: 15,
-  lineHeight: 1.45,
-});
-
-export const PlaceholderGold = styled('div')({
-  flex: '1 1 auto',
-  minHeight: 0,
-  borderRadius: 4,
-  background: `linear-gradient(150deg, ${tokens.goldLight}, ${tokens.gold})`,
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  textAlign: 'center',
-  padding: 14,
-  fontFamily: "'Bodoni Moda', var(--font-bodoni), serif",
-  fontStyle: 'italic',
-  color: '#123B37',
-  fontSize: 15,
-  lineHeight: 1.45,
 });
 
 export const TravelCollage = styled('div')({
@@ -150,7 +95,7 @@ export const TravelWithMe = styled('div')({
   gridTemplateColumns: '1.35fr .65fr',
   gap: 28,
   alignItems: 'center',
-  background: 'linear-gradient(165deg,#0C2926 0%,#123B37 50%,#14403C 100%)',
+  background: tokens.gradientDark,
   borderRadius: 24,
   padding: '44px 48px',
   position: 'relative',
@@ -160,23 +105,6 @@ export const TravelWithMe = styled('div')({
     padding: '36px 28px',
   },
 });
-
-export const TwmStar = styled('div', {
-  shouldForwardProp: (p) => !['top', 'left', 'size', 'delay', 'color'].includes(p as string),
-})<{ top: string; left: string; size: number; delay: string; color: string }>(
-  ({ top, left, size, delay, color }) => ({
-    position: 'absolute',
-    top,
-    left,
-    width: size,
-    height: size,
-    borderRadius: '50%',
-    background: color,
-    animation: `${floatTwinkle} 3.2s ease-in-out infinite`,
-    animationDelay: delay,
-    pointerEvents: 'none',
-  }),
-);
 
 export const TwmGlow = styled('div')({
   position: 'absolute',

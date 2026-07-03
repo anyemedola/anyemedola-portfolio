@@ -21,7 +21,7 @@ export default function TravelSection() {
           <S.TravelCollage aria-hidden="true">
             <S.TravelGlowOrb />
             <S.TravelMainFrame
-              src="/verona.jpeg"
+              src="/Verona.jpeg"
               alt="Casa di Giulietta, Verona"
               objectPosition="center 30%"
               rotate={-4}

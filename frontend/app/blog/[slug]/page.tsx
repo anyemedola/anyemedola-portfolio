@@ -2,7 +2,7 @@ import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import { getPost, type BlogPost } from '@/data/posts';
 import ReadingProgress from '@/components/blog/readingpostprogress/ReadingProgress';
-import PostNav from '@/components/blog/postnav/PostNav';
+import Header from '@/components/layout/Header/Header';
 import PostHero from '@/components/blog/posthero/PostHero';
 import PostBody from '@/components/blog/postbody/PostBody';
 import PostMore from '@/components/blog/postmore/PostMore';
@@ -82,10 +82,10 @@ export default async function BlogPostPage({ params }: Props) {
   if (!post) notFound();
 
   return (
-    <div style={{ background: '#FBF1E6', minHeight: '100vh' }}>
+    <div style={{ background: '#FBEDEE', minHeight: '100vh' }}>
       <LemonCursor />
       <ReadingProgress />
-      <PostNav />
+      <Header />
       <article aria-labelledby="post-main-title">
         <PostHero post={post} />
         <PostBody post={post} />

@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import { usePathname } from 'next/navigation';
 import LangToggle from '@/components/ui/langtoggle/LangToggle';
 import * as S from './styles';
 import { useState, useEffect } from 'react';
@@ -12,12 +13,14 @@ const navItems = [
   { key: 'projects', href: '#projetos' },
   { key: 'create', href: '#criacao' },
   { key: 'travel', href: '#viagens' },
-  { key: 'writing', href: '#escrita' },
+  { key: 'writing', href: '/blog' },
 ] as const;
 
 export default function Header() {
   const { t } = useTranslation();
   const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
+  const onHome = pathname === '/';
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 10);
@@ -25,10 +28,13 @@ export default function Header() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
+  const anchorHref = (href: string) =>
+    href.startsWith('#') && !onHome ? `/${href}` : href;
+
   return (
     <S.HeaderRoot role="banner" data-scrolled={scrolled ? 'true' : 'false'}>
       <S.Inner>
-        <S.Logo href="#top" aria-label="Any Medola — Home">
+        <S.Logo href={onHome ? '#top' : '/'} aria-label="Any Medola — Home">
           <Image
             src="/android-chrome-192x192.png"
             alt="Logotipo de Any Medola"
@@ -42,7 +48,7 @@ export default function Header() {
         <S.NavRight>
           <S.DesktopNav aria-label="Main navigation">
             {navItems.map(({ key, href }) => (
-              <S.NavLink key={key} href={href} className="navlink">
+              <S.NavLink key={key} href={anchorHref(href)} className="navlink">
                 {t(`nav.${key}`)}
               </S.NavLink>
             ))}
@@ -50,7 +56,7 @@ export default function Header() {
 
           <LangToggle />
 
-          <S.CtaLink href="#contato" className="nav-cta" aria-label={t('nav.cta')}>
+          <S.CtaLink href={onHome ? '#contato' : '/#contato'} className="nav-cta" aria-label={t('nav.cta')}>
             {t('nav.cta')}
           </S.CtaLink>
         </S.NavRight>

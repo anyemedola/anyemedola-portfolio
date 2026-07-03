@@ -21,7 +21,10 @@
     "p1": "Nasci no Brasil com uma sede de mundo que nenhum mapa dá conta. Há três anos reconheci minha cidadania italiana, fiz as malas e fui morar na Sicília — não em Milão, como meu currículo antigo insistia em dizer. Hoje meu fuso é o do Mediterrâneo, e a luz dourada do fim de tarde virou parte de quem eu sou.",
     "p2": "Sou leonina dos pés à cabeça: gosto de criar meu próprio caminho, ajudar quem está ao meu lado e ser reconhecida por quem realmente sou — não só pela desenvolvedora que entrega, mas pela mulher que viaja, escreve, lê, toca e faz da vida uma coleção de histórias.",
     "stat1": "anos em front-end",
-    "stat2": "países onde vivi e trabalhei",
+    "stat2": "países onde vivi",
+    "stat2sub": "Brasil & Itália",
+    "stat2b": "países onde trabalhei",
+    "stat2bsub": "Brasil, Itália & Portugal",
     "stat3": "idiomas falados"
   },
   "work": {
@@ -98,7 +101,7 @@
     "c2title": "Viagens · @anyemedola",
     "c2desc": "Vídeos e fotos das minhas viagens pelo mundo.",
     "c3title": "Unboxings & resenhas",
-    "c3desc": "Livros que me marcaram, abertos e contados em vídeo.",
+    "c3desc": "Unboxing e resenhas: de livros, maquiagem até eletrônicos em vídeos.",
     "c4title": "Expat · @anyinsicily",
     "c4desc": "Conteúdo em inglês e italiano sobre recomeçar numa ilha."
   },
@@ -157,6 +160,9 @@
   },
   "post": {
     "back": "Voltar ao portfólio",
+    "by": "por",
+    "location": "Sicília, Itália",
+    "footerText": "O primeiro de muitos. Mais ensaios sobre código, recomeços e a coragem de ser inteira — em breve.",
     "caption": "Legenda ou crédito opcional da imagem",
     "share": "Compartilhe este artigo",
     "copyLink": "Copiar link",
@@ -166,6 +172,11 @@
     "label": "Ir para o conteúdo principal"
   },
   "blog": {
-    "minRead": "min de leitura"
+    "minRead": "min de leitura",
+    "eyebrow": "O Blog",
+    "title": "Escritos",
+    "lead": "Ensaios sobre código, recomeços, viagens e a coragem de ser inteira. Palavras que não cabem num README.",
+    "moreArticles": "Mais artigos",
+    "closingText": "A escrita é uma viagem que nunca termina. Volte sempre. ✦"
   }
 }

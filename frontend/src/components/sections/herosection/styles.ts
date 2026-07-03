@@ -2,12 +2,6 @@ import { styled } from '@mui/material/styles';
 import { keyframes } from '@emotion/react';
 import { tokens } from '@/theme/theme';
 import { Eyebrow as BaseEyebrow } from '@/components/ui/sectionheader/styles';
-import Polaroid from '@/components/ui/polaroid/Polaroid';
-
-const slowDrift = keyframes({
-  from: { transform: 'rotate(-4deg) translateY(0)' },
-  to: { transform: 'rotate(-4deg) translateY(-14px)' },
-});
 
 const portraitDrift = keyframes({
   from: { transform: 'translateY(0)' },
@@ -29,81 +23,21 @@ export const HeroRoot = styled('header')({
     gap: 28,
   },
   '@media (max-width: 760px)': {
-    gridTemplateColumns: '1fr',
+    display: 'flex',
+    flexDirection: 'column',
+    height: '100dvh',
     minHeight: '100dvh',
-    alignItems: 'center',
-    gap: 0,
-    padding: '0 22px',
+    padding: '80px 22px 24px',
+    gap: 20,
+    justifyContent: 'flex-start',
+    alignItems: 'stretch',
   },
   '@media (max-width: 480px)': {
-    padding: '0 18px',
+    padding: '76px 18px 20px',
   },
   '@media (max-width: 380px)': {
-    padding: '0 16px',
+    padding: '76px 16px 16px',
   },
-});
-
-export const Collage = styled('div')({
-  position: 'relative',
-  height: 600,
-  '@media (max-width: 1024px)': { height: 480 },
-  '@media (max-width: 760px)': { display: 'none' },
-});
-
-export const GlowOrb = styled('div')({
-  position: 'absolute',
-  top: 24,
-  right: 30,
-  width: '58%',
-  height: '78%',
-  borderRadius: '220px 220px 18px 18px',
-  background: `linear-gradient(180deg, ${tokens.goldLight}, ${tokens.roseMid} 55%, ${tokens.rose})`,
-  opacity: 0.22,
-  filter: 'blur(2px)',
-  '@media (max-width: 760px)': { display: 'none' },
-});
-
-export const MainFrame = styled(Polaroid)({
-  position: 'absolute',
-  top: 0,
-  left: 8,
-  width: 300,
-  height: 392,
-  animation: `${slowDrift} 5s ease-in-out infinite alternate`,
-  '&:hover': { animation: 'none' },
-  '@media (max-width: 760px)': {
-    position: 'relative',
-    left: 0,
-    top: 0,
-    width: '100%',
-    height: 320,
-    transform: 'none',
-    animation: 'none',
-  },
-  '@media (max-width: 480px)': {
-    height: 280,
-  },
-  '@media (max-width: 380px)': {
-    height: 240,
-  },
-});
-
-export const SmallFrameRight = styled(Polaroid)({
-  position: 'absolute',
-  bottom: 26,
-  right: 28,
-  width: 232,
-  height: 300,
-  '@media (max-width: 760px)': { display: 'none' },
-});
-
-export const SmallFrameLeft = styled(Polaroid)({
-  position: 'absolute',
-  bottom: 0,
-  left: 40,
-  width: 168,
-  height: 210,
-  '@media (max-width: 760px)': { display: 'none' },
 });
 
 export const PortraitArea = styled('div')({
@@ -112,7 +46,12 @@ export const PortraitArea = styled('div')({
   justifyContent: 'center',
   alignItems: 'center',
   alignSelf: 'stretch',
-  '@media (max-width: 760px)': { display: 'none' },
+  '@media (max-width: 760px)': {
+    display: 'flex',
+    justifyContent: 'center',
+    flexShrink: 0,
+    alignSelf: 'auto',
+  },
 });
 
 export const PortraitGlow = styled('div')({
@@ -127,6 +66,12 @@ export const PortraitGlow = styled('div')({
   opacity: 0.2,
   filter: 'blur(8px)',
   pointerEvents: 'none',
+  '@media (max-width: 760px)': {
+    width: 260,
+    height: 320,
+    borderRadius: '130px 130px 16px 16px',
+    transform: 'translate(-50%, -50%)',
+  },
 });
 
 export const PortraitWrap = styled('div')({
@@ -141,6 +86,14 @@ export const PortraitWrap = styled('div')({
   animation: `${portraitDrift} 5s ease-in-out infinite alternate`,
   flexShrink: 0,
   '@media (max-width: 1024px)': { width: 320, height: 422 },
+  '@media (max-width: 760px)': {
+    width: 200,
+    height: 260,
+    borderRadius: '100px 100px 12px 12px',
+    padding: 8,
+  },
+  '@media (max-width: 480px)': { width: 170, height: 221, borderRadius: '85px 85px 10px 10px' },
+  '@media (max-width: 380px)': { width: 150, height: 195, borderRadius: '75px 75px 10px 10px' },
 });
 
 export const PortraitImgWrap = styled('div')({
@@ -149,12 +102,14 @@ export const PortraitImgWrap = styled('div')({
   height: '100%',
   borderRadius: '181px 181px 14px 14px',
   overflow: 'hidden',
+  '@media (max-width: 760px)': { borderRadius: '92px 92px 4px 4px' },
+  '@media (max-width: 480px)': { borderRadius: '78px 78px 3px 3px' },
+  '@media (max-width: 380px)': { borderRadius: '68px 68px 3px 3px' },
 });
 
 export const Content = styled('div')({
   display: 'flex',
   flexDirection: 'column',
-  '@media (max-width: 760px)': { order: -1 },
 });
 
 export const Eyebrow = styled(BaseEyebrow)({

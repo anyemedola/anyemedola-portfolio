@@ -34,9 +34,9 @@ describe('PostPageFooter', () => {
     expect(screen.getByRole('contentinfo')).toBeInTheDocument();
   });
 
-  it('renders the back link pointing to /#escrita', () => {
+  it('renders the back link pointing to /blog', () => {
     render(<PostPageFooter />);
-    expect(screen.getByRole('link', { name: /post\.back/ })).toHaveAttribute('href', '/#escrita');
+    expect(screen.getByRole('link', { name: /post\.back/ })).toHaveAttribute('href', '/blog');
   });
 
   it('renders the back arrow glyph', () => {

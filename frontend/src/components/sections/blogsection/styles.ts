@@ -3,7 +3,7 @@ import { tokens } from '@/theme/theme';
 
 export const EscritaRoot = styled('section')({
   scrollMarginTop: 70,
-  background: 'linear-gradient(180deg,#FBEDEE,#EEF2E4)',
+  background: tokens.gradientCream,
   padding: '84px 40px',
   '@media (max-width: 900px)': { padding: '64px 22px' },
 });

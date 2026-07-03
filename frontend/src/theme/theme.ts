@@ -18,6 +18,8 @@ export const tokens = {
   borderLight: '#EED6D8',
   borderForm: '#F0D4D6',
   focusRing: '#1A615D',
+  gradientDark: 'linear-gradient(165deg,#0C2926 0%,#123B37 50%,#14403C 100%)',
+  gradientCream: 'linear-gradient(180deg,#FBEDEE,#EEF2E4)',
 };
 
 declare module '@mui/material/styles' {

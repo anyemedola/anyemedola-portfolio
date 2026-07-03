@@ -25,24 +25,15 @@ interface CardData {
 export default function BlogSection() {
   const ref = useScrollReveal();
   const { t } = useTranslation();
-  const [cards, setCards] = useState<CardData[]>([]);
+  const [apiCards, setApiCards] = useState<CardData[]>([]);
   const [latestSlug, setLatestSlug] = useState('/blog/inteira');
-
-  const inteiraCard: CardData = {
-    slug: 'inteira',
-    kicker: t('writing.nb1kicker'),
-    title: { en: t('writing.nb1title'), pt: t('writing.nb1title'), it: t('writing.nb1title') },
-    desc:  { en: t('writing.nb1desc'),  pt: t('writing.nb1desc'),  it: t('writing.nb1desc')  },
-    accent: '#EFA8AC',
-  };
 
   useEffect(() => {
     fetch('/api/posts')
       .then(r => r.ok ? r.json() : [])
       .then((data: ApiPost[]) => {
         if (!data.length) return;
-        // Always include "Inteira" (static essay); fill up to 2 slots with API posts
-        const apiCards: CardData[] = data
+        const extra: CardData[] = data
           .filter(p => p.slug !== 'inteira')
           .slice(0, 1)
           .map(p => ({
@@ -53,31 +44,20 @@ export default function BlogSection() {
             accent: p.accentColor || '#EFA8AC',
           }));
         setLatestSlug(`/blog/${data[0].slug}`);
-        setCards([inteiraCard, ...apiCards]);
+        setApiCards(extra);
       })
       .catch(() => {});
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const fallbackCards = [
-    {
-      slug: 'inteira',
-      kicker: t('writing.nb1kicker'),
-      title: { en: t('writing.nb1title'), pt: t('writing.nb1title'), it: t('writing.nb1title') },
-      desc:  { en: t('writing.nb1desc'),  pt: t('writing.nb1desc'),  it: t('writing.nb1desc')  },
-      accent: '#EFA8AC',
-    },
-    {
-      slug: '',
-      kicker: t('writing.nb2kicker'),
-      title: { en: t('writing.nb2title'), pt: t('writing.nb2title'), it: t('writing.nb2title') },
-      desc:  { en: t('writing.nb2desc'),  pt: t('writing.nb2desc'),  it: t('writing.nb2desc')  },
-      accent: '#B8C897',
-    },
-  ];
+  const inteiraCard: CardData = {
+    slug: 'inteira',
+    kicker: t('writing.nb1kicker'),
+    title: { en: t('writing.nb1title'), pt: t('writing.nb1title'), it: t('writing.nb1title') },
+    desc:  { en: t('writing.nb1desc'),  pt: t('writing.nb1desc'),  it: t('writing.nb1desc')  },
+    accent: '#EFA8AC',
+  };
 
-  const isFromApi = cards.length > 0;
-  const displayCards = isFromApi ? cards : fallbackCards;
+  const displayCards = [inteiraCard, ...apiCards];
 
   return (
     <S.EscritaRoot id="escrita" aria-labelledby="escrita-heading" ref={ref}>
@@ -88,28 +68,15 @@ export default function BlogSection() {
             {t('writing.notebookTitle')}
           </S.Title>
           <S.Lead className="reveal">{t('writing.notebookLead')}</S.Lead>
-          <S.CtaBtn href={latestSlug} className={isFromApi ? undefined : 'reveal'}>
+          <S.CtaBtn href={latestSlug} className="reveal">
             {t('writing.notebookCta')}
           </S.CtaBtn>
         </S.Left>
 
         <S.Cards>
-          {displayCards.map((card, i) => {
-            const revealClass = isFromApi ? undefined : 'reveal';
-            return card.slug ? (
-              <S.CardLink key={card.slug} href={`/blog/${card.slug}`} className={revealClass} aria-labelledby={`nb${i + 1}-title`}>
-                <S.NotebookCard accent={card.accent} as="div">
-                  <S.CardKicker>{card.kicker}</S.CardKicker>
-                  <S.CardTitle id={`nb${i + 1}-title`}>
-                    <T en={card.title.en} pt={card.title.pt} it={card.title.it} />
-                  </S.CardTitle>
-                  <S.CardDesc>
-                    <T en={card.desc.en} pt={card.desc.pt} it={card.desc.it} />
-                  </S.CardDesc>
-                </S.NotebookCard>
-              </S.CardLink>
-            ) : (
-              <S.NotebookCard key={i} accent={card.accent} className={revealClass} aria-labelledby={`nb${i + 1}-title`}>
+          {displayCards.map((card, i) => (
+            <S.CardLink key={card.slug} href={`/blog/${card.slug}`} className="reveal" aria-labelledby={`nb${i + 1}-title`}>
+              <S.NotebookCard accent={card.accent} as="div">
                 <S.CardKicker>{card.kicker}</S.CardKicker>
                 <S.CardTitle id={`nb${i + 1}-title`}>
                   <T en={card.title.en} pt={card.title.pt} it={card.title.it} />
@@ -118,8 +85,8 @@ export default function BlogSection() {
                   <T en={card.desc.en} pt={card.desc.pt} it={card.desc.it} />
                 </S.CardDesc>
               </S.NotebookCard>
-            );
-          })}
+            </S.CardLink>
+          ))}
         </S.Cards>
       </S.Inner>
     </S.EscritaRoot>

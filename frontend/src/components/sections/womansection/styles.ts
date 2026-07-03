@@ -1,37 +1,18 @@
 import { styled } from '@mui/material/styles';
-import { keyframes } from '@emotion/react';
+import { tokens } from '@/theme/theme';
+import { StarDot } from '@/components/ui/stardot/styles';
 
-const floatTwinkle = keyframes({
-  '0%, 100%': { opacity: 0.25 },
-  '50%': { opacity: 0.9 },
-});
+export { StarDot as Star };
 
 export const WomanRoot = styled('section')({
   position: 'relative',
   scrollMarginTop: 70,
   padding: '90px 40px',
-  background: 'linear-gradient(165deg,#0C2926 0%,#123B37 50%,#14403C 100%)',
+  background: tokens.gradientDark,
   color: '#F5C0C3',
   overflow: 'hidden',
   '@media (max-width: 900px)': { padding: '64px 22px' },
 });
-
-export const Star = styled('div', {
-  shouldForwardProp: (prop) => !['top', 'left', 'size', 'delay', 'color'].includes(prop as string),
-})<{ top: string; left: string; size: number; delay: string; color: string }>(
-  ({ top, left, size, delay, color }) => ({
-    position: 'absolute',
-    top,
-    left,
-    width: size,
-    height: size,
-    borderRadius: '50%',
-    background: color,
-    animation: `${floatTwinkle} 3.2s ease-in-out infinite`,
-    animationDelay: delay,
-    pointerEvents: 'none',
-  }),
-);
 
 export const Inner = styled('div')({
   position: 'relative',

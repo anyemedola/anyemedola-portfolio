@@ -35,8 +35,14 @@ export default function AboutSection() {
               <S.StatLabel>{t('about.stat1')}</S.StatLabel>
             </S.Stat>
             <S.Stat>
-              <S.StatNumber>3</S.StatNumber>
+              <S.StatNumber>2</S.StatNumber>
               <S.StatLabel>{t('about.stat2')}</S.StatLabel>
+              <S.StatSub>{t('about.stat2sub')}</S.StatSub>
+            </S.Stat>
+            <S.Stat>
+              <S.StatNumber>3</S.StatNumber>
+              <S.StatLabel>{t('about.stat2b')}</S.StatLabel>
+              <S.StatSub>{t('about.stat2bsub')}</S.StatSub>
             </S.Stat>
             <S.Stat>
               <S.StatNumber>5</S.StatNumber>

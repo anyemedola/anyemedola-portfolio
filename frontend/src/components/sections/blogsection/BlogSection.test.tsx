@@ -68,17 +68,10 @@ describe('BlogSection', () => {
     expect(screen.getByRole('link', { name: 'writing.notebookCta' })).toHaveAttribute('href', '/blog/inteira');
   });
 
-  it('renders two notebook cards', () => {
+  it('renders the inteira notebook card', () => {
     render(<BlogSection />);
     expect(document.getElementById('nb1-title')).toBeInTheDocument();
-    expect(document.getElementById('nb2-title')).toBeInTheDocument();
-  });
-
-  it('renders notebook card titles and descriptions', () => {
-    render(<BlogSection />);
     expect(screen.getByText('writing.nb1title')).toBeInTheDocument();
-    expect(screen.getByText('writing.nb2title')).toBeInTheDocument();
     expect(screen.getByText('writing.nb1desc')).toBeInTheDocument();
-    expect(screen.getByText('writing.nb2desc')).toBeInTheDocument();
   });
 });

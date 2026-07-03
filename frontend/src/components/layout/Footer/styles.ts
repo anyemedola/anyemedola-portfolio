@@ -1,34 +1,14 @@
-import { styled, keyframes } from '@mui/material/styles';
+import { styled } from '@mui/material/styles';
 import { tokens } from '@/theme/theme';
 import { SectionRoot } from '@/components/ui/sectionroot/styles';
 import { SectionInner } from '@/components/ui/sectioninner/styles';
 import { Eyebrow as BaseEyebrow, SectionTitle } from '@/components/ui/sectionheader/styles';
+import { StarDot } from '@/components/ui/stardot/styles';
 
-const floatTwinkle = keyframes`
-  0%, 100% { opacity: 0.2; }
-  50%       { opacity: 0.85; }
-`;
-
-
-export const Star = styled('div', {
-  shouldForwardProp: (p) => !['top', 'left', 'size', 'delay', 'color'].includes(p as string),
-})<{ top: string; left: string; size: number; delay: string; color: string }>(
-  ({ top, left, size, delay, color }) => ({
-    position: 'absolute',
-    top,
-    left,
-    width: size,
-    height: size,
-    borderRadius: '50%',
-    background: color,
-    animation: `${floatTwinkle} 3.2s ease-in-out infinite`,
-    animationDelay: delay,
-    pointerEvents: 'none',
-  }),
-);
+export { StarDot as Star };
 
 export const ContactRoot = styled(SectionRoot)({
-  background: 'linear-gradient(165deg,#0C2926 0%,#123B37 50%,#14403C 100%)',
+  background: tokens.gradientDark,
   color: tokens.cream,
   position: 'relative',
   overflow: 'hidden',
