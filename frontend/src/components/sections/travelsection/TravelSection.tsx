@@ -28,8 +28,8 @@ export default function TravelSection() {
               caption={t('travel.cap1')}
             />
             <S.TravelSmallRight
-              src="/brazil.jpeg"
-              alt="Any torcendo pelo Brasil na Copa do Mundo 2026"
+              src="/brera.jpeg"
+              alt="Any camninando por Brera, Milão"
               objectPosition="center 35%"
               rotate={4}
               caption={t('travel.cap2')}
