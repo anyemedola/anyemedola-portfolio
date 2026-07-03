@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import { getPost, type BlogPost } from '@/data/posts';
+import { enrichPost, type RawPost } from '@/lib/enrichPost';
 import ReadingProgress from '@/components/blog/readingpostprogress/ReadingProgress';
 import Header from '@/components/layout/Header/Header';
 import PostHero from '@/components/blog/posthero/PostHero';
@@ -13,15 +14,13 @@ export const dynamic = 'force-dynamic';
 
 const BACKEND = process.env.BACKEND_URL ?? 'http://localhost:4000';
 
-interface ApiPost {
+interface ApiPost extends RawPost {
   id: number; slug: string;
-  title: string; titlePt: string; titleIt: string;
-  subtitle: string; subtitlePt: string; subtitleIt: string;
-  excerptEn: string; excerptPt: string; excerptIt: string;
   bodyEn: string; bodyPt: string; bodyIt: string;
   date: string; readTime: number;
-  primaryTag: string; tags: string[];
+  primaryTag: string; primaryTagEn?: string; primaryTagIt?: string; tags: string[];
   accentColor: string; icon: string;
+  image: string | null;
 }
 
 function formatDate(d: string): string {
@@ -31,21 +30,28 @@ function formatDate(d: string): string {
 
 function apiToPost(p: ApiPost): BlogPost {
   return {
-    slug: p.slug,
+    slug:       p.slug,
     primaryTag: p.primaryTag || p.tags?.[0] || '',
-    tags: p.tags || [],
-    title: { en: p.title, pt: p.titlePt || p.title, it: p.titleIt || p.title },
-    subtitle: { en: p.subtitle, pt: p.subtitlePt || p.subtitle, it: p.subtitleIt || p.subtitle },
-    date: formatDate(p.date),
+    localTag:   { en: p.primaryTagEn || p.primaryTag, pt: p.primaryTag, it: p.primaryTagIt || p.primaryTag },
+    tags:       p.tags || [],
+    title:    { en: p.title,     pt: p.titlePt    || p.title,    it: p.titleIt    || p.title },
+    subtitle: { en: p.subtitle,  pt: p.subtitlePt || p.subtitle, it: p.subtitleIt || p.subtitle },
+    date:     formatDate(p.date),
     datetime: p.date,
     readTime: p.readTime || 5,
     accentColor: p.accentColor || '#B5546A',
-    icon: p.icon || '✦',
-    excerpt: { en: p.excerptEn, pt: p.excerptPt || p.excerptEn, it: p.excerptIt || p.excerptEn },
+    icon:     p.icon || '✦',
+    coverImage: p.image ?? undefined,
+    excerpt: {
+      en: p.excerptEn,
+      pt: p.excerptPt || p.excerptEn,
+      it: p.excerptIt || p.excerptEn,
+    },
     body: {
-      en: { intro: '', sections: [], closing: '', html: p.bodyEn },
-      pt: { intro: '', sections: [], closing: '', html: p.bodyPt || p.bodyEn },
-      it: { intro: '', sections: [], closing: '', html: p.bodyIt || p.bodyEn },
+      // EN/IT fall back to PT so the body is always visible regardless of language
+      en: { intro: '', sections: [], closing: '', html: p.bodyEn || p.bodyPt || '' },
+      pt: { intro: '', sections: [], closing: '', html: p.bodyPt || '' },
+      it: { intro: '', sections: [], closing: '', html: p.bodyIt || p.bodyPt || '' },
     },
   };
 }
@@ -54,7 +60,9 @@ async function fetchApiPost(slug: string): Promise<BlogPost | null> {
   try {
     const res = await fetch(`${BACKEND}/api/posts/${slug}`, { cache: 'no-store' });
     if (!res.ok) return null;
-    return apiToPost(await res.json() as ApiPost);
+    const raw = await res.json() as ApiPost;
+    const enriched = await enrichPost(raw, { translateBody: true });
+    return apiToPost(enriched as ApiPost);
   } catch {
     return null;
   }

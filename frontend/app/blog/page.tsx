@@ -17,7 +17,7 @@ interface ApiPost {
   excerptEn: string; excerptPt: string; excerptIt: string;
   bodyEn: string; bodyPt: string; bodyIt: string;
   date: string; readTime: number;
-  primaryTag: string; tags: string[];
+  primaryTag: string; primaryTagEn?: string; primaryTagIt?: string; tags: string[];
   accentColor: string; icon: string; image: string | null;
   status: 'published' | 'draft';
 }
@@ -30,6 +30,7 @@ function apiToPost(p: ApiPost): BlogPost {
   return {
     slug: p.slug,
     primaryTag: p.primaryTag || p.tags?.[0] || '',
+    localTag: { en: p.primaryTagEn || p.primaryTag, pt: p.primaryTag, it: p.primaryTagIt || p.primaryTag },
     tags: p.tags || [],
     title: { en: p.title, pt: p.titlePt || p.title, it: p.titleIt || p.title },
     subtitle: { en: p.subtitle, pt: p.subtitlePt || p.subtitle, it: p.subtitleIt || p.subtitle },
@@ -41,9 +42,9 @@ function apiToPost(p: ApiPost): BlogPost {
     coverImage: p.image ?? undefined,
     excerpt: { en: p.excerptEn, pt: p.excerptPt || p.excerptEn, it: p.excerptIt || p.excerptEn },
     body: {
-      en: { intro: '', sections: [], closing: '', html: p.bodyEn },
-      pt: { intro: '', sections: [], closing: '', html: p.bodyPt || p.bodyEn },
-      it: { intro: '', sections: [], closing: '', html: p.bodyIt || p.bodyEn },
+      en: { intro: '', sections: [], closing: '', html: p.bodyEn || p.bodyPt || '' },
+      pt: { intro: '', sections: [], closing: '', html: p.bodyPt || '' },
+      it: { intro: '', sections: [], closing: '', html: p.bodyIt || p.bodyPt || '' },
     },
   };
 }
@@ -81,10 +82,14 @@ export default function BlogListingPage() {
 
       {featured && (
         <S.FeatSection aria-label={t('blog.eyebrow')}>
-          <S.FeatCard href={`/blog/${featured.slug}`}>
+          <S.FeatCard href={`/blog/${featured.slug}`} data-imgless={!featured.coverImage ? 'true' : undefined}>
             <S.FeatContent>
               <S.FeatMeta>
-                <S.FeatTag>{featured.primaryTag}</S.FeatTag>
+                <S.FeatTag>
+                  {featured.localTag
+                    ? <T en={featured.localTag.en} pt={featured.localTag.pt} it={featured.localTag.it ?? featured.localTag.en} />
+                    : featured.primaryTag}
+                </S.FeatTag>
                 <S.FeatDate>{featured.date} · {featured.readTime} min</S.FeatDate>
               </S.FeatMeta>
               <S.FeatTitle>
@@ -95,16 +100,18 @@ export default function BlogListingPage() {
               </S.FeatExcerpt>
               <S.FeatCta>{t('writing.featCta')}</S.FeatCta>
             </S.FeatContent>
-            <S.FeatImgWrap>
-              <Image
-                className="featimg"
-                src={featured.coverImage ?? '/inteira.jpeg'}
-                alt={featured.title.pt ?? featured.title.en}
-                fill
-                style={{ objectFit: 'cover' }}
-                sizes="(max-width: 760px) 100vw, 45vw"
-              />
-            </S.FeatImgWrap>
+            {featured.coverImage && (
+              <S.FeatImgWrap>
+                <Image
+                  className="featimg"
+                  src={featured.coverImage}
+                  alt={featured.title.pt ?? featured.title.en}
+                  fill
+                  style={{ objectFit: 'cover' }}
+                  sizes="(max-width: 760px) 100vw, 45vw"
+                />
+              </S.FeatImgWrap>
+            )}
           </S.FeatCard>
         </S.FeatSection>
       )}
@@ -121,7 +128,11 @@ export default function BlogListingPage() {
               <S.PostRow>
                 <S.PostMeta className="post-meta">
                   <S.PostPeriod>{post.date}</S.PostPeriod>
-                  <S.PostCategory>{post.primaryTag}</S.PostCategory>
+                  <S.PostCategory>
+                    {post.localTag
+                      ? <T en={post.localTag.en} pt={post.localTag.pt} it={post.localTag.it ?? post.localTag.en} />
+                      : post.primaryTag}
+                  </S.PostCategory>
                 </S.PostMeta>
                 <S.PostContent>
                   <S.PostTitle><T en={post.title.en} pt={post.title.pt} it={post.title.it ?? post.title.en} /></S.PostTitle>

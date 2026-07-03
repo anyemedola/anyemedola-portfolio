@@ -1,5 +1,6 @@
 import { styled } from '@mui/material/styles';
 import { keyframes } from '@emotion/react';
+import Link from 'next/link';
 import { tokens } from '@/theme/theme';
 import { Eyebrow as BaseEyebrow } from '@/components/ui/sectionheader/styles';
 
@@ -25,10 +26,10 @@ export const HeroRoot = styled('header')({
   '@media (max-width: 760px)': {
     display: 'flex',
     flexDirection: 'column',
-    height: '100dvh',
-    minHeight: '100dvh',
-    padding: '80px 22px 24px',
-    gap: 20,
+    height: 'auto',
+    minHeight: 'auto',
+    padding: '72px 22px 48px',
+    gap: 24,
     justifyContent: 'flex-start',
     alignItems: 'stretch',
   },
@@ -192,6 +193,42 @@ export const BtnPrimary = styled('a')({
   '@media (max-width: 380px)': {
     textAlign: 'center',
     padding: '13px 24px',
+  },
+});
+
+export const ResumeCta = styled('div')({
+  display: 'flex',
+  alignItems: 'center',
+  flexWrap: 'wrap',
+  gap: 8,
+  marginTop: 14,
+});
+
+export const ResumeLabel = styled('span')({
+  fontFamily: "'Hanken Grotesk', var(--font-hanken), sans-serif",
+  fontSize: 12.5,
+  fontWeight: 700,
+  letterSpacing: '0.06em',
+  textTransform: 'uppercase',
+  color: tokens.warmBrownMid,
+});
+
+export const ResumePill = styled(Link)({
+  fontFamily: "'Hanken Grotesk', var(--font-hanken), sans-serif",
+  fontSize: 13,
+  fontWeight: 600,
+  color: '#1A615D',
+  textDecoration: 'none',
+  padding: '8px 16px',
+  borderRadius: 999,
+  border: '1px solid rgba(26,97,93,0.25)',
+  display: 'inline-flex',
+  alignItems: 'center',
+  gap: 6,
+  transition: 'background .2s, border-color .2s',
+  '&:hover': {
+    background: 'rgba(26,97,93,0.07)',
+    borderColor: 'rgba(26,97,93,0.5)',
   },
 });
 

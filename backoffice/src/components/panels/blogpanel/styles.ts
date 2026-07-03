@@ -113,6 +113,22 @@ export const SectionTitle = styled('div')({
   '&::after': { content: "''", flex: 1, height: 1, background: tokens.border },
 });
 
+export const AutoTranslateNote = styled('div')({
+  display: 'flex',
+  alignItems: 'flex-start',
+  gap: 8,
+  fontSize: 11,
+  fontFamily: "'Hanken Grotesk', var(--font-hanken), sans-serif",
+  fontWeight: 500,
+  color: tokens.gold,
+  background: 'rgba(26,97,93,0.07)',
+  border: '1px solid rgba(26,97,93,0.15)',
+  borderRadius: 10,
+  padding: '10px 14px',
+  marginBottom: 22,
+  lineHeight: 1.5,
+});
+
 export const Divider = styled('hr')({ border: 'none', borderTop: `1px solid ${tokens.border}`, margin: '24px 0' });
 export const FormGroup = styled('div')({ marginBottom: 22 });
 export const FormRow3 = styled('div')({

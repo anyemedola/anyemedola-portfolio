@@ -35,6 +35,11 @@ export default function HeroSection() {
           <S.BtnPrimary href="#contato">{t('hero.cta1')}</S.BtnPrimary>
           <S.BtnGhost href="#projetos">{t('hero.cta2')}</S.BtnGhost>
         </S.Cta>
+        <S.ResumeCta>
+          <S.ResumeLabel>{t('hero.resumeCta')}</S.ResumeLabel>
+          <S.ResumePill href="/resume/creative">✦ {t('hero.resumeCreative')}</S.ResumePill>
+          <S.ResumePill href="/resume/ats">☰ {t('hero.resumeATS')}</S.ResumePill>
+        </S.ResumeCta>
       </S.Content>
     </S.HeroRoot>
   );

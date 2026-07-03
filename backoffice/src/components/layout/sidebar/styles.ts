@@ -120,14 +120,10 @@ export const Avatar = styled('div')({
   borderRadius: '50%',
   border: `1.5px solid ${tokens.sidebarBorder}`,
   flexShrink: 0,
-  background: tokens.roseGlow,
+  overflow: 'hidden',
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
-  color: tokens.rose,
-  fontFamily: "'Hanken Grotesk', var(--font-hanken), sans-serif",
-  fontSize: 12,
-  fontWeight: 700,
 });
 
 export const UserName = styled('div')({

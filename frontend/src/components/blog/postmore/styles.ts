@@ -78,3 +78,16 @@ export const Excerpt = styled('p')({
   color: '#4A5D58',
   margin: 0,
 });
+
+export const SkeletonCard = styled('div')({
+  background: 'rgba(255,255,255,0.5)',
+  borderRadius: 16,
+  padding: 26,
+  border: '1px solid rgba(239,168,172,0.15)',
+  height: 130,
+  animation: 'pulse 1.6s ease-in-out infinite',
+  '@keyframes pulse': {
+    '0%, 100%': { opacity: 0.5 },
+    '50%': { opacity: 0.9 },
+  },
+});

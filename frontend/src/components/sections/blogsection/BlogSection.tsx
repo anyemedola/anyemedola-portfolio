@@ -10,23 +10,23 @@ interface ApiPost {
   slug: string;
   title: string; titlePt: string; titleIt: string;
   excerptEn: string; excerptPt: string; excerptIt: string;
-  primaryTag: string; tags: string[];
+  primaryTag: string; primaryTagEn?: string; primaryTagIt?: string; tags: string[];
   accentColor: string;
 }
 
 interface CardData {
   slug: string;
-  kicker: string;
+  kicker: { en: string; pt: string; it: string };
   title: { en: string; pt: string; it: string };
   desc: { en: string; pt: string; it: string };
   accent: string;
 }
 
 export default function BlogSection() {
-  const ref = useScrollReveal();
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [apiCards, setApiCards] = useState<CardData[]>([]);
   const [latestSlug, setLatestSlug] = useState('/blog/inteira');
+  const ref = useScrollReveal([apiCards]);
 
   useEffect(() => {
     fetch('/api/posts')
@@ -38,7 +38,11 @@ export default function BlogSection() {
           .slice(0, 1)
           .map(p => ({
             slug: p.slug,
-            kicker: p.primaryTag || (p.tags?.[0] ?? ''),
+            kicker: {
+              en: p.primaryTagEn || p.primaryTag,
+              pt: p.primaryTag,
+              it: p.primaryTagIt || p.primaryTag,
+            },
             title: { en: p.title, pt: p.titlePt || p.title, it: p.titleIt || p.title },
             desc: { en: p.excerptEn, pt: p.excerptPt || p.excerptEn, it: p.excerptIt || p.excerptEn },
             accent: p.accentColor || '#EFA8AC',
@@ -49,11 +53,27 @@ export default function BlogSection() {
       .catch(() => {});
   }, []);
 
+  const tEn = i18n.getFixedT('en');
+  const tPt = i18n.getFixedT('pt');
+  const tIt = i18n.getFixedT('it');
+
   const inteiraCard: CardData = {
     slug: 'inteira',
-    kicker: t('writing.nb1kicker'),
-    title: { en: t('writing.nb1title'), pt: t('writing.nb1title'), it: t('writing.nb1title') },
-    desc:  { en: t('writing.nb1desc'),  pt: t('writing.nb1desc'),  it: t('writing.nb1desc')  },
+    kicker: {
+      en: tEn('writing.nb1kicker'),
+      pt: tPt('writing.nb1kicker'),
+      it: tIt('writing.nb1kicker'),
+    },
+    title: {
+      en: tEn('writing.nb1title'),
+      pt: tPt('writing.nb1title'),
+      it: tIt('writing.nb1title'),
+    },
+    desc: {
+      en: tEn('writing.nb1desc'),
+      pt: tPt('writing.nb1desc'),
+      it: tIt('writing.nb1desc'),
+    },
     accent: '#EFA8AC',
   };
 
@@ -77,7 +97,9 @@ export default function BlogSection() {
           {displayCards.map((card, i) => (
             <S.CardLink key={card.slug} href={`/blog/${card.slug}`} className="reveal" aria-labelledby={`nb${i + 1}-title`}>
               <S.NotebookCard accent={card.accent} as="div">
-                <S.CardKicker>{card.kicker}</S.CardKicker>
+                <S.CardKicker>
+                  <T en={card.kicker.en} pt={card.kicker.pt} it={card.kicker.it} />
+                </S.CardKicker>
                 <S.CardTitle id={`nb${i + 1}-title`}>
                   <T en={card.title.en} pt={card.title.pt} it={card.title.it} />
                 </S.CardTitle>

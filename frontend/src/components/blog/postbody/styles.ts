@@ -85,13 +85,22 @@ export const CoverCaption = styled('figcaption')({
 });
 
 export const Body = styled('article')({
-  '& p': {
-    fontFamily: "'Bodoni Moda', var(--font-bodoni), serif",
-    fontSize: 20,
-    fontWeight: 400,
-    lineHeight: 1.85,
-    color: '#123B37',
-    marginBottom: 28,
+  // Base typography — covers plain text nodes and br-separated lines
+  fontFamily: "'Bodoni Moda', var(--font-bodoni), serif",
+  fontSize: 20,
+  fontWeight: 400,
+  lineHeight: 1.85,
+  color: '#123B37',
+  // !important is required: the GitHub Copilot browser extension injects inline styles
+  // (font-family: "Ginto Copilot Variable", font-size: 15px, etc.) that override normal rules.
+  // Inline styles always beat author CSS unless the author rule uses !important.
+  '& p, & div': {
+    fontFamily: "'Bodoni Moda', var(--font-bodoni), serif !important",
+    fontSize: '20px !important',
+    fontWeight: '400 !important',
+    lineHeight: '1.85 !important',
+    color: '#123B37 !important',
+    marginBottom: '28px !important',
   },
   '& h2': {
     fontFamily: "'Bodoni Moda', var(--font-bodoni), serif",
@@ -136,13 +145,13 @@ export const Body = styled('article')({
     padding: '4px 0 4px 28px',
     margin: '52px 0',
     '& p': {
-      fontFamily: "'Bodoni Moda', var(--font-bodoni), serif",
-      fontSize: 'clamp(24px, 3.4vw, 32px)',
+      fontFamily: "'Bodoni Moda', var(--font-bodoni), serif !important",
+      fontSize: 'clamp(24px, 3.4vw, 32px) !important',
       fontStyle: 'italic',
-      fontWeight: 500,
-      color: tokens.ink,
-      lineHeight: 1.3,
-      marginBottom: 0,
+      fontWeight: '500 !important',
+      color: `${tokens.ink} !important`,
+      lineHeight: '1.3 !important',
+      marginBottom: '0 !important',
     },
     '& cite': {
       fontFamily: "'Hanken Grotesk', var(--font-hanken), sans-serif",

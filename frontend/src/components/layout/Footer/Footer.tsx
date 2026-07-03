@@ -22,8 +22,8 @@ export default function ContactSection() {
         <S.ContactP className="reveal">{t('contact.p')}</S.ContactP>
 
         <S.Links className="reveal" aria-label="Contact links">
-          <S.ContactLink href="mailto:anynhamedola@gmail.com">
-            anynhamedola@gmail.com
+          <S.ContactLink href="mailto:contact@anyemedola.com">
+            contact@anyemedola.com
           </S.ContactLink>
           <S.ContactLink href="https://www.linkedin.com/in/dev-anyemedola/" target="_blank" rel="noopener noreferrer">
             LinkedIn

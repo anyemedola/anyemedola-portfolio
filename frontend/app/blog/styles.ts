@@ -65,6 +65,8 @@ export const FeatCard = styled(Link)({
     boxShadow: '0 34px 60px -38px rgba(120,60,50,.5)',
   },
   '&:hover .featimg': { transform: 'scale(1.05)' },
+  // Collapse to single column when no image is rendered
+  '&[data-imgless="true"]': { gridTemplateColumns: '1fr' },
   '@media (max-width: 760px)': { gridTemplateColumns: '1fr' },
 });
 
@@ -88,7 +90,7 @@ export const FeatTag = styled('span')({
   fontWeight: 700,
   letterSpacing: '.14em',
   textTransform: 'uppercase',
-  color: tokens.ink,
+  color: '#fff',
   background: tokens.gold,
   padding: '5px 11px',
   borderRadius: 999,

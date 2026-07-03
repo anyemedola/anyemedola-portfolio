@@ -9,10 +9,26 @@ import RichEditor from '@/components/ui/richeditor/RichEditor';
 import { Btn } from '@/components/layout/topbar/styles';
 import * as S from './styles';
 
+const MYMEMORY = 'https://api.mymemory.translated.net/get';
+const BODY_LIMIT = 2000;
+
+async function tr(text: string, from: string, to: string): Promise<string> {
+  if (!text?.trim()) return text;
+  try {
+    const url = `${MYMEMORY}?q=${encodeURIComponent(text)}&langpair=${from}|${to}&de=alan%40aeait.com`;
+    const res = await fetch(url);
+    if (!res.ok) return text;
+    const json = await res.json();
+    return (json?.responseData?.translatedText as string) || text;
+  } catch {
+    return text;
+  }
+}
+
 interface FormState {
-  title: string; titlePt: string; titleIt: string;
-  subtitle: string; subtitlePt: string; subtitleIt: string;
-  excerptEn: string; excerptPt: string; excerptIt: string;
+  titlePt: string;
+  subtitlePt: string;
+  excerptPt: string;
   date: string; readTime: string;
   status: 'draft' | 'published';
   primaryTag: string;
@@ -23,9 +39,7 @@ interface FormState {
 }
 
 const empty: FormState = {
-  title: '', titlePt: '', titleIt: '',
-  subtitle: '', subtitlePt: '', subtitleIt: '',
-  excerptEn: '', excerptPt: '', excerptIt: '',
+  titlePt: '', subtitlePt: '', excerptPt: '',
   date: '', readTime: '', status: 'draft',
   primaryTag: '', tags: [], accentColor: '#EFA8AC', icon: '✦', image: null,
 };
@@ -34,6 +48,7 @@ export default function BlogPanel() {
   const { openPanel, editingBlogId, blogPosts, closeBlogPanel, saveBlogPost, deleteBlogPost } = useAdmin();
   const { t } = useTranslation();
   const [form, setForm] = useState<FormState>(empty);
+  const [translating, setTranslating] = useState(false);
 
   const isOpen = openPanel === 'blog';
   const isEditing = editingBlogId !== null;
@@ -44,15 +59,9 @@ export default function BlogPanel() {
       const p = blogPosts.find(x => x.id === editingBlogId);
       if (p) {
         setForm({
-          title:      p.title       ?? '',
-          titlePt:    p.titlePt     ?? '',
-          titleIt:    p.titleIt     ?? '',
-          subtitle:   p.subtitle    ?? '',
-          subtitlePt: p.subtitlePt  ?? '',
-          subtitleIt: p.subtitleIt  ?? '',
-          excerptEn:  p.excerptEn   ?? '',
-          excerptPt:  p.excerptPt   ?? '',
-          excerptIt:  p.excerptIt   ?? '',
+          titlePt:    p.titlePt    ?? p.title ?? '',
+          subtitlePt: p.subtitlePt ?? p.subtitle ?? '',
+          excerptPt:  p.excerptPt  ?? p.excerptEn ?? '',
           date:       p.date        ?? '',
           readTime:   String(p.readTime ?? ''),
           status:     p.status      ?? 'draft',
@@ -62,21 +71,13 @@ export default function BlogPanel() {
           icon:       p.icon        ?? '✦',
           image:      p.image       ?? null,
         });
-        const enEl = document.getElementById('b-body-en');
         const ptEl = document.getElementById('b-body-pt');
-        const itEl = document.getElementById('b-body-it');
-        if (enEl) enEl.innerHTML = p.bodyEn || '';
-        if (ptEl) ptEl.innerHTML = p.bodyPt || '';
-        if (itEl) itEl.innerHTML = p.bodyIt || '';
+        if (ptEl) ptEl.innerHTML = p.bodyPt || p.bodyEn || '';
       }
     } else {
       setForm(empty);
-      const enEl = document.getElementById('b-body-en');
       const ptEl = document.getElementById('b-body-pt');
-      const itEl = document.getElementById('b-body-it');
-      if (enEl) enEl.innerHTML = '';
       if (ptEl) ptEl.innerHTML = '';
-      if (itEl) itEl.innerHTML = '';
     }
   }, [isOpen, isEditing, editingBlogId, blogPosts]);
 
@@ -90,29 +91,55 @@ export default function BlogPanel() {
     setForm(prev => ({ ...prev, [k]: e.target.value }));
 
   const handleSave = async (status: 'draft' | 'published') => {
-    if (!form.title.trim()) { alert('Post title is required'); return; }
+    if (!form.titlePt.trim()) { alert('O título do post é obrigatório'); return; }
+    if (translating) return;
+
+    setTranslating(true);
+
+    const bodyPt = document.getElementById('b-body-pt')?.innerHTML ?? '';
+    const canTranslateBody = !!bodyPt && bodyPt.length <= BODY_LIMIT;
+
+    const [
+      titleEn, titleIt,
+      subtitleEn, subtitleIt,
+      excerptEn, excerptIt,
+      bodyEn, bodyIt,
+    ] = await Promise.all([
+      tr(form.titlePt.trim(), 'pt', 'en'),
+      tr(form.titlePt.trim(), 'pt', 'it'),
+      tr(form.subtitlePt.trim(), 'pt', 'en'),
+      tr(form.subtitlePt.trim(), 'pt', 'it'),
+      tr(form.excerptPt.trim(), 'pt', 'en'),
+      tr(form.excerptPt.trim(), 'pt', 'it'),
+      canTranslateBody ? tr(bodyPt, 'pt', 'en') : Promise.resolve(''),
+      canTranslateBody ? tr(bodyPt, 'pt', 'it') : Promise.resolve(''),
+    ]);
+
+    setTranslating(false);
+
     await saveBlogPost({
-      title: form.title.trim(),
-      titlePt: form.titlePt.trim(),
-      titleIt: form.titleIt.trim(),
-      subtitle: form.subtitle.trim(),
+      title:      titleEn   || form.titlePt.trim(),
+      titlePt:    form.titlePt.trim(),
+      titleIt:    titleIt   || form.titlePt.trim(),
+      subtitle:   subtitleEn || form.subtitlePt.trim(),
       subtitlePt: form.subtitlePt.trim(),
-      subtitleIt: form.subtitleIt.trim(),
-      excerptEn: form.excerptEn.trim(),
-      excerptPt: form.excerptPt.trim(),
-      excerptIt: form.excerptIt.trim(),
-      bodyEn: document.getElementById('b-body-en')?.innerHTML ?? '',
-      bodyPt: document.getElementById('b-body-pt')?.innerHTML ?? '',
-      bodyIt: document.getElementById('b-body-it')?.innerHTML ?? '',
-      date: form.date,
-      readTime: form.readTime,
+      subtitleIt: subtitleIt || form.subtitlePt.trim(),
+      excerptEn:  excerptEn  || form.excerptPt.trim(),
+      excerptPt:  form.excerptPt.trim(),
+      excerptIt:  excerptIt  || form.excerptPt.trim(),
+      bodyPt,
+      bodyEn:     bodyEn || '',
+      bodyIt:     bodyIt || '',
+      date:       form.date,
+      readTime:   form.readTime,
       status,
       primaryTag: form.primaryTag.trim(),
-      tags: form.tags,
+      tags:       form.tags,
       accentColor: form.accentColor,
-      icon: form.icon.trim() || '✦',
-      image: form.image,
+      icon:       form.icon.trim() || '✦',
+      image:      form.image,
     }, isEditing ? editingBlogId : null);
+
     closeBlogPanel();
   };
 
@@ -137,53 +164,29 @@ export default function BlogPanel() {
 
         <S.Body>
           <S.SectionTitle>{t('blogPanel.content')}</S.SectionTitle>
+
+          <S.AutoTranslateNote>
+            ✦ Escreva apenas em português. As versões em inglês e italiano são geradas automaticamente.
+          </S.AutoTranslateNote>
+
           <S.FormGroup>
-            <S.Label htmlFor="b-title">{t('blogPanel.labelTitleEn')} <span>*</span></S.Label>
-            <S.Input id="b-title" value={form.title} onChange={set('title')} placeholder={t('blogPanel.titleEnPh')} />
-          </S.FormGroup>
-          <S.FormGroup>
-            <S.Label htmlFor="b-title-pt">{t('blogPanel.labelTitlePt')}</S.Label>
+            <S.Label htmlFor="b-title-pt">{t('blogPanel.labelTitlePt')} <span>*</span></S.Label>
             <S.Input id="b-title-pt" value={form.titlePt} onChange={set('titlePt')} placeholder={t('blogPanel.titlePtPh')} />
           </S.FormGroup>
-          <S.FormGroup>
-            <S.Label htmlFor="b-title-it">{t('blogPanel.labelTitleIt')}</S.Label>
-            <S.Input id="b-title-it" value={form.titleIt} onChange={set('titleIt')} placeholder={t('blogPanel.titleItPh')} />
-          </S.FormGroup>
-          <S.FormGroup>
-            <S.Label htmlFor="b-subtitle">{t('blogPanel.labelSubEn')}</S.Label>
-            <S.Input id="b-subtitle" value={form.subtitle} onChange={set('subtitle')} placeholder={t('blogPanel.subEnPh')} />
-          </S.FormGroup>
+
           <S.FormGroup>
             <S.Label htmlFor="b-subtitle-pt">{t('blogPanel.labelSubPt')}</S.Label>
             <S.Input id="b-subtitle-pt" value={form.subtitlePt} onChange={set('subtitlePt')} placeholder={t('blogPanel.subPtPh')} />
           </S.FormGroup>
+
           <S.FormGroup>
-            <S.Label htmlFor="b-subtitle-it">{t('blogPanel.labelSubIt')}</S.Label>
-            <S.Input id="b-subtitle-it" value={form.subtitleIt} onChange={set('subtitleIt')} placeholder={t('blogPanel.subItPh')} />
-          </S.FormGroup>
-          <S.FormGroup>
-            <S.Label htmlFor="b-excerpt-en">{t('blogPanel.labelExcEn')} <span>*</span></S.Label>
-            <S.Textarea id="b-excerpt-en" rows={2} value={form.excerptEn} onChange={set('excerptEn')} placeholder={t('blogPanel.excEnPh')} />
-          </S.FormGroup>
-          <S.FormGroup>
-            <S.Label htmlFor="b-excerpt-pt">{t('blogPanel.labelExcPt')}</S.Label>
+            <S.Label htmlFor="b-excerpt-pt">{t('blogPanel.labelExcPt')} <span>*</span></S.Label>
             <S.Textarea id="b-excerpt-pt" rows={2} value={form.excerptPt} onChange={set('excerptPt')} placeholder={t('blogPanel.excPtPh')} />
           </S.FormGroup>
+
           <S.FormGroup>
-            <S.Label htmlFor="b-excerpt-it">{t('blogPanel.labelExcIt')}</S.Label>
-            <S.Textarea id="b-excerpt-it" rows={2} value={form.excerptIt} onChange={set('excerptIt')} placeholder={t('blogPanel.excItPh')} />
-          </S.FormGroup>
-          <S.FormGroup>
-            <S.Label>{t('blogPanel.labelBodyEn')} <span>*</span></S.Label>
-            <RichEditor id="b-body-en" placeholder={t('blogPanel.bodyEnPh')} ariaLabel="Post body in English" />
-          </S.FormGroup>
-          <S.FormGroup>
-            <S.Label>{t('blogPanel.labelBodyPt')}</S.Label>
-            <RichEditor id="b-body-pt" placeholder={t('blogPanel.bodyPtPh')} ariaLabel="Post body in Portuguese" />
-          </S.FormGroup>
-          <S.FormGroup>
-            <S.Label>{t('blogPanel.labelBodyIt')}</S.Label>
-            <RichEditor id="b-body-it" placeholder={t('blogPanel.bodyItPh')} ariaLabel="Post body in Italian" />
+            <S.Label>{t('blogPanel.labelBodyPt')} <span>*</span></S.Label>
+            <RichEditor id="b-body-pt" placeholder={t('blogPanel.bodyPtPh')} ariaLabel="Corpo do post em português" />
           </S.FormGroup>
 
           <S.Divider />
@@ -245,11 +248,15 @@ export default function BlogPanel() {
         </S.Body>
 
         <S.Footer>
-          {isEditing && <S.BtnDanger onClick={handleDelete}>{t('blogPanel.delete')}</S.BtnDanger>}
+          {isEditing && <S.BtnDanger onClick={handleDelete} disabled={translating}>{t('blogPanel.delete')}</S.BtnDanger>}
           <S.FooterRight>
-            <Btn variant="ghost" onClick={closeBlogPanel}>{t('blogPanel.cancel')}</Btn>
-            <Btn variant="ghost" onClick={() => handleSave('draft')}>{t('blogPanel.saveDraft')}</Btn>
-            <Btn variant="primary" onClick={() => handleSave('published')}>{t('blogPanel.publish')}</Btn>
+            <Btn variant="ghost" onClick={closeBlogPanel} disabled={translating}>{t('blogPanel.cancel')}</Btn>
+            <Btn variant="ghost" onClick={() => handleSave('draft')} disabled={translating}>
+              {translating ? 'Traduzindo...' : t('blogPanel.saveDraft')}
+            </Btn>
+            <Btn variant="primary" onClick={() => handleSave('published')} disabled={translating}>
+              {translating ? 'Traduzindo...' : t('blogPanel.publish')}
+            </Btn>
           </S.FooterRight>
         </S.Footer>
       </S.Panel>

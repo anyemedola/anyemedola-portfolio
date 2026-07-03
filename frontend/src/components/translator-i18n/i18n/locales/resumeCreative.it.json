@@ -1,0 +1,84 @@
+{
+  "tagline": "Brasile → Sicilia",
+  "role": "Sviluppatrice Front-End Senior · Designer UI/UX · Tech Lead",
+  "quote": "Sviluppatrice front-end. Viaggiatrice incurabile. Scrittrice in divenire. Tutto nella stessa donna.",
+  "phone": "+39 351 586 9527",
+  "location": "Ragusa, Sicilia · Italia",
+  "downloadBtn": "Scarica PDF",
+  "about": {
+    "heading": "Chi sono",
+    "body_before": "Brasiliana di nascita, siciliana al tramonto. Tre anni fa ho ottenuto la cittadinanza italiana e mi sono trasferita in Sicilia — il mio fuso orario ora è il Mediterraneo. Da oltre 5 anni costruisco interfacce e, negli ultimi, lavoro come sviluppatrice front-end ",
+    "body_em": "e",
+    "body_after": " designer — da Figma al codice. Ma non sono solo la sviluppatrice che consegna: sono anche la donna che viaggia, scrive, legge e trasforma la vita in una collezione di storie."
+  },
+  "experience": {
+    "heading": "Esperienza",
+    "jobs": [
+      {
+        "period": "Ago 2023",
+        "periodEnd": "presente",
+        "role": "Sviluppatrice Front-End Senior & Tech Lead",
+        "company": "Capgemini · Da remoto, dalla Sicilia",
+        "desc": "Guido il front-end di LIVE, una piattaforma di streaming su larga scala per il Ministero della Salute del Portogallo. React, Next.js & TypeScript con un design system in MUI e streaming via WebRTC (Kurento) — anche come designer UI/UX, realizzando i prototipi in Figma fin dall'inizio e guidando un piccolo team."
+      },
+      {
+        "period": "Set 2022",
+        "periodEnd": "Ago 2023",
+        "role": "Sviluppatrice Front-End",
+        "company": "Ambisig · Lisbona, Portogallo (Da remoto)",
+        "desc": "Ho sviluppato sistemi governativi complessi — SCOT (multe stradali) in Ionic + React e SIARL, piattaforma di gestione delle risorse costiere in React/Next.js + Redux. UI guidata dai dati, layout responsive e cicli di refinement UX su scala nazionale; ho disegnato il prototipo di SIARL in Figma fin dall'inizio."
+      },
+      {
+        "period": "Feb 2022",
+        "periodEnd": "Set 2022",
+        "role": "Sviluppatrice Front-End",
+        "company": "S2 Pets · Da remoto",
+        "desc": "Funzionalità mobile e web per l'app MEUPET con Ionic, Angular e Firebase — tra cui un oggetti smarriti & ritrovati basato sulla geolocalizzazione e un calcolatore di IMC nutrizionale per animali."
+      },
+      {
+        "period": "2018",
+        "periodEnd": "2022",
+        "role": "Sviluppatrice Web · Inizio carriera",
+        "company": "Agência Zum · Atitude Comunicação · Freelance",
+        "desc": "Web e mobile full-stack con PHP, JavaScript, Ionic e Angular — siti di campagna con back-office, analisi dei sistemi e database. Dove mi sono innamorata del front-end e del design."
+      }
+    ]
+  },
+  "toolkit": {
+    "heading": "Strumenti",
+    "items": ["React", "Next.js", "TypeScript", "Ionic", "MUI", "Styled Components", "Tailwind", "shadcn/ui", "React Query", "Redux", "REST APIs", "Figma", "UX/UI & Prototipazione", "Git · GitLab · Azure", "Jest · ESLint"]
+  },
+  "languages": {
+    "heading": "Lingue",
+    "items": [
+      { "name": "Portoghese", "level": "C2", "pct": 100 },
+      { "name": "Inglese", "level": "C1", "pct": 88 },
+      { "name": "Italiano", "level": "C1", "pct": 88 },
+      { "name": "Francese", "level": "B1", "pct": 58 },
+      { "name": "Spagnolo", "level": "B1", "pct": 58 }
+    ]
+  },
+  "education": {
+    "heading": "Formazione",
+    "items": [
+      { "degree": "Laurea in Informatica", "school": "CTI — Colégio Técnico Industrial \"Prof. Isaac Portal Roldán\"" },
+      { "degree": "Diploma Tecnico in Informatica", "school": "ETEC — Cidade do Livro" }
+    ],
+    "certsLabel": "Certificazioni",
+    "certsList": "Cubos Academy · FreeCodeCamp · Fundação Bradesco"
+  },
+  "beyond": {
+    "heading": "Oltre il codice",
+    "subtitle": "Le parti di me che non stanno in un README.",
+    "items": [
+      { "icon": "❦", "title": "Scrittrice in divenire", "body": "Saggi & un libro su chi lascia tutto e trova casa dall'altra parte del mondo. Primo saggio: Inteira." },
+      { "icon": "✈", "title": "Viaggiatrice & creator", "body": "Diario di viaggio su @anyemedola e vita da expat in Sicilia, in EN & IT, su @anyinsicily." },
+      { "icon": "❧", "title": "Lettrice & recensora", "body": "Recensioni di libri e video di unboxing — leggere è viaggiare restando fermi." },
+      { "icon": "♪", "title": "Musica & strumenti", "body": "Musica alta, bella vita — suono, ascolto, lascio che faccia da colonna sonora al viaggio." }
+    ]
+  },
+  "footer": {
+    "tagline": "Fatto con sole e saudade in Sicilia.",
+    "meta": "Any Medola · Brasile → Italia · 2026"
+  }
+}

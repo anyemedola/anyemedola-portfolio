@@ -19,7 +19,7 @@ const hanken = Hanken_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: 'AM· Admin — Portfolio Backoffice',
+  title: 'Any Medola — Portfolio Admin',
   description: 'Portfolio admin dashboard',
   icons: { icon: '/favicon.ico' },
 };

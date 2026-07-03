@@ -11,7 +11,11 @@ export default function PostHero({ post }: { post: BlogPost }) {
   return (
     <S.Hero>
       <S.Tags>
-        <S.TagPrimary>{post.primaryTag}</S.TagPrimary>
+        <S.TagPrimary>
+          {post.localTag
+            ? <T en={post.localTag.en} pt={post.localTag.pt} it={post.localTag.it ?? post.localTag.en} />
+            : post.primaryTag}
+        </S.TagPrimary>
         <S.Sep aria-hidden="true">·</S.Sep>
         <S.TagMeta>{post.date}</S.TagMeta>
         <S.Sep aria-hidden="true">·</S.Sep>

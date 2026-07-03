@@ -1,0 +1,78 @@
+{
+  "role": "Senior Front-End Developer · UI/UX Designer · Tech Lead",
+  "phone": "+39 351 586 9527",
+  "location": "Ragusa, Sicily — Italy",
+  "downloadBtn": "Download PDF",
+  "summary": {
+    "heading": "Professional Summary",
+    "body": "Front-end developer with 5+ years building scalable web and mobile interfaces, currently leading the front-end of a large-scale public-health streaming platform. I work end to end — from Figma prototypes to production React/Next.js code — combining strong engineering with a designer's eye for usability. Italian citizen based in Sicily; fluent in Portuguese, English and Italian, comfortable in remote, multicultural teams."
+  },
+  "experience": {
+    "heading": "Professional Experience",
+    "jobs": [
+      {
+        "role": "Senior Front-End Developer & Tech Lead — Capgemini",
+        "period": "Aug 2023 – Present · Remote",
+        "bullets": [
+          "Lead the front-end of LIVE, a streaming platform for the Portuguese Ministry of Health, built in React, Next.js and TypeScript.",
+          "Architected a styled component library on top of MUI and implemented WebRTC (Kurento) real-time streaming.",
+          "Acted as UI/UX designer, producing Figma prototypes from inception, and led a small front-end team using Agile/Scrum and Jira."
+        ]
+      },
+      {
+        "role": "Front-End Developer — Ambisig",
+        "period": "Sep 2022 – Aug 2023 · Lisbon (Remote)",
+        "bullets": [
+          "Developed government systems: SCOT (traffic-ticketing) in Ionic + React and SIARL, a coastal-resource management platform in React/Next.js + Redux.",
+          "Delivered data-driven UI, responsive layouts and UX refinement cycles; designed the SIARL Figma prototype from the start."
+        ]
+      },
+      {
+        "role": "Front-End Developer — S2 Pets",
+        "period": "Feb 2022 – Sep 2022 · Remote",
+        "bullets": [
+          "Built mobile and web features for the MEUPET app with Ionic, Angular and Firebase, including a geolocation-based lost & found and a pet nutrition BMI calculator."
+        ]
+      },
+      {
+        "role": "Web Developer — Agência Zum · Atitude Comunicação · Freelance",
+        "period": "2018 – 2022",
+        "bullets": [
+          "Delivered full-stack web and mobile projects with PHP, JavaScript, Ionic and Angular — campaign sites with back-offices, systems analysis and databases (MySQL/PostgreSQL)."
+        ]
+      }
+    ]
+  },
+  "skills": {
+    "heading": "Technical Skills",
+    "frontend": "React, Next.js, TypeScript, JavaScript (ES6+), HTML5, CSS3, Sass, Ionic, Angular",
+    "ui": "MUI, Styled Components, Tailwind, shadcn/ui, Kendo UI, responsive design",
+    "state": "Redux, React Query, REST APIs, WebRTC (Kurento), Firebase, MySQL, PostgreSQL",
+    "design": "Figma, UX/UI design, prototyping, wireframing, user research, interaction design",
+    "quality": "Jest, ESLint, Git, GitLab, Azure DevOps, Agile/Scrum, Jira, Trello",
+    "frontendLabel": "Front-end",
+    "uiLabel": "UI & styling",
+    "stateLabel": "State & data",
+    "designLabel": "Design",
+    "qualityLabel": "Quality & workflow"
+  },
+  "education": {
+    "heading": "Education",
+    "items": [
+      { "degree": "Bachelor's in Information Technology", "school": "CTI — Colégio Técnico Industrial \"Prof. Isaac Portal Roldán\"" },
+      { "degree": "Technical Degree in IT", "school": "ETEC — Cidade do Livro" }
+    ],
+    "certsLabel": "Certifications",
+    "certsList": "Cubos Academy, FreeCodeCamp (JS Algorithms & Data Structures; Front-End Libraries), Fundação Bradesco"
+  },
+  "languages": {
+    "heading": "Languages",
+    "items": [
+      "Portuguese — Native (C2)",
+      "English — Advanced (C1)",
+      "Italian — Advanced (C1)",
+      "French — Intermediate (B1)",
+      "Spanish — Intermediate (B1)"
+    ]
+  }
+}

@@ -1,0 +1,84 @@
+{
+  "tagline": "Brazil → Sicily",
+  "role": "Senior Front-End Developer · UI/UX Designer · Tech Lead",
+  "quote": "Front-end developer. Incurable traveler. Writer in the making. All in the same woman.",
+  "phone": "+39 351 586 9527",
+  "location": "Ragusa, Sicily · Italy",
+  "downloadBtn": "Download PDF",
+  "about": {
+    "heading": "About me",
+    "body_before": "Brazilian by birth, Sicilian by sunset. Three years ago I claimed my Italian citizenship and moved to Sicily — my time zone is the Mediterranean now. I've spent 5+ years building interfaces and, for the last several, working as front-end developer ",
+    "body_em": "and",
+    "body_after": " designer — from Figma to code. But I'm not only the developer who delivers: I'm also the woman who travels, writes, reads and turns life into a collection of stories."
+  },
+  "experience": {
+    "heading": "Experience",
+    "jobs": [
+      {
+        "period": "Aug 2023",
+        "periodEnd": "present",
+        "role": "Senior Front-End Developer & Tech Lead",
+        "company": "Capgemini · Remote, from Sicily",
+        "desc": "I lead the front-end of LIVE, a large-scale streaming platform for the Portuguese Ministry of Health. React, Next.js & TypeScript with a styled MUI design system and WebRTC (Kurento) streaming — also acting as UI/UX designer and building the Figma prototypes from inception, while leading a small team."
+      },
+      {
+        "period": "Sep 2022",
+        "periodEnd": "Aug 2023",
+        "role": "Front-End Developer",
+        "company": "Ambisig · Lisbon, Portugal (Remote)",
+        "desc": "Built complex government systems — SCOT (traffic-ticketing) in Ionic + React, and SIARL, a coastal-resource management platform in React/Next.js + Redux. Data-driven UI, responsive layouts and UX refinement at national scale; designed the SIARL Figma prototype from the start."
+      },
+      {
+        "period": "Feb 2022",
+        "periodEnd": "Sep 2022",
+        "role": "Front-End Developer",
+        "company": "S2 Pets · Remote",
+        "desc": "Mobile & web features for the MEUPET app with Ionic, Angular and Firebase — including a geolocation-based lost & found and a nutrition BMI calculator for animals."
+      },
+      {
+        "period": "2018",
+        "periodEnd": "2022",
+        "role": "Web Developer · Early career",
+        "company": "Agência Zum · Atitude Comunicação · Freelance",
+        "desc": "Full-stack web & mobile with PHP, JavaScript, Ionic and Angular — campaign sites with back-offices, systems analysis and databases. Where I fell in love with front-end and design."
+      }
+    ]
+  },
+  "toolkit": {
+    "heading": "Toolkit",
+    "items": ["React", "Next.js", "TypeScript", "Ionic", "MUI", "Styled Components", "Tailwind", "shadcn/ui", "React Query", "Redux", "REST APIs", "Figma", "UX/UI & Prototyping", "Git · GitLab · Azure", "Jest · ESLint"]
+  },
+  "languages": {
+    "heading": "Languages",
+    "items": [
+      { "name": "Portuguese", "level": "C2", "pct": 100 },
+      { "name": "English", "level": "C1", "pct": 88 },
+      { "name": "Italian", "level": "C1", "pct": 88 },
+      { "name": "French", "level": "B1", "pct": 58 },
+      { "name": "Spanish", "level": "B1", "pct": 58 }
+    ]
+  },
+  "education": {
+    "heading": "Education",
+    "items": [
+      { "degree": "Bachelor's in Information Technology", "school": "CTI — Colégio Técnico Industrial \"Prof. Isaac Portal Roldán\"" },
+      { "degree": "Technical Degree in IT", "school": "ETEC — Cidade do Livro" }
+    ],
+    "certsLabel": "Certifications",
+    "certsList": "Cubos Academy · FreeCodeCamp · Fundação Bradesco"
+  },
+  "beyond": {
+    "heading": "Beyond the code",
+    "subtitle": "The parts of me that don't fit in a README.",
+    "items": [
+      { "icon": "❦", "title": "Writer in progress", "body": "Essays & a book on those who leave everything behind and find home across the world. First essay: Inteira." },
+      { "icon": "✈", "title": "Traveler & creator", "body": "Travel journal at @anyemedola and expat life in Sicily, in EN & IT, at @anyinsicily." },
+      { "icon": "❧", "title": "Reader & reviewer", "body": "Book reviews and unboxing videos — reading is travel that fits on a shelf." },
+      { "icon": "♪", "title": "Music & instruments", "body": "Loud music, good life — I play, I listen, I let it score the journey." }
+    ]
+  },
+  "footer": {
+    "tagline": "Made with sun and saudade in Sicily.",
+    "meta": "Any Medola · Brazil → Italy · 2026"
+  }
+}

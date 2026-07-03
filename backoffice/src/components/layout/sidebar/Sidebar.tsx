@@ -53,8 +53,9 @@ export default function Sidebar() {
       />
       <S.Root data-open={sidebarOpen ? 'true' : 'false'} role="navigation" aria-label="Admin sidebar">
         <S.LogoArea>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/android-chrome-192x192.png" alt="Any Medola" width={192} height={192} style={{ width: 40, height: 40, borderRadius: 10, flexShrink: 0 }} />
           <div>
-            <S.LogoMark>AM<span>·</span></S.LogoMark>
             <S.LogoSub>{t('sidebar.brand')}</S.LogoSub>
           </div>
         </S.LogoArea>
@@ -90,7 +91,10 @@ export default function Sidebar() {
 
         <S.SidebarFooter>
           <S.UserRow>
-            <S.Avatar aria-hidden="true">AM</S.Avatar>
+            <S.Avatar aria-hidden="true">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/any_blue_focus.JPG" alt="" width={34} height={34} style={{ borderRadius: '50%', display: 'block' }} />
+            </S.Avatar>
             <div>
               <S.UserName>Any Medola</S.UserName>
               <S.UserRole>Admin</S.UserRole>

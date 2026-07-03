@@ -1,0 +1,78 @@
+{
+  "role": "Sviluppatrice Front-End Senior · Designer UI/UX · Tech Lead",
+  "phone": "+39 351 586 9527",
+  "location": "Ragusa, Sicilia — Italia",
+  "downloadBtn": "Scarica PDF",
+  "summary": {
+    "heading": "Profilo Professionale",
+    "body": "Sviluppatrice front-end con oltre 5 anni di esperienza nella creazione di interfacce web e mobile scalabili, attualmente alla guida del front-end di una piattaforma di streaming su larga scala per la sanità pubblica. Lavoro end to end — dai prototipi in Figma al codice React/Next.js in produzione — unendo solida ingegneria a un occhio da designer per l'usabilità. Cittadina italiana residente in Sicilia; fluente in portoghese, inglese e italiano, a mio agio in team remoti e multiculturali."
+  },
+  "experience": {
+    "heading": "Esperienza Professionale",
+    "jobs": [
+      {
+        "role": "Sviluppatrice Front-End Senior & Tech Lead — Capgemini",
+        "period": "Ago 2023 – Presente · Da remoto",
+        "bullets": [
+          "Guido il front-end di LIVE, piattaforma di streaming per il Ministero della Salute del Portogallo, sviluppata in React, Next.js e TypeScript.",
+          "Ho progettato una libreria di componenti basata su MUI e implementato lo streaming in tempo reale con WebRTC (Kurento).",
+          "Ho lavorato come designer UI/UX, realizzando i prototipi in Figma fin dall'inizio, e guidato un piccolo team front-end con Agile/Scrum e Jira."
+        ]
+      },
+      {
+        "role": "Sviluppatrice Front-End — Ambisig",
+        "period": "Set 2022 – Ago 2023 · Lisbona (Da remoto)",
+        "bullets": [
+          "Ho sviluppato sistemi governativi: SCOT (multe stradali) in Ionic + React e SIARL, piattaforma di gestione delle risorse costiere in React/Next.js + Redux.",
+          "Ho realizzato UI guidata dai dati, layout responsive e cicli di refinement UX; ho disegnato il prototipo di SIARL in Figma fin dall'inizio."
+        ]
+      },
+      {
+        "role": "Sviluppatrice Front-End — S2 Pets",
+        "period": "Feb 2022 – Set 2022 · Da remoto",
+        "bullets": [
+          "Ho sviluppato funzionalità mobile e web per l'app MEUPET con Ionic, Angular e Firebase, tra cui oggetti smarriti & ritrovati basato sulla geolocalizzazione e un calcolatore di IMC nutrizionale per animali."
+        ]
+      },
+      {
+        "role": "Sviluppatrice Web — Agência Zum · Atitude Comunicação · Freelance",
+        "period": "2018 – 2022",
+        "bullets": [
+          "Ho realizzato progetti full-stack web e mobile con PHP, JavaScript, Ionic e Angular — siti di campagna con back-office, analisi dei sistemi e database (MySQL/PostgreSQL)."
+        ]
+      }
+    ]
+  },
+  "skills": {
+    "heading": "Competenze Tecniche",
+    "frontend": "React, Next.js, TypeScript, JavaScript (ES6+), HTML5, CSS3, Sass, Ionic, Angular",
+    "ui": "MUI, Styled Components, Tailwind, shadcn/ui, Kendo UI, design responsive",
+    "state": "Redux, React Query, REST APIs, WebRTC (Kurento), Firebase, MySQL, PostgreSQL",
+    "design": "Figma, design UX/UI, prototipazione, wireframing, user research, interaction design",
+    "quality": "Jest, ESLint, Git, GitLab, Azure DevOps, Agile/Scrum, Jira, Trello",
+    "frontendLabel": "Front-end",
+    "uiLabel": "UI & styling",
+    "stateLabel": "Stato & dati",
+    "designLabel": "Design",
+    "qualityLabel": "Qualità & workflow"
+  },
+  "education": {
+    "heading": "Formazione",
+    "items": [
+      { "degree": "Laurea in Informatica", "school": "CTI — Colégio Técnico Industrial \"Prof. Isaac Portal Roldán\"" },
+      { "degree": "Diploma Tecnico in Informatica", "school": "ETEC — Cidade do Livro" }
+    ],
+    "certsLabel": "Certificazioni",
+    "certsList": "Cubos Academy, FreeCodeCamp (JS Algorithms & Data Structures; Front-End Libraries), Fundação Bradesco"
+  },
+  "languages": {
+    "heading": "Lingue",
+    "items": [
+      "Portoghese — Madrelingua (C2)",
+      "Inglese — Avanzato (C1)",
+      "Italiano — Avanzato (C1)",
+      "Francese — Intermedio (B1)",
+      "Spagnolo — Intermedio (B1)"
+    ]
+  }
+}

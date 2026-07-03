@@ -35,8 +35,8 @@ describe('ContactSection (Footer)', () => {
 
   it('renders the email link with correct href', () => {
     render(<ContactSection />);
-    const emailLink = screen.getByRole('link', { name: /anynhamedola@gmail\.com/i });
-    expect(emailLink).toHaveAttribute('href', 'mailto:anynhamedola@gmail.com');
+    const emailLink = screen.getByRole('link', { name: /contact@anyemedola\.com/i });
+    expect(emailLink).toHaveAttribute('href', 'mailto:contact@anyemedola.com');
   });
 
   it('renders LinkedIn and GitHub social links', () => {

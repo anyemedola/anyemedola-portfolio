@@ -8,7 +8,7 @@ import type { BlogPost } from '@/data/posts';
 type Locale = 'en' | 'pt' | 'it';
 
 export default function PostBody({ post }: { post: BlogPost }) {
-  const { t, i18n } = useTranslation();
+  const { i18n } = useTranslation();
   const lang = i18n.language;
   const locale: Locale = lang === 'pt' ? 'pt' : lang === 'it' ? 'it' : 'en';
   const body = post.body[locale] ?? post.body.en;
@@ -26,19 +26,9 @@ export default function PostBody({ post }: { post: BlogPost }) {
         />
       </S.CoverReal>
     </S.CoverWide>
-  ) : (
-    <S.Cover>
-      <figure>
-        <S.CoverImg role="img" aria-label="Post cover image placeholder">
-          <S.CoverPlaceholderIcon aria-hidden="true">{post.icon}</S.CoverPlaceholderIcon>
-          <S.CoverPlaceholderText>Cover image goes here</S.CoverPlaceholderText>
-        </S.CoverImg>
-        <S.CoverCaption>{t('post.caption')}</S.CoverCaption>
-      </figure>
-    </S.Cover>
-  );
+  ) : null;
 
-  if (body.html !== undefined) {
+  if (body.html) {
     return (
       <>
         {cover}

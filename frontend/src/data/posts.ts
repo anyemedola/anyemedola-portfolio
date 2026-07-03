@@ -1,6 +1,7 @@
 export interface BlogPost {
   slug: string;
   primaryTag: string;
+  localTag?: { en: string; pt: string; it?: string };
   tags: string[];
   title: { en: string; pt: string; it?: string };
   subtitle: { en: string; pt: string; it?: string };
