@@ -21,23 +21,23 @@ export default function TravelSection() {
           <S.TravelCollage aria-hidden="true">
             <S.TravelGlowOrb />
             <S.TravelMainFrame
-              src="/Verona.jpeg"
-              alt="Casa di Giulietta, Verona"
+              src="/bonito.jpeg"
+              alt="Any na Estrela do Formoso, Bonito, Mato Grosso do Sul, Brasil"
               objectPosition="center 30%"
               rotate={-4}
               caption={t('travel.cap1')}
             />
             <S.TravelSmallRight
-              src="/brera.jpeg"
-              alt="Any camninando por Brera, Milão"
+              src="/swiss.jpeg"
+              alt="Any em Lugano, Suíça"
               objectPosition="center 35%"
               rotate={4}
               caption={t('travel.cap2')}
               captionSize="sm"
             />
             <S.TravelSmallLeft
-            src="/snow.jpeg"
-              alt="Etna, Sicília"
+            src="/lisbon.jpeg"
+              alt="Any no farol de Santa Marta, Cascais, Portugal"
               rotate={-7}
               caption={t('travel.cap3')}
               captionSize="sm"
