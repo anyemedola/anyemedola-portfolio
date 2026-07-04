@@ -1,7 +1,6 @@
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import { getPost, type BlogPost } from '@/data/posts';
-import { enrichPost, type RawPost } from '@/lib/enrichPost';
 import ReadingProgress from '@/components/blog/readingpostprogress/ReadingProgress';
 import Header from '@/components/layout/Header/Header';
 import PostHero from '@/components/blog/posthero/PostHero';
@@ -14,8 +13,11 @@ export const dynamic = 'force-dynamic';
 
 const BACKEND = process.env.BACKEND_URL ?? 'http://localhost:4000';
 
-interface ApiPost extends RawPost {
+interface ApiPost {
   id: number; slug: string;
+  title: string; titlePt: string; titleIt: string;
+  subtitle: string; subtitlePt: string; subtitleIt: string;
+  excerptEn: string; excerptPt: string; excerptIt: string;
   bodyEn: string; bodyPt: string; bodyIt: string;
   date: string; readTime: number;
   primaryTag: string; primaryTagEn?: string; primaryTagIt?: string; tags: string[];
@@ -61,8 +63,7 @@ async function fetchApiPost(slug: string): Promise<BlogPost | null> {
     const res = await fetch(`${BACKEND}/api/posts/${slug}`, { cache: 'no-store' });
     if (!res.ok) return null;
     const raw = await res.json() as ApiPost;
-    const enriched = await enrichPost(raw, { translateBody: true });
-    return apiToPost(enriched as ApiPost);
+    return apiToPost(raw);
   } catch {
     return null;
   }
