@@ -10,15 +10,6 @@ export const Wrap = styled('div')({
   },
 });
 
-export const Cover = styled('div')({
-  maxWidth: 960,
-  margin: '0 auto 72px',
-  padding: '0 40px',
-  '@media (max-width: 900px)': {
-    padding: '0 24px',
-  },
-});
-
 export const CoverWide = styled('div')({
   maxWidth: 920,
   margin: '48px auto 0',
@@ -35,53 +26,6 @@ export const CoverReal = styled('div')({
   position: 'relative',
   boxShadow: '0 34px 64px -38px rgba(18,59,55,.5)',
   '@media (max-width: 900px)': { height: 260 },
-});
-
-export const CoverImg = styled('div')({
-  width: '100%',
-  aspectRatio: '16/7',
-  background: tokens.ink,
-  overflow: 'hidden',
-  borderRadius: 16,
-  position: 'relative',
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  flexDirection: 'column',
-  gap: 16,
-  '&::before': {
-    content: "''",
-    position: 'absolute',
-    inset: 0,
-    background: `
-      repeating-linear-gradient(45deg, rgba(26,97,93,0.05) 0px, rgba(26,97,93,0.05) 1px, transparent 1px, transparent 48px),
-      repeating-linear-gradient(-45deg, rgba(239,168,172,0.05) 0px, rgba(239,168,172,0.05) 1px, transparent 1px, transparent 48px)
-    `,
-  },
-});
-
-export const CoverPlaceholderIcon = styled('span')({
-  fontSize: 56,
-  opacity: 0.12,
-  zIndex: 1,
-});
-
-export const CoverPlaceholderText = styled('span')({
-  fontFamily: "'Hanken Grotesk', var(--font-hanken), sans-serif",
-  fontSize: 11,
-  letterSpacing: '0.25em',
-  textTransform: 'uppercase',
-  color: 'rgba(251,237,238,0.2)',
-  zIndex: 1,
-});
-
-export const CoverCaption = styled('figcaption')({
-  fontFamily: "'Hanken Grotesk', var(--font-hanken), sans-serif",
-  fontSize: 11,
-  color: tokens.warmBrownMid,
-  letterSpacing: '0.08em',
-  marginTop: 12,
-  fontStyle: 'italic',
 });
 
 export const Body = styled('article')({

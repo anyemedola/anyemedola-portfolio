@@ -5,39 +5,7 @@ import * as S from './styles';
 import T from '@/components/ui/t/T';
 import { useTranslation } from 'react-i18next';
 import { posts as staticPosts, type BlogPost } from '@/data/posts';
-
-interface ApiPost {
-  slug: string; title: string; titlePt: string; titleIt: string;
-  excerptEn: string; excerptPt: string; excerptIt: string;
-  primaryTag: string; primaryTagEn?: string; primaryTagIt?: string; tags: string[];
-  date: string; readTime: number; accentColor: string; icon: string;
-  subtitle: string; subtitlePt: string; subtitleIt: string;
-  bodyEn: string; bodyPt: string; bodyIt: string; image: string | null;
-}
-
-function apiToPost(p: ApiPost): BlogPost {
-  return {
-    slug:       p.slug,
-    primaryTag: p.primaryTag || p.tags?.[0] || '',
-    localTag:   { en: p.primaryTagEn || p.primaryTag, pt: p.primaryTag, it: p.primaryTagIt || p.primaryTag },
-    tags:       p.tags || [],
-    title:    { en: p.title,    pt: p.titlePt    || p.title,    it: p.titleIt    || p.title },
-    subtitle: { en: p.subtitle, pt: p.subtitlePt || p.subtitle, it: p.subtitleIt || p.subtitle },
-    date:     p.date, datetime: p.date, readTime: p.readTime || 5,
-    accentColor: p.accentColor, icon: p.icon,
-    coverImage: p.image ?? undefined,
-    excerpt: {
-      en: p.excerptEn,
-      pt: p.excerptPt || p.excerptEn,
-      it: p.excerptIt || p.excerptEn,
-    },
-    body: {
-      en: { intro: '', sections: [], closing: '', html: p.bodyEn || p.bodyPt || '' },
-      pt: { intro: '', sections: [], closing: '', html: p.bodyPt || '' },
-      it: { intro: '', sections: [], closing: '', html: p.bodyIt || p.bodyPt || '' },
-    },
-  };
-}
+import { apiToPost, type ApiPost } from '@/lib/apiToPost';
 
 export default function PostMore({ currentSlug }: { currentSlug: string }) {
   const { t } = useTranslation();

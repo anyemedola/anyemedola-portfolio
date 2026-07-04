@@ -105,7 +105,7 @@ export default function Sidebar() {
             <S.LangToggle active={i18n.language === 'pt'} onClick={() => i18n.changeLanguage('pt')} aria-pressed={i18n.language === 'pt'}>PT</S.LangToggle>
             <S.LangToggle active={i18n.language === 'it'} onClick={() => i18n.changeLanguage('it')} aria-pressed={i18n.language === 'it'}>IT</S.LangToggle>
           </S.LangRow>
-          <S.PreviewLink href="http://localhost:3000" target="_blank" rel="noopener noreferrer">
+          <S.PreviewLink href={process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000'} target="_blank" rel="noopener noreferrer">
             <span aria-hidden="true">↗</span> {t('sidebar.viewPortfolio')}
           </S.PreviewLink>
           <S.LogoutBtn onClick={handleLogout}>

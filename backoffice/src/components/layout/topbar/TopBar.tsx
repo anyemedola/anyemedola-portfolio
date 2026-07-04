@@ -38,14 +38,9 @@ export default function TopBar() {
           </S.Btn>
         )}
         {activeView === 'blog' && (
-          <>
-            <S.Btn variant="ghost" onClick={() => openBlogPanel()}>
-              <span>{t('topbar.saveDraft')}</span>
-            </S.Btn>
-            <S.Btn variant="primary" onClick={() => openBlogPanel()}>
-              <span aria-hidden="true">+</span> <span>{t('topbar.newPost')}</span>
-            </S.Btn>
-          </>
+          <S.Btn variant="primary" onClick={() => openBlogPanel()}>
+            <span aria-hidden="true">+</span> <span>{t('topbar.newPost')}</span>
+          </S.Btn>
         )}
         {activeView === 'settings' && (
           <S.Btn variant="primary" onClick={() => addToast(t('settings.saved'), 'success')}>

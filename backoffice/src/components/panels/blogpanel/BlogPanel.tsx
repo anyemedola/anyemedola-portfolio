@@ -107,7 +107,7 @@ export default function BlogPanel() {
       bodyEn:     getBody('b-body-en'),
       bodyIt:     getBody('b-body-it'),
       date:       form.date,
-      readTime:   form.readTime,
+      readTime:   Number(form.readTime) || 5,
       status,
       primaryTag: form.primaryTag.trim(),
       tags:       form.tags,

@@ -36,7 +36,7 @@ export interface BlogPost {
   bodyPt: string;
   bodyIt: string;
   date: string;
-  readTime: string;
+  readTime: number;
   status: 'draft' | 'published';
   primaryTag: string;
   tags: string[];
