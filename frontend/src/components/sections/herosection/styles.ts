@@ -28,16 +28,18 @@ export const HeroRoot = styled('header')({
     flexDirection: 'column',
     height: 'auto',
     minHeight: 'auto',
-    padding: '72px 22px 48px',
-    gap: 24,
+    padding: '72px 22px 40px',
+    gap: 20,
     justifyContent: 'flex-start',
     alignItems: 'stretch',
   },
   '@media (max-width: 480px)': {
-    padding: '76px 18px 20px',
+    padding: '68px 18px 16px',
+    gap: 14,
   },
   '@media (max-width: 380px)': {
-    padding: '76px 16px 16px',
+    padding: '68px 16px 12px',
+    gap: 12,
   },
 });
 
@@ -73,6 +75,10 @@ export const PortraitGlow = styled('div')({
     borderRadius: '130px 130px 16px 16px',
     transform: 'translate(-50%, -50%)',
   },
+  '@media (max-width: 480px)': {
+    width: 210,
+    height: 260,
+  },
 });
 
 export const PortraitWrap = styled('div')({
@@ -93,8 +99,8 @@ export const PortraitWrap = styled('div')({
     borderRadius: '100px 100px 12px 12px',
     padding: 8,
   },
-  '@media (max-width: 480px)': { width: 170, height: 221, borderRadius: '85px 85px 10px 10px' },
-  '@media (max-width: 380px)': { width: 150, height: 195, borderRadius: '75px 75px 10px 10px' },
+  '@media (max-width: 480px)': { width: 152, height: 198, borderRadius: '76px 76px 9px 9px' },
+  '@media (max-width: 380px)': { width: 136, height: 177, borderRadius: '68px 68px 8px 8px' },
 });
 
 export const PortraitImgWrap = styled('div')({
@@ -104,8 +110,8 @@ export const PortraitImgWrap = styled('div')({
   borderRadius: '181px 181px 14px 14px',
   overflow: 'hidden',
   '@media (max-width: 760px)': { borderRadius: '92px 92px 4px 4px' },
-  '@media (max-width: 480px)': { borderRadius: '78px 78px 3px 3px' },
-  '@media (max-width: 380px)': { borderRadius: '68px 68px 3px 3px' },
+  '@media (max-width: 480px)': { borderRadius: '68px 68px 3px 3px' },
+  '@media (max-width: 380px)': { borderRadius: '60px 60px 3px 3px' },
 });
 
 export const Content = styled('div')({
@@ -116,8 +122,8 @@ export const Content = styled('div')({
 export const Eyebrow = styled(BaseEyebrow)({
   letterSpacing: '.34em',
   marginBottom: 22,
-  '@media (max-width: 480px)': { marginBottom: 14 },
-  '@media (max-width: 380px)': { marginBottom: 10 },
+  '@media (max-width: 480px)': { marginBottom: 10 },
+  '@media (max-width: 380px)': { marginBottom: 8 },
 });
 
 export const HeroTitle = styled('h1')({
@@ -129,9 +135,9 @@ export const HeroTitle = styled('h1')({
   margin: 0,
   color: tokens.ink,
   '@media (max-width: 1024px)': { fontSize: 'clamp(52px, 6vw, 88px)' },
-  '@media (max-width: 760px)': { fontSize: 56 },
-  '@media (max-width: 480px)': { fontSize: 48 },
-  '@media (max-width: 380px)': { fontSize: 42 },
+  '@media (max-width: 760px)': { fontSize: 54 },
+  '@media (max-width: 480px)': { fontSize: 44, lineHeight: 0.92 },
+  '@media (max-width: 380px)': { fontSize: 40, lineHeight: 0.92 },
 });
 
 export const TitleItalic = styled('span')({
@@ -150,8 +156,8 @@ export const HeroTag = styled('p')({
   margin: '28px 0 14px',
   maxWidth: 460,
   '@media (max-width: 760px)': { fontSize: 18, margin: '22px 0 12px' },
-  '@media (max-width: 480px)': { fontSize: 17, margin: '18px 0 10px' },
-  '@media (max-width: 380px)': { fontSize: 16, margin: '14px 0 8px' },
+  '@media (max-width: 480px)': { fontSize: 16, margin: '14px 0 8px' },
+  '@media (max-width: 380px)': { fontSize: 15, margin: '12px 0 6px' },
 });
 
 export const HeroSub = styled('p')({
@@ -162,8 +168,8 @@ export const HeroSub = styled('p')({
   margin: '0 0 34px',
   maxWidth: 460,
   '@media (max-width: 760px)': { margin: '0 0 28px' },
-  '@media (max-width: 480px)': { fontSize: 15, margin: '0 0 24px' },
-  '@media (max-width: 380px)': { margin: '0 0 20px' },
+  '@media (max-width: 480px)': { fontSize: 14, margin: '0 0 18px' },
+  '@media (max-width: 380px)': { margin: '0 0 14px' },
 });
 
 export const Cta = styled('div')({
@@ -190,9 +196,13 @@ export const BtnPrimary = styled('a')({
     background: '#0E4E4A',
     boxShadow: '0 8px 20px rgba(26,97,93,0.4)',
   },
+  '@media (max-width: 480px)': {
+    padding: '11px 22px',
+    fontSize: 14,
+  },
   '@media (max-width: 380px)': {
     textAlign: 'center',
-    padding: '13px 24px',
+    padding: '10px 20px',
   },
 });
 
@@ -202,6 +212,7 @@ export const ResumeCta = styled('div')({
   flexWrap: 'wrap',
   gap: 8,
   marginTop: 14,
+  '@media (max-width: 480px)': { marginTop: 10 },
 });
 
 export const ResumeLabel = styled('span')({
@@ -246,8 +257,12 @@ export const BtnGhost = styled('a')({
     background: 'rgba(255,255,255,0.85)',
     color: '#0E4E4A',
   },
+  '@media (max-width: 480px)': {
+    padding: '11px 22px',
+    fontSize: 14,
+  },
   '@media (max-width: 380px)': {
     textAlign: 'center',
-    padding: '13px 24px',
+    padding: '10px 20px',
   },
 });
