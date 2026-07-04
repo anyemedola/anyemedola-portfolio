@@ -69,6 +69,40 @@ export default function CreativeResume() {
           .exp-item, .beyond-facet, .resume-langs-row { break-inside: avoid; }
           h1, h2, h3 { break-after: avoid; }
         }
+
+        @media (max-width: 640px) {
+          .resume-bg { padding: 10px 10px 32px !important; }
+
+          .cr-header { padding: 22px 18px 20px !important; }
+          .cr-hero-inner { gap: 14px !important; }
+
+          .cr-photo-wrap {
+            width: 96px !important;
+            height: 126px !important;
+            border-radius: 48px 48px 10px 10px !important;
+            padding: 5px !important;
+          }
+          .cr-photo-img { border-radius: 43px 43px 6px 6px !important; }
+
+          .cr-h1 { font-size: 50px !important; margin-top: 10px !important; }
+          .cr-role { font-size: 12px !important; margin-top: 10px !important; }
+          .cr-quote { font-size: 16px !important; margin-top: 8px !important; }
+
+          .cr-contacts { padding: 10px 18px !important; gap: 6px 8px !important; }
+          .cr-contact-chip { font-size: 11.5px !important; padding: 5px 10px !important; gap: 5px !important; }
+
+          .cr-body { padding: 18px 18px 10px !important; }
+          .cr-about-text { font-size: 16px !important; line-height: 1.55 !important; }
+
+          .cr-exp-item { grid-template-columns: 80px 1fr !important; gap: 10px !important; }
+
+          .resume-langs-row { grid-template-columns: 1fr !important; gap: 22px !important; }
+
+          .cr-beyond-grid { gap: 8px !important; }
+          .cr-beyond-card { padding: 12px 13px !important; }
+
+          .cr-footer { padding: 14px 18px 18px !important; flex-direction: column !important; align-items: flex-start !important; gap: 6px !important; }
+        }
       `}</style>
 
       <LemonCursor />
@@ -115,7 +149,7 @@ export default function CreativeResume() {
         }}>
 
           {/* HERO */}
-          <header style={{
+          <header className="cr-header" style={{
             position: 'relative', padding: '46px 52px 38px',
             background: 'linear-gradient(168deg,#FBEDEE 0%,#F7D3D5 42%,#F2BEC1 78%,#EFA8AC 100%)',
             overflow: 'hidden',
@@ -125,7 +159,7 @@ export default function CreativeResume() {
               background: 'radial-gradient(120% 90% at 88% 8%, rgba(184,200,151,0.7), transparent 55%)',
               pointerEvents: 'none',
             }} />
-            <div style={{ position: 'relative', display: 'flex', gap: 40, alignItems: 'flex-end', justifyContent: 'space-between' }}>
+            <div className="cr-hero-inner" style={{ position: 'relative', display: 'flex', gap: 40, alignItems: 'flex-end', justifyContent: 'space-between' }}>
               <div style={{ flex: 1, minWidth: 0 }}>
                 <div style={{
                   display: 'inline-flex', alignItems: 'center', gap: 8,
@@ -134,19 +168,19 @@ export default function CreativeResume() {
                   <span style={{ width: 22, height: 1.5, background: TEAL, display: 'inline-block' }} />
                   {d.tagline}
                 </div>
-                <h1 style={{
+                <h1 className="cr-h1" style={{
                   fontFamily: "'Newsreader', serif", fontWeight: 400, fontSize: 78,
                   lineHeight: 0.92, letterSpacing: '-0.015em', color: INK, margin: '14px 0 0',
                 }}>
                   Any<br />Medola
                 </h1>
-                <p style={{
+                <p className="cr-role" style={{
                   fontFamily: "'Hanken Grotesk', sans-serif", fontWeight: 700, fontSize: 14.5,
                   letterSpacing: '0.05em', textTransform: 'uppercase', color: MUTED, margin: '18px 0 0',
                 }}>
                   {d.role}
                 </p>
-                <p style={{
+                <p className="cr-quote" style={{
                   fontFamily: "'Newsreader', serif", fontStyle: 'italic', fontWeight: 300, fontSize: 21,
                   lineHeight: 1.4, color: '#526059', margin: '14px 0 0', maxWidth: '30ch',
                 }}>
@@ -154,13 +188,14 @@ export default function CreativeResume() {
                 </p>
               </div>
               <div style={{ flexShrink: 0 }}>
-                <div style={{
+                <div className="cr-photo-wrap" style={{
                   position: 'relative', width: 212, height: 280,
                   borderRadius: '106px 106px 16px 16px', padding: 7,
                   background: 'linear-gradient(160deg,#F2C6C9,#EFA8AC 55%,#1A615D)',
                 }}>
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
+                    className="cr-photo-img"
                     src="/resume-photo.png"
                     alt="Any Medola in Ragusa Ibla, Sicily"
                     style={{
@@ -174,7 +209,7 @@ export default function CreativeResume() {
           </header>
 
           {/* CONTACT BAR */}
-          <div style={{
+          <div className="cr-contacts" style={{
             display: 'flex', flexWrap: 'wrap', gap: '8px 10px',
             padding: '18px 52px', background: '#EEF2E4',
             borderBottom: '1px solid rgba(18,59,55,0.08)',
@@ -187,7 +222,7 @@ export default function CreativeResume() {
               { icon: '', text: 'github.com/anyemedola' },
               { icon: '', text: 'anyemedola.com.br' },
             ].map((item) => (
-              <span key={item.text} style={{
+              <span key={item.text} className="cr-contact-chip" style={{
                 display: 'inline-flex', alignItems: 'center', gap: 7, fontSize: 13, fontWeight: 600,
                 color: '#2E4A45', background: '#FBF6EF', border: '1px solid rgba(18,59,55,0.1)',
                 borderRadius: 999, padding: '7px 13px',
@@ -199,12 +234,12 @@ export default function CreativeResume() {
           </div>
 
           {/* BODY */}
-          <div style={{ padding: '34px 52px 14px' }}>
+          <div className="cr-body" style={{ padding: '34px 52px 14px' }}>
 
             {/* ABOUT */}
             <section style={{ marginBottom: 30 }}>
               <h2 style={sectionHeading}>{d.about.heading}</h2>
-              <p style={{
+              <p className="cr-about-text" style={{
                 fontFamily: "'Newsreader', serif", fontWeight: 400, fontSize: 19,
                 lineHeight: 1.58, color: '#17403B', margin: 0,
               }}>
@@ -218,7 +253,7 @@ export default function CreativeResume() {
             <section style={{ marginBottom: 30 }}>
               <h2 style={sectionHeading}>{d.experience.heading}</h2>
               {d.experience.jobs.map((job, idx) => (
-                <div key={idx} className="exp-item" style={{
+                <div key={idx} className={`exp-item cr-exp-item`} style={{
                   display: 'grid', gridTemplateColumns: '118px 1fr', gap: 20,
                   paddingBottom: idx < d.experience.jobs.length - 1 ? 18 : 0,
                   marginBottom: idx < d.experience.jobs.length - 1 ? 18 : 0,
@@ -291,9 +326,9 @@ export default function CreativeResume() {
               <p style={{ fontFamily: "'Newsreader', serif", fontStyle: 'italic', fontWeight: 300, fontSize: 17, color: '#6B7973', margin: '0 0 16px' }}>
                 {d.beyond.subtitle}
               </p>
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
+              <div className="cr-beyond-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
                 {d.beyond.items.map((item) => (
-                  <div key={item.title} className="beyond-facet" style={{
+                  <div key={item.title} className={`beyond-facet cr-beyond-card`} style={{
                     display: 'flex', gap: 13, alignItems: 'flex-start',
                     background: 'linear-gradient(150deg,#F2F5E9,#E6EDD6)',
                     border: '1px solid rgba(26,97,93,0.14)', borderRadius: 14, padding: '15px 16px',
@@ -310,7 +345,7 @@ export default function CreativeResume() {
           </div>
 
           {/* FOOTER */}
-          <footer style={{
+          <footer className="cr-footer" style={{
             padding: '18px 52px 26px', borderTop: '1px solid rgba(18,59,55,0.08)',
             display: 'flex', justifyContent: 'space-between', alignItems: 'center',
             flexWrap: 'wrap', gap: 8,

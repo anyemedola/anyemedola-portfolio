@@ -27,9 +27,13 @@ export const Inner = styled('div')({
   },
 });
 
-export const Logo = styled('a')({
+export const LogoBtn = styled('button')({
   display: 'flex',
   gap: 5,
+  background: 'none',
+  border: 'none',
+  padding: 0,
+  cursor: 'pointer',
 });
 
 
@@ -51,7 +55,7 @@ export const DesktopNav = styled('nav')({
   },
 });
 
-export const NavLink = styled('a')({
+const navLinkBase = {
   fontFamily: "'Hanken Grotesk', var(--font-hanken), sans-serif",
   fontSize: 14,
   fontWeight: 500,
@@ -59,9 +63,19 @@ export const NavLink = styled('a')({
   textDecoration: 'none',
   transition: 'color .2s',
   '&:hover': { color: tokens.roseDeep },
+} as const;
+
+export const NavLink = styled('a')(navLinkBase);
+
+export const NavBtn = styled('button')({
+  ...navLinkBase,
+  background: 'none',
+  border: 'none',
+  padding: 0,
+  cursor: 'pointer',
 });
 
-export const CtaLink = styled('a')({
+export const CtaBtn = styled('button')({
   fontFamily: "'Hanken Grotesk', var(--font-hanken), sans-serif",
   fontSize: 14,
   fontWeight: 700,
@@ -69,6 +83,8 @@ export const CtaLink = styled('a')({
   borderRadius: 999,
   background: '#1A615D',
   color: '#fff',
+  border: 'none',
+  cursor: 'pointer',
   transition: 'background .25s',
   whiteSpace: 'nowrap',
   '&:hover': {

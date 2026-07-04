@@ -62,6 +62,12 @@ export default function ATSResume() {
           .exp-item, .blk { break-inside: avoid; }
           h1, h2, h3 { break-after: avoid; }
         }
+
+        @media (max-width: 640px) {
+          .resume-bg { padding: 10px 10px 24px !important; }
+          .ats-doc { padding: 28px 18px 24px !important; }
+          .ats-edu-langs { grid-template-columns: 1fr !important; gap: 22px !important; }
+        }
       `}</style>
 
       <LemonCursor />
@@ -104,7 +110,7 @@ export default function ATSResume() {
 
       {/* page background */}
       <div className="resume-bg" style={{ background: '#E8EBE0', minHeight: '100vh', padding: '32px 16px 48px' }}>
-        <div className="resume-doc" style={{
+        <div className="resume-doc ats-doc" style={{
           maxWidth: '8.5in', margin: '0 auto', background: '#fff',
           boxShadow: '0 24px 64px rgba(40,30,30,0.12)',
           padding: '54px 60px 40px',
@@ -169,7 +175,7 @@ export default function ATSResume() {
           </section>
 
           {/* EDUCATION + LANGUAGES */}
-          <section className="blk" style={{ display: 'grid', gridTemplateColumns: '1.3fr 1fr', gap: 36 }}>
+          <section className="blk ats-edu-langs" style={{ display: 'grid', gridTemplateColumns: '1.3fr 1fr', gap: 36 }}>
             <div>
               <h2 style={atsHeading}>{d.education.heading}</h2>
               <div style={{ fontSize: 13.5, lineHeight: 1.5, color: BODY }}>

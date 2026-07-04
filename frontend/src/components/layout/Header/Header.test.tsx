@@ -22,7 +22,7 @@ describe('Header', () => {
 
   it('renders the logo with correct aria-label', () => {
     render(<Header />);
-    expect(screen.getByRole('link', { name: /any medola.*home/i })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: /any medola.*home/i })).toBeInTheDocument();
   });
 
   it('renders the main navigation', () => {
@@ -30,11 +30,11 @@ describe('Header', () => {
     expect(screen.getByRole('navigation', { name: /main navigation/i })).toBeInTheDocument();
   });
 
-  it('renders all six nav links', () => {
+  it('renders five scroll buttons and one route link in nav', () => {
     render(<Header />);
     const nav = screen.getByRole('navigation', { name: /main navigation/i });
-    const links = nav.querySelectorAll('a');
-    expect(links).toHaveLength(6);
+    expect(nav.querySelectorAll('button')).toHaveLength(5);
+    expect(nav.querySelectorAll('a')).toHaveLength(1);
   });
 
   it('starts with data-scrolled="false"', () => {
