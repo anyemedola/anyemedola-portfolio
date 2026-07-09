@@ -13,8 +13,8 @@ interface D {
   experience: { heading: string; jobs: Job[]; };
   skills: {
     heading: string;
-    frontend: string; ui: string; state: string; design: string; quality: string;
-    frontendLabel: string; uiLabel: string; stateLabel: string; designLabel: string; qualityLabel: string;
+    frontend: string; backend: string; crm: string; ui: string; quality: string; versioning: string;
+    frontendLabel: string; backendLabel: string; crmLabel: string; uiLabel: string; qualityLabel: string; versioningLabel: string;
   };
   education: { heading: string; items: EduItem[]; certsLabel: string; certsList: string; };
   languages: { heading: string; items: string[]; };
@@ -167,10 +167,11 @@ export default function ATSResume() {
             <h2 style={atsHeading}>{d.skills.heading}</h2>
             <div style={{ fontSize: 13.5, lineHeight: 1.7, color: BODY }}>
               <p style={{ margin: '0 0 4px' }}><strong style={{ color: INK }}>{d.skills.frontendLabel}:</strong> {d.skills.frontend}</p>
+              <p style={{ margin: '0 0 4px' }}><strong style={{ color: INK }}>{d.skills.backendLabel}:</strong> {d.skills.backend}</p>
+              <p style={{ margin: '0 0 4px' }}><strong style={{ color: INK }}>{d.skills.crmLabel}:</strong> {d.skills.crm}</p>
               <p style={{ margin: '0 0 4px' }}><strong style={{ color: INK }}>{d.skills.uiLabel}:</strong> {d.skills.ui}</p>
-              <p style={{ margin: '0 0 4px' }}><strong style={{ color: INK }}>{d.skills.stateLabel}:</strong> {d.skills.state}</p>
-              <p style={{ margin: '0 0 4px' }}><strong style={{ color: INK }}>{d.skills.designLabel}:</strong> {d.skills.design}</p>
-              <p style={{ margin: 0 }}><strong style={{ color: INK }}>{d.skills.qualityLabel}:</strong> {d.skills.quality}</p>
+              <p style={{ margin: '0 0 4px' }}><strong style={{ color: INK }}>{d.skills.qualityLabel}:</strong> {d.skills.quality}</p>
+              <p style={{ margin: 0 }}><strong style={{ color: INK }}>{d.skills.versioningLabel}:</strong> {d.skills.versioning}</p>
             </div>
           </section>
 

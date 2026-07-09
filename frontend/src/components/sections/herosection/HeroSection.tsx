@@ -14,8 +14,8 @@ export default function HeroSection() {
         <S.PortraitWrap>
           <S.PortraitImgWrap>
             <Image
-              src="/sicily-ragusa.jpg"
-              alt="Any em Ragusa Ibla, Sicília, ao pôr do sol"
+              src="/ibla.jpeg"
+              alt="Any em Ragusa Ibla, Sicília"
               fill
               style={{ objectFit: 'cover', objectPosition: '50% 20%' }}
               priority

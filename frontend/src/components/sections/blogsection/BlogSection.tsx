@@ -4,80 +4,30 @@ import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
 import T from '@/components/ui/t/T';
+import { posts, type BlogPost } from '@/data/posts';
+import { apiToPost, type ApiPost } from '@/lib/apiToPost';
 import * as S from './styles';
 
-interface ApiPost {
-  slug: string;
-  title: string; titlePt: string; titleIt: string;
-  excerptEn: string; excerptPt: string; excerptIt: string;
-  primaryTag: string; primaryTagEn?: string; primaryTagIt?: string; tags: string[];
-  accentColor: string;
-}
-
-interface CardData {
-  slug: string;
-  kicker: { en: string; pt: string; it: string };
-  title: { en: string; pt: string; it: string };
-  desc: { en: string; pt: string; it: string };
-  accent: string;
-}
-
 export default function BlogSection() {
-  const { t, i18n } = useTranslation();
-  const [apiCards, setApiCards] = useState<CardData[]>([]);
-  const [latestSlug, setLatestSlug] = useState('/blog/inteira');
-  const ref = useScrollReveal([apiCards]);
+  const { t } = useTranslation();
+  const [apiPosts, setApiPosts] = useState<BlogPost[]>([]);
+  const ref = useScrollReveal([apiPosts]);
 
   useEffect(() => {
     fetch('/api/posts')
       .then(r => r.ok ? r.json() : [])
-      .then((data: ApiPost[]) => {
-        if (!data.length) return;
-        const extra: CardData[] = data
-          .filter(p => p.slug !== 'inteira')
-          .slice(0, 1)
-          .map(p => ({
-            slug: p.slug,
-            kicker: {
-              en: p.primaryTagEn || p.primaryTag,
-              pt: p.primaryTag,
-              it: p.primaryTagIt || p.primaryTag,
-            },
-            title: { en: p.title, pt: p.titlePt || p.title, it: p.titleIt || p.title },
-            desc: { en: p.excerptEn, pt: p.excerptPt || p.excerptEn, it: p.excerptIt || p.excerptEn },
-            accent: p.accentColor || '#EFA8AC',
-          }));
-        setLatestSlug(`/blog/${data[0].slug}`);
-        setApiCards(extra);
-      })
+      .then((data: ApiPost[]) => setApiPosts(data.map(apiToPost)))
       .catch(() => {});
   }, []);
 
-  const tEn = i18n.getFixedT('en');
-  const tPt = i18n.getFixedT('pt');
-  const tIt = i18n.getFixedT('it');
+  const apiSlugs = new Set(apiPosts.map(p => p.slug));
+  const inteira = posts.find(p => p.slug === 'inteira');
+  const staticEssays = inteira && !apiSlugs.has('inteira') ? [inteira] : [];
+  const allPosts = [...apiPosts, ...staticEssays]
+    .sort((a, b) => (b.datetime ?? '').localeCompare(a.datetime ?? ''));
 
-  const inteiraCard: CardData = {
-    slug: 'inteira',
-    kicker: {
-      en: tEn('writing.nb1kicker'),
-      pt: tPt('writing.nb1kicker'),
-      it: tIt('writing.nb1kicker'),
-    },
-    title: {
-      en: tEn('writing.nb1title'),
-      pt: tPt('writing.nb1title'),
-      it: tIt('writing.nb1title'),
-    },
-    desc: {
-      en: tEn('writing.nb1desc'),
-      pt: tPt('writing.nb1desc'),
-      it: tIt('writing.nb1desc'),
-    },
-    accent: '#EFA8AC',
-  };
-
-  const displayCards = [inteiraCard, ...apiCards];
+  const displayCards = allPosts.slice(0, 2);
+  const latestPost = displayCards[0];
 
   return (
     <S.EscritaRoot id="escrita" aria-labelledby="escrita-heading" ref={ref}>
@@ -88,23 +38,27 @@ export default function BlogSection() {
             {t('writing.notebookTitle')}
           </S.Title>
           <S.Lead className="reveal">{t('writing.notebookLead')}</S.Lead>
-          <S.CtaBtn href={latestSlug} className="reveal">
-            {t('writing.notebookCta')}
-          </S.CtaBtn>
+          {latestPost && (
+            <S.CtaBtn href={`/blog/${latestPost.slug}`} className="reveal">
+              {t('writing.notebookCta')}
+            </S.CtaBtn>
+          )}
         </S.Left>
 
         <S.Cards>
-          {displayCards.map((card, i) => (
-            <S.CardLink key={card.slug} href={`/blog/${card.slug}`} className="reveal" aria-labelledby={`nb${i + 1}-title`}>
-              <S.NotebookCard accent={card.accent} as="div">
+          {displayCards.map((post, i) => (
+            <S.CardLink key={post.slug} href={`/blog/${post.slug}`} className="reveal" aria-labelledby={`nb${i + 1}-title`}>
+              <S.NotebookCard accent={post.accentColor} as="div">
                 <S.CardKicker>
-                  <T en={card.kicker.en} pt={card.kicker.pt} it={card.kicker.it} />
+                  {post.localTag
+                    ? <T en={post.localTag.en} pt={post.localTag.pt} it={post.localTag.it ?? post.localTag.en} />
+                    : post.primaryTag}
                 </S.CardKicker>
                 <S.CardTitle id={`nb${i + 1}-title`}>
-                  <T en={card.title.en} pt={card.title.pt} it={card.title.it} />
+                  <T en={post.title.en} pt={post.title.pt} it={post.title.it ?? post.title.en} />
                 </S.CardTitle>
                 <S.CardDesc>
-                  <T en={card.desc.en} pt={card.desc.pt} it={card.desc.it} />
+                  <T en={post.excerpt.en} pt={post.excerpt.pt} it={post.excerpt.it ?? post.excerpt.en} />
                 </S.CardDesc>
               </S.NotebookCard>
             </S.CardLink>

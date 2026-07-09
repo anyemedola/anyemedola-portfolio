@@ -1,52 +1,95 @@
 {
   "tagline": "Brazil → Sicily",
-  "role": "Senior Front-End Developer · UI/UX Designer · Tech Lead",
-  "quote": "Front-end developer. Incurable traveler. Writer in the making. All in the same woman.",
+  "role": "Full Stack Developer · JavaScript / TypeScript · Node.js & Firebase",
+  "quote": "Full Stack Engineer. Incurable traveler. Writer in the making. All in the same woman. I've been building systems for 5+ years — and collecting sunsets, time zones and chapters of a book I'm yet to write.",
   "phone": "+39 351 586 9527",
   "location": "Ragusa, Sicily · Italy",
   "downloadBtn": "Download PDF",
   "about": {
     "heading": "About me",
-    "body_before": "Brazilian by birth, Sicilian by sunset. Three years ago I claimed my Italian citizenship and moved to Sicily — my time zone is the Mediterranean now. I've spent 5+ years building interfaces and, for the last several, working as front-end developer ",
+    "body_before": "Full stack developer with 5+ years in the JavaScript/TypeScript ecosystem — front-end ",
     "body_em": "and",
-    "body_after": " designer — from Figma to code. But I'm not only the developer who delivers: I'm also the woman who travels, writes, reads and turns life into a collection of stories."
+    "body_after": " back-end. I started by building complete systems, including admin panels (backoffice) for managing users, content and data — very close to a CRM — before specializing in front-end on large-scale projects spanning government, health and mobility. Co-founder of a freelance software studio (A&A IT), and currently a Full Stack Developer at MIGMA (Los Angeles, USA). Comfortable owning both the client and server sides of a product, in agile, remote teams."
   },
   "experience": {
     "heading": "Experience",
     "jobs": [
       {
-        "period": "Aug 2023",
+        "period": "Jul 2026",
         "periodEnd": "present",
-        "role": "Senior Front-End Developer & Tech Lead",
-        "company": "Capgemini · Remote, from Sicily",
-        "desc": "I lead the front-end of LIVE, a large-scale streaming platform for the Portuguese Ministry of Health. React, Next.js & TypeScript with a styled MUI design system and WebRTC (Kurento) streaming — also acting as UI/UX designer and building the Figma prototypes from inception, while leading a small team."
+        "role": "Full Stack Developer",
+        "company": "MIGMA · Los Angeles, USA (Remote)",
+        "desc": "Owning the full product cycle — front-end and back-end — within a distributed remote team."
+      },
+      {
+        "period": "Apr 2024",
+        "periodEnd": "present",
+        "role": "Senior Frontend Developer",
+        "company": "Go Marketing&Co. · Freelance · Ragusa, Sicily, Italy (Remote)",
+        "desc": "Developing a ride-hailing mobile application for Go Marketing&Co. as a client of A&A IT, built with React Native and Expo. Scheduled for launch in 2026."
+      },
+      {
+        "period": "Aug 2023",
+        "periodEnd": "Mar 2026",
+        "role": "Senior Frontend Developer and Tech Lead",
+        "company": "Capgemini · Milan, Italy (Remote)",
+        "desc": "Led the front-end of a streaming platform for Portugal's Ministry of Health, collaborating daily with the back-end team on API integration and business rules. React, Next.js & TypeScript with testing and quality standards (ESLint) — also acting as UI/UX designer, prototyping in Figma from conception."
+      },
+      {
+        "period": "Mar 2023",
+        "periodEnd": "present",
+        "role": "Cofounder and Full Stack Engineer",
+        "company": "A&A IT · Self-employed · Lençóis Paulista, Brazil (Remote)",
+        "desc": "Co-founded and operate a freelance software studio, delivering 3 production projects for 3 different clients using React and React Native — a service-request marketplace connecting providers and clients on iOS/Android, and a cloud storage system built from Figma prototype to production, integrated with DigitalOcean infrastructure, which I owned end-to-end."
       },
       {
         "period": "Sep 2022",
         "periodEnd": "Aug 2023",
         "role": "Front-End Developer",
         "company": "Ambisig · Lisbon, Portugal (Remote)",
-        "desc": "Built complex government systems — SCOT (traffic-ticketing) in Ionic + React, and SIARL, a coastal-resource management platform in React/Next.js + Redux. Data-driven UI, responsive layouts and UX refinement at national scale; designed the SIARL Figma prototype from the start."
+        "desc": "Built government-scale systems (traffic fines and environmental monitoring) with React.js, Next.js and Redux, always alongside back-end teams."
       },
       {
         "period": "Feb 2022",
         "periodEnd": "Sep 2022",
         "role": "Front-End Developer",
-        "company": "S2 Pets · Remote",
-        "desc": "Mobile & web features for the MEUPET app with Ionic, Angular and Firebase — including a geolocation-based lost & found and a nutrition BMI calculator for animals."
+        "company": "S2 Pets · São Paulo, Brazil (Remote)",
+        "desc": "Mobile and web features for the MEUPET app with Ionic, Angular, TypeScript and Firebase — geolocation-based lost & found, a BMI calculator, and contributions to the internal stats and bug-tracking dashboard."
+      },
+      {
+        "period": "2021",
+        "periodEnd": "2022",
+        "role": "Full Stack Developer",
+        "company": "Agência Zum · São Paulo, Brazil",
+        "desc": "Complete systems (front and back-end) in PHP, JavaScript and MySQL for major brand campaigns: coupon registration, automated giveaways and an admin panel (backoffice) for managing winners, prizes and alerts — very close to a campaign CRM."
+      },
+      {
+        "period": "2020",
+        "periodEnd": "2021",
+        "role": "Web & PHP Developer",
+        "company": "Atitude Comunicação · São Paulo, Brazil",
+        "desc": "Dynamic sites with a proprietary backoffice, letting clients manage content, banners and users independently — the base of a customer management system. Full stack cycle: PHP, HTML, CSS, JS, Bootstrap, MySQL and FTP deployment."
       },
       {
         "period": "2018",
-        "periodEnd": "2022",
-        "role": "Web Developer · Early career",
-        "company": "Agência Zum · Atitude Comunicação · Freelance",
-        "desc": "Full-stack web & mobile with PHP, JavaScript, Ionic and Angular — campaign sites with back-offices, systems analysis and databases. Where I fell in love with front-end and design."
+        "periodEnd": "2020",
+        "role": "Web Developer · Freelancer",
+        "company": "Self-employed · São Paulo, Brazil",
+        "desc": "Full stack mobile and web development with Ionic, Angular, TypeScript, PHP and MySQL/PostgreSQL for a range of clients."
       }
+    ]
+  },
+  "projects": {
+    "heading": "Personal projects · full stack",
+    "items": [
+      { "title": "Portfolio & Blog", "desc": "Personal site with a blog and Node.js & Firebase back-end.", "link": "/anyemedola-portfolio" },
+      { "title": "Medola AI", "desc": "AI assistant in TypeScript with a Node.js back-end.", "link": "/medola" },
+      { "title": "Fitness App", "desc": "Fitness-challenge app in React Native with Firebase.", "link": "/app-fitness" }
     ]
   },
   "toolkit": {
     "heading": "Toolkit",
-    "items": ["React", "Next.js", "TypeScript", "Ionic", "MUI", "Styled Components", "Tailwind", "shadcn/ui", "React Query", "Redux", "REST APIs", "Figma", "UX/UI & Prototyping", "Git · GitLab · Azure", "Jest · ESLint"]
+    "items": ["JavaScript", "TypeScript", "React", "Next.js", "Node.js", "React Native · Expo", "Firebase", "DigitalOcean", "PHP", "MySQL · PostgreSQL", "REST APIs", "Ionic · Angular", "Redux · React Query", "Tailwind · MUI", "Backoffice / CRM", "Figma · UX/UI", "Jest · ESLint", "Git · GitLab · Azure"]
   },
   "languages": {
     "heading": "Languages",
@@ -61,11 +104,14 @@
   "education": {
     "heading": "Education",
     "items": [
-      { "degree": "Bachelor's in Information Technology", "school": "CTI — Colégio Técnico Industrial \"Prof. Isaac Portal Roldán\"" },
-      { "degree": "Technical Degree in IT", "school": "ETEC — Cidade do Livro" }
-    ],
-    "certsLabel": "Certifications",
-    "certsList": "Cubos Academy · FreeCodeCamp · Fundação Bradesco"
+      { "degree": "B.S. in Information Technology", "school": "Estácio · in progress (since 2022)" },
+      { "degree": "Technical Diploma in Computer Science · CTI", "school": "Colégio Técnico Industrial \"Prof. Isaac Portal Roldán\"" },
+      { "degree": "Technical Diploma in Computer Science · ETEC", "school": "Cidade do Livro" }
+    ]
+  },
+  "certifications": {
+    "heading": "Certifications",
+    "items": ["Claude Code 101 · Anthropic (2026)", "JS Algorithms & Data Structures · freeCodeCamp", "Front-End Libraries · freeCodeCamp", "Intro to Software Dev · Cubos Academy", "HTML/CSS/JS · Fundação Bradesco"]
   },
   "beyond": {
     "heading": "Beyond the code",

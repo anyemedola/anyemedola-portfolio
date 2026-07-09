@@ -5,9 +5,9 @@ import { useScrollReveal } from '@/hooks/useScrollReveal';
 import * as S from './styles';
 
 const stackGroups = [
-  { key: 'frontend', tags: ['React', 'Next.js', 'TypeScript', 'Ionic'] },
+  { key: 'frontend', tags: ['React', 'Next.js', 'React Native', 'TypeScript', 'Ionic', 'Redux', 'React Query'] },
+  { key: 'state', tags: ['Node.js', 'Firebase', 'PHP', 'MySQL', 'PostgreSQL', 'REST API'] },
   { key: 'styling', tags: ['Tailwind', 'MUI', 'Styled Components', 'shadcn/ui', 'Kendo UI'] },
-  { key: 'state', tags: ['React Query', 'Redux', 'REST API'] },
   { key: 'quality', tags: ['Jest', 'ESLint', 'GitLab', 'Azure', 'Figma'] },
 ];
 

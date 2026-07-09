@@ -1,69 +1,112 @@
 {
-  "role": "Sviluppatrice Front-End Senior · Designer UI/UX · Tech Lead",
+  "role": "Sviluppatrice Full Stack · JavaScript / TypeScript · Node.js / Firebase",
   "phone": "+39 351 586 9527",
   "location": "Ragusa, Sicilia — Italia",
   "downloadBtn": "Scarica PDF",
   "summary": {
     "heading": "Profilo Professionale",
-    "body": "Sviluppatrice front-end con oltre 5 anni di esperienza nella creazione di interfacce web e mobile scalabili, attualmente alla guida del front-end di una piattaforma di streaming su larga scala per la sanità pubblica. Lavoro end to end — dai prototipi in Figma al codice React/Next.js in produzione — unendo solida ingegneria a un occhio da designer per l'usabilità. Cittadina italiana residente in Sicilia; fluente in portoghese, inglese e italiano, a mio agio in team remoti e multiculturali."
+    "body": "Sviluppatrice full stack con oltre 5 anni di esperienza nell'ecosistema JavaScript/TypeScript, attiva sia nel front-end (React, React Native, Next.js) che nel back-end (Node.js, Firebase, PHP, MySQL/PostgreSQL). Ho iniziato la carriera costruendo sistemi full stack completi — inclusi pannelli amministrativi (backoffice) per la gestione di utenti, contenuti e dati, molto vicini a un CRM — prima di specializzarmi nel front-end su progetti di grande scala tra governo, sanità e mobilità. Co-fondatrice di uno studio freelance di sviluppo software (A&A IT) e attualmente Full Stack Developer presso MIGMA (Los Angeles, USA). A mio agio nel gestire sia il lato client che server di un prodotto, in team agili e remoti."
   },
   "experience": {
     "heading": "Esperienza Professionale",
     "jobs": [
       {
-        "role": "Sviluppatrice Front-End Senior & Tech Lead — Capgemini",
-        "period": "Ago 2023 – Presente · Da remoto",
+        "role": "Full Stack Developer — MIGMA",
+        "period": "Lug 2026 – Presente · Los Angeles, USA (Remoto)",
         "bullets": [
-          "Guido il front-end di LIVE, piattaforma di streaming per il Ministero della Salute del Portogallo, sviluppata in React, Next.js e TypeScript.",
-          "Ho progettato una libreria di componenti basata su MUI e implementato lo streaming in tempo reale con WebRTC (Kurento).",
-          "Ho lavorato come designer UI/UX, realizzando i prototipi in Figma fin dall'inizio, e guidato un piccolo team front-end con Agile/Scrum e Jira."
+          "Responsabile dell'intero ciclo di prodotto — front-end e back-end — in un team remoto distribuito."
+        ]
+      },
+      {
+        "role": "Senior Frontend Developer — Go Marketing&Co.",
+        "period": "Apr 2024 – Presente · Ragusa, Sicilia, Italia (Remoto)",
+        "bullets": [
+          "Sviluppo di un'applicazione mobile di ride-hailing per Go Marketing&Co., come cliente di A&A IT, realizzata con React Native ed Expo — lancio previsto nel 2026."
+        ]
+      },
+      {
+        "role": "Senior Frontend Developer and Tech Lead — Capgemini",
+        "period": "Ago 2023 – Mar 2026 · Milano (Remoto)",
+        "bullets": [
+          "Ho guidato il front-end di una piattaforma di streaming per il Ministero della Salute del Portogallo, collaborando quotidianamente con il team di back-end per l'integrazione delle API e delle regole di business.",
+          "Ho sviluppato applicazioni con React, Next.js e TypeScript, con test unitari e standard di qualità (ESLint).",
+          "Ho lavorato anche come UI/UX designer, prototipando su Figma fin dalla concezione del progetto."
+        ]
+      },
+      {
+        "role": "Cofounder and Full Stack Engineer — A&A IT",
+        "period": "Mar 2023 – Presente · Lençóis Paulista, SP (Remoto)",
+        "bullets": [
+          "Ho co-fondato e gestisco uno studio freelance di sviluppo software, consegnando 3 progetti in produzione per 3 clienti diversi con React e React Native.",
+          "Ho lanciato un marketplace di richiesta servizi (in produzione), con React Native + Expo, che collega fornitori e clienti su iOS e Android.",
+          "Ho progettato e sviluppato un sistema di storage in cloud (simile a Google Drive) dal prototipo su Figma alla produzione, integrato con l'infrastruttura DigitalOcean — di cui sono stata responsabile end-to-end, dalla UX al deploy."
         ]
       },
       {
         "role": "Sviluppatrice Front-End — Ambisig",
         "period": "Set 2022 – Ago 2023 · Lisbona (Da remoto)",
         "bullets": [
-          "Ho sviluppato sistemi governativi: SCOT (multe stradali) in Ionic + React e SIARL, piattaforma di gestione delle risorse costiere in React/Next.js + Redux.",
-          "Ho realizzato UI guidata dai dati, layout responsive e cicli di refinement UX; ho disegnato il prototipo di SIARL in Figma fin dall'inizio."
+          "Ho sviluppato sistemi di scala governativa (gestione multe stradali e monitoraggio ambientale) con React.js, Next.js e Redux, sempre in collaborazione con i team di back-end."
         ]
       },
       {
         "role": "Sviluppatrice Front-End — S2 Pets",
-        "period": "Feb 2022 – Set 2022 · Da remoto",
+        "period": "Feb 2022 – Set 2022 · San Paolo (Da remoto)",
         "bullets": [
-          "Ho sviluppato funzionalità mobile e web per l'app MEUPET con Ionic, Angular e Firebase, tra cui oggetti smarriti & ritrovati basato sulla geolocalizzazione e un calcolatore di IMC nutrizionale per animali."
+          "Ho sviluppato funzionalità mobile e web usando Ionic, Angular, TypeScript e Firebase come database principale.",
+          "Ho costruito la funzione oggetti smarriti e ritrovati con geolocalizzazione e un calcolatore BMI per l'app MEUPET.",
+          "Ho contribuito alla dashboard interna di statistiche e segnalazione bug — esperienza diretta con Firebase in produzione."
         ]
       },
       {
-        "role": "Sviluppatrice Web — Agência Zum · Atitude Comunicação · Freelance",
-        "period": "2018 – 2022",
+        "role": "Sviluppatrice Full Stack — Agência Zum",
+        "period": "2021 – 2022 · San Paolo",
         "bullets": [
-          "Ho realizzato progetti full-stack web e mobile con PHP, JavaScript, Ionic e Angular — siti di campagna con back-office, analisi dei sistemi e database (MySQL/PostgreSQL)."
+          "Ho costruito sistemi completi (front e back-end) in PHP, JavaScript e MySQL per campagne di grandi marchi, inclusa la registrazione coupon e le estrazioni automatiche.",
+          "Ho sviluppato un pannello amministrativo (backoffice) per la gestione di vincitori, premi e avvisi — un sistema molto vicino a un CRM di campagne."
+        ]
+      },
+      {
+        "role": "Sviluppatrice Web e PHP — Atitude Comunicação",
+        "period": "2020 – 2021 · San Paolo",
+        "bullets": [
+          "Ho sviluppato e mantenuto siti dinamici con backoffice proprietario, che permettono ai clienti di gestire contenuti, banner e utenti in autonomia — base di un sistema di gestione clienti.",
+          "Ho lavorato sull'intero ciclo full stack: front-end (PHP, HTML, CSS, JS, Bootstrap), database (MySQL/phpMyAdmin) e deploy (FTP)."
+        ]
+      },
+      {
+        "role": "Sviluppatrice Web Freelance — Libera professionista",
+        "period": "2018 – 2020 · San Paolo",
+        "bullets": [
+          "Sviluppo full stack mobile e web con Ionic, Angular, TypeScript, PHP e MySQL/PostgreSQL per diversi clienti."
         ]
       }
     ]
   },
   "skills": {
     "heading": "Competenze Tecniche",
-    "frontend": "React, Next.js, TypeScript, JavaScript (ES6+), HTML5, CSS3, Sass, Ionic, Angular",
-    "ui": "MUI, Styled Components, Tailwind, shadcn/ui, Kendo UI, design responsive",
-    "state": "Redux, React Query, REST APIs, WebRTC (Kurento), Firebase, MySQL, PostgreSQL",
-    "design": "Figma, design UX/UI, prototipazione, wireframing, user research, interaction design",
-    "quality": "Jest, ESLint, Git, GitLab, Azure DevOps, Agile/Scrum, Jira, Trello",
-    "frontendLabel": "Front-end",
-    "uiLabel": "UI & styling",
-    "stateLabel": "Stato & dati",
-    "designLabel": "Design",
-    "qualityLabel": "Qualità & workflow"
+    "frontend": "React, React Native, Expo, Next.js, Node.js, Ionic, Angular, Redux, React Query",
+    "backend": "Node.js, Firebase (Auth, Firestore, Realtime DB), DigitalOcean, PHP, MySQL, PostgreSQL, REST API",
+    "crm": "pannelli amministrativi, gestione utenti e contenuti dinamici, inserimento e reportistica dati",
+    "ui": "Tailwind CSS, MUI, Kendo UI, Styled Components, shadcn/ui, Figma, UX/UI",
+    "quality": "Jest, ESLint, test manuali e automatizzati",
+    "versioning": "Git, GitLab, Azure Repos, Agile/Scrum (Jira, Trello)",
+    "frontendLabel": "JavaScript / TypeScript",
+    "backendLabel": "Back-end & Database",
+    "crmLabel": "Sistemi tipo CRM / Backoffice",
+    "uiLabel": "Front-end & UI",
+    "qualityLabel": "Test & Qualità",
+    "versioningLabel": "Versionamento & Metodi"
   },
   "education": {
     "heading": "Formazione",
     "items": [
-      { "degree": "Laurea in Informatica", "school": "CTI — Colégio Técnico Industrial \"Prof. Isaac Portal Roldán\"" },
+      { "degree": "Laurea in Tecnologia dell'Informazione", "school": "Estácio · in corso (dal 2022)" },
+      { "degree": "Diploma Tecnico in Informatica", "school": "CTI — Colégio Técnico Industrial \"Prof. Isaac Portal Roldán\"" },
       { "degree": "Diploma Tecnico in Informatica", "school": "ETEC — Cidade do Livro" }
     ],
     "certsLabel": "Certificazioni",
-    "certsList": "Cubos Academy, FreeCodeCamp (JS Algorithms & Data Structures; Front-End Libraries), Fundação Bradesco"
+    "certsList": "Claude Code 101 — Anthropic (2026) · Front-End Development Libraries — freeCodeCamp (2023) · JavaScript Algorithms & Data Structures — freeCodeCamp (2023) · Intro to Software Development & Soft Skills — Cubos Academy (2023) · HTML / CSS / JavaScript / Reti / Modellazione Dati / Etica — Fundação Bradesco"
   },
   "languages": {
     "heading": "Lingue",

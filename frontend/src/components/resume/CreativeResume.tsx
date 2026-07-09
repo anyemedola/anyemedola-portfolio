@@ -11,13 +11,16 @@ interface Job {
 interface LangItem { name: string; level: string; pct: number; }
 interface EduItem { degree?: string; school?: string; }
 interface BeyondItem { icon: string; title: string; body: string; }
+interface ProjectItem { title: string; desc: string; link: string; }
 interface D {
   tagline: string; role: string; quote: string; phone: string; location: string; downloadBtn: string;
   about: { heading: string; body_before: string; body_em: string; body_after: string; };
   experience: { heading: string; jobs: Job[]; };
+  projects: { heading: string; items: ProjectItem[]; };
   toolkit: { heading: string; items: string[]; };
   languages: { heading: string; items: LangItem[]; };
-  education: { heading: string; items: EduItem[]; certsLabel: string; certsList: string; };
+  education: { heading: string; items: EduItem[]; };
+  certifications: { heading: string; items: string[]; };
   beyond: { heading: string; subtitle: string; items: BeyondItem[]; };
   footer: { tagline: string; meta: string; };
 }
@@ -274,6 +277,23 @@ export default function CreativeResume() {
               ))}
             </section>
 
+            {/* PROJECTS */}
+            <section style={{ marginBottom: 30 }}>
+              <h2 style={sectionHeading}>{d.projects.heading}</h2>
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 12 }}>
+                {d.projects.items.map((item) => (
+                  <div key={item.title} style={{
+                    background: 'linear-gradient(150deg,#F2F5E9,#E6EDD6)',
+                    border: '1px solid rgba(26,97,93,0.14)', borderRadius: 14, padding: '15px 16px',
+                  }}>
+                    <div style={{ fontSize: 14, fontWeight: 800, color: INK, marginBottom: 3 }}>{item.title}</div>
+                    <div style={{ fontSize: 12.5, lineHeight: 1.45, color: '#5E6C66' }}>{item.desc}</div>
+                    <div style={{ fontSize: 11.5, color: TEAL, marginTop: 7 }}>{item.link}</div>
+                  </div>
+                ))}
+              </div>
+            </section>
+
             {/* TOOLKIT */}
             <section style={{ marginBottom: 30 }}>
               <h2 style={sectionHeading}>{d.toolkit.heading}</h2>
@@ -312,11 +332,21 @@ export default function CreativeResume() {
                       <div style={{ fontSize: 13, color: '#6B7973' }}>{edu.school}</div>
                     </div>
                   ))}
-                  <div>
-                    <div style={{ fontSize: 13.5, fontWeight: 600, color: BODY_TEXT }}>{d.education.certsLabel}</div>
-                    <div style={{ fontSize: 13, color: '#6B7973' }}>{d.education.certsList}</div>
-                  </div>
                 </div>
+              </div>
+            </section>
+
+            {/* CERTIFICATIONS */}
+            <section style={{ marginBottom: 30 }}>
+              <h2 style={sectionHeading}>{d.certifications.heading}</h2>
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: 7 }}>
+                {d.certifications.items.map((item) => (
+                  <span key={item} style={{
+                    fontSize: 13, fontWeight: 600, color: '#17403B',
+                    background: '#F2E4E5', border: '1px solid rgba(26,97,93,0.12)',
+                    borderRadius: 8, padding: '6px 11px',
+                  }}>{item}</span>
+                ))}
               </div>
             </section>
 

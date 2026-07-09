@@ -81,9 +81,9 @@ describe('ProjectsSection', () => {
     expect(screen.getByText('Firebase')).toBeInTheDocument();
   });
 
-  it('renders the request link pointing to #contato', () => {
+  it('renders the request link pointing to the contact email', () => {
     render(<ProjectsSection />);
-    expect(screen.getByRole('link', { name: 'projects.request' })).toHaveAttribute('href', '#contato');
+    expect(screen.getByRole('link', { name: 'projects.request' })).toHaveAttribute('href', 'mailto:contact@anyemedola.com');
   });
 
   it('renders "LIVE" in the featured project visual', () => {

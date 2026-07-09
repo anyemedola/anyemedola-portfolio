@@ -11,13 +11,13 @@ export default function SettingsView() {
   const { t } = useTranslation();
   const [form, setForm] = useState({
     name: 'Any Elis Mendonça Medola',
-    role: 'Senior Front-End Developer',
+    role: 'Full Stack Engineer',
     location: 'Sicily, Italy',
     email: 'any@aeait.com',
     linkedin: 'https://linkedin.com/in/dev-anyemedola',
     github: 'https://github.com/anyemedola',
     site: 'https://anyemedola.com.br',
-    bio: "Senior Front-End Developer with 5+ years of experience building modern, scalable web applications using React, Next.js, and TypeScript.",
+    bio: "Full Stack Engineer with 5+ years of experience building modern, scalable web applications using React, Next.js, and TypeScript.",
   });
 
   const set = (k: keyof typeof form) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>

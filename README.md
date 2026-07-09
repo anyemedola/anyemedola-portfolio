@@ -16,7 +16,7 @@ A production-ready personal portfolio with three apps working together:
 | `backoffice` | Private CMS dashboard for managing content | 3001 |
 | `backend` | Express REST API + Firebase Admin SDK | 4000 |
 
-Built by [Any Elis Medola](https://anyemedola.com.br) — Senior Front-End Developer based in Sicily, Italy.
+Built by [Any Elis Medola](https://anyemedola.com.br) — Full Stack Engineer based in Sicily, Italy.
 
 ---
 

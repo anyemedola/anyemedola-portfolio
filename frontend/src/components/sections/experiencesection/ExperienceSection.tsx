@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
 import * as S from './styles';
 
-const jobKeys = ['job1', 'job2', 'job3', 'job4'] as const;
+const jobKeys = ['job1', 'job2', 'job3', 'job4', 'job5', 'job6', 'job7'] as const;
 
 export default function ExperienceSection() {
   const ref = useScrollReveal();

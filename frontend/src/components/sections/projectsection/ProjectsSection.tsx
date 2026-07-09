@@ -19,7 +19,7 @@ export default function ProjectsSection() {
             <S.Eyebrow>{t('projects.eyebrow')}</S.Eyebrow>
             <S.Title id="projects-heading">{t('projects.title')}</S.Title>
           </S.HeaderLeft>
-          <S.RequestLink href="#contato">{t('projects.request')}</S.RequestLink>
+          <S.RequestLink href="mailto:contact@anyemedola.com">{t('projects.request')}</S.RequestLink>
         </S.HeaderRow>
 
         <S.Grid>

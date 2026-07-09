@@ -24,13 +24,13 @@ const BASE_URL = 'https://anyemedola.com.br';
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
   title: {
-    default: 'Any Medola — Front-End Developer · Sicily',
+    default: 'Any Medola — Full Stack Engineer · Sicily',
     template: '%s | Any Medola',
   },
   description:
-    "Senior Front-End Developer based in Sicily, Italy. 5+ years building scalable React, Next.js & TypeScript applications with a designer's eye for UI/UX.",
+    "Full Stack Engineer based in Sicily, Italy. 5+ years building scalable React, Next.js & TypeScript applications with a designer's eye for UI/UX.",
   keywords: [
-    'Front-End Developer', 'React Developer', 'Next.js Developer',
+    'Full Stack Engineer', 'React Developer', 'Next.js Developer',
     'TypeScript', 'Senior Developer', 'Sicily', 'Italy', 'Brazil',
     'UI/UX Design', 'Figma', 'Any Medola', 'Capgemini',
     'Remote Developer Europe', 'Remote Developer LATAM', 'Expat Sicily',
@@ -40,25 +40,25 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     url: BASE_URL,
-    title: 'Any Medola — Front-End Developer · Sicily',
+    title: 'Any Medola — Full Stack Engineer · Sicily',
     description:
-      "Senior Front-End Developer based in Sicily, Italy. React, Next.js & TypeScript with a designer's eye. Open to remote roles across Europe and LATAM.",
+      "Full Stack Engineer based in Sicily, Italy. React, Next.js & TypeScript with a designer's eye. Open to remote roles across Europe and LATAM.",
     siteName: 'Any Medola',
     images: [
       {
         url: '/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'Any Medola — Front-End Developer based in Sicily, Italy',
+        alt: 'Any Medola — Full Stack Engineer based in Sicily, Italy',
       },
     ],
     locale: 'en_US',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Any Medola — Front-End Developer · Sicily',
+    title: 'Any Medola — Full Stack Engineer · Sicily',
     description:
-      "Senior Front-End Developer based in Sicily, Italy. React, Next.js & TypeScript with a designer's eye.",
+      "Full Stack Engineer based in Sicily, Italy. React, Next.js & TypeScript with a designer's eye.",
     images: ['/og-image.jpg'],
   },
   robots: {

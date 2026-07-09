@@ -3,7 +3,7 @@ import CreativeResume from '@/components/resume/CreativeResume';
 
 export const metadata: Metadata = {
   title: 'Creative Resume — Any Medola',
-  description: 'Creative resume of Any Medola, Senior Front-End Developer & UI/UX Designer based in Sicily, Italy.',
+  description: 'Creative resume of Any Medola, Full Stack Engineer & UI/UX Designer based in Sicily, Italy.',
   robots: { index: false, follow: false },
 };
 

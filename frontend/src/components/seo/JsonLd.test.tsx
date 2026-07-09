@@ -44,6 +44,6 @@ describe('JsonLd', () => {
     const scripts = container.querySelectorAll('script[type="application/ld+json"]');
     const schemas = Array.from(scripts).map((s) => JSON.parse(s.innerHTML));
     const person = schemas.find((s) => s['@type'] === 'Person');
-    expect(person.jobTitle).toBe('Senior Front-End Developer');
+    expect(person.jobTitle).toBe('Full Stack Engineer');
   });
 });

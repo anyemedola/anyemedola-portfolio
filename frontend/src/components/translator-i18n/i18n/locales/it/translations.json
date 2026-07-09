@@ -10,8 +10,8 @@
   },
   "hero": {
     "eyebrow": "Brasile → Sicilia",
-    "tag": "Sviluppatrice front-end. Viaggiatrice incurabile. Scrittrice in divenire. Tutto nella stessa donna.",
-    "sub": "Costruisco interfacce da oltre 5 anni — e colleziono tramonti, fusi orari e capitoli di un libro che devo ancora scrivere.",
+    "tag": "Full Stack Engineer. Viaggiatrice incurabile. Scrittrice in divenire. Tutto nella stessa donna.",
+    "sub": "Costruisco sistemi da oltre 5 anni — e colleziono tramonti, fusi orari e capitoli di un libro che devo ancora scrivere.",
     "cta1": "Parliamone",
     "cta2": "Vedi i miei lavori",
     "resumeCta": "Curriculum",
@@ -23,48 +23,66 @@
     "title": "Brasiliana di nascita, <em>siciliana di tramonto.</em> Tre anni fa ho ottenuto la cittadinanza italiana e ho attraversato un oceano per fare del Mediterraneo il mio fuso orario.",
     "p1": "Sono nata in Brasile con una sete di mondo che nessuna mappa può saziare. Tre anni fa ho ottenuto la cittadinanza italiana, ho fatto le valigie e mi sono trasferita in Sicilia — non a Milano, come insisteva il mio vecchio curriculum. Ora il mio fuso è quello del Mediterraneo, e la luce dorata del tardo pomeriggio è diventata parte di me.",
     "p2": "Sono leonina fino in fondo: amo crearmi la mia strada, aiutare chi mi sta accanto ed essere riconosciuta per ciò che sono davvero — non solo la sviluppatrice che consegna, ma la donna che viaggia, scrive, legge, suona e fa della vita una collezione di storie.",
-    "stat1": "anni in front-end",
+    "stat1": "anni in full stack",
     "stat2": "paesi in cui ho vissuto",
     "stat2sub": "Brasile & Italia",
     "stat2b": "paesi in cui ho lavorato",
-    "stat2bsub": "Brasile, Italia & Portogallo",
+    "stat2bsub": "Brasile, Italia, Portogallo & USA",
     "stat3": "lingue parlate"
   },
   "work": {
     "eyebrow": "Esperienza",
     "title": "Cinque anni a costruire sul web",
-    "meta": "Senior Front-End Developer",
+    "meta": "Full Stack Engineer",
     "job1": {
-      "period": "Ago 2023 — presente",
-      "company": "Capgemini · Da remoto",
-      "role": "Senior Front-End Developer",
-      "desc": "Guido il front-end di una piattaforma di streaming su larga scala per il Ministero della Salute portoghese. React, Next.js e TypeScript, con componenti riutilizzabili in MUI — anche come UI/UX designer, creando i prototipi in Figma fin dall'inizio."
+      "period": "Lug 2026 — presente",
+      "company": "MIGMA · Los Angeles, USA (Remoto)",
+      "role": "Full Stack Developer",
+      "desc": "Responsabile dell'intero ciclo di prodotto — front-end e back-end — in un team remoto distribuito."
     },
     "job2": {
+      "period": "Apr 2024 — presente",
+      "company": "Go Marketing&Co. · via A&A IT (Remoto)",
+      "role": "Senior Frontend Developer",
+      "desc": "Sviluppo di un'applicazione mobile di ride-hailing come freelance tramite A&A IT, realizzata con React Native ed Expo — lancio previsto nel 2026."
+    },
+    "job3": {
+      "period": "Ago 2023 — Mar 2026",
+      "company": "Capgemini · Da remoto",
+      "role": "Senior Frontend Developer and Tech Lead",
+      "desc": "Guido il front-end di una piattaforma di streaming su larga scala per il Ministero della Salute portoghese. React, Next.js e TypeScript, con componenti riutilizzabili in MUI — anche come UI/UX designer, creando i prototipi in Figma fin dall'inizio."
+    },
+    "job4": {
+      "period": "Mar 2023 — presente",
+      "company": "A&A IT · Lençóis Paulista, Brasile (Remoto)",
+      "role": "Cofounder and Full Stack Engineer",
+      "desc": "Ho co-fondato e gestisco uno studio freelance di sviluppo software, consegnando 3 progetti in produzione per 3 clienti diversi con React e React Native — un marketplace di richiesta servizi e un sistema di storage in cloud, dal prototipo su Figma alla produzione."
+    },
+    "job5": {
       "period": "Set 2022 — Ago 2023",
-      "company": "Ambisig · Da remoto",
+      "company": "Ambisig · Lisbona, Portogallo (Da remoto)",
       "role": "Front-End Developer",
       "desc": "Ho sviluppato applicazioni complesse per sistemi governativi di gestione del traffico e monitoraggio ambientale. Layout responsive, UI guidata dai dati e cicli di refinement UX su scala governativa."
     },
-    "job3": {
+    "job6": {
       "period": "Feb — Set 2022",
-      "company": "S2 Pets · Da remoto",
+      "company": "S2 Pets · São Paulo, Brasile (Remoto)",
       "role": "Front-End Developer",
       "desc": "Ho costruito funzionalità mobile e web con Ionic, Angular e Firebase per l'app MEUPET — inclusa una funzione di oggetti smarriti via geolocalizzazione e un calcolatore di IMC."
     },
-    "job4": {
+    "job7": {
       "period": "2018 — 2022",
       "company": "Inizio carriera",
       "role": "Web Developer",
-      "desc": "Progetti web e mobile con PHP, JavaScript, Ionic e Angular — costruendo basi solide in analisi dei sistemi, database e sviluppo di interfacce."
+      "desc": "Progetti full stack web e mobile con PHP, JavaScript, Ionic e Angular — siti di campagna con backoffice, analisi dei sistemi e database."
     }
   },
   "stacks": {
     "eyebrow": "Strumenti",
     "title": "Le stack con cui lavoro",
-    "frontend": "Front-end",
+    "frontend": "JavaScript / TypeScript",
     "styling": "Stile & UI",
-    "state": "Stato & Dati",
+    "state": "Back-end & Dati",
     "quality": "Qualità & Collab"
   },
   "projects": {
@@ -90,7 +108,7 @@
   "create": {
     "eyebrow": "Creatività + Codice",
     "title": "Più del codice: design e sensibilità",
-    "lead": "Anni a costruire interfacce mi hanno portata oltre il codice. La stessa curiosità creativa che mi fa scrivere e viaggiare mi ha portata a Figma e al design — e mi ha dato una sensibilità rara per ciò che le persone vogliono vedere, sentire e risolvere.",
+    "lead": "Anni a costruire sistemi mi hanno portata oltre il codice. La stessa curiosità creativa che mi fa scrivere e viaggiare mi ha portata a Figma e al design — e mi ha dato una sensibilità rara per ciò che le persone vogliono vedere, sentire e risolvere.",
     "mocklabel": "Dal wireframe al prototipo navigabile — in Figma.",
     "t1title": "Lo sguardo di chi usa",
     "t1desc": "Vedo il prodotto con gli occhi dell'utente — comportamento, esperienza e significato prima del pixel.",
@@ -100,7 +118,7 @@
     "t3desc": "Traduco idee tra design, prodotto e ingegneria — perché mi muovo naturalmente tra logica e creatività.",
     "createH": "Cosa creo",
     "c1title": "Design & UI",
-    "c1desc": "Prototipi e interfacce in Figma, pensati per chi li usa.",
+    "c1desc": "Prototipi e schermate in Figma, pensati per chi li usa.",
     "c2title": "Viaggi · @anyemedola",
     "c2desc": "Video e foto dei miei viaggi per il mondo.",
     "c3title": "Unboxing & recensioni",

@@ -59,7 +59,7 @@ export default function TravelSection() {
           </S.TwmLeft>
           <S.TwmRight>
             <S.WaBtn
-              href="https://chat.whatsapp.com/"
+              href="https://chat.whatsapp.com/CMHTWj94PN7Ic4genICbmE?mode=gi_t"
               target="_blank"
               rel="noopener noreferrer"
               aria-label={t('travel.twmCta')}

@@ -47,9 +47,9 @@ describe('ExperienceSection', () => {
     expect(screen.getByText('work.meta')).toBeInTheDocument();
   });
 
-  it('renders 4 job entries', () => {
+  it('renders 7 job entries', () => {
     render(<ExperienceSection />);
-    const jobs = ['job1', 'job2', 'job3', 'job4'];
+    const jobs = ['job1', 'job2', 'job3', 'job4', 'job5', 'job6', 'job7'];
     jobs.forEach((key) => {
       expect(screen.getByText(`work.${key}.company`)).toBeInTheDocument();
       expect(screen.getByText(`work.${key}.role`)).toBeInTheDocument();
