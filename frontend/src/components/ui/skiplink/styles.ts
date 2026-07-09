@@ -1,7 +1,7 @@
 import { styled } from '@mui/material/styles';
 import { tokens } from '@/theme/theme';
 
-export const SkipLinkEl = styled('a')({
+export const SkipLinkEl = styled('button')({
   position: 'absolute',
   top: -100,
   left: 16,
@@ -13,6 +13,8 @@ export const SkipLinkEl = styled('a')({
   fontSize: 14,
   fontWeight: 500,
   textDecoration: 'none',
+  border: 'none',
+  cursor: 'pointer',
   borderRadius: '0 0 4px 4px',
   transition: 'top 0.2s',
   '&:focus': { top: 0 },

@@ -182,12 +182,14 @@ export const Cta = styled('div')({
   },
 });
 
-export const BtnPrimary = styled('a')({
+export const BtnPrimary = styled('button')({
   fontFamily: "'Hanken Grotesk', var(--font-hanken), sans-serif",
   fontSize: 14.5,
   fontWeight: 700,
   padding: '14px 26px',
   borderRadius: 999,
+  border: 'none',
+  cursor: 'pointer',
   background: '#1A615D',
   color: '#fff',
   boxShadow: '0 12px 30px rgba(26,97,93,0.32)',
@@ -243,12 +245,13 @@ export const ResumePill = styled(Link)({
   },
 });
 
-export const BtnGhost = styled('a')({
+export const BtnGhost = styled('button')({
   fontFamily: "'Hanken Grotesk', var(--font-hanken), sans-serif",
   fontSize: 14.5,
   fontWeight: 700,
   padding: '14px 26px',
   borderRadius: 999,
+  cursor: 'pointer',
   background: 'rgba(255,255,255,0.6)',
   border: '1px solid rgba(26,97,93,0.3)',
   color: '#1A615D',

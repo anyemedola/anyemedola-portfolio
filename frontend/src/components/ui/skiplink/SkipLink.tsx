@@ -5,5 +5,16 @@ import * as S from './styles';
 
 export default function SkipLink() {
   const { t } = useTranslation();
-  return <S.SkipLinkEl href="#main-content" suppressHydrationWarning>{t('skipLink.label')}</S.SkipLinkEl>;
+
+  const handleClick = () => {
+    const target = document.getElementById('main-content');
+    target?.focus();
+    target?.scrollIntoView();
+  };
+
+  return (
+    <S.SkipLinkEl type="button" onClick={handleClick} suppressHydrationWarning>
+      {t('skipLink.label')}
+    </S.SkipLinkEl>
+  );
 }

@@ -18,6 +18,9 @@ Object.defineProperty(window, 'IntersectionObserver', {
   writable: true, configurable: true, value: MockIntersectionObserver,
 });
 
+// ─── scrollIntoView (not implemented in jsdom) ────────────────────────────────
+Element.prototype.scrollIntoView = jest.fn();
+
 // ─── matchMedia ───────────────────────────────────────────────────────────────
 Object.defineProperty(window, 'matchMedia', {
   writable: true,

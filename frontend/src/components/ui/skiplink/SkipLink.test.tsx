@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import SkipLink from './SkipLink';
 
 jest.mock('react-i18next', () => ({
@@ -12,16 +12,18 @@ jest.mock('react-i18next', () => ({
 jest.mock('./styles', () => ({
   SkipLinkEl: ({
     children,
-    href,
+    onClick,
+    type,
     suppressHydrationWarning,
   }: {
     children: React.ReactNode;
-    href: string;
+    onClick?: () => void;
+    type?: string;
     suppressHydrationWarning?: boolean;
   }) => (
-    <a href={href} suppressHydrationWarning={suppressHydrationWarning}>
+    <button type={type as 'button'} onClick={onClick} suppressHydrationWarning={suppressHydrationWarning}>
       {children}
-    </a>
+    </button>
   ),
 }));
 
@@ -30,14 +32,26 @@ describe('SkipLink', () => {
     render(<SkipLink />);
   });
 
-  it('renders a link element', () => {
+  it('renders a button element (not a hash-fragment link)', () => {
     render(<SkipLink />);
-    expect(screen.getByRole('link')).toBeInTheDocument();
+    const btn = screen.getByRole('button');
+    expect(btn).toBeInTheDocument();
+    expect(btn).not.toHaveAttribute('href');
   });
 
-  it('link href points to #main-content', () => {
+  it('focuses and scrolls #main-content on click', () => {
+    const main = document.createElement('main');
+    main.id = 'main-content';
+    document.body.appendChild(main);
+    const scrollSpy = jest.spyOn(main, 'scrollIntoView');
+    const focusSpy = jest.spyOn(main, 'focus');
+
     render(<SkipLink />);
-    expect(screen.getByRole('link')).toHaveAttribute('href', '#main-content');
+    fireEvent.click(screen.getByRole('button'));
+
+    expect(focusSpy).toHaveBeenCalled();
+    expect(scrollSpy).toHaveBeenCalled();
+    document.body.removeChild(main);
   });
 
   it('renders the translated label text', () => {
@@ -47,7 +61,7 @@ describe('SkipLink', () => {
 
   it('link text is accessible (non-empty)', () => {
     render(<SkipLink />);
-    const link = screen.getByRole('link');
-    expect(link.textContent).not.toBe('');
+    const btn = screen.getByRole('button');
+    expect(btn.textContent).not.toBe('');
   });
 });

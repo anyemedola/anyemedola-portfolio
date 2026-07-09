@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import HeroSection from './HeroSection';
 
 jest.mock('react-i18next', () => ({
@@ -11,6 +11,11 @@ jest.mock('react-i18next', () => ({
 jest.mock('next/image', () => ({
   __esModule: true,
   default: ({ src, alt }: { src: string; alt: string }) => <img src={src} alt={alt} />,
+}));
+
+jest.mock('next/navigation', () => ({
+  usePathname: () => '/',
+  useRouter: () => ({ push: jest.fn() }),
 }));
 
 describe('HeroSection', () => {
@@ -50,14 +55,34 @@ describe('HeroSection', () => {
     expect(screen.getByText('hero.sub')).toBeInTheDocument();
   });
 
-  it('renders the primary CTA link pointing to #contato', () => {
+  it('renders the primary CTA as a button that scrolls to the contact section (no hash href)', () => {
     render(<HeroSection />);
-    expect(screen.getByRole('link', { name: 'hero.cta1' })).toHaveAttribute('href', '#contato');
+    const contato = document.createElement('div');
+    contato.id = 'contato';
+    document.body.appendChild(contato);
+    const scrollSpy = jest.spyOn(contato, 'scrollIntoView');
+
+    const btn = screen.getByRole('button', { name: 'hero.cta1' });
+    expect(btn).not.toHaveAttribute('href');
+    fireEvent.click(btn);
+    expect(scrollSpy).toHaveBeenCalled();
+
+    document.body.removeChild(contato);
   });
 
-  it('renders the secondary CTA link pointing to #projetos', () => {
+  it('renders the secondary CTA as a button that scrolls to the projects section (no hash href)', () => {
     render(<HeroSection />);
-    expect(screen.getByRole('link', { name: 'hero.cta2' })).toHaveAttribute('href', '#projetos');
+    const projetos = document.createElement('div');
+    projetos.id = 'projetos';
+    document.body.appendChild(projetos);
+    const scrollSpy = jest.spyOn(projetos, 'scrollIntoView');
+
+    const btn = screen.getByRole('button', { name: 'hero.cta2' });
+    expect(btn).not.toHaveAttribute('href');
+    fireEvent.click(btn);
+    expect(scrollSpy).toHaveBeenCalled();
+
+    document.body.removeChild(projetos);
   });
 
   it('renders the collage with aria-hidden="true"', () => {

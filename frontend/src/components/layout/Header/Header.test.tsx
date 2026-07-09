@@ -8,6 +8,11 @@ jest.mock('react-i18next', () => ({
   }),
 }));
 
+jest.mock('next/navigation', () => ({
+  usePathname: () => '/',
+  useRouter: () => ({ push: jest.fn() }),
+}));
+
 // LangToggle uses the same mock — stub it to keep Header tests focused
 jest.mock('@/components/ui/langtoggle/LangToggle', () => ({
   __esModule: true,
