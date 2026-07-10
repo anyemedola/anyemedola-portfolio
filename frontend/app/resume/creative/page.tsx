@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import CreativeResume from '@/components/resume/CreativeResume';
+import CreativeResume from '@/components/resume/creativeresume/CreativeResume';
 
 export const metadata: Metadata = {
   title: 'Creative Resume — Any Medola',

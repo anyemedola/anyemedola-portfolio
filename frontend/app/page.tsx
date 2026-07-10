@@ -12,6 +12,7 @@ import BlogSection from '@/components/sections/blogsection/BlogSection';
 import WomanSection from '@/components/sections/womansection/WomanSection';
 import Footer from '@/components/layout/Footer/Footer';
 import TravelSection from '@/components/sections/travelsection/TravelSection';
+import SectionDivider from '@/components/ui/sectiondivider/SectionDivider';
 
 export default function HomePage() {
   return (
@@ -29,7 +30,7 @@ export default function HomePage() {
         <WomanSection />
         <TravelSection />
         <ExpatSection />
-        <div aria-hidden="true" style={{ height: 1, background: 'rgba(239,168,172,0.35)', margin: '0 40px' }} />
+        <SectionDivider />
         <BlogSection />
       </main>
       <Footer />

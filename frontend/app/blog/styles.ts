@@ -130,7 +130,7 @@ export const FeatImgWrap = styled('div')({
   overflow: 'hidden',
   minHeight: 320,
   position: 'relative',
-  '& img': { transition: 'transform .6s' },
+  '& img': { transition: 'transform .6s', objectFit: 'cover' },
   '@media (max-width: 760px)': { minHeight: 220, height: 240 },
 });
 
@@ -217,6 +217,11 @@ export const PostArrow = styled('span')({
   color: '#D9C3AE',
   textAlign: 'right',
   transition: 'transform .3s, color .3s',
+});
+
+export const PostRowLink = styled(Link)({
+  textDecoration: 'none',
+  color: 'inherit',
 });
 
 export const ClosingText = styled('p')({

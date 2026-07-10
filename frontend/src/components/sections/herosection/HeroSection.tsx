@@ -19,7 +19,6 @@ export default function HeroSection() {
               src="/ibla.jpeg"
               alt="Any em Ragusa Ibla, Sicília"
               fill
-              style={{ objectFit: 'cover', objectPosition: '50% 20%' }}
               priority
             />
           </S.PortraitImgWrap>

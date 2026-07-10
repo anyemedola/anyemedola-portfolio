@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import ATSResume from '@/components/resume/ATSResume';
+import ATSResume from '@/components/resume/atsresume/ATSResume';
 
 export const metadata: Metadata = {
   title: 'ATS Resume — Any Medola',

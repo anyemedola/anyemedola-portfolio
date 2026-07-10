@@ -19,15 +19,17 @@ export const Frame = styled('div', {
   '&:hover img': { transform: 'scale(1.06)' },
 }));
 
-export const ImageArea = styled('div')({
+export const ImageArea = styled('div', {
+  shouldForwardProp: (prop) => prop !== 'objectPosition',
+})<{ objectPosition?: string }>(({ objectPosition = '50% 50%' }) => ({
   position: 'relative',
   flex: '1 1 auto',
   minHeight: 0,
   borderRadius: 4,
   overflow: 'hidden',
   background: tokens.border,
-  '& img': { transition: 'transform .6s cubic-bezier(.2,.7,.2,1)' },
-});
+  '& img': { transition: 'transform .6s cubic-bezier(.2,.7,.2,1)', objectFit: 'cover', objectPosition },
+}));
 
 export const Caption = styled('p', {
   shouldForwardProp: (prop) => prop !== 'small',

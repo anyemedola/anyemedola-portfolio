@@ -20,6 +20,7 @@ export const Inner = styled(SectionInner)({
 export const ImageFrame = styled(BaseImageFrame)({
   height: 520,
   '@media (max-width: 900px)': { height: 340 },
+  '& img': { objectFit: 'cover', objectPosition: 'center 28%' },
 });
 
 export const Content = styled('div')({

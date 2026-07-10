@@ -25,6 +25,7 @@ export const CoverReal = styled('div')({
   height: 420,
   position: 'relative',
   boxShadow: '0 34px 64px -38px rgba(18,59,55,.5)',
+  '& img': { objectFit: 'cover', objectPosition: 'center 40%' },
   '@media (max-width: 900px)': { height: 260 },
 });
 

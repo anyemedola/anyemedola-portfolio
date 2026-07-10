@@ -62,4 +62,5 @@ export const InstagramBtn = styled('a')({
 export const ImageFrame = styled(BaseImageFrame)({
   height: 440,
   '@media (max-width: 900px)': { height: 320 },
+  '& img': { objectFit: 'cover' },
 });

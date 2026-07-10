@@ -20,7 +20,6 @@ export default function PostBody({ post }: { post: BlogPost }) {
           src={post.coverImage}
           alt=""
           fill
-          style={{ objectFit: 'cover', objectPosition: 'center 40%' }}
           sizes="(max-width: 900px) 100vw, 920px"
           priority
         />

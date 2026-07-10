@@ -9,6 +9,7 @@ import PostBody from '@/components/blog/postbody/PostBody';
 import PostMore from '@/components/blog/postmore/PostMore';
 import LemonCursor from '@/components/ui/cursor/lemonCursor';
 import PostPageFooter from '@/components/blog/postpagefooter/PostPageFooter';
+import PostPageRoot from '@/components/blog/postpageroot/PostPageRoot';
 
 export const dynamic = 'force-dynamic';
 
@@ -49,7 +50,7 @@ export default async function BlogPostPage({ params }: Props) {
   if (!post) notFound();
 
   return (
-    <div style={{ background: '#FBEDEE', minHeight: '100vh' }}>
+    <PostPageRoot>
       <LemonCursor />
       <ReadingProgress />
       <Header />
@@ -59,6 +60,6 @@ export default async function BlogPostPage({ params }: Props) {
       </article>
       <PostMore currentSlug={slug} />
       <PostPageFooter />
-    </div>
+    </PostPageRoot>
   );
 }

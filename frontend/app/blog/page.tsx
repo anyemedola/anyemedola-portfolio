@@ -1,7 +1,6 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import Link from 'next/link';
 import Image from 'next/image';
 import { posts, type BlogPost } from '@/data/posts';
 import { useTranslation } from 'react-i18next';
@@ -69,7 +68,6 @@ export default function BlogListingPage() {
                   src={featured.coverImage}
                   alt={featured.title.pt ?? featured.title.en}
                   fill
-                  style={{ objectFit: 'cover' }}
                   sizes="(max-width: 760px) 100vw, 45vw"
                 />
               </S.FeatImgWrap>
@@ -86,7 +84,7 @@ export default function BlogListingPage() {
           </S.SectionDivider>
 
           {restPosts.map((post) => (
-            <Link key={post.slug} href={`/blog/${post.slug}`} style={{ textDecoration: 'none', color: 'inherit' }}>
+            <S.PostRowLink key={post.slug} href={`/blog/${post.slug}`}>
               <S.PostRow>
                 <S.PostMeta className="post-meta">
                   <S.PostPeriod>{post.date}</S.PostPeriod>
@@ -102,7 +100,7 @@ export default function BlogListingPage() {
                 </S.PostContent>
                 <S.PostArrow className="post-arrow" aria-hidden="true">→</S.PostArrow>
               </S.PostRow>
-            </Link>
+            </S.PostRowLink>
           ))}
 
           <S.ClosingText>{t('blog.closingText')}</S.ClosingText>

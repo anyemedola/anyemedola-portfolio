@@ -199,5 +199,351 @@
     "lead": "Saggi su codice, nuovi inizi, viaggi e il coraggio di essere intera. Parole che non entrano in un README.",
     "moreArticles": "Altri articoli",
     "closingText": "La scrittura è un viaggio che non finisce mai. Torna presto. ✦"
+  },
+  "resumeCreative": {
+    "tagline": "Brasile → Sicilia",
+    "role": "Sviluppatrice Full Stack · JavaScript / TypeScript · Node.js & Firebase",
+    "quote": "Full Stack Engineer. Viaggiatrice incurabile. Scrittrice in divenire. Tutto nella stessa donna. Costruisco sistemi da oltre 5 anni — e colleziono tramonti, fusi orari e capitoli di un libro che devo ancora scrivere.",
+    "phone": "+39 351 586 9527",
+    "location": "Ragusa, Sicilia · Italia",
+    "downloadBtn": "Scarica PDF",
+    "about": {
+      "heading": "Chi sono",
+      "body_before": "Sviluppatrice full stack con oltre 5 anni nell'ecosistema JavaScript/TypeScript — front-end ",
+      "body_em": "e",
+      "body_after": " back-end. Ho iniziato costruendo sistemi completi, inclusi pannelli amministrativi (backoffice) per la gestione di utenti, contenuti e dati — molto vicini a un CRM — prima di specializzarmi nel front-end su progetti di grande scala tra governo, sanità e mobilità. Co-fondatrice di uno studio freelance di sviluppo software (A&A IT) e attualmente Full Stack Developer presso MIGMA (Los Angeles, USA). A mio agio nel gestire sia il lato client che server di un prodotto, in team agili e remoti."
+    },
+    "experience": {
+      "heading": "Esperienza",
+      "jobs": [
+        {
+          "period": "Lug 2026",
+          "periodEnd": "presente",
+          "role": "Full Stack Developer",
+          "company": "MIGMA · Los Angeles, USA (Remoto)",
+          "desc": "Responsabile dell'intero ciclo di prodotto — front-end e back-end — in un team remoto distribuito."
+        },
+        {
+          "period": "Apr 2024",
+          "periodEnd": "presente",
+          "role": "Senior Frontend Developer",
+          "company": "Go Marketing&Co. · Freelance · Ragusa, Sicilia, Italia (Remoto)",
+          "desc": "Sviluppo di un'applicazione mobile di ride-hailing per Go Marketing&Co., come cliente di A&A IT, realizzata con React Native ed Expo — lancio previsto nel 2026."
+        },
+        {
+          "period": "Ago 2023",
+          "periodEnd": "Mar 2026",
+          "role": "Senior Frontend Developer and Tech Lead",
+          "company": "Capgemini · Milano, Italia (Remoto)",
+          "desc": "Ho guidato il front-end di una piattaforma di streaming per il Ministero della Salute del Portogallo, collaborando quotidianamente con il team di back-end per l'integrazione delle API e delle regole di business. React, Next.js e TypeScript con test e standard di qualità (ESLint) — anche come UI/UX designer, prototipando su Figma fin dalla concezione."
+        },
+        {
+          "period": "Mar 2023",
+          "periodEnd": "presente",
+          "role": "Cofounder and Full Stack Engineer",
+          "company": "A&A IT · Libera professionista · Lençóis Paulista, Brasile (Remoto)",
+          "desc": "Ho co-fondato e gestisco uno studio freelance di sviluppo software, consegnando 3 progetti in produzione per 3 clienti diversi con React e React Native — un marketplace di richiesta servizi che collega fornitori e clienti su iOS/Android, e un sistema di storage in cloud dal prototipo su Figma alla produzione, integrato con l'infrastruttura DigitalOcean, di cui sono stata responsabile end-to-end."
+        },
+        {
+          "period": "Set 2022",
+          "periodEnd": "Ago 2023",
+          "role": "Front-End Developer",
+          "company": "Ambisig · Lisbona, Portogallo (Da remoto)",
+          "desc": "Ho sviluppato sistemi governativi complessi — SCOT (multe stradali) in Ionic + React e SIARL, piattaforma di gestione delle risorse costiere in React/Next.js + Redux. UI guidata dai dati, layout responsive e cicli di refinement UX su scala nazionale; ho disegnato il prototipo di SIARL in Figma fin dall'inizio."
+        },
+        {
+          "period": "Feb 2022",
+          "periodEnd": "Set 2022",
+          "role": "Front-End Developer",
+          "company": "S2 Pets · San Paolo, Brasile (Da remoto)",
+          "desc": "Funzionalità mobile e web per l'app MEUPET con Ionic, Angular e Firebase — tra cui un oggetti smarriti & ritrovati basato sulla geolocalizzazione e un calcolatore di IMC nutrizionale per animali."
+        },
+        {
+          "period": "2021",
+          "periodEnd": "2022",
+          "role": "Sviluppatrice Full Stack",
+          "company": "Agência Zum · San Paolo, Brasile",
+          "desc": "Sistemi completi (front e back-end) in PHP, JavaScript e MySQL per campagne di grandi marchi: registrazione coupon, estrazioni automatiche e pannello amministrativo (backoffice) per la gestione di vincitori, premi e avvisi — molto vicino a un CRM di campagne."
+        },
+        {
+          "period": "2020",
+          "periodEnd": "2021",
+          "role": "Sviluppatrice Web e PHP",
+          "company": "Atitude Comunicação · San Paolo, Brasile",
+          "desc": "Siti dinamici con backoffice proprietario, che permettono ai clienti di gestire contenuti, banner e utenti in autonomia — base di un sistema di gestione clienti. Ciclo full stack completo: PHP, HTML, CSS, JS, Bootstrap, MySQL e deploy via FTP."
+        },
+        {
+          "period": "2018",
+          "periodEnd": "2020",
+          "role": "Sviluppatrice Web · Freelance",
+          "company": "Libera professionista · San Paolo, Brasile",
+          "desc": "Sviluppo full stack mobile e web con Ionic, Angular, TypeScript, PHP e MySQL/PostgreSQL per diversi clienti."
+        }
+      ]
+    },
+    "projects": {
+      "heading": "Progetti personali · full stack",
+      "items": [
+        { "title": "Portfolio & Blog", "desc": "Sito personale con blog e back-end in Node.js & Firebase.", "link": "/anyemedola-portfolio" },
+        { "title": "Medola AI", "desc": "Assistente IA in TypeScript con back-end in Node.js.", "link": "/medola" },
+        { "title": "App Fitness", "desc": "App di sfide fitness in React Native con Firebase.", "link": "/app-fitness" }
+      ]
+    },
+    "toolkit": {
+      "heading": "Strumenti",
+      "items": ["JavaScript", "TypeScript", "React", "Next.js", "Node.js", "React Native · Expo", "Firebase", "DigitalOcean", "PHP", "MySQL · PostgreSQL", "REST APIs", "Ionic · Angular", "Redux · React Query", "Tailwind · MUI", "Backoffice / CRM", "Figma · UX/UI", "Jest · ESLint", "Git · GitLab · Azure"]
+    },
+    "languages": {
+      "heading": "Lingue",
+      "items": [
+        { "name": "Portoghese", "level": "C2", "pct": 100 },
+        { "name": "Inglese", "level": "C1", "pct": 88 },
+        { "name": "Italiano", "level": "C1", "pct": 88 },
+        { "name": "Francese", "level": "B1", "pct": 58 },
+        { "name": "Spagnolo", "level": "B1", "pct": 58 }
+      ]
+    },
+    "education": {
+      "heading": "Formazione",
+      "items": [
+        { "degree": "Laurea in Tecnologia dell'Informazione", "school": "Estácio · in corso (dal 2022)" },
+        { "degree": "Diploma Tecnico in Informatica · CTI", "school": "Colégio Técnico Industrial \"Prof. Isaac Portal Roldán\"" },
+        { "degree": "Diploma Tecnico in Informatica · ETEC", "school": "Cidade do Livro" }
+      ]
+    },
+    "certifications": {
+      "heading": "Certificazioni",
+      "items": ["Claude Code 101 · Anthropic (2026)", "JS Algorithms & Data Structures · freeCodeCamp", "Front-End Libraries · freeCodeCamp", "Intro to Software Dev · Cubos Academy", "HTML/CSS/JS · Fundação Bradesco"]
+    },
+    "beyond": {
+      "heading": "Oltre il codice",
+      "subtitle": "Le parti di me che non stanno in un README.",
+      "items": [
+        { "icon": "❦", "title": "Scrittrice in divenire", "body": "Saggi & un libro su chi lascia tutto e trova casa dall'altra parte del mondo. Primo saggio: Inteira." },
+        { "icon": "✈", "title": "Viaggiatrice & creator", "body": "Diario di viaggio su @anyemedola e vita da expat in Sicilia, in EN & IT, su @anyinsicily." },
+        { "icon": "❧", "title": "Lettrice & recensora", "body": "Recensioni di libri e video di unboxing — leggere è viaggiare restando fermi." },
+        { "icon": "♪", "title": "Musica & strumenti", "body": "Musica alta, bella vita — suono, ascolto, lascio che faccia da colonna sonora al viaggio." }
+      ]
+    },
+    "footer": {
+      "tagline": "Fatto con sole e saudade in Sicilia.",
+      "meta": "Any Medola · Brasile → Italia · 2026"
+    }
+  },
+  "resumeATS": {
+    "role": "Sviluppatrice Full Stack · JavaScript / TypeScript · Node.js / Firebase",
+    "phone": "+39 351 586 9527",
+    "location": "Ragusa, Sicilia — Italia",
+    "downloadBtn": "Scarica PDF",
+    "summary": {
+      "heading": "Profilo Professionale",
+      "body": "Sviluppatrice full stack con oltre 5 anni di esperienza nell'ecosistema JavaScript/TypeScript, attiva sia nel front-end (React, React Native, Next.js) che nel back-end (Node.js, Firebase, PHP, MySQL/PostgreSQL). Ho iniziato la carriera costruendo sistemi full stack completi — inclusi pannelli amministrativi (backoffice) per la gestione di utenti, contenuti e dati, molto vicini a un CRM — prima di specializzarmi nel front-end su progetti di grande scala tra governo, sanità e mobilità. Co-fondatrice di uno studio freelance di sviluppo software (A&A IT) e attualmente Full Stack Developer presso MIGMA (Los Angeles, USA). A mio agio nel gestire sia il lato client che server di un prodotto, in team agili e remoti."
+    },
+    "experience": {
+      "heading": "Esperienza Professionale",
+      "jobs": [
+        {
+          "role": "Full Stack Developer — MIGMA",
+          "period": "Lug 2026 – Presente · Los Angeles, USA (Remoto)",
+          "bullets": [
+            "Responsabile dell'intero ciclo di prodotto — front-end e back-end — in un team remoto distribuito."
+          ]
+        },
+        {
+          "role": "Senior Frontend Developer — Go Marketing&Co.",
+          "period": "Apr 2024 – Presente · Ragusa, Sicilia, Italia (Remoto)",
+          "bullets": [
+            "Sviluppo di un'applicazione mobile di ride-hailing per Go Marketing&Co., come cliente di A&A IT, realizzata con React Native ed Expo — lancio previsto nel 2026."
+          ]
+        },
+        {
+          "role": "Senior Frontend Developer and Tech Lead — Capgemini",
+          "period": "Ago 2023 – Mar 2026 · Milano (Remoto)",
+          "bullets": [
+            "Ho guidato il front-end di una piattaforma di streaming per il Ministero della Salute del Portogallo, collaborando quotidianamente con il team di back-end per l'integrazione delle API e delle regole di business.",
+            "Ho sviluppato applicazioni con React, Next.js e TypeScript, con test unitari e standard di qualità (ESLint).",
+            "Ho lavorato anche come UI/UX designer, prototipando su Figma fin dalla concezione del progetto."
+          ]
+        },
+        {
+          "role": "Cofounder and Full Stack Engineer — A&A IT",
+          "period": "Mar 2023 – Presente · Lençóis Paulista, SP (Remoto)",
+          "bullets": [
+            "Ho co-fondato e gestisco uno studio freelance di sviluppo software, consegnando 3 progetti in produzione per 3 clienti diversi con React e React Native.",
+            "Ho lanciato un marketplace di richiesta servizi (in produzione), con React Native + Expo, che collega fornitori e clienti su iOS e Android.",
+            "Ho progettato e sviluppato un sistema di storage in cloud (simile a Google Drive) dal prototipo su Figma alla produzione, integrato con l'infrastruttura DigitalOcean — di cui sono stata responsabile end-to-end, dalla UX al deploy."
+          ]
+        },
+        {
+          "role": "Sviluppatrice Front-End — Ambisig",
+          "period": "Set 2022 – Ago 2023 · Lisbona (Da remoto)",
+          "bullets": [
+            "Ho sviluppato sistemi di scala governativa (gestione multe stradali e monitoraggio ambientale) con React.js, Next.js e Redux, sempre in collaborazione con i team di back-end."
+          ]
+        },
+        {
+          "role": "Sviluppatrice Front-End — S2 Pets",
+          "period": "Feb 2022 – Set 2022 · San Paolo (Da remoto)",
+          "bullets": [
+            "Ho sviluppato funzionalità mobile e web usando Ionic, Angular, TypeScript e Firebase come database principale.",
+            "Ho costruito la funzione oggetti smarriti e ritrovati con geolocalizzazione e un calcolatore BMI per l'app MEUPET.",
+            "Ho contribuito alla dashboard interna di statistiche e segnalazione bug — esperienza diretta con Firebase in produzione."
+          ]
+        },
+        {
+          "role": "Sviluppatrice Full Stack — Agência Zum",
+          "period": "2021 – 2022 · San Paolo",
+          "bullets": [
+            "Ho costruito sistemi completi (front e back-end) in PHP, JavaScript e MySQL per campagne di grandi marchi, inclusa la registrazione coupon e le estrazioni automatiche.",
+            "Ho sviluppato un pannello amministrativo (backoffice) per la gestione di vincitori, premi e avvisi — un sistema molto vicino a un CRM di campagne."
+          ]
+        },
+        {
+          "role": "Sviluppatrice Web e PHP — Atitude Comunicação",
+          "period": "2020 – 2021 · San Paolo",
+          "bullets": [
+            "Ho sviluppato e mantenuto siti dinamici con backoffice proprietario, che permettono ai clienti di gestire contenuti, banner e utenti in autonomia — base di un sistema di gestione clienti.",
+            "Ho lavorato sull'intero ciclo full stack: front-end (PHP, HTML, CSS, JS, Bootstrap), database (MySQL/phpMyAdmin) e deploy (FTP)."
+          ]
+        },
+        {
+          "role": "Sviluppatrice Web Freelance — Libera professionista",
+          "period": "2018 – 2020 · San Paolo",
+          "bullets": [
+            "Sviluppo full stack mobile e web con Ionic, Angular, TypeScript, PHP e MySQL/PostgreSQL per diversi clienti."
+          ]
+        }
+      ]
+    },
+    "skills": {
+      "heading": "Competenze Tecniche",
+      "frontend": "React, React Native, Expo, Next.js, Node.js, Ionic, Angular, Redux, React Query",
+      "backend": "Node.js, Firebase (Auth, Firestore, Realtime DB), DigitalOcean, PHP, MySQL, PostgreSQL, REST API",
+      "crm": "pannelli amministrativi, gestione utenti e contenuti dinamici, inserimento e reportistica dati",
+      "ui": "Tailwind CSS, MUI, Kendo UI, Styled Components, shadcn/ui, Figma, UX/UI",
+      "quality": "Jest, ESLint, test manuali e automatizzati",
+      "versioning": "Git, GitLab, Azure Repos, Agile/Scrum (Jira, Trello)",
+      "frontendLabel": "JavaScript / TypeScript",
+      "backendLabel": "Back-end & Database",
+      "crmLabel": "Sistemi tipo CRM / Backoffice",
+      "uiLabel": "Front-end & UI",
+      "qualityLabel": "Test & Qualità",
+      "versioningLabel": "Versionamento & Metodi"
+    },
+    "education": {
+      "heading": "Formazione",
+      "items": [
+        { "degree": "Laurea in Tecnologia dell'Informazione", "school": "Estácio · in corso (dal 2022)" },
+        { "degree": "Diploma Tecnico in Informatica", "school": "CTI — Colégio Técnico Industrial \"Prof. Isaac Portal Roldán\"" },
+        { "degree": "Diploma Tecnico in Informatica", "school": "ETEC — Cidade do Livro" }
+      ],
+      "certsLabel": "Certificazioni",
+      "certsList": "Claude Code 101 — Anthropic (2026) · Front-End Development Libraries — freeCodeCamp (2023) · JavaScript Algorithms & Data Structures — freeCodeCamp (2023) · Intro to Software Development & Soft Skills — Cubos Academy (2023) · HTML / CSS / JavaScript / Reti / Modellazione Dati / Etica — Fundação Bradesco"
+    },
+    "languages": {
+      "heading": "Lingue",
+      "items": [
+        "Portoghese — Madrelingua (C2)",
+        "Inglese — Avanzato (C1)",
+        "Italiano — Avanzato (C1)",
+        "Francese — Intermedio (B1)",
+        "Spagnolo — Intermedio (B1)"
+      ]
+    }
+  },
+  "travelContent": {
+    "nav": { "back": "Portfolio" },
+    "hero": {
+      "label1": "Any Medola",
+      "label2": "Sicily Diaries",
+      "label3": "@anyinsicily",
+      "heading": "About Me",
+      "p1": "Ho sempre inseguito buone storie, ma nel 2019 ho scambiato una valigia piena di guide di viaggio per una macchina fotografica e mi sono trasferita in Sicilia. A quanto pare i colpi di scena migliori succedono quando ti perdi di proposito.",
+      "p2": "Oggi filmo il viaggio in tre lingue — ma il mio vero sogno è un viaggio così bello da averne bisogno di una quarta.",
+      "stat1": "3 LINGUE",
+      "stat2": "2 MONDI IG",
+      "stat3": "∞ POSTI",
+      "cta": "Vedi il lavoro"
+    },
+    "process": {
+      "eyebrow": "Cosa creo",
+      "title": "Dietro le quinte del contenuto.",
+      "lead": "Film di viaggio, unboxing di libri e itinerari costruiti a mano — girati da sola, montati in fretta e raccontati in tre lingue perché la storia arrivi davvero a casa.",
+      "tags": ["Girato da sola", "Montato in giornata", "Nessun filmato stock"],
+      "steps": [
+        {
+          "num": "1",
+          "title": "Esplorazione",
+          "items": [
+            "Giro prima la città, macchina fotografica giù — gli angoli migliori non compaiono mai su Google Maps.",
+            "Controllo trasporti e orari di apertura su Moovit e Rome2Rio prima di decidere un percorso.",
+            "Parlo con chi mi capita vicino; metà delle mie location nascono dal consiglio di un barista."
+          ]
+        },
+        {
+          "num": "2",
+          "title": "Riprese",
+          "items": [
+            "A mano libera, solo luce naturale — la golden hour detta l'agenda dell'intera giornata.",
+            "Una ripresa della versione onesta prima di quella curata; gli errori di solito performano meglio.",
+            "Tutto girato da sola, telefono in una mano e gimbal nell'altra."
+          ]
+        },
+        {
+          "num": "3",
+          "title": "Montaggio & pubblicazione",
+          "items": [
+            "Montato lo stesso giorno delle riprese — pubblicare in giornata mantiene coerenti luce e storia.",
+            "Didascalie scritte tre volte: portoghese, inglese, italiano — mai una traduzione letterale.",
+            "Diviso tra @anyinsicily e @anyemedola a seconda del pubblico."
+          ]
+        }
+      ]
+    },
+    "carousel": {
+      "eyebrow": "Carosello",
+      "title": "Stories, uno swipe alla volta.",
+      "posts": [
+        { "title": "Il Mio Angolo<br>di Città Preferito", "pin": "📍 Versione Ragusa" },
+        { "title": "Angolo<br>Mattutino", "pin": "📍 A Sciarria", "desc": "Dove Rio incontra la Sicilia — il bar che sembra casa." },
+        { "title": "Natura<br>in Città", "pin": "📍 Giardino Ibleo", "desc": "Palme secolari, panchine all'ombra e il profumo degli agrumi." },
+        { "title": "Angolo<br>Barocco", "pin": "📍 Ragusa Ibla", "desc": "Uno sperone roccioso sopra la valle, congelato nella golden hour." }
+      ]
+    },
+    "videos": {
+      "eyebrow": "Guarda",
+      "title": "Film dalla strada.",
+      "items": [
+        { "title": "Un giorno a Ragusa Ibla", "meta": "Film di viaggio · @anyinsicily" },
+        { "title": "Unboxing & recensione di un libro", "meta": "Libri · leggere è viaggiare" },
+        { "title": "Muoversi senza auto", "meta": "Consigli di mobilità · Sicilia" }
+      ]
+    },
+    "gallery": {
+      "eyebrow": "Il feed",
+      "title": "Golden hour & piccole strade.",
+      "quoteScript": "pronta a vagare?",
+      "quoteMain": "piccole strade,<br>grandi emozioni"
+    },
+    "channels": {
+      "title": "seguimi<br>qui",
+      "lead": "Due feed, due lingue, la stessa ragazza a caccia di buona luce.",
+      "handle1": "@anyinsicily",
+      "desc1": "Sicilia & vita da expat",
+      "handle2": "@anyemedola",
+      "desc2": "Diario di viaggio · PT"
+    },
+    "apps": {
+      "eyebrow": "Cassetta degli attrezzi",
+      "title": "App che uso davvero."
+    },
+    "cta": {
+      "title": "Collaborazioni, feature &<br>contenuti, in tre lingue.",
+      "lead": "Brand, enti del turismo, editori — creiamo qualcosa di bello."
+    },
+    "footer": {
+      "tagline": "Fatto con sole e saudade in Sicilia.",
+      "meta": "Any Medola · Brasile → Italia · 2026"
+    }
   }
 }

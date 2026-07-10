@@ -109,6 +109,7 @@ export const PortraitImgWrap = styled('div')({
   height: '100%',
   borderRadius: '181px 181px 14px 14px',
   overflow: 'hidden',
+  '& img': { objectFit: 'cover', objectPosition: '50% 20%' },
   '@media (max-width: 760px)': { borderRadius: '92px 92px 4px 4px' },
   '@media (max-width: 480px)': { borderRadius: '68px 68px 3px 3px' },
   '@media (max-width: 380px)': { borderRadius: '60px 60px 3px 3px' },

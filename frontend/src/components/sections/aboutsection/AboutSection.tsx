@@ -18,7 +18,6 @@ export default function AboutSection() {
             src="/about_me.jpeg"
             alt="Any na Sicília"
             fill
-            style={{ objectFit: 'cover', objectPosition: 'center 28%' }}
           />
         </S.ImageFrame>
 

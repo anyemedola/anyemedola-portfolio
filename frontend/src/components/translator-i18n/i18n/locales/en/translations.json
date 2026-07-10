@@ -199,5 +199,351 @@
     "lead": "Essays on code, new beginnings, travel and the courage to be whole. Words that don't fit in a README.",
     "moreArticles": "More articles",
     "closingText": "Writing is a journey that never ends. Come back soon. ✦"
+  },
+  "resumeCreative": {
+    "tagline": "Brazil → Sicily",
+    "role": "Full Stack Developer · JavaScript / TypeScript · Node.js & Firebase",
+    "quote": "Full Stack Engineer. Incurable traveler. Writer in the making. All in the same woman. I've been building systems for 5+ years — and collecting sunsets, time zones and chapters of a book I'm yet to write.",
+    "phone": "+39 351 586 9527",
+    "location": "Ragusa, Sicily · Italy",
+    "downloadBtn": "Download PDF",
+    "about": {
+      "heading": "About me",
+      "body_before": "Full stack developer with 5+ years in the JavaScript/TypeScript ecosystem — front-end ",
+      "body_em": "and",
+      "body_after": " back-end. I started by building complete systems, including admin panels (backoffice) for managing users, content and data — very close to a CRM — before specializing in front-end on large-scale projects spanning government, health and mobility. Co-founder of a freelance software studio (A&A IT), and currently a Full Stack Developer at MIGMA (Los Angeles, USA). Comfortable owning both the client and server sides of a product, in agile, remote teams."
+    },
+    "experience": {
+      "heading": "Experience",
+      "jobs": [
+        {
+          "period": "Jul 2026",
+          "periodEnd": "present",
+          "role": "Full Stack Developer",
+          "company": "MIGMA · Los Angeles, USA (Remote)",
+          "desc": "Owning the full product cycle — front-end and back-end — within a distributed remote team."
+        },
+        {
+          "period": "Apr 2024",
+          "periodEnd": "present",
+          "role": "Senior Frontend Developer",
+          "company": "Go Marketing&Co. · Freelance · Ragusa, Sicily, Italy (Remote)",
+          "desc": "Developing a ride-hailing mobile application for Go Marketing&Co. as a client of A&A IT, built with React Native and Expo. Scheduled for launch in 2026."
+        },
+        {
+          "period": "Aug 2023",
+          "periodEnd": "Mar 2026",
+          "role": "Senior Frontend Developer and Tech Lead",
+          "company": "Capgemini · Milan, Italy (Remote)",
+          "desc": "Led the front-end of a streaming platform for Portugal's Ministry of Health, collaborating daily with the back-end team on API integration and business rules. React, Next.js & TypeScript with testing and quality standards (ESLint) — also acting as UI/UX designer, prototyping in Figma from conception."
+        },
+        {
+          "period": "Mar 2023",
+          "periodEnd": "present",
+          "role": "Cofounder and Full Stack Engineer",
+          "company": "A&A IT · Self-employed · Lençóis Paulista, Brazil (Remote)",
+          "desc": "Co-founded and operate a freelance software studio, delivering 3 production projects for 3 different clients using React and React Native — a service-request marketplace connecting providers and clients on iOS/Android, and a cloud storage system built from Figma prototype to production, integrated with DigitalOcean infrastructure, which I owned end-to-end."
+        },
+        {
+          "period": "Sep 2022",
+          "periodEnd": "Aug 2023",
+          "role": "Front-End Developer",
+          "company": "Ambisig · Lisbon, Portugal (Remote)",
+          "desc": "Built government-scale systems (traffic fines and environmental monitoring) with React.js, Next.js and Redux, always alongside back-end teams."
+        },
+        {
+          "period": "Feb 2022",
+          "periodEnd": "Sep 2022",
+          "role": "Front-End Developer",
+          "company": "S2 Pets · São Paulo, Brazil (Remote)",
+          "desc": "Mobile and web features for the MEUPET app with Ionic, Angular, TypeScript and Firebase — geolocation-based lost & found, a BMI calculator, and contributions to the internal stats and bug-tracking dashboard."
+        },
+        {
+          "period": "2021",
+          "periodEnd": "2022",
+          "role": "Full Stack Developer",
+          "company": "Agência Zum · São Paulo, Brazil",
+          "desc": "Complete systems (front and back-end) in PHP, JavaScript and MySQL for major brand campaigns: coupon registration, automated giveaways and an admin panel (backoffice) for managing winners, prizes and alerts — very close to a campaign CRM."
+        },
+        {
+          "period": "2020",
+          "periodEnd": "2021",
+          "role": "Web & PHP Developer",
+          "company": "Atitude Comunicação · São Paulo, Brazil",
+          "desc": "Dynamic sites with a proprietary backoffice, letting clients manage content, banners and users independently — the base of a customer management system. Full stack cycle: PHP, HTML, CSS, JS, Bootstrap, MySQL and FTP deployment."
+        },
+        {
+          "period": "2018",
+          "periodEnd": "2020",
+          "role": "Web Developer · Freelancer",
+          "company": "Self-employed · São Paulo, Brazil",
+          "desc": "Full stack mobile and web development with Ionic, Angular, TypeScript, PHP and MySQL/PostgreSQL for a range of clients."
+        }
+      ]
+    },
+    "projects": {
+      "heading": "Personal projects · full stack",
+      "items": [
+        { "title": "Portfolio & Blog", "desc": "Personal site with a blog and Node.js & Firebase back-end.", "link": "/anyemedola-portfolio" },
+        { "title": "Medola AI", "desc": "AI assistant in TypeScript with a Node.js back-end.", "link": "/medola" },
+        { "title": "Fitness App", "desc": "Fitness-challenge app in React Native with Firebase.", "link": "/app-fitness" }
+      ]
+    },
+    "toolkit": {
+      "heading": "Toolkit",
+      "items": ["JavaScript", "TypeScript", "React", "Next.js", "Node.js", "React Native · Expo", "Firebase", "DigitalOcean", "PHP", "MySQL · PostgreSQL", "REST APIs", "Ionic · Angular", "Redux · React Query", "Tailwind · MUI", "Backoffice / CRM", "Figma · UX/UI", "Jest · ESLint", "Git · GitLab · Azure"]
+    },
+    "languages": {
+      "heading": "Languages",
+      "items": [
+        { "name": "Portuguese", "level": "C2", "pct": 100 },
+        { "name": "English", "level": "C1", "pct": 88 },
+        { "name": "Italian", "level": "C1", "pct": 88 },
+        { "name": "French", "level": "B1", "pct": 58 },
+        { "name": "Spanish", "level": "B1", "pct": 58 }
+      ]
+    },
+    "education": {
+      "heading": "Education",
+      "items": [
+        { "degree": "B.S. in Information Technology", "school": "Estácio · in progress (since 2022)" },
+        { "degree": "Technical Diploma in Computer Science · CTI", "school": "Colégio Técnico Industrial \"Prof. Isaac Portal Roldán\"" },
+        { "degree": "Technical Diploma in Computer Science · ETEC", "school": "Cidade do Livro" }
+      ]
+    },
+    "certifications": {
+      "heading": "Certifications",
+      "items": ["Claude Code 101 · Anthropic (2026)", "JS Algorithms & Data Structures · freeCodeCamp", "Front-End Libraries · freeCodeCamp", "Intro to Software Dev · Cubos Academy", "HTML/CSS/JS · Fundação Bradesco"]
+    },
+    "beyond": {
+      "heading": "Beyond the code",
+      "subtitle": "The parts of me that don't fit in a README.",
+      "items": [
+        { "icon": "❦", "title": "Writer in progress", "body": "Essays & a book on those who leave everything behind and find home across the world. First essay: Inteira." },
+        { "icon": "✈", "title": "Traveler & creator", "body": "Travel journal at @anyemedola and expat life in Sicily, in EN & IT, at @anyinsicily." },
+        { "icon": "❧", "title": "Reader & reviewer", "body": "Book reviews and unboxing videos — reading is travel that fits on a shelf." },
+        { "icon": "♪", "title": "Music & instruments", "body": "Loud music, good life — I play, I listen, I let it score the journey." }
+      ]
+    },
+    "footer": {
+      "tagline": "Made with sun and saudade in Sicily.",
+      "meta": "Any Medola · Brazil → Italy · 2026"
+    }
+  },
+  "resumeATS": {
+    "role": "Full Stack Developer · JavaScript / TypeScript · Node.js / Firebase",
+    "phone": "+39 351 586 9527",
+    "location": "Ragusa, Sicily — Italy",
+    "downloadBtn": "Download PDF",
+    "summary": {
+      "heading": "Professional Summary",
+      "body": "Full stack developer with 5+ years of experience in the JavaScript/TypeScript ecosystem, working across front-end (React, React Native, Next.js) and back-end (Node.js, Firebase, PHP, MySQL/PostgreSQL). Started by building complete full stack systems — including admin panels (backoffice) for managing users, content and data, very close to a CRM — before specializing in front-end on large-scale projects spanning government, health and mobility. Co-founder of a freelance software studio (A&A IT), and currently Full Stack Developer at MIGMA (Los Angeles, USA). Comfortable owning both the client and server sides of a product, in agile, remote teams."
+    },
+    "experience": {
+      "heading": "Professional Experience",
+      "jobs": [
+        {
+          "role": "Full Stack Developer — MIGMA",
+          "period": "Jul 2026 – Present · Los Angeles, USA (Remote)",
+          "bullets": [
+            "Owning the full product cycle — front-end and back-end — within a distributed remote team."
+          ]
+        },
+        {
+          "role": "Senior Frontend Developer — Go Marketing&Co.",
+          "period": "Apr 2024 – Present · Ragusa, Sicily, Italy (Remote)",
+          "bullets": [
+            "Developing a ride-hailing mobile application for Go Marketing&Co. as a client of A&A IT, built with React Native and Expo. Scheduled for launch in 2026."
+          ]
+        },
+        {
+          "role": "Senior Frontend Developer and Tech Lead — Capgemini",
+          "period": "Aug 2023 – Mar 2026 · Milan (Remote)",
+          "bullets": [
+            "Led the front-end of a streaming platform for Portugal's Ministry of Health, collaborating daily with the back-end team on API integration and business rules.",
+            "Built applications with React, Next.js and TypeScript, with unit testing and quality standards (ESLint).",
+            "Also acted as UI/UX designer, prototyping in Figma from project conception."
+          ]
+        },
+        {
+          "role": "Cofounder and Full Stack Engineer — A&A IT",
+          "period": "Mar 2023 – Present · Lençóis Paulista, SP (Remote)",
+          "bullets": [
+            "Co-founded and operate a freelance software studio, delivering 3 production projects for 3 different clients using React and React Native.",
+            "Launched a service-request marketplace (live in production) built with React Native + Expo, connecting service providers and clients on iOS and Android.",
+            "Designed and developed a cloud storage system (similar to Google Drive) from Figma prototype to production, integrated with DigitalOcean infrastructure — owned end-to-end, from UX design to deployment."
+          ]
+        },
+        {
+          "role": "Front-End Developer — Ambisig",
+          "period": "Sep 2022 – Aug 2023 · Lisbon (Remote)",
+          "bullets": [
+            "Built government-scale systems (traffic fine enforcement and environmental monitoring) with React.js, Next.js and Redux, always alongside back-end teams."
+          ]
+        },
+        {
+          "role": "Front-End Developer — S2 Pets",
+          "period": "Feb 2022 – Sep 2022 · São Paulo (Remote)",
+          "bullets": [
+            "Developed mobile and web features using Ionic, Angular, TypeScript and Firebase as the primary database.",
+            "Built the geolocation-based lost & found feature and a BMI calculator for the MEUPET app.",
+            "Contributed to the internal stats and bug-reporting dashboard — hands-on experience with Firebase in production."
+          ]
+        },
+        {
+          "role": "Full Stack Developer — Agência Zum",
+          "period": "2021 – 2022 · São Paulo",
+          "bullets": [
+            "Built complete systems (front and back-end) in PHP, JavaScript and MySQL for major brand campaigns, including coupon registration and automated giveaways.",
+            "Developed an admin panel (backoffice) for managing winners, prizes and alerts — a system very close to a campaign CRM."
+          ]
+        },
+        {
+          "role": "Web & PHP Developer — Atitude Comunicação",
+          "period": "2020 – 2021 · São Paulo",
+          "bullets": [
+            "Developed and maintained dynamic sites with a proprietary backoffice, letting clients manage content, banners and users independently — the base of a customer management system.",
+            "Worked across the full stack cycle: front-end (PHP, HTML, CSS, JS, Bootstrap), database (MySQL/phpMyAdmin) and deploy (FTP)."
+          ]
+        },
+        {
+          "role": "Freelance Web Developer — Self-employed",
+          "period": "2018 – 2020 · São Paulo",
+          "bullets": [
+            "Full stack mobile and web development with Ionic, Angular, TypeScript, PHP and MySQL/PostgreSQL for a range of clients."
+          ]
+        }
+      ]
+    },
+    "skills": {
+      "heading": "Technical Skills",
+      "frontend": "React, React Native, Expo, Next.js, Node.js, Ionic, Angular, Redux, React Query",
+      "backend": "Node.js, Firebase (Auth, Firestore, Realtime DB), DigitalOcean, PHP, MySQL, PostgreSQL, REST APIs",
+      "crm": "admin panels, user and dynamic content management, data entry and reporting",
+      "ui": "Tailwind CSS, MUI, Kendo UI, Styled Components, shadcn/ui, Figma, UX/UI",
+      "quality": "Jest, ESLint, manual and automated testing",
+      "versioning": "Git, GitLab, Azure Repos, Agile/Scrum (Jira, Trello)",
+      "frontendLabel": "JavaScript / TypeScript",
+      "backendLabel": "Back-end & Databases",
+      "crmLabel": "CRM / Backoffice systems",
+      "uiLabel": "Front-end & UI",
+      "qualityLabel": "Testing & Quality",
+      "versioningLabel": "Versioning & Methods"
+    },
+    "education": {
+      "heading": "Education",
+      "items": [
+        { "degree": "B.S. in Information Technology", "school": "Estácio · in progress (since 2022)" },
+        { "degree": "Technical Diploma in Computer Science", "school": "CTI — Colégio Técnico Industrial \"Prof. Isaac Portal Roldán\"" },
+        { "degree": "Technical Diploma in Computer Science", "school": "ETEC — Cidade do Livro" }
+      ],
+      "certsLabel": "Certifications",
+      "certsList": "Claude Code 101 — Anthropic (2026) · Front-End Development Libraries — freeCodeCamp (2023) · JavaScript Algorithms & Data Structures — freeCodeCamp (2023) · Intro to Software Development & Soft Skills — Cubos Academy (2023) · HTML / CSS / JavaScript / Networking / Data Modeling / Ethics — Fundação Bradesco"
+    },
+    "languages": {
+      "heading": "Languages",
+      "items": [
+        "Portuguese — Native (C2)",
+        "English — Advanced (C1)",
+        "Italian — Advanced (C1)",
+        "French — Intermediate (B1)",
+        "Spanish — Intermediate (B1)"
+      ]
+    }
+  },
+  "travelContent": {
+    "nav": { "back": "Portfolio" },
+    "hero": {
+      "label1": "Any Medola",
+      "label2": "Sicily Diaries",
+      "label3": "@anyinsicily",
+      "heading": "About Me",
+      "p1": "I've always chased good stories, but in 2019 I traded a suitcase full of guidebooks for a camera and moved to Sicily. Turns out the best plot twists happen when you get lost on purpose.",
+      "p2": "Today I film the journey in three languages — but my real dream is a trip so good it needs a fourth.",
+      "stat1": "3 LANGUAGES",
+      "stat2": "2 IG WORLDS",
+      "stat3": "∞ PLACES",
+      "cta": "See the work"
+    },
+    "process": {
+      "eyebrow": "What I make",
+      "title": "Behind the content.",
+      "lead": "Travel films, book unboxings and hand-built itineraries — filmed solo, edited fast, and told in three languages so the story actually reaches home.",
+      "tags": ["Shot solo", "Edited same day", "No stock footage"],
+      "steps": [
+        {
+          "num": "1",
+          "title": "Scouting",
+          "items": [
+            "Walk the town first, camera down — the good corners never show up on Google Maps.",
+            "Cross-check transit and opening hours on Moovit and Rome2Rio before committing to a route.",
+            "Talk to whoever's around; half my locations come from a barista's tip."
+          ]
+        },
+        {
+          "num": "2",
+          "title": "Filming",
+          "items": [
+            "Handheld, natural light only — golden hour dictates the whole day's schedule.",
+            "One take of the honest version before the polished one; the mess-ups usually perform better.",
+            "Everything shot solo, phone in one hand and a gimbal in the other."
+          ]
+        },
+        {
+          "num": "3",
+          "title": "Editing & posting",
+          "items": [
+            "Cut the same day it's shot — same-day posting keeps the light and the story consistent.",
+            "Captions written three times: Portuguese, English, Italian — never a straight translation.",
+            "Split across @anyinsicily and @anyemedola depending on the audience."
+          ]
+        }
+      ]
+    },
+    "carousel": {
+      "eyebrow": "Carousel",
+      "title": "Stories, one swipe at a time.",
+      "posts": [
+        { "title": "My Favorite<br>City Corner", "pin": "📍 Ragusa Version" },
+        { "title": "Morning<br>Spot", "pin": "📍 A Sciarria", "desc": "Where Rio meets Sicily — the café that feels like home." },
+        { "title": "Nature<br>in the City", "pin": "📍 Giardino Ibleo", "desc": "Ancient palms, shaded benches and the scent of citrus." },
+        { "title": "Baroque<br>Spot", "pin": "📍 Ragusa Ibla", "desc": "A rocky spur above the valley, frozen in golden hour." }
+      ]
+    },
+    "videos": {
+      "eyebrow": "Watch",
+      "title": "Films from the road.",
+      "items": [
+        { "title": "A day in Ragusa Ibla", "meta": "Travel film · @anyinsicily" },
+        { "title": "Book unboxing & review", "meta": "Books · reading is travel" },
+        { "title": "Getting around without a car", "meta": "Mobility tips · Sicily" }
+      ]
+    },
+    "gallery": {
+      "eyebrow": "The feed",
+      "title": "Golden hours & small streets.",
+      "quoteScript": "ready to wander?",
+      "quoteMain": "small streets,<br>big feelings"
+    },
+    "channels": {
+      "title": "follow<br>along",
+      "lead": "Two feeds, two languages, one same girl chasing good light.",
+      "handle1": "@anyinsicily",
+      "desc1": "Sicily & expat life",
+      "handle2": "@anyemedola",
+      "desc2": "Travel diary · PT"
+    },
+    "apps": {
+      "eyebrow": "Toolbox",
+      "title": "Apps I actually use."
+    },
+    "cta": {
+      "title": "Collabs, features &<br>content, in three languages.",
+      "lead": "Brands, tourism boards, publishers — let's make something beautiful."
+    },
+    "footer": {
+      "tagline": "Made with sun and saudade in Sicily.",
+      "meta": "Any Medola · Brazil → Italy · 2026"
+    }
   }
 }

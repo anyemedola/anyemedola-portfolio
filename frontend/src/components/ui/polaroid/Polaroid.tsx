@@ -26,12 +26,11 @@ export default function Polaroid({
 }: Props) {
   return (
     <S.Frame rotate={rotate} className={className}>
-      <S.ImageArea>
+      <S.ImageArea objectPosition={objectPosition}>
         <Image
           src={src}
           alt={alt}
           fill
-          style={{ objectFit: 'cover', objectPosition }}
           priority={priority}
         />
       </S.ImageArea>
