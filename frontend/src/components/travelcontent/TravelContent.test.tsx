@@ -27,6 +27,11 @@ jest.mock('@/components/ui/langtoggle/LangToggle', () => ({
   default: () => <div data-testid="lang-toggle" />,
 }));
 
+jest.mock('@/components/layout/Footer/Footer', () => ({
+  __esModule: true,
+  default: ({ variant }: { variant?: string }) => <div data-testid="footer" data-variant={variant} />,
+}));
+
 jest.mock('next/image', () => ({
   __esModule: true,
   default: ({ alt }: { alt: string }) => <img alt={alt} />,
@@ -71,28 +76,21 @@ describe('TravelContent', () => {
     expect(screen.getByText('A day in Ragusa Ibla')).toBeInTheDocument();
   });
 
-  it('renders links to both Instagram channels', () => {
-    render(<TravelContent />);
-    const hrefs = screen.getAllByRole('link').map((el) => el.getAttribute('href'));
-    expect(hrefs).toContain('https://www.instagram.com/anyinsicily/');
-    expect(hrefs).toContain('https://www.instagram.com/anyemedola/');
-  });
-
   it('renders the app toolbox names', () => {
     render(<TravelContent />);
     expect(screen.getByText('Rome2Rio')).toBeInTheDocument();
     expect(screen.getByText('Airbnb')).toBeInTheDocument();
   });
 
-  it('renders the CTA email link without a hash href', () => {
-    render(<TravelContent />);
-    const email = screen.getByRole('link', { name: 'anynhamedola@gmail.com' });
-    expect(email).toHaveAttribute('href', 'mailto:anynhamedola@gmail.com');
-  });
-
   it('the "See the work" CTA is a button, not a hash-fragment link', () => {
     render(<TravelContent />);
     const cta = screen.getByRole('button', { name: /See the work/ });
     expect(cta).not.toHaveAttribute('href');
+  });
+
+  it('renders the shared Footer component with variant="travel"', () => {
+    render(<TravelContent />);
+    const footer = screen.getByTestId('footer');
+    expect(footer).toHaveAttribute('data-variant', 'travel');
   });
 });

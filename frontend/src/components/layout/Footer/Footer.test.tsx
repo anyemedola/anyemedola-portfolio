@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import ContactSection from './Footer';
+import Footer from './Footer';
 
 jest.mock('react-i18next', () => ({
   useTranslation: () => ({
@@ -12,35 +12,45 @@ jest.mock('@/hooks/useScrollReveal', () => ({
   useScrollReveal: () => ({ current: null }),
 }));
 
-describe('ContactSection (Footer)', () => {
+describe('Footer', () => {
   it('renders without crashing', () => {
-    render(<ContactSection />);
+    render(<Footer />);
   });
 
-  it('has id="contato" on the root element', () => {
-    render(<ContactSection />);
+  it('defaults to variant="home" with id="contato" on the root element', () => {
+    render(<Footer />);
     expect(document.getElementById('contato')).toBeInTheDocument();
   });
 
   it('has aria-labelledby="contact-heading" and the heading element exists', () => {
-    render(<ContactSection />);
+    render(<Footer />);
     expect(document.getElementById('contato')).toHaveAttribute('aria-labelledby', 'contact-heading');
     expect(document.getElementById('contact-heading')).toBeInTheDocument();
   });
 
-  it('renders the section heading text', () => {
-    render(<ContactSection />);
+  it('renders the home variant phrase keys', () => {
+    render(<Footer variant="home" />);
+    expect(screen.getByText('contact.eyebrow')).toBeInTheDocument();
     expect(screen.getByText('contact.title')).toBeInTheDocument();
+    expect(screen.getByText('contact.p')).toBeInTheDocument();
+  });
+
+  it('renders the travel variant phrase keys on a distinct section id', () => {
+    render(<Footer variant="travel" />);
+    expect(screen.getByText('travelContent.contact.eyebrow')).toBeInTheDocument();
+    expect(screen.getByText('travelContent.contact.title')).toBeInTheDocument();
+    expect(screen.getByText('travelContent.contact.p')).toBeInTheDocument();
+    expect(document.getElementById('travel-contato')).toBeInTheDocument();
   });
 
   it('renders the email link with correct href', () => {
-    render(<ContactSection />);
+    render(<Footer />);
     const emailLink = screen.getByRole('link', { name: /contact@anyemedola\.com/i });
     expect(emailLink).toHaveAttribute('href', 'mailto:contact@anyemedola.com');
   });
 
   it('renders LinkedIn and GitHub social links', () => {
-    render(<ContactSection />);
+    render(<Footer />);
     expect(screen.getByRole('link', { name: /linkedin/i })).toHaveAttribute(
       'href',
       'https://www.linkedin.com/in/dev-anyemedola/',
@@ -52,18 +62,24 @@ describe('ContactSection (Footer)', () => {
   });
 
   it('renders the Instagram links for both accounts', () => {
-    render(<ContactSection />);
+    render(<Footer />);
     expect(screen.getByRole('link', { name: '@anyemedola' })).toBeInTheDocument();
     expect(screen.getByRole('link', { name: '@anyinsicily' })).toBeInTheDocument();
   });
 
+  it('renders the same email and social links regardless of variant', () => {
+    render(<Footer variant="travel" />);
+    expect(screen.getByRole('link', { name: /contact@anyemedola\.com/i })).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: '@anyinsicily' })).toBeInTheDocument();
+  });
+
   it('renders the footer bar with contentinfo role', () => {
-    render(<ContactSection />);
+    render(<Footer />);
     expect(screen.getByRole('contentinfo')).toBeInTheDocument();
   });
 
-  it('renders footer made and rights copy', () => {
-    render(<ContactSection />);
+  it('renders footer made and rights copy identically for both variants', () => {
+    render(<Footer variant="travel" />);
     expect(screen.getByText('contact.footerMade')).toBeInTheDocument();
     expect(screen.getByText('contact.footerRights')).toBeInTheDocument();
   });

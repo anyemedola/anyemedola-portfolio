@@ -525,25 +525,14 @@
       "quoteScript": "pronta pra vagar?",
       "quoteMain": "ruas pequenas,<br>sentimentos grandes"
     },
-    "channels": {
-      "title": "me<br>segue",
-      "lead": "Dois feeds, dois idiomas, a mesma garota caçando luz boa.",
-      "handle1": "@anyinsicily",
-      "desc1": "Sicília & vida de expat",
-      "handle2": "@anyemedola",
-      "desc2": "Diário de viagem · PT"
-    },
     "apps": {
       "eyebrow": "Caixa de ferramentas",
       "title": "Apps que eu realmente uso."
     },
-    "cta": {
-      "title": "Parcerias, participações &<br>conteúdo, em três idiomas.",
-      "lead": "Marcas, órgãos de turismo, editoras — vamos criar algo bonito."
-    },
-    "footer": {
-      "tagline": "Feito com sol e saudade na Sicília.",
-      "meta": "Any Medola · Brasil → Itália · 2026"
+    "contact": {
+      "eyebrow": "Vamos construir algo juntos.",
+      "title": "Conteúdo em 3 línguas",
+      "p": "Marcas, órgãos de turismo, editoras, outros viajantes — ou só alguém caçando o próximo pôr do sol. Tô a uma mensagem de distância."
     }
   }
 }

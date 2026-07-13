@@ -4,12 +4,25 @@ import { useTranslation } from 'react-i18next';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
 import * as S from './styles';
 
-export default function ContactSection() {
+export type FooterVariant = 'home' | 'travel';
+
+interface FooterProps {
+  variant?: FooterVariant;
+}
+
+const PHRASE_KEYS: Record<FooterVariant, { eyebrow: string; title: string; p: string }> = {
+  home: { eyebrow: 'contact.eyebrow', title: 'contact.title', p: 'contact.p' },
+  travel: { eyebrow: 'travelContent.contact.eyebrow', title: 'travelContent.contact.title', p: 'travelContent.contact.p' },
+};
+
+export default function Footer({ variant = 'home' }: FooterProps) {
   const ref = useScrollReveal();
   const { t } = useTranslation();
+  const phrases = PHRASE_KEYS[variant];
+  const sectionId = variant === 'home' ? 'contato' : 'travel-contato';
 
   return (
-    <S.ContactRoot id="contato" aria-labelledby="contact-heading" ref={ref}>
+    <S.ContactRoot id={sectionId} aria-labelledby="contact-heading" ref={ref}>
       <S.Star top="6%"  left="8%"  size={3} delay="0s"    color="#F5C0C3" aria-hidden="true" />
       <S.Star top="14%" left="55%" size={4} delay="0.6s"  color="#EFA8AC" aria-hidden="true" />
       <S.Star top="38%" left="72%" size={3} delay="1.1s"  color="#F5C0C3" aria-hidden="true" />
@@ -17,9 +30,9 @@ export default function ContactSection() {
       <S.Star top="80%" left="42%" size={3} delay="0.9s"  color="#F5C0C3" aria-hidden="true" />
       <S.Star top="22%" left="88%" size={4} delay="1.4s"  color="#EFA8AC" aria-hidden="true" />
       <S.Inner>
-        <S.Eyebrow className="reveal">{t('contact.eyebrow')}</S.Eyebrow>
-        <S.Title className="reveal" id="contact-heading">{t('contact.title')}</S.Title>
-        <S.ContactP className="reveal">{t('contact.p')}</S.ContactP>
+        <S.Eyebrow className="reveal">{t(phrases.eyebrow)}</S.Eyebrow>
+        <S.Title className="reveal" id="contact-heading">{t(phrases.title)}</S.Title>
+        <S.ContactP className="reveal">{t(phrases.p)}</S.ContactP>
 
         <S.Links className="reveal" aria-label="Contact links">
           <S.ContactLink href="mailto:contact@anyemedola.com">

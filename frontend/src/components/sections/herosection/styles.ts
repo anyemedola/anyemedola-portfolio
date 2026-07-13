@@ -3,6 +3,7 @@ import { keyframes } from '@emotion/react';
 import Link from 'next/link';
 import { tokens } from '@/theme/theme';
 import { Eyebrow as BaseEyebrow } from '@/components/ui/sectionheader/styles';
+import { ButtonPrimary, ButtonGhost, pillSecondaryBase } from '@/components/ui/button/styles';
 
 const portraitDrift = keyframes({
   from: { transform: 'translateY(0)' },
@@ -183,22 +184,7 @@ export const Cta = styled('div')({
   },
 });
 
-export const BtnPrimary = styled('button')({
-  fontFamily: "'Hanken Grotesk', var(--font-hanken), sans-serif",
-  fontSize: 14.5,
-  fontWeight: 700,
-  padding: '14px 26px',
-  borderRadius: 999,
-  border: 'none',
-  cursor: 'pointer',
-  background: '#1A615D',
-  color: '#fff',
-  boxShadow: '0 12px 30px rgba(26,97,93,0.32)',
-  transition: 'background .25s, box-shadow .25s',
-  '&:hover': {
-    background: '#0E4E4A',
-    boxShadow: '0 8px 20px rgba(26,97,93,0.4)',
-  },
+export const BtnPrimary = styled(ButtonPrimary)({
   '@media (max-width: 480px)': {
     padding: '11px 22px',
     fontSize: 14,
@@ -227,40 +213,9 @@ export const ResumeLabel = styled('span')({
   color: tokens.warmBrownMid,
 });
 
-export const ResumePill = styled(Link)({
-  fontFamily: "'Hanken Grotesk', var(--font-hanken), sans-serif",
-  fontSize: 13,
-  fontWeight: 600,
-  color: '#1A615D',
-  textDecoration: 'none',
-  padding: '8px 16px',
-  borderRadius: 999,
-  border: '1px solid rgba(26,97,93,0.25)',
-  display: 'inline-flex',
-  alignItems: 'center',
-  gap: 6,
-  transition: 'background .2s, border-color .2s',
-  '&:hover': {
-    background: 'rgba(26,97,93,0.07)',
-    borderColor: 'rgba(26,97,93,0.5)',
-  },
-});
+export const ResumePill = styled(Link)(pillSecondaryBase);
 
-export const BtnGhost = styled('button')({
-  fontFamily: "'Hanken Grotesk', var(--font-hanken), sans-serif",
-  fontSize: 14.5,
-  fontWeight: 700,
-  padding: '14px 26px',
-  borderRadius: 999,
-  cursor: 'pointer',
-  background: 'rgba(255,255,255,0.6)',
-  border: '1px solid rgba(26,97,93,0.3)',
-  color: '#1A615D',
-  transition: 'background .25s, color .25s',
-  '&:hover': {
-    background: 'rgba(255,255,255,0.85)',
-    color: '#0E4E4A',
-  },
+export const BtnGhost = styled(ButtonGhost)({
   '@media (max-width: 480px)': {
     padding: '11px 22px',
     fontSize: 14,

@@ -1,5 +1,6 @@
 import { styled } from '@mui/material/styles';
 import { tokens } from '@/theme/theme';
+import { ButtonPrimaryLink } from '@/components/ui/button/styles';
 
 export const EscritaRoot = styled('section')({
   scrollMarginTop: 70,
@@ -50,20 +51,10 @@ export const Lead = styled('p')({
   margin: '0 0 28px',
 });
 
-export const CtaBtn = styled('a')({
-  display: 'inline-block',
-  fontFamily: "'Hanken Grotesk', var(--font-hanken), sans-serif",
-  fontSize: 14.5,
-  fontWeight: 700,
-  color: '#fff',
-  background: '#1A615D',
+export const CtaBtn = styled(ButtonPrimaryLink)({
   padding: '13px 24px',
-  borderRadius: 999,
-  textDecoration: 'none',
   boxShadow: '0 10px 24px rgba(26,97,93,0.28)',
-  transition: 'background .25s, box-shadow .25s',
   '&:hover': {
-    background: '#0E4E4A',
     boxShadow: '0 6px 16px rgba(26,97,93,0.36)',
   },
 });

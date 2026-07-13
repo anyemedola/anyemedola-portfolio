@@ -1,6 +1,7 @@
 import { styled } from '@mui/material/styles';
 import Link from 'next/link';
 import { tokens } from '@/theme/theme';
+import { ButtonPrimary, pillSecondaryBase } from '@/components/ui/button/styles';
 
 export const TEAL = tokens.gold;
 export const INK = '#1C1916';
@@ -47,27 +48,22 @@ export const TopBarActions = styled('div')({
 });
 
 export const CreativeLink = styled(Link)({
-  fontFamily: "'Hanken Grotesk', var(--font-hanken), sans-serif",
+  ...pillSecondaryBase,
   fontSize: 12.5,
-  fontWeight: 600,
   color: '#857D75',
-  textDecoration: 'none',
   padding: '6px 14px',
-  borderRadius: 999,
   border: '1px solid rgba(40,30,30,0.15)',
+  '&:hover': {
+    background: 'rgba(40,30,30,0.05)',
+    borderColor: 'rgba(40,30,30,0.3)',
+  },
 });
 
-export const DownloadButton = styled('button')({
-  fontFamily: "'Hanken Grotesk', var(--font-hanken), sans-serif",
+export const DownloadButton = styled(ButtonPrimary)({
   fontSize: 13,
-  fontWeight: 700,
-  background: TEAL,
-  color: '#fff',
-  border: 'none',
-  borderRadius: 999,
   padding: '8px 20px',
-  cursor: 'pointer',
   boxShadow: '0 4px 14px rgba(26,97,93,0.3)',
+  '&:hover': { boxShadow: '0 4px 14px rgba(26,97,93,0.3)' },
 });
 
 export const PageBg = styled('div')({

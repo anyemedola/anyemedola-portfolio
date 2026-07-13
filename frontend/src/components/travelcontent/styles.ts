@@ -2,14 +2,19 @@ import { styled } from '@mui/material/styles';
 import Link from 'next/link';
 import Image from 'next/image';
 import { tokens } from '@/theme/theme';
+import { SectionInner } from '@/components/ui/sectioninner/styles';
+import { Eyebrow as BaseEyebrow, SectionTitle as BaseSectionTitle, Lead as BaseLead } from '@/components/ui/sectionheader/styles';
+import Polaroid from '@/components/ui/polaroid/Polaroid';
+import { ButtonPrimary } from '@/components/ui/button/styles';
 
 export const TEAL = tokens.gold;
 export const INK = tokens.goldDeep;
 export const SAGE = tokens.goldLight;
 export const BLOSSOM = tokens.rose;
-export const CARD_ICON_COLOR = '#8A9690';
+export const CARD_ICON_COLOR = tokens.warmBrownLight;
 
-const SECTION_PAD_X = 'clamp(20px, 6vw, 80px)';
+const FONT_HEADING = "'Bodoni Moda', var(--font-bodoni), serif";
+const FONT_BODY = "'Hanken Grotesk', var(--font-hanken), sans-serif";
 
 /* ───────────────────────── top bar ───────────────────────── */
 
@@ -20,235 +25,176 @@ export const TopBar = styled('div')({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'space-between',
-  padding: `10px ${SECTION_PAD_X}`,
-  background: 'rgba(251,246,239,0.92)',
+  padding: '14px 40px',
+  background: 'rgba(251,237,238,.82)',
   backdropFilter: 'blur(14px)',
-  borderBottom: '1px solid rgba(18,59,55,0.08)',
+  borderBottom: `1px solid ${tokens.border}`,
   gap: 12,
   flexWrap: 'wrap',
+  '@media (max-width: 900px)': { padding: '14px 22px' },
 });
 
 export const BackLink = styled(Link)({
-  fontFamily: "'Hanken Grotesk', var(--font-hanken), sans-serif",
-  fontSize: 13,
+  fontFamily: FONT_BODY,
+  fontSize: 14,
   fontWeight: 600,
-  color: TEAL,
+  color: tokens.gold,
   textDecoration: 'none',
   display: 'flex',
   alignItems: 'center',
   gap: 6,
+  transition: 'color .2s',
+  '&:hover': { color: tokens.roseDeep },
 });
 
 /* ───────────────────────── page root ───────────────────────── */
 
 export const PageRoot = styled('div')({
-  background: '#FBF6EF',
+  background: tokens.cream,
   overflow: 'hidden',
-});
-
-/* ───────────────────────── hero / notebook ───────────────────────── */
-
-export const HeroHeader = styled('header')({
-  position: 'relative',
-  padding: `0 ${SECTION_PAD_X} 100px`,
-  overflow: 'hidden',
-  background: 'linear-gradient(180deg,#FBF1E6 0%,#F3E6D6 52%,#DCE3C4 66%,#A9B87F 100%)',
-});
-
-export const HeroLabelRow = styled('div')({
-  position: 'relative',
-  display: 'flex',
-  justifyContent: 'space-between',
-  alignItems: 'center',
-  padding: '26px 0 0',
-  flexWrap: 'wrap',
-  gap: 8,
-});
-
-export const HeroLabel = styled('span')({
-  fontFamily: "'Space Mono',monospace",
-  fontSize: 12,
-  fontWeight: 700,
-  letterSpacing: '0.14em',
-  textTransform: 'uppercase',
-  color: INK,
-});
-
-export const Notebook = styled('div')({
-  position: 'relative',
-  maxWidth: 600,
-  margin: '64px auto 0',
-});
-
-export const HeroPin = styled('div', {
-  shouldForwardProp: (prop) => prop !== 'side',
-})<{ side: 'left' | 'right' }>(({ side }) => ({
-  position: 'absolute',
-  width: 140,
-  zIndex: 3,
-  ...(side === 'left'
-    ? { top: -46, left: -125, transform: 'rotate(-9deg)' }
-    : { bottom: -50, right: -120, transform: 'rotate(7deg)' }),
-  '@media (max-width: 900px)': { display: 'none' },
-}));
-
-export const HeroPinCard = styled('div')({
-  background: '#fff',
-  padding: '7px 7px 18px',
-  boxShadow: '0 18px 34px rgba(18,59,55,0.28)',
-});
-
-export const HeroPinPhoto = styled('div')({
-  position: 'relative',
-  aspectRatio: '4/5',
-  overflow: 'hidden',
-});
-
-export const HeroPinDot = styled('span', {
-  shouldForwardProp: (prop) => prop !== 'dotColor',
-})<{ dotColor: string }>(({ dotColor }) => ({
-  position: 'absolute',
-  top: -6,
-  left: '50%',
-  transform: 'translateX(-50%)',
-  width: 12,
-  height: 12,
-  borderRadius: '50%',
-  background: dotColor,
-  boxShadow: '0 2px 5px rgba(0,0,0,0.3)',
-}));
-
-export const NotebookPage = styled('div')({
-  position: 'relative',
-  background: '#FBF6EF',
-  borderRadius: 6,
-  boxShadow: '0 40px 90px rgba(18,59,55,0.3)',
-  padding: '48px 32px 36px',
-});
-
-export const SpiralRow = styled('div')({
-  position: 'absolute',
-  top: -12,
-  left: 22,
-  right: 22,
-  display: 'flex',
-  justifyContent: 'space-between',
-});
-
-export const SpiralRing = styled('span')({
-  width: 16,
-  height: 16,
-  borderRadius: '50%',
-  background: '#D8DACD',
-  boxShadow: 'inset 0 0 0 3px #FBF6EF, 0 1px 2px rgba(0,0,0,0.25)',
-});
-
-export const NotebookHeading = styled('div')({
-  fontFamily: "'Alex Brush',cursive",
-  fontSize: 48,
-  lineHeight: 1,
-  color: INK,
-  marginBottom: 16,
-});
-
-export const NotebookText = styled('p')({
-  fontFamily: "'Space Mono',monospace",
-  fontSize: 14,
-  lineHeight: 1.8,
-  color: '#2E3F3A',
-  margin: '0 0 18px',
-  '&:last-of-type': { marginBottom: 26 },
-});
-
-export const StatRow = styled('div')({
-  display: 'flex',
-  gap: 8,
-  flexWrap: 'wrap',
-  marginBottom: 26,
-});
-
-export const StatChip = styled('span', {
-  shouldForwardProp: (prop) => prop !== 'chipBg',
-})<{ chipBg: string }>(({ chipBg }) => ({
-  fontFamily: "'Space Mono',monospace",
-  fontSize: 11,
-  fontWeight: 700,
-  color: INK,
-  background: chipBg,
-  borderRadius: 5,
-  padding: '6px 11px',
-}));
-
-export const NotebookCta = styled('button')({
-  display: 'inline-flex',
-  alignItems: 'center',
-  gap: 8,
-  fontFamily: "'Space Mono',monospace",
-  fontSize: 13,
-  fontWeight: 700,
-  color: INK,
-  background: 'none',
-  border: 'none',
-  padding: 0,
-  textDecoration: 'none',
-  cursor: 'pointer',
 });
 
 /* ───────────────────────── shared section header ───────────────────────── */
 
-export const SectionEyebrow = styled('h2')({
-  fontFamily: "'Hanken Grotesk', var(--font-hanken), sans-serif",
-  fontSize: 12.5,
-  fontWeight: 800,
-  letterSpacing: '0.22em',
-  textTransform: 'uppercase',
-  color: TEAL,
-  margin: '0 0 8px',
+export const Inner = styled(SectionInner)({});
+
+export const Eyebrow = styled(BaseEyebrow)({
+  color: tokens.gold,
 });
 
-export const SectionTitle = styled('p')({
-  fontFamily: "'Newsreader', serif",
-  fontSize: 32,
-  color: INK,
-  margin: 0,
+export const SectionTitle = styled(BaseSectionTitle)({
+  fontSize: 'clamp(28px, 3.5vw, 44px)',
+});
+
+export const Lead = styled(BaseLead)({});
+
+export const SectionHeaderBlock = styled('div')({
+  marginBottom: 40,
+});
+
+/* ───────────────────────── hero ───────────────────────── */
+
+export const HeroHeader = styled('header')({
+  position: 'relative',
+  background: tokens.gradientCream,
+  scrollMarginTop: 70,
+});
+
+export const HeroInner = styled(SectionInner)({
+  padding: '64px 40px 96px',
+  '@media (max-width: 900px)': { padding: '48px 22px 64px' },
+});
+
+export const HeroGrid = styled('div')({
+  display: 'grid',
+  gridTemplateColumns: '1.1fr .9fr',
+  gap: 40,
+  alignItems: 'center',
+  '@media (max-width: 900px)': { gridTemplateColumns: '1fr', gap: 32 },
+});
+
+export const HeroLabelRow = styled('div')({
+  display: 'flex',
+  flexWrap: 'wrap',
+  gap: 16,
+  marginBottom: 20,
+});
+
+export const HeroLabel = styled('span')({
+  fontFamily: FONT_BODY,
+  fontSize: 12,
+  fontWeight: 700,
+  letterSpacing: '0.2em',
+  textTransform: 'uppercase',
+  color: tokens.gold,
+});
+
+export const HeroTitle = styled('h1')({
+  fontFamily: FONT_HEADING,
+  fontWeight: 900,
+  fontSize: 'clamp(40px, 5vw, 68px)',
+  lineHeight: 0.98,
+  letterSpacing: '-0.01em',
+  color: tokens.ink,
+  margin: '0 0 24px',
+});
+
+export const HeroBody = styled('p')({
+  fontFamily: FONT_BODY,
+  fontSize: 17,
+  lineHeight: 1.6,
+  color: tokens.warmBrown,
+  margin: '0 0 18px',
+  maxWidth: 480,
+  '&:last-of-type': { marginBottom: 28 },
+});
+
+export const HeroStatsRow = styled('div')({
+  display: 'flex',
+  flexWrap: 'wrap',
+  gap: 10,
+  marginBottom: 32,
+});
+
+export const HeroStatChip = styled('span')({
+  fontFamily: FONT_BODY,
+  fontSize: 12,
+  fontWeight: 700,
+  letterSpacing: '0.04em',
+  color: tokens.ink,
+  background: tokens.creamLight,
+  border: `1px solid ${tokens.borderLight}`,
+  borderRadius: 999,
+  padding: '8px 16px',
+});
+
+export const HeroCta = ButtonPrimary;
+
+export const HeroPhotos = styled('div')({
+  position: 'relative',
+  height: 420,
+  '@media (max-width: 900px)': { height: 320 },
+  '@media (max-width: 600px)': { display: 'none' },
+});
+
+export const HeroPhotoMain = styled(Polaroid)({
+  position: 'absolute',
+  top: 0,
+  left: 40,
+  width: 240,
+  height: 300,
+  zIndex: 1,
+});
+
+export const HeroPhotoSecondary = styled(Polaroid)({
+  position: 'absolute',
+  bottom: 0,
+  right: 10,
+  width: 200,
+  height: 250,
 });
 
 /* ───────────────────────── process ───────────────────────── */
 
 export const ProcessSection = styled('section')({
-  padding: `60px ${SECTION_PAD_X}`,
-  background: '#FBF6EF',
+  background: tokens.cream,
+  scrollMarginTop: 70,
 });
+
+export const ProcessInner = styled(SectionInner)({});
 
 export const ProcessGrid = styled('div')({
   display: 'grid',
   gridTemplateColumns: '0.85fr 1.15fr',
-  gap: 40,
+  gap: 48,
   alignItems: 'start',
-  '@media (max-width: 900px)': { gridTemplateColumns: '1fr' },
+  '@media (max-width: 900px)': { gridTemplateColumns: '1fr', gap: 32 },
 });
 
 export const ProcessSticky = styled('div')({
   position: 'sticky',
   top: 90,
   '@media (max-width: 900px)': { position: 'static' },
-});
-
-export const ProcessEyebrow = styled(SectionEyebrow)({ margin: '0 0 12px' });
-
-export const ProcessTitle = styled('p')({
-  fontFamily: "'Newsreader', serif",
-  fontSize: 34,
-  lineHeight: 1.1,
-  color: INK,
-  margin: '0 0 14px',
-});
-
-export const ProcessLead = styled('p')({
-  fontSize: 15,
-  lineHeight: 1.7,
-  color: '#4C5B56',
-  margin: '0 0 20px',
 });
 
 export const ProcessTagRow = styled('div')({
@@ -258,9 +204,10 @@ export const ProcessTagRow = styled('div')({
 });
 
 export const ProcessTag = styled('span')({
+  fontFamily: FONT_BODY,
   fontSize: 12.5,
   fontWeight: 600,
-  color: '#17403B',
+  color: tokens.ink,
   background: '#E4EAD6',
   borderRadius: 8,
   padding: '6px 11px',
@@ -269,17 +216,22 @@ export const ProcessTag = styled('span')({
 export const StepList = styled('div')({
   display: 'flex',
   flexDirection: 'column',
-  gap: 14,
+  gap: 16,
 });
 
 export const StepCard = styled('article')({
   display: 'grid',
   gridTemplateColumns: '60px 1fr',
-  gap: 16,
+  gap: 20,
   background: '#fff',
   borderRadius: 18,
-  padding: '22px 24px',
-  border: '1px solid rgba(26,97,93,0.12)',
+  padding: '26px 28px',
+  border: `1px solid ${tokens.borderLight}`,
+  transition: 'transform .4s cubic-bezier(.2,.7,.2,1), box-shadow .4s',
+  '&:hover': {
+    transform: 'translateY(-4px)',
+    boxShadow: '0 20px 40px -24px rgba(18,59,55,.35)',
+  },
 });
 
 export const StepNumWrap = styled('div')({
@@ -287,44 +239,42 @@ export const StepNumWrap = styled('div')({
 });
 
 export const StepLabel = styled('div')({
-  fontFamily: "'Newsreader', serif",
-  fontSize: 14,
+  fontFamily: FONT_HEADING,
   fontStyle: 'italic',
-  color: '#7C8A84',
+  fontSize: 14,
+  color: tokens.warmBrownLight,
 });
 
 export const StepNum = styled('div')({
-  fontFamily: "'Newsreader', serif",
-  fontSize: 34,
-  color: TEAL,
+  fontFamily: FONT_HEADING,
+  fontWeight: 700,
+  fontSize: 32,
+  color: tokens.goldDeep,
   lineHeight: 0.9,
 });
 
 export const StepTitle = styled('h3')({
-  fontFamily: "'Newsreader', serif",
-  fontSize: 22,
-  color: INK,
-  margin: '0 0 6px',
+  fontFamily: FONT_BODY,
+  fontWeight: 700,
+  fontSize: 20,
+  color: tokens.ink,
+  margin: '0 0 8px',
 });
 
 export const StepItems = styled('ul')({
   margin: 0,
   paddingLeft: 18,
-  fontSize: 13.5,
+  fontFamily: FONT_BODY,
+  fontSize: 14.5,
   lineHeight: 1.65,
-  color: '#4C5B56',
+  color: tokens.warmBrown,
 });
 
 /* ───────────────────────── carousel ───────────────────────── */
 
 export const CarouselSection = styled('section')({
-  padding: `10px ${SECTION_PAD_X} 70px`,
-  background: '#FBF6EF',
+  background: tokens.cream,
   overflow: 'hidden',
-});
-
-export const SectionHeaderBlock = styled('div')({
-  marginBottom: 30,
 });
 
 export const CarouselRow = styled('div')({
@@ -382,19 +332,19 @@ export const PostHeaderBar = styled('div')({
   flex: 1,
   height: 6,
   borderRadius: 3,
-  background: '#EDE8DE',
+  background: tokens.borderLight,
 });
 
 export const PostMoreDots = styled('div')({
   fontSize: 12,
-  color: '#B9C2BC',
+  color: tokens.warmBrownLight,
   letterSpacing: 1,
 });
 
 export const PostPhotoWrap = styled('div')({
   position: 'relative',
   aspectRatio: '4/5',
-  background: '#F1ECE1',
+  background: tokens.creamLight,
 });
 
 export const PostScrim = styled('div')({
@@ -408,8 +358,9 @@ export const PostHandle = styled('div')({
   position: 'absolute',
   top: 9,
   left: 9,
-  background: INK,
+  background: tokens.goldDeep,
   color: '#fff',
+  fontFamily: FONT_BODY,
   fontSize: 9.5,
   fontWeight: 700,
   letterSpacing: '0.03em',
@@ -422,10 +373,11 @@ export const PostCaption = styled('div')({
   left: 9,
   bottom: 12,
   right: 9,
-  fontFamily: "'Anton',sans-serif",
+  fontFamily: FONT_HEADING,
+  fontWeight: 900,
   textTransform: 'uppercase',
-  fontSize: 22,
-  lineHeight: 0.94,
+  fontSize: 20,
+  lineHeight: 0.98,
   color: '#fff',
   textShadow: '0 2px 12px rgba(0,0,0,0.35)',
 });
@@ -440,9 +392,10 @@ export const PostPin = styled('div', {
   display: 'inline-flex',
   alignItems: 'center',
   gap: 4,
+  fontFamily: FONT_BODY,
   fontSize: 10.5,
   fontWeight: 700,
-  color: INK,
+  color: tokens.goldDeep,
   background: pinBg,
   padding: '4px 9px',
   borderRadius: 999,
@@ -450,9 +403,10 @@ export const PostPin = styled('div', {
 }));
 
 export const PostDesc = styled('p')({
+  fontFamily: FONT_BODY,
   fontSize: 11,
   lineHeight: 1.5,
-  color: '#6B7973',
+  color: tokens.warmBrownMid,
   margin: 0,
 });
 
@@ -469,14 +423,13 @@ export const IconRow = styled('div')({
 /* ───────────────────────── videos ───────────────────────── */
 
 export const VideosSection = styled('section')({
-  padding: `10px ${SECTION_PAD_X} 56px`,
-  background: '#FBF6EF',
+  background: tokens.cream,
 });
 
 export const VideosGrid = styled('div')({
   display: 'grid',
   gridTemplateColumns: '1fr 1fr 1fr',
-  gap: 18,
+  gap: 22,
   '@media (max-width: 900px)': { gridTemplateColumns: '1fr' },
 });
 
@@ -508,20 +461,22 @@ export const PlayButton = styled('span')({
   alignItems: 'center',
   justifyContent: 'center',
   fontSize: 18,
-  color: TEAL,
+  color: tokens.gold,
   boxShadow: '0 8px 24px rgba(0,0,0,0.25)',
 });
 
 export const VideoCaption = styled('figcaption')({
-  fontSize: 13.5,
+  fontFamily: FONT_BODY,
+  fontSize: 14,
   fontWeight: 700,
-  color: INK,
+  color: tokens.ink,
   marginTop: 10,
 });
 
 export const VideoMeta = styled('div')({
+  fontFamily: FONT_BODY,
   fontSize: 12,
-  color: '#6B7973',
+  color: tokens.warmBrownLight,
 });
 
 /* ───────────────────────── placeholder slot ───────────────────────── */
@@ -532,14 +487,14 @@ export const Placeholder = styled('div')({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
-  background: 'linear-gradient(150deg,#EEF2E4,#E4EAD6)',
+  background: tokens.gradientCream,
 });
 
 export const PlaceholderLabel = styled('span')({
-  fontFamily: "'Space Mono',monospace",
+  fontFamily: FONT_BODY,
   fontSize: 10.5,
   fontWeight: 700,
-  color: '#8A9690',
+  color: tokens.warmBrownLight,
   letterSpacing: '0.06em',
   textTransform: 'uppercase',
 });
@@ -547,14 +502,8 @@ export const PlaceholderLabel = styled('span')({
 /* ───────────────────────── gallery ───────────────────────── */
 
 export const GallerySection = styled('section')({
-  padding: `56px ${SECTION_PAD_X} 70px`,
-  background: 'linear-gradient(180deg,#EEF2E4,#E6EDD6)',
+  background: tokens.gradientCream,
   overflow: 'hidden',
-});
-
-export const GalleryHeaderBlock = styled('div')({
-  marginBottom: 36,
-  textAlign: 'center',
 });
 
 export const GalleryRow = styled('div')({
@@ -593,14 +542,14 @@ export const GalleryDot = styled('div')({
   width: 22,
   height: 22,
   borderRadius: '50%',
-  background: '#E9E4DA',
+  background: tokens.borderLight,
   flexShrink: 0,
 });
 
 export const GalleryPhotoWrap = styled('div')({
   position: 'relative',
   aspectRatio: '3/4',
-  background: '#F1ECE1',
+  background: tokens.creamLight,
   overflow: 'hidden',
 });
 
@@ -613,17 +562,19 @@ export const QuoteTextWrap = styled('div')({
 });
 
 export const QuoteScript = styled('div')({
-  fontFamily: "'Alex Brush',cursive",
-  fontSize: 20,
-  color: '#C96A45',
+  fontFamily: FONT_HEADING,
+  fontStyle: 'italic',
+  fontSize: 18,
+  color: tokens.roseDeep,
 });
 
 export const QuoteMain = styled('div')({
-  fontFamily: "'Newsreader', serif",
+  fontFamily: FONT_HEADING,
+  fontWeight: 700,
   fontStyle: 'italic',
-  fontSize: 25,
-  lineHeight: 1.05,
-  color: INK,
+  fontSize: 23,
+  lineHeight: 1.08,
+  color: tokens.ink,
   marginTop: 6,
 });
 
@@ -639,88 +590,10 @@ export const GalleryFooter = styled('div')({
   padding: '10px 12px',
 });
 
-/* ───────────────────────── channels ───────────────────────── */
-
-export const ChannelsSection = styled('section')({
-  padding: `26px ${SECTION_PAD_X} 30px`,
-  background: '#EDE4D3',
-});
-
-export const ChannelsGrid = styled('div')({
-  display: 'grid',
-  gridTemplateColumns: 'minmax(180px, 340px) auto auto',
-  gap: 18,
-  alignItems: 'center',
-  justifyContent: 'center',
-  '@media (max-width: 900px)': { gridTemplateColumns: '1fr' },
-});
-
-export const ChannelsScript = styled('div')({
-  fontFamily: "'Alex Brush',cursive",
-  fontSize: 30,
-  lineHeight: 0.92,
-  color: INK,
-});
-
-export const ChannelsLead = styled('p')({
-  fontFamily: "'Space Mono',monospace",
-  fontSize: 9.5,
-  lineHeight: 1.6,
-  color: '#5A665F',
-  margin: '8px 0 0',
-  maxWidth: '20ch',
-});
-
-export const IgCard = styled('a', {
-  shouldForwardProp: (prop) => prop !== '$rotate',
-})<{ $rotate: number }>(({ $rotate }) => ({
-  display: 'block',
-  textDecoration: 'none',
-  width: 120,
-  transform: `rotate(${$rotate}deg)`,
-  transition: 'transform .25s ease',
-  '&:hover': { transform: 'translateY(-6px) rotate(0deg)' },
-}));
-
-export const IgCardInner = styled('div')({
-  background: '#fff',
-  padding: '6px 6px 18px',
-  boxShadow: '0 10px 20px rgba(18,59,55,0.18)',
-});
-
-export const IgPhotoWrap = styled('div')({
-  position: 'relative',
-  aspectRatio: '4/5',
-  overflow: 'hidden',
-});
-
-export const IgHandle = styled('div')({
-  fontFamily: "'Space Mono',monospace",
-  fontSize: 10,
-  fontWeight: 700,
-  color: INK,
-  textAlign: 'center',
-  marginTop: 8,
-});
-
-export const IgDesc = styled('div')({
-  fontFamily: "'Space Mono',monospace",
-  fontSize: 8,
-  color: '#7A7368',
-  textAlign: 'center',
-  marginTop: 3,
-});
-
 /* ───────────────────────── app toolbox ───────────────────────── */
 
 export const AppsSection = styled('section')({
-  padding: `50px ${SECTION_PAD_X} 70px`,
-  background: 'linear-gradient(180deg,#E6EDD6,#EEF2E4)',
-});
-
-export const AppsHeaderBlock = styled('div')({
-  marginBottom: 30,
-  textAlign: 'center',
+  background: tokens.gradientCream,
 });
 
 export const PhoneFrameWrap = styled('div')({
@@ -731,14 +604,14 @@ export const PhoneFrameWrap = styled('div')({
 export const PhoneFrame = styled('div')({
   width: 270,
   borderRadius: 40,
-  background: INK,
+  background: tokens.goldDeep,
   padding: 12,
   boxShadow: '0 30px 60px rgba(18,59,55,0.35)',
 });
 
 export const PhoneScreen = styled('div')({
   position: 'relative',
-  background: '#FBF6EF',
+  background: tokens.cream,
   borderRadius: 28,
   padding: '40px 18px 20px',
   minHeight: 480,
@@ -752,7 +625,7 @@ export const PhoneNotch = styled('div')({
   width: 90,
   height: 18,
   borderRadius: 999,
-  background: INK,
+  background: tokens.goldDeep,
 });
 
 export const AppGrid = styled('div')({
@@ -780,88 +653,10 @@ export const AppIconWrap = styled('div', {
 }));
 
 export const AppName = styled('div')({
-  fontSize: 10,
-  fontWeight: 700,
-  color: INK,
-});
-
-/* ───────────────────────── CTA ───────────────────────── */
-
-export const CtaSection = styled('section')({
-  padding: `64px ${SECTION_PAD_X}`,
-  background: 'linear-gradient(165deg,#FBEDEE,#F2BEC1 70%,#EFA8AC)',
-  textAlign: 'center',
-});
-
-export const CtaTitle = styled('h2')({
-  fontFamily: "'Newsreader', serif",
-  fontWeight: 400,
-  fontSize: 36,
-  lineHeight: 1.1,
-  color: INK,
-  margin: '0 0 12px',
-});
-
-export const CtaLead = styled('p')({
-  fontFamily: "'Newsreader', serif",
-  fontStyle: 'italic',
-  fontSize: 17,
-  color: '#526059',
-  margin: '0 0 26px',
-});
-
-export const CtaButtonRow = styled('div')({
-  display: 'flex',
-  justifyContent: 'center',
-  gap: 12,
-  flexWrap: 'wrap',
-});
-
-export const CtaEmailButton = styled('a')({
-  fontSize: 14,
-  fontWeight: 700,
-  color: '#fff',
-  background: TEAL,
-  padding: '14px 28px',
-  borderRadius: 999,
-  textDecoration: 'none',
-  boxShadow: '0 12px 30px rgba(26,97,93,0.32)',
-});
-
-export const CtaGhostButton = styled('a')({
-  fontSize: 14,
-  fontWeight: 700,
-  color: TEAL,
-  background: 'rgba(255,255,255,0.65)',
-  border: '1px solid rgba(26,97,93,0.3)',
-  padding: '14px 28px',
-  borderRadius: 999,
-  textDecoration: 'none',
-});
-
-/* ───────────────────────── footer ───────────────────────── */
-
-export const PageFooter = styled('footer')({
-  padding: `22px ${SECTION_PAD_X}`,
-  background: '#0E2A28',
-  color: '#93A39C',
-  display: 'flex',
-  justifyContent: 'space-between',
-  alignItems: 'center',
-  flexWrap: 'wrap',
-  gap: 10,
-});
-
-export const FooterTagline = styled('span')({
-  fontFamily: "'Newsreader', serif",
-  fontStyle: 'italic',
-  fontSize: 14,
-});
-
-export const FooterMeta = styled('span')({
+  fontFamily: FONT_BODY,
   fontSize: 11,
-  letterSpacing: '0.16em',
-  textTransform: 'uppercase',
+  fontWeight: 700,
+  color: tokens.ink,
 });
 
 /* ───────────────────────── images ───────────────────────── */

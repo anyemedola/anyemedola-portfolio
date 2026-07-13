@@ -3,6 +3,7 @@
 import { useTranslation } from 'react-i18next';
 import LemonCursor from '@/components/ui/cursor/lemonCursor';
 import LangToggle from '@/components/ui/langtoggle/LangToggle';
+import Footer from '@/components/layout/Footer/Footer';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
 import * as S from './styles';
 
@@ -21,12 +22,7 @@ interface D {
   carousel: { eyebrow: string; title: string; posts: CarouselPost[]; };
   videos: { eyebrow: string; title: string; items: VideoItem[]; };
   gallery: { eyebrow: string; title: string; quoteScript: string; quoteMain: string; };
-  channels: {
-    title: string; lead: string; handle1: string; desc1: string; handle2: string; desc2: string;
-  };
   apps: { eyebrow: string; title: string; };
-  cta: { title: string; lead: string; };
-  footer: { tagline: string; meta: string; };
 }
 
 const appTools = [
@@ -95,10 +91,6 @@ export default function TravelContent() {
 
   return (
     <>
-      <link rel="preconnect" href="https://fonts.googleapis.com" />
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-      <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Anton&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
-
       <LemonCursor />
 
       <S.TopBar>
@@ -108,261 +100,225 @@ export default function TravelContent() {
 
       <S.PageRoot ref={ref}>
 
-        {/* HERO — notebook */}
-        <S.HeroHeader>
-          <S.HeroLabelRow>
-            <S.HeroLabel>{d.hero.label1}</S.HeroLabel>
-            <S.HeroLabel>{d.hero.label2}</S.HeroLabel>
-            <S.HeroLabel>{d.hero.label3}</S.HeroLabel>
-          </S.HeroLabelRow>
+        {/* HERO */}
+        <S.HeroHeader aria-labelledby="travel-hero-heading">
+          <S.HeroInner>
+            <S.HeroGrid>
+              <div>
+                <S.HeroLabelRow>
+                  <S.HeroLabel>{d.hero.label1}</S.HeroLabel>
+                  <S.HeroLabel>{d.hero.label2}</S.HeroLabel>
+                  <S.HeroLabel>{d.hero.label3}</S.HeroLabel>
+                </S.HeroLabelRow>
 
-          <S.Notebook className="reveal">
-            <S.HeroPin side="left">
-              <S.HeroPinCard>
-                <S.HeroPinPhoto>
-                  <S.CoverImage src="/travel-content-photo-1.jpg" alt="Any em Ragusa Ibla ao pôr do sol" fill sizes="140px" />
-                </S.HeroPinPhoto>
-              </S.HeroPinCard>
-              <S.HeroPinDot dotColor={S.BLOSSOM} />
-            </S.HeroPin>
+                <S.HeroTitle className="reveal" id="travel-hero-heading">{d.hero.heading}</S.HeroTitle>
+                <S.HeroBody className="reveal">{d.hero.p1}</S.HeroBody>
+                <S.HeroBody className="reveal">{d.hero.p2}</S.HeroBody>
 
-            <S.HeroPin side="right">
-              <S.HeroPinCard>
-                <S.HeroPinPhoto>
-                  <S.CoverImage src="/travel-content-photo-2.jpg" alt="Any assistindo ao pôr do sol no mar" fill sizes="140px" />
-                </S.HeroPinPhoto>
-              </S.HeroPinCard>
-              <S.HeroPinDot dotColor={S.SAGE} />
-            </S.HeroPin>
+                <S.HeroStatsRow className="reveal">
+                  <S.HeroStatChip>{d.hero.stat1}</S.HeroStatChip>
+                  <S.HeroStatChip>{d.hero.stat2}</S.HeroStatChip>
+                  <S.HeroStatChip>{d.hero.stat3}</S.HeroStatChip>
+                </S.HeroStatsRow>
 
-            <S.NotebookPage>
-              <S.SpiralRow>
-                {Array.from({ length: 7 }).map((_, i) => <S.SpiralRing key={i} />)}
-              </S.SpiralRow>
+                <S.HeroCta
+                  className="reveal"
+                  type="button"
+                  onClick={() => document.getElementById('toolbox-process')?.scrollIntoView({ behavior: 'smooth' })}
+                >
+                  {d.hero.cta}
+                  <svg width="24" height="13" viewBox="0 0 26 14" fill="none" stroke="#fff" strokeWidth="1.6"><path d="M0 7h24M18 1l6 6-6 6" /></svg>
+                </S.HeroCta>
+              </div>
 
-              <S.NotebookHeading>{d.hero.heading}</S.NotebookHeading>
-              <S.NotebookText>{d.hero.p1}</S.NotebookText>
-              <S.NotebookText>{d.hero.p2}</S.NotebookText>
-              <S.StatRow>
-                <S.StatChip chipBg="#E4EAD6">{d.hero.stat1}</S.StatChip>
-                <S.StatChip chipBg="#F2BEC1">{d.hero.stat2}</S.StatChip>
-                <S.StatChip chipBg="#E9E4DA">{d.hero.stat3}</S.StatChip>
-              </S.StatRow>
-              <S.NotebookCta
-                type="button"
-                onClick={() => document.getElementById('toolbox-process')?.scrollIntoView({ behavior: 'smooth' })}
-              >
-                {d.hero.cta}
-                <svg width="24" height="13" viewBox="0 0 26 14" fill="none" stroke={S.INK} strokeWidth="1.6"><path d="M0 7h24M18 1l6 6-6 6" /></svg>
-              </S.NotebookCta>
-            </S.NotebookPage>
-          </S.Notebook>
+              <S.HeroPhotos aria-hidden="true" className="reveal">
+                <S.HeroPhotoMain
+                  src="/travel-content-photo-1.jpg"
+                  alt="Any em Ragusa Ibla ao pôr do sol"
+                  rotate={-4}
+                />
+                <S.HeroPhotoSecondary
+                  src="/travel-content-photo-2.jpg"
+                  alt="Any assistindo ao pôr do sol no mar"
+                  rotate={4}
+                />
+              </S.HeroPhotos>
+            </S.HeroGrid>
+          </S.HeroInner>
         </S.HeroHeader>
 
         {/* CONTENT & PROCESS */}
-        <S.ProcessSection id="toolbox-process">
-          <S.ProcessGrid>
-            <S.ProcessSticky>
-              <S.ProcessEyebrow>{d.process.eyebrow}</S.ProcessEyebrow>
-              <S.ProcessTitle>{d.process.title}</S.ProcessTitle>
-              <S.ProcessLead>{d.process.lead}</S.ProcessLead>
-              <S.ProcessTagRow>
-                {d.process.tags.map((tag) => <S.ProcessTag key={tag}>{tag}</S.ProcessTag>)}
-              </S.ProcessTagRow>
-            </S.ProcessSticky>
-            <S.StepList>
-              {d.process.steps.map((step) => (
-                <S.StepCard key={step.num} className="reveal">
-                  <S.StepNumWrap>
-                    <S.StepLabel>Step</S.StepLabel>
-                    <S.StepNum>{step.num}</S.StepNum>
-                  </S.StepNumWrap>
-                  <div>
-                    <S.StepTitle>{step.title}</S.StepTitle>
-                    <S.StepItems>
-                      {step.items.map((item, i) => <li key={i}>{item}</li>)}
-                    </S.StepItems>
-                  </div>
-                </S.StepCard>
-              ))}
-            </S.StepList>
-          </S.ProcessGrid>
+        <S.ProcessSection id="toolbox-process" aria-labelledby="process-heading">
+          <S.ProcessInner>
+            <S.ProcessGrid>
+              <S.ProcessSticky>
+                <S.Eyebrow className="reveal">{d.process.eyebrow}</S.Eyebrow>
+                <S.SectionTitle className="reveal" id="process-heading">{d.process.title}</S.SectionTitle>
+                <S.Lead className="reveal">{d.process.lead}</S.Lead>
+                <S.ProcessTagRow>
+                  {d.process.tags.map((tag) => <S.ProcessTag key={tag}>{tag}</S.ProcessTag>)}
+                </S.ProcessTagRow>
+              </S.ProcessSticky>
+              <S.StepList>
+                {d.process.steps.map((step) => (
+                  <S.StepCard key={step.num} className="reveal">
+                    <S.StepNumWrap>
+                      <S.StepLabel>Step</S.StepLabel>
+                      <S.StepNum>{step.num}</S.StepNum>
+                    </S.StepNumWrap>
+                    <div>
+                      <S.StepTitle>{step.title}</S.StepTitle>
+                      <S.StepItems>
+                        {step.items.map((item, i) => <li key={i}>{item}</li>)}
+                      </S.StepItems>
+                    </div>
+                  </S.StepCard>
+                ))}
+              </S.StepList>
+            </S.ProcessGrid>
+          </S.ProcessInner>
         </S.ProcessSection>
 
         {/* SOCIAL POST CAROUSEL */}
-        <S.CarouselSection>
-          <S.SectionHeaderBlock>
-            <S.SectionEyebrow>{d.carousel.eyebrow}</S.SectionEyebrow>
-            <S.SectionTitle>{d.carousel.title}</S.SectionTitle>
-          </S.SectionHeaderBlock>
-          <S.CarouselRow className="reveal">
-            {d.carousel.posts.map((post, i) => {
-              const img = carouselImages[i];
-              return (
-                <S.FanCard
-                  key={post.pin}
-                  $offset={i !== 0}
-                  $rotate={carouselRotations[i]}
-                  $translateY={carouselOffsetY[i]}
-                  $z={10 + i * 10}
-                >
-                  <S.PostCard>
-                    <S.PostHeaderRow>
-                      <S.PostDot dotColor={carouselDots[i]} />
-                      <S.PostHeaderBar />
-                      <S.PostMoreDots>···</S.PostMoreDots>
-                    </S.PostHeaderRow>
-                    <S.PostPhotoWrap>
-                      {img ? (
-                        <S.CoverImage src={img} alt={post.title.replace('<br>', ' ')} fill sizes="200px" />
-                      ) : (
-                        <PlaceholderSlot label="Post photo" />
-                      )}
-                      <S.PostScrim />
-                      <S.PostHandle>anyinsicily</S.PostHandle>
-                      <S.PostCaption dangerouslySetInnerHTML={{ __html: post.title }} />
-                    </S.PostPhotoWrap>
-                    <S.PostFooter>
-                      <S.PostPin pinBg={carouselDots[i]}>{post.pin}</S.PostPin>
-                      {post.desc && <S.PostDesc>{post.desc}</S.PostDesc>}
-                    </S.PostFooter>
-                    <S.CardIconsRow><CardIcons /></S.CardIconsRow>
-                  </S.PostCard>
-                </S.FanCard>
-              );
-            })}
-          </S.CarouselRow>
+        <S.CarouselSection aria-labelledby="carousel-heading">
+          <S.Inner>
+            <S.SectionHeaderBlock>
+              <S.Eyebrow className="reveal">{d.carousel.eyebrow}</S.Eyebrow>
+              <S.SectionTitle className="reveal" id="carousel-heading">{d.carousel.title}</S.SectionTitle>
+            </S.SectionHeaderBlock>
+            <S.CarouselRow className="reveal">
+              {d.carousel.posts.map((post, i) => {
+                const img = carouselImages[i];
+                return (
+                  <S.FanCard
+                    key={post.pin}
+                    $offset={i !== 0}
+                    $rotate={carouselRotations[i]}
+                    $translateY={carouselOffsetY[i]}
+                    $z={10 + i * 10}
+                  >
+                    <S.PostCard>
+                      <S.PostHeaderRow>
+                        <S.PostDot dotColor={carouselDots[i]} />
+                        <S.PostHeaderBar />
+                        <S.PostMoreDots>···</S.PostMoreDots>
+                      </S.PostHeaderRow>
+                      <S.PostPhotoWrap>
+                        {img ? (
+                          <S.CoverImage src={img} alt={post.title.replace('<br>', ' ')} fill sizes="200px" />
+                        ) : (
+                          <PlaceholderSlot label="Post photo" />
+                        )}
+                        <S.PostScrim />
+                        <S.PostHandle>anyinsicily</S.PostHandle>
+                        <S.PostCaption dangerouslySetInnerHTML={{ __html: post.title }} />
+                      </S.PostPhotoWrap>
+                      <S.PostFooter>
+                        <S.PostPin pinBg={carouselDots[i]}>{post.pin}</S.PostPin>
+                        {post.desc && <S.PostDesc>{post.desc}</S.PostDesc>}
+                      </S.PostFooter>
+                      <S.CardIconsRow><CardIcons /></S.CardIconsRow>
+                    </S.PostCard>
+                  </S.FanCard>
+                );
+              })}
+            </S.CarouselRow>
+          </S.Inner>
         </S.CarouselSection>
 
         {/* FEATURED VIDEOS */}
-        <S.VideosSection>
-          <S.SectionHeaderBlock>
-            <S.SectionEyebrow>{d.videos.eyebrow}</S.SectionEyebrow>
-            <S.SectionTitle>{d.videos.title}</S.SectionTitle>
-          </S.SectionHeaderBlock>
-          <S.VideosGrid>
-            {d.videos.items.map((video) => (
-              <S.VideoFigure key={video.title} className="reveal">
-                <S.VideoThumbWrap>
-                  <PlaceholderSlot label="Reel cover" />
-                  <S.PlayButtonWrap>
-                    <S.PlayButton>▶</S.PlayButton>
-                  </S.PlayButtonWrap>
-                </S.VideoThumbWrap>
-                <S.VideoCaption>{video.title}</S.VideoCaption>
-                <S.VideoMeta>{video.meta}</S.VideoMeta>
-              </S.VideoFigure>
-            ))}
-          </S.VideosGrid>
+        <S.VideosSection aria-labelledby="videos-heading">
+          <S.Inner>
+            <S.SectionHeaderBlock>
+              <S.Eyebrow className="reveal">{d.videos.eyebrow}</S.Eyebrow>
+              <S.SectionTitle className="reveal" id="videos-heading">{d.videos.title}</S.SectionTitle>
+            </S.SectionHeaderBlock>
+            <S.VideosGrid>
+              {d.videos.items.map((video) => (
+                <S.VideoFigure key={video.title} className="reveal">
+                  <S.VideoThumbWrap>
+                    <PlaceholderSlot label="Reel cover" />
+                    <S.PlayButtonWrap>
+                      <S.PlayButton>▶</S.PlayButton>
+                    </S.PlayButtonWrap>
+                  </S.VideoThumbWrap>
+                  <S.VideoCaption>{video.title}</S.VideoCaption>
+                  <S.VideoMeta>{video.meta}</S.VideoMeta>
+                </S.VideoFigure>
+              ))}
+            </S.VideosGrid>
+          </S.Inner>
         </S.VideosSection>
 
         {/* PHOTO GALLERY */}
-        <S.GallerySection>
-          <S.GalleryHeaderBlock>
-            <S.SectionEyebrow>{d.gallery.eyebrow}</S.SectionEyebrow>
-            <S.SectionTitle>{d.gallery.title}</S.SectionTitle>
-          </S.GalleryHeaderBlock>
-          <S.GalleryRow className="reveal">
-            {galleryCells.map((cell, i) => (
-              <S.GalleryCard key={i} $offset={i !== 0}>
-                <S.GalleryHeaderRow>
-                  <S.GalleryDot />
-                  <S.PostHeaderBar />
-                  <S.PostMoreDots>···</S.PostMoreDots>
-                </S.GalleryHeaderRow>
-                <S.GalleryPhotoWrap>
-                  {cell.quote ? (
-                    <>
-                      <S.QuoteTextWrap>
-                        <S.QuoteScript>{d.gallery.quoteScript}</S.QuoteScript>
-                        <S.QuoteMain dangerouslySetInnerHTML={{ __html: d.gallery.quoteMain }} />
-                      </S.QuoteTextWrap>
-                      <S.QuotePhotoWrap>
-                        <S.CoverImage src="/travel-content-photo-1.jpg" alt="Any nas ruas de Ragusa Ibla" fill sizes="200px" />
-                      </S.QuotePhotoWrap>
-                    </>
-                  ) : cell.img ? (
-                    <S.CoverImage src={cell.img} alt="Foto da Sicília" fill sizes="200px" />
-                  ) : (
-                    <PlaceholderSlot label="Photo" />
-                  )}
-                </S.GalleryPhotoWrap>
-                <S.GalleryFooter><CardIcons /></S.GalleryFooter>
-              </S.GalleryCard>
-            ))}
-          </S.GalleryRow>
+        <S.GallerySection aria-labelledby="gallery-heading">
+          <S.Inner>
+            <S.SectionHeaderBlock>
+              <S.Eyebrow className="reveal">{d.gallery.eyebrow}</S.Eyebrow>
+              <S.SectionTitle className="reveal" id="gallery-heading">{d.gallery.title}</S.SectionTitle>
+            </S.SectionHeaderBlock>
+            <S.GalleryRow className="reveal">
+              {galleryCells.map((cell, i) => (
+                <S.GalleryCard key={i} $offset={i !== 0}>
+                  <S.GalleryHeaderRow>
+                    <S.GalleryDot />
+                    <S.PostHeaderBar />
+                    <S.PostMoreDots>···</S.PostMoreDots>
+                  </S.GalleryHeaderRow>
+                  <S.GalleryPhotoWrap>
+                    {cell.quote ? (
+                      <>
+                        <S.QuoteTextWrap>
+                          <S.QuoteScript>{d.gallery.quoteScript}</S.QuoteScript>
+                          <S.QuoteMain dangerouslySetInnerHTML={{ __html: d.gallery.quoteMain }} />
+                        </S.QuoteTextWrap>
+                        <S.QuotePhotoWrap>
+                          <S.CoverImage src="/travel-content-photo-1.jpg" alt="Any nas ruas de Ragusa Ibla" fill sizes="200px" />
+                        </S.QuotePhotoWrap>
+                      </>
+                    ) : cell.img ? (
+                      <S.CoverImage src={cell.img} alt="Foto da Sicília" fill sizes="200px" />
+                    ) : (
+                      <PlaceholderSlot label="Photo" />
+                    )}
+                  </S.GalleryPhotoWrap>
+                  <S.GalleryFooter><CardIcons /></S.GalleryFooter>
+                </S.GalleryCard>
+              ))}
+            </S.GalleryRow>
+          </S.Inner>
         </S.GallerySection>
 
-        {/* CHANNELS */}
-        <S.ChannelsSection>
-          <S.ChannelsGrid className="reveal">
-            <div>
-              <S.ChannelsScript dangerouslySetInnerHTML={{ __html: d.channels.title }} />
-              <S.ChannelsLead>{d.channels.lead}</S.ChannelsLead>
-            </div>
-
-            <S.IgCard href="https://www.instagram.com/anyinsicily/" target="_blank" rel="noopener noreferrer" $rotate={-3}>
-              <S.IgCardInner>
-                <S.IgPhotoWrap>
-                  <S.CoverImage src="/travel-content-photo-1.jpg" alt="@anyinsicily" fill sizes="120px" />
-                </S.IgPhotoWrap>
-                <S.IgHandle>{d.channels.handle1}</S.IgHandle>
-                <S.IgDesc>{d.channels.desc1}</S.IgDesc>
-              </S.IgCardInner>
-            </S.IgCard>
-
-            <S.IgCard href="https://www.instagram.com/anyemedola/" target="_blank" rel="noopener noreferrer" $rotate={3}>
-              <S.IgCardInner>
-                <S.IgPhotoWrap>
-                  <S.CoverImage src="/travel-content-photo-3.jpg" alt="@anyemedola" fill sizes="120px" />
-                </S.IgPhotoWrap>
-                <S.IgHandle>{d.channels.handle2}</S.IgHandle>
-                <S.IgDesc>{d.channels.desc2}</S.IgDesc>
-              </S.IgCardInner>
-            </S.IgCard>
-          </S.ChannelsGrid>
-        </S.ChannelsSection>
-
         {/* APP TIPS */}
-        <S.AppsSection>
-          <S.AppsHeaderBlock>
-            <S.SectionEyebrow>{d.apps.eyebrow}</S.SectionEyebrow>
-            <S.SectionTitle>{d.apps.title}</S.SectionTitle>
-          </S.AppsHeaderBlock>
-          <S.PhoneFrameWrap className="reveal">
-            <S.PhoneFrame>
-              <S.PhoneScreen>
-                <S.PhoneNotch />
-                <S.AppGrid>
-                  {appTools.map((tool) => (
-                    <S.AppCell key={tool.name}>
-                      <S.AppIconWrap iconBg={tool.bg}>
-                        <AppIcon icon={tool.icon} stroke={'stroke' in tool ? tool.stroke : '#fff'} />
-                      </S.AppIconWrap>
-                      <S.AppName>{tool.name}</S.AppName>
-                    </S.AppCell>
-                  ))}
-                </S.AppGrid>
-              </S.PhoneScreen>
-            </S.PhoneFrame>
-          </S.PhoneFrameWrap>
+        <S.AppsSection aria-labelledby="apps-heading">
+          <S.Inner>
+            <S.SectionHeaderBlock>
+              <S.Eyebrow className="reveal">{d.apps.eyebrow}</S.Eyebrow>
+              <S.SectionTitle className="reveal" id="apps-heading">{d.apps.title}</S.SectionTitle>
+            </S.SectionHeaderBlock>
+            <S.PhoneFrameWrap className="reveal">
+              <S.PhoneFrame>
+                <S.PhoneScreen>
+                  <S.PhoneNotch />
+                  <S.AppGrid>
+                    {appTools.map((tool) => (
+                      <S.AppCell key={tool.name}>
+                        <S.AppIconWrap iconBg={tool.bg}>
+                          <AppIcon icon={tool.icon} stroke={'stroke' in tool ? tool.stroke : '#fff'} />
+                        </S.AppIconWrap>
+                        <S.AppName>{tool.name}</S.AppName>
+                      </S.AppCell>
+                    ))}
+                  </S.AppGrid>
+                </S.PhoneScreen>
+              </S.PhoneFrame>
+            </S.PhoneFrameWrap>
+          </S.Inner>
         </S.AppsSection>
 
-        {/* CTA */}
-        <S.CtaSection className="reveal">
-          <S.CtaTitle dangerouslySetInnerHTML={{ __html: d.cta.title }} />
-          <S.CtaLead>{d.cta.lead}</S.CtaLead>
-          <S.CtaButtonRow>
-            <S.CtaEmailButton href="mailto:anynhamedola@gmail.com">anynhamedola@gmail.com</S.CtaEmailButton>
-            <S.CtaGhostButton href="https://www.instagram.com/anyinsicily/" target="_blank" rel="noopener noreferrer">@anyinsicily</S.CtaGhostButton>
-          </S.CtaButtonRow>
-        </S.CtaSection>
-
-        <S.PageFooter>
-          <S.FooterTagline>{d.footer.tagline}</S.FooterTagline>
-          <S.FooterMeta>{d.footer.meta}</S.FooterMeta>
-        </S.PageFooter>
       </S.PageRoot>
+
+      <Footer variant="travel" />
     </>
   );
 }

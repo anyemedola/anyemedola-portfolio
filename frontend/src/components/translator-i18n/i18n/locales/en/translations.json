@@ -525,25 +525,14 @@
       "quoteScript": "ready to wander?",
       "quoteMain": "small streets,<br>big feelings"
     },
-    "channels": {
-      "title": "follow<br>along",
-      "lead": "Two feeds, two languages, one same girl chasing good light.",
-      "handle1": "@anyinsicily",
-      "desc1": "Sicily & expat life",
-      "handle2": "@anyemedola",
-      "desc2": "Travel diary · PT"
-    },
     "apps": {
       "eyebrow": "Toolbox",
       "title": "Apps I actually use."
     },
-    "cta": {
-      "title": "Collabs, features &<br>content, in three languages.",
-      "lead": "Brands, tourism boards, publishers — let's make something beautiful."
-    },
-    "footer": {
-      "tagline": "Made with sun and saudade in Sicily.",
-      "meta": "Any Medola · Brazil → Italy · 2026"
+    "contact": {
+      "eyebrow": "Let's build something together.",
+      "title": "Content in three languages.",
+      "p": "Brands, tourism boards, publishers, fellow travelers — or just someone chasing the next sunset. I'm one message away."
     }
   }
 }

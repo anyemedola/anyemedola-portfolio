@@ -525,25 +525,14 @@
       "quoteScript": "pronta a vagare?",
       "quoteMain": "piccole strade,<br>grandi emozioni"
     },
-    "channels": {
-      "title": "seguimi<br>qui",
-      "lead": "Due feed, due lingue, la stessa ragazza a caccia di buona luce.",
-      "handle1": "@anyinsicily",
-      "desc1": "Sicilia & vita da expat",
-      "handle2": "@anyemedola",
-      "desc2": "Diario di viaggio · PT"
-    },
     "apps": {
       "eyebrow": "Cassetta degli attrezzi",
       "title": "App che uso davvero."
     },
-    "cta": {
-      "title": "Collaborazioni, feature &<br>contenuti, in tre lingue.",
-      "lead": "Brand, enti del turismo, editori — creiamo qualcosa di bello."
-    },
-    "footer": {
-      "tagline": "Fatto con sole e saudade in Sicilia.",
-      "meta": "Any Medola · Brasile → Italia · 2026"
+    "contact": {
+      "eyebrow": "Costruiamo qualcosa insieme.",
+      "title": "Contenti in 3 lingue.",
+      "p": "Brand, enti del turismo, editori, altri viaggiatori — o solo qualcuno a caccia del prossimo tramonto. Sono a un messaggio di distanza."
     }
   }
 }

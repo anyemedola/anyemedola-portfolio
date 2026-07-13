@@ -1,6 +1,7 @@
 import { styled } from '@mui/material/styles';
 import Link from 'next/link';
 import { tokens } from '@/theme/theme';
+import { ButtonPrimary, pillSecondaryBase } from '@/components/ui/button/styles';
 
 export const TEAL = tokens.gold;
 export const INK = tokens.goldDeep;
@@ -32,7 +33,7 @@ export const TopBar = styled('div')({
 });
 
 export const BackLink = styled(Link)({
-  fontFamily: "'Hanken Grotesk', sans-serif",
+  fontFamily: "'Hanken Grotesk', var(--font-hanken), sans-serif",
   fontSize: 13,
   fontWeight: 600,
   color: TEAL,
@@ -50,27 +51,17 @@ export const TopBarActions = styled('div')({
 });
 
 export const AtsLink = styled(Link)({
-  fontFamily: "'Hanken Grotesk', sans-serif",
+  ...pillSecondaryBase,
   fontSize: 12.5,
-  fontWeight: 600,
   color: MUTED,
-  textDecoration: 'none',
   padding: '6px 14px',
-  borderRadius: 999,
-  border: '1px solid rgba(18,59,55,0.15)',
 });
 
-export const DownloadButton = styled('button')({
-  fontFamily: "'Hanken Grotesk', sans-serif",
+export const DownloadButton = styled(ButtonPrimary)({
   fontSize: 13,
-  fontWeight: 700,
-  background: TEAL,
-  color: '#fff',
-  border: 'none',
-  borderRadius: 999,
   padding: '8px 20px',
-  cursor: 'pointer',
   boxShadow: '0 4px 14px rgba(26,97,93,0.3)',
+  '&:hover': { boxShadow: '0 4px 14px rgba(26,97,93,0.3)' },
 });
 
 /* ───────────────────────── page / doc ───────────────────────── */
@@ -162,7 +153,7 @@ export const TaglineDash = styled('span')({
 });
 
 export const Name = styled('h1')({
-  fontFamily: "'Newsreader', serif",
+  fontFamily: "'Bodoni Moda', var(--font-bodoni), serif",
   fontWeight: 400,
   fontSize: 78,
   lineHeight: 0.92,
@@ -173,7 +164,7 @@ export const Name = styled('h1')({
 });
 
 export const RoleLine = styled('p')({
-  fontFamily: "'Hanken Grotesk', sans-serif",
+  fontFamily: "'Hanken Grotesk', var(--font-hanken), sans-serif",
   fontWeight: 700,
   fontSize: 14.5,
   letterSpacing: '0.05em',
@@ -184,7 +175,7 @@ export const RoleLine = styled('p')({
 });
 
 export const QuoteLine = styled('p')({
-  fontFamily: "'Newsreader', serif",
+  fontFamily: "'Bodoni Moda', var(--font-bodoni), serif",
   fontStyle: 'italic',
   fontWeight: 300,
   fontSize: 21,
@@ -266,7 +257,7 @@ export const SectionSmallGap = styled('section')({
 });
 
 export const SectionHeading = styled('h2')({
-  fontFamily: "'Hanken Grotesk', sans-serif",
+  fontFamily: "'Hanken Grotesk', var(--font-hanken), sans-serif",
   fontSize: 12,
   fontWeight: 800,
   letterSpacing: '0.22em',
@@ -278,7 +269,7 @@ export const SectionHeading = styled('h2')({
 /* ───────────────────────── about ───────────────────────── */
 
 export const AboutText = styled('p')({
-  fontFamily: "'Newsreader', serif",
+  fontFamily: "'Bodoni Moda', var(--font-bodoni), serif",
   fontWeight: 400,
   fontSize: 19,
   lineHeight: 1.58,
@@ -308,7 +299,7 @@ export const JobItem = styled('div', {
 }));
 
 export const JobPeriod = styled('div')({
-  fontFamily: "'Hanken Grotesk', sans-serif",
+  fontFamily: "'Hanken Grotesk', var(--font-hanken), sans-serif",
   fontSize: 12.5,
   fontWeight: 700,
   color: MUTED,
@@ -321,7 +312,7 @@ export const JobPeriodEnd = styled('span')({
 });
 
 export const JobRole = styled('h3')({
-  fontFamily: "'Newsreader', serif",
+  fontFamily: "'Bodoni Moda', var(--font-bodoni), serif",
   fontWeight: 500,
   fontSize: 21,
   color: INK,
@@ -476,7 +467,7 @@ export const EduSchool = styled('div')({
 /* ───────────────────────── beyond the code ───────────────────────── */
 
 export const BeyondSubtitle = styled('p')({
-  fontFamily: "'Newsreader', serif",
+  fontFamily: "'Bodoni Moda', var(--font-bodoni), serif",
   fontStyle: 'italic',
   fontWeight: 300,
   fontSize: 17,
@@ -541,7 +532,7 @@ export const Footer = styled('footer')({
 });
 
 export const FooterTagline = styled('span')({
-  fontFamily: "'Newsreader', serif",
+  fontFamily: "'Bodoni Moda', var(--font-bodoni), serif",
   fontStyle: 'italic',
   fontSize: 14,
   color: '#8A9791',

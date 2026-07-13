@@ -1,5 +1,6 @@
 import { styled } from '@mui/material/styles';
 import { tokens } from '@/theme/theme';
+import { ButtonPrimary } from '@/components/ui/button/styles';
 
 export const HeaderRoot = styled('header')({
   position: 'sticky',
@@ -75,21 +76,12 @@ export const NavBtn = styled('button')({
   cursor: 'pointer',
 });
 
-export const CtaBtn = styled('button')({
-  fontFamily: "'Hanken Grotesk', var(--font-hanken), sans-serif",
+export const CtaBtn = styled(ButtonPrimary)({
   fontSize: 14,
-  fontWeight: 700,
   padding: '9px 18px',
-  borderRadius: 999,
-  background: '#1A615D',
-  color: '#fff',
-  border: 'none',
-  cursor: 'pointer',
-  transition: 'background .25s',
+  boxShadow: 'none',
   whiteSpace: 'nowrap',
-  '&:hover': {
-    background: '#0E4E4A',
-  },
+  '&:hover': { boxShadow: 'none' },
   '@media (max-width: 900px)': {
     display: 'none',
   },
