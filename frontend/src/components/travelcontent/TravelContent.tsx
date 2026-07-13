@@ -44,8 +44,8 @@ const carouselDots = ['#E4EAD6', '#F2BEC1', '#B8C897', '#EFA8AC'];
 const carouselImages = ['/9.png', '/1.png', '/withS.png', '/6.png'];
 
 const galleryCells = [
-  { img: '/brera.JPEG', quote: false },
-  { img: '/coconut.jpg', quote: false },
+  { img: '/brera.jpeg', quote: false },
+  { img: '/coconut.JPG', quote: false },
   { img: '/7.png', quote: false },
   { img: '/sunset.PNG', quote: false },
 ];
@@ -181,7 +181,7 @@ export default function TravelContent() {
                   rotate={-4}
                 />
                 <S.HeroPhotoSecondary
-                  src="/brazil.JPEG"
+                  src="/brazil.jpeg"
                   alt="Any assistindo ao pôr do sol no mar"
                   rotate={4}
                 />
