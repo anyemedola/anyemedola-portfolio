@@ -1,10 +1,12 @@
 'use client';
 
+import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import LemonCursor from '@/components/ui/cursor/lemonCursor';
 import LangToggle from '@/components/ui/langtoggle/LangToggle';
 import Footer from '@/components/layout/Footer/Footer';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
+import { useAutoplayVideo } from '@/hooks/useAutoplayVideo';
 import * as S from './styles';
 
 interface ProcessStep { num: string; title: string; items: string[]; }
@@ -14,7 +16,7 @@ interface D {
   nav: { back: string };
   hero: {
     label1: string; label2: string; label3: string; heading: string;
-    p1: string; p2: string; stat1: string; stat2: string; stat3: string; cta: string;
+    p1: string; p2: string; p3: string; p4: string; stat1: string; stat2: string; stat3: string; cta: string;
   };
   process: {
     eyebrow: string; title: string; lead: string; tags: string[]; steps: ProcessStep[];
@@ -39,14 +41,16 @@ const appTools = [
 const carouselRotations = [-7, 4, -3, 6];
 const carouselOffsetY = [14, -10, 8, -4];
 const carouselDots = ['#E4EAD6', '#F2BEC1', '#B8C897', '#EFA8AC'];
-const carouselImages = ['/travel-content-photo-2.jpg', null, null, '/travel-content-photo-1.jpg'];
+const carouselImages = ['/9.png', '/1.png', '/withS.png', '/6.png'];
 
 const galleryCells = [
-  { img: '/travel-content-photo-2.jpg', quote: false },
-  { img: '/expat.jpeg', quote: false },
-  { img: null, quote: true },
-  { img: null, quote: false },
+  { img: '/brera.JPEG', quote: false },
+  { img: '/coconut.jpg', quote: false },
+  { img: '/7.png', quote: false },
+  { img: '/sunset.PNG', quote: false },
 ];
+
+const videoSources = ['/ibla_passeio.mp4', '/kiko.mp4', '/receita.mp4', '/portuguese.mp4'];
 
 function CardIcons() {
   return (
@@ -81,11 +85,48 @@ function PlaceholderSlot({ label }: { label: string }) {
   );
 }
 
+function VideoCard({ src, title, meta, onOpen }: { src: string; title: string; meta: string; onOpen: () => void }) {
+  const ref = useAutoplayVideo<HTMLDivElement>();
+
+  return (
+    <S.VideoFigure className="reveal">
+      <S.VideoThumbWrap
+        ref={ref}
+        role="button"
+        tabIndex={0}
+        aria-label={`Play ${title} with sound`}
+        onClick={onOpen}
+        onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); onOpen(); } }}
+      >
+        <S.VideoEl src={src} muted loop playsInline preload="metadata" aria-hidden="true" />
+        <S.PlayButtonWrap aria-hidden="true">
+          <S.PlayButton>🔇</S.PlayButton>
+        </S.PlayButtonWrap>
+      </S.VideoThumbWrap>
+      <S.VideoCaption>{title}</S.VideoCaption>
+      <S.VideoMeta>{meta}</S.VideoMeta>
+    </S.VideoFigure>
+  );
+}
+
 export default function TravelContent() {
   const { i18n } = useTranslation();
   const d: D = ((i18n.getResourceBundle(i18n.language, 'translations') ??
                  i18n.getResourceBundle('en', 'translations'))?.travelContent) as D;
   const ref = useScrollReveal();
+  const [activeVideo, setActiveVideo] = useState<number | null>(null);
+
+  useEffect(() => {
+    if (activeVideo === null) return;
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    const handleKeyDown = (e: KeyboardEvent) => { if (e.key === 'Escape') setActiveVideo(null); };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => {
+      document.body.style.overflow = prevOverflow;
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [activeVideo]);
 
   if (!d) return null;
 
@@ -114,6 +155,8 @@ export default function TravelContent() {
                 <S.HeroTitle className="reveal" id="travel-hero-heading">{d.hero.heading}</S.HeroTitle>
                 <S.HeroBody className="reveal">{d.hero.p1}</S.HeroBody>
                 <S.HeroBody className="reveal">{d.hero.p2}</S.HeroBody>
+                <S.HeroBody className="reveal">{d.hero.p3}</S.HeroBody>
+                <S.HeroBody className="reveal">{d.hero.p4}</S.HeroBody>
 
                 <S.HeroStatsRow className="reveal">
                   <S.HeroStatChip>{d.hero.stat1}</S.HeroStatChip>
@@ -138,7 +181,7 @@ export default function TravelContent() {
                   rotate={-4}
                 />
                 <S.HeroPhotoSecondary
-                  src="/travel-content-photo-2.jpg"
+                  src="/brazil.JPEG"
                   alt="Any assistindo ao pôr do sol no mar"
                   rotate={4}
                 />
@@ -211,7 +254,6 @@ export default function TravelContent() {
                         )}
                         <S.PostScrim />
                         <S.PostHandle>anyinsicily</S.PostHandle>
-                        <S.PostCaption dangerouslySetInnerHTML={{ __html: post.title }} />
                       </S.PostPhotoWrap>
                       <S.PostFooter>
                         <S.PostPin pinBg={carouselDots[i]}>{post.pin}</S.PostPin>
@@ -234,17 +276,14 @@ export default function TravelContent() {
               <S.SectionTitle className="reveal" id="videos-heading">{d.videos.title}</S.SectionTitle>
             </S.SectionHeaderBlock>
             <S.VideosGrid>
-              {d.videos.items.map((video) => (
-                <S.VideoFigure key={video.title} className="reveal">
-                  <S.VideoThumbWrap>
-                    <PlaceholderSlot label="Reel cover" />
-                    <S.PlayButtonWrap>
-                      <S.PlayButton>▶</S.PlayButton>
-                    </S.PlayButtonWrap>
-                  </S.VideoThumbWrap>
-                  <S.VideoCaption>{video.title}</S.VideoCaption>
-                  <S.VideoMeta>{video.meta}</S.VideoMeta>
-                </S.VideoFigure>
+              {d.videos.items.map((video, i) => (
+                <VideoCard
+                  key={video.title}
+                  src={videoSources[i]}
+                  title={video.title}
+                  meta={video.meta}
+                  onOpen={() => setActiveVideo(i)}
+                />
               ))}
             </S.VideosGrid>
           </S.Inner>
@@ -319,6 +358,23 @@ export default function TravelContent() {
       </S.PageRoot>
 
       <Footer variant="travel" />
+
+      {activeVideo !== null && (
+        <S.LightboxOverlay onClick={() => setActiveVideo(null)}>
+          <S.LightboxContent onClick={(e) => e.stopPropagation()}>
+            <S.LightboxClose type="button" aria-label="Close video" onClick={() => setActiveVideo(null)}>✕</S.LightboxClose>
+            <S.LightboxVideo
+              key={videoSources[activeVideo]}
+              src={videoSources[activeVideo]}
+              controls
+              autoPlay
+              playsInline
+            />
+            <S.LightboxCaption>{d.videos.items[activeVideo].title}</S.LightboxCaption>
+            <S.LightboxMeta>{d.videos.items[activeVideo].meta}</S.LightboxMeta>
+          </S.LightboxContent>
+        </S.LightboxOverlay>
+      )}
     </>
   );
 }

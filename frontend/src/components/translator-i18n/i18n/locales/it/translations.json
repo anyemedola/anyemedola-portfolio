@@ -458,8 +458,10 @@
       "label2": "Sicily Diaries",
       "label3": "@anyinsicily",
       "heading": "About Me",
-      "p1": "Ho sempre inseguito buone storie, ma nel 2019 ho scambiato una valigia piena di guide di viaggio per una macchina fotografica e mi sono trasferita in Sicilia. A quanto pare i colpi di scena migliori succedono quando ti perdi di proposito.",
-      "p2": "Oggi filmo il viaggio in tre lingue — ma il mio vero sogno è un viaggio così bello da averne bisogno di una quarta.",
+      "p1": "Non ho iniziato a creare quando sono arrivata in Sicilia — ho solo portato la creatività con me.",
+      "p2": "OPrima dell’isola, ero modella in Brasile, dando voce alle storie di piccole attività che si affidavano alla mia comunicazione. Dopo il trasferimento, ho rivolto la videocamera alla vita quotidiana: unboxing di makeup, recensioni di libri e i capitoli del perché ho scelto di vivere su un’isola.",
+      "p3": "La mia creatività è brasiliana, la mia comunicazione è istintiva e la mia curiosità è multilingue. Parlo cinque lingue, sto imparando una sesta e filmo in quelle che sembrano giuste per il momento.",
+      "p4": "Ho perseguito storie non perché siano belle, ma perché siano vere — e perché so come trasformarle in qualcosa che le persone vogliono guardare.",
       "stat1": "3 LINGUE",
       "stat2": "2 MONDI IG",
       "stat3": "∞ POSTI",
@@ -504,10 +506,10 @@
       "eyebrow": "Carosello",
       "title": "Stories, uno swipe alla volta.",
       "posts": [
-        { "title": "Il Mio Angolo<br>di Città Preferito", "pin": "📍 Versione Ragusa" },
-        { "title": "Angolo<br>Mattutino", "pin": "📍 A Sciarria", "desc": "Dove Rio incontra la Sicilia — il bar che sembra casa." },
-        { "title": "Natura<br>in Città", "pin": "📍 Giardino Ibleo", "desc": "Palme secolari, panchine all'ombra e il profumo degli agrumi." },
-        { "title": "Angolo<br>Barocco", "pin": "📍 Ragusa Ibla", "desc": "Uno sperone roccioso sopra la valle, congelato nella golden hour." }
+        { "title": "Il Mio Angolo<br>di Città Preferito", "pin": "📍 Versione Italia", "desc": "Questo è ciò che sembra l'equilibrio… vero?" },
+        { "title": "Angolo<br>Mattutino", "pin": "📍 Sicilia", "desc": "La Sicilia non ti cambia con rumore — ti libera, piano piano, da ciò che non era mai tuo." },
+        { "title": "Natura<br>in Città", "pin": "📍 Brasile", "desc": "Se questo collage ti sembra familiare, probabilmente siamo cresciuti nello stesso paese. 🇧🇷✨" },
+        { "title": "Angolo<br>Barocco", "pin": "📍 A Sciarria", "desc": "UPOV: hai trovato quel punto della Sicilia che sembra un segreto custodito solo per te." }
       ]
     },
     "videos": {
@@ -515,8 +517,9 @@
       "title": "Film dalla strada.",
       "items": [
         { "title": "Un giorno a Ragusa Ibla", "meta": "Film di viaggio · @anyinsicily" },
-        { "title": "Unboxing & recensione di un libro", "meta": "Libri · leggere è viaggiare" },
-        { "title": "Muoversi senza auto", "meta": "Consigli di mobilità · Sicilia" }
+        { "title": "Recensione trucco", "meta": "Beauty · @anyinsicily" },
+        { "title": "Come fare il gelato alla Nutella", "meta": "Ricetta · Ninja Kitchen" },
+        { "title": "curiosità sul Brasile 🇧🇷", "meta": "Talking head" }
       ]
     },
     "gallery": {

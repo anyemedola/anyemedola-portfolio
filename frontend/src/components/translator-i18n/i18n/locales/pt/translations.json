@@ -66,7 +66,7 @@
     },
     "job6": {
       "period": "Fev — Set 2022",
-      "company": "S2 Pets · São Paulo, Brazil (Remoto)",
+      "company": "S2 Pets · São Paulo, Brasil (Remoto)",
       "role": "Front-End Developer",
       "desc": "Construí recursos mobile e web com Ionic, Angular e Firebase para o app MEUPET — incluindo uma feature de achados e perdidos por geolocalização e uma calculadora de IMC."
     },
@@ -458,8 +458,10 @@
       "label2": "Sicily Diaries",
       "label3": "@anyinsicily",
       "heading": "About Me",
-      "p1": "Sempre persegui boas histórias, mas em 2019 troquei uma mala cheia de guias de viagem por uma câmera e me mudei para a Sicília. Acontece que as melhores reviravoltas da trama acontecem quando você se perde de propósito.",
-      "p2": "Hoje eu filmo a jornada em três idiomas — mas meu sonho de verdade é uma viagem tão boa que precise de um quarto idioma.",
+      "p1": "Eu não comecei a criar quando cheguei à Sicília — eu só trouxe a criação comigo.",
+      "p2": "Antes da ilha, eu era modelo no Brasil, dando vida a histórias para pequenas marcas que confiavam na minha voz. Depois da mudança, virei a câmera para o cotidiano: unboxing de maquiagem, resenhas de livros e os capítulos sobre por que escolhi morar em uma ilha.",
+      "p3": "Minha criatividade é brasileira, minha comunicação é instintiva e minha curiosidade é multilíngue. Eu falo cinco idiomas, estou aprendendo um sexto e filmo nos que parecem certos para o momento.",
+      "p4": "Eu persegui histórias não porque elas são bonitas, mas porque são reais — e porque sei como transformá-las em algo que as pessoas querem assistir.",
       "stat1": "3 IDIOMAS",
       "stat2": "2 MUNDOS NO IG",
       "stat3": "∞ LUGARES",
@@ -504,10 +506,10 @@
       "eyebrow": "Carrossel",
       "title": "Stories, um swipe de cada vez.",
       "posts": [
-        { "title": "Meu Canto<br>Favorito da Cidade", "pin": "📍 Versão Ragusa" },
-        { "title": "Cantinho<br>da Manhã", "pin": "📍 A Sciarria", "desc": "Onde o Rio encontra a Sicília — o café que parece casa." },
-        { "title": "Natureza<br>na Cidade", "pin": "📍 Giardino Ibleo", "desc": "Palmeiras centenárias, bancos à sombra e o perfume de citros." },
-        { "title": "Cantinho<br>Barroco", "pin": "📍 Ragusa Ibla", "desc": "Um espigão rochoso acima do vale, congelado na golden hour." }
+        { "title": "Meu Canto<br>Favorito da Cidade", "pin": "📍 Versão Italiana", "desc": "É com isso que alimentação balanceada se parece, não?"},
+        { "title": "Cantinho<br>da Manhã", "pin": "📍 Sicília", "desc": "A Sicília não muda você com barulho — ela só tira, aos poucos, o que nunca foi seu." },
+        { "title": "Natureza<br>na Cidade", "pin": "📍 Brasil", "desc": "Se essa colagem faz sentido pra você, provavelmente crescemos no mesmo país. 🇧🇷✨" },
+        { "title": "Cantinho<br>Barroco", "pin": "📍 A Sciarria", "desc": "POV: você achou aquele canto da Sicília que parece um segredo guardado só pra você." }
       ]
     },
     "videos": {
@@ -515,8 +517,9 @@
       "title": "Filmes da estrada.",
       "items": [
         { "title": "Um dia em Ragusa Ibla", "meta": "Filme de viagem · @anyinsicily" },
-        { "title": "Unboxing & resenha de livro", "meta": "Livros · ler é viajar" },
-        { "title": "Se locomovendo sem carro", "meta": "Dicas de mobilidade · Sicília" }
+        { "title": "Resenha de maquiagem", "meta": "Beleza · @anyinsicily" },
+        { "title": "Como fazer sorvete de Nutella", "meta": "Receita · Ninja Kitchen" },
+        { "title": "curiosidades sobre o Brasil 🇧🇷", "meta": "Talking head" }
       ]
     },
     "gallery": {

@@ -458,8 +458,10 @@
       "label2": "Sicily Diaries",
       "label3": "@anyinsicily",
       "heading": "About Me",
-      "p1": "I've always chased good stories, but in 2019 I traded a suitcase full of guidebooks for a camera and moved to Sicily. Turns out the best plot twists happen when you get lost on purpose.",
-      "p2": "Today I film the journey in three languages — but my real dream is a trip so good it needs a fourth.",
+      "p1": "I didn’t start creating when I arrived in Sicily — I brought creation with me.",
+      "p2": "Before the island, I was a model in Brazil, shaping stories for small brands that trusted my voice. After the move, I turned my camera toward the everyday: makeup unboxings, book reviews, and the chapters of my own journey.",
+      "p3": "My creativity is Brazilian, my communication is instinctive, and my curiosity is multilingual. I speak five languages, I’m learning a sixth, and I film in the ones that feel right for the moment.",
+      "p4": "I chase stories not because they’re beautiful, but because they’re real — and because I know how to turn them into something people want to watch.",
       "stat1": "3 LANGUAGES",
       "stat2": "2 IG WORLDS",
       "stat3": "∞ PLACES",
@@ -504,10 +506,10 @@
       "eyebrow": "Carousel",
       "title": "Stories, one swipe at a time.",
       "posts": [
-        { "title": "My Favorite<br>City Corner", "pin": "📍 Ragusa Version" },
-        { "title": "Morning<br>Spot", "pin": "📍 A Sciarria", "desc": "Where Rio meets Sicily — the café that feels like home." },
-        { "title": "Nature<br>in the City", "pin": "📍 Giardino Ibleo", "desc": "Ancient palms, shaded benches and the scent of citrus." },
-        { "title": "Baroque<br>Spot", "pin": "📍 Ragusa Ibla", "desc": "A rocky spur above the valley, frozen in golden hour." }
+        { "title": "My Favorite<br>City Corner", "pin": "📍 Italy Version", "desc": "this is what balance looks like… right?" },
+        { "title": "Morning<br>Spot", "pin": "📍 Sicily", "desc": "Sicily has a way of quietly removing everything that was never really you." },
+        { "title": "Nature<br>in the City", "pin": "📍 Brazil", "desc": "If this collage makes sense to you, we probably grew up in the same country. 🇧🇷💛💚💙" },
+        { "title": "Baroque<br>Spot", "pin": "📍 A Sciarria", "desc": "POV: you found the most beautiful corner of Sicily nobody talks about 🇮🇹✨" }
       ]
     },
     "videos": {
@@ -515,8 +517,9 @@
       "title": "Films from the road.",
       "items": [
         { "title": "A day in Ragusa Ibla", "meta": "Travel film · @anyinsicily" },
-        { "title": "Book unboxing & review", "meta": "Books · reading is travel" },
-        { "title": "Getting around without a car", "meta": "Mobility tips · Sicily" }
+        { "title": "Makeup review", "meta": "Beauty · @anyinsicily" },
+        { "title": "How to make Nutella Ice cream", "meta": "Recipe · Ninja Kitchen" },
+        { "title": "facts about Brazil 🇧🇷", "meta": "Talking head" }
       ]
     },
     "gallery": {

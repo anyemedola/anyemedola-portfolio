@@ -67,13 +67,13 @@ describe('TravelContent', () => {
 
   it('renders the carousel posts', () => {
     render(<TravelContent />);
-    expect(screen.getByText('📍 Ragusa Version')).toBeInTheDocument();
-    expect(screen.getByText('📍 Giardino Ibleo')).toBeInTheDocument();
+    expect(screen.getByText(en.carousel.posts[0].pin)).toBeInTheDocument();
+    expect(screen.getByText(en.carousel.posts[2].pin)).toBeInTheDocument();
   });
 
   it('renders the featured video items', () => {
     render(<TravelContent />);
-    expect(screen.getByText('A day in Ragusa Ibla')).toBeInTheDocument();
+    expect(screen.getByText(en.videos.items[0].title)).toBeInTheDocument();
   });
 
   it('renders the app toolbox names', () => {

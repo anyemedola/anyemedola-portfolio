@@ -284,9 +284,20 @@ export const CarouselRow = styled('div')({
   padding: '24px 0 10px',
   gap: 0,
   '@media (max-width: 900px)': {
-    flexWrap: 'wrap',
-    justifyContent: 'center',
-    '& > div': { marginLeft: '0 !important', marginRight: '0 !important', transform: 'none !important' },
+    justifyContent: 'flex-start',
+    flexWrap: 'nowrap',
+    overflowX: 'auto',
+    scrollSnapType: 'x mandatory',
+    WebkitOverflowScrolling: 'touch',
+    gap: 16,
+    scrollbarWidth: 'none',
+    '&::-webkit-scrollbar': { display: 'none' },
+    '& > div': {
+      marginLeft: '0 !important',
+      transform: 'none !important',
+      width: 'min(78vw, 320px) !important',
+      scrollSnapAlign: 'start',
+    },
   },
 });
 
@@ -428,9 +439,23 @@ export const VideosSection = styled('section')({
 
 export const VideosGrid = styled('div')({
   display: 'grid',
-  gridTemplateColumns: '1fr 1fr 1fr',
-  gap: 22,
-  '@media (max-width: 900px)': { gridTemplateColumns: '1fr' },
+  gridTemplateColumns: 'repeat(4, 1fr)',
+  gap: 18,
+  '@media (max-width: 900px)': {
+    display: 'flex',
+    flexWrap: 'nowrap',
+    overflowX: 'auto',
+    scrollSnapType: 'x mandatory',
+    WebkitOverflowScrolling: 'touch',
+    gap: 16,
+    scrollbarWidth: 'none',
+    '&::-webkit-scrollbar': { display: 'none' },
+    '& > figure': {
+      flexShrink: 0,
+      width: 'min(58vw, 220px)',
+      scrollSnapAlign: 'start',
+    },
+  },
 });
 
 export const VideoFigure = styled('figure')({
@@ -442,27 +467,41 @@ export const VideoThumbWrap = styled('div')({
   aspectRatio: '9/16',
   borderRadius: 18,
   overflow: 'hidden',
+  background: tokens.creamLight,
+  cursor: 'pointer',
+  transition: 'transform .3s ease, box-shadow .3s ease',
+  '&:hover': {
+    transform: 'translateY(-4px)',
+    boxShadow: '0 20px 40px -20px rgba(18,59,55,.35)',
+  },
+});
+
+export const VideoEl = styled('video')({
+  position: 'absolute',
+  inset: 0,
+  width: '100%',
+  height: '100%',
+  objectFit: 'cover',
 });
 
 export const PlayButtonWrap = styled('div')({
   position: 'absolute',
-  inset: 0,
+  right: 10,
+  bottom: 10,
   display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
 });
 
 export const PlayButton = styled('span')({
-  width: 52,
-  height: 52,
+  width: 32,
+  height: 32,
   borderRadius: '50%',
-  background: 'rgba(255,255,255,0.85)',
+  background: 'rgba(0,0,0,0.45)',
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
-  fontSize: 18,
-  color: tokens.gold,
-  boxShadow: '0 8px 24px rgba(0,0,0,0.25)',
+  fontSize: 14,
+  color: '#fff',
+  backdropFilter: 'blur(2px)',
 });
 
 export const VideoCaption = styled('figcaption')({
@@ -477,6 +516,79 @@ export const VideoMeta = styled('div')({
   fontFamily: FONT_BODY,
   fontSize: 12,
   color: tokens.warmBrownLight,
+});
+
+/* ───────────────────────── video lightbox ───────────────────────── */
+
+const fadeIn = {
+  from: { opacity: 0 },
+  to: { opacity: 1 },
+};
+
+export const LightboxOverlay = styled('div')({
+  position: 'fixed',
+  inset: 0,
+  zIndex: 1000,
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  padding: 24,
+  background: 'rgba(18,59,55,0.92)',
+  backdropFilter: 'blur(6px)',
+  animation: 'travel-lightbox-fade .25s ease',
+  '@keyframes travel-lightbox-fade': fadeIn,
+});
+
+export const LightboxContent = styled('div')({
+  position: 'relative',
+  width: 'min(92vw, 420px)',
+});
+
+export const LightboxVideo = styled('video')({
+  display: 'block',
+  width: '100%',
+  maxHeight: '86vh',
+  borderRadius: 18,
+  boxShadow: '0 30px 70px rgba(0,0,0,0.5)',
+  background: '#000',
+});
+
+export const LightboxCaption = styled('figcaption')({
+  fontFamily: FONT_BODY,
+  fontSize: 14,
+  fontWeight: 700,
+  color: '#fff',
+  marginTop: 14,
+  textAlign: 'center',
+});
+
+export const LightboxMeta = styled('div')({
+  fontFamily: FONT_BODY,
+  fontSize: 12,
+  color: 'rgba(255,255,255,0.7)',
+  textAlign: 'center',
+  marginTop: 4,
+});
+
+export const LightboxClose = styled('button')({
+  position: 'absolute',
+  top: -18,
+  right: -18,
+  width: 40,
+  height: 40,
+  borderRadius: '50%',
+  border: 'none',
+  cursor: 'pointer',
+  background: '#fff',
+  color: tokens.ink,
+  fontSize: 18,
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  boxShadow: '0 8px 20px rgba(0,0,0,0.3)',
+  transition: 'transform .2s ease',
+  '&:hover': { transform: 'scale(1.08)' },
+  '@media (max-width: 480px)': { top: -14, right: 0 },
 });
 
 /* ───────────────────────── placeholder slot ───────────────────────── */
@@ -511,9 +623,20 @@ export const GalleryRow = styled('div')({
   justifyContent: 'center',
   alignItems: 'center',
   '@media (max-width: 900px)': {
-    flexWrap: 'wrap',
-    justifyContent: 'center',
-    '& > div': { marginLeft: '0 !important', marginRight: '0 !important', transform: 'none !important' },
+    justifyContent: 'flex-start',
+    flexWrap: 'nowrap',
+    overflowX: 'auto',
+    scrollSnapType: 'x mandatory',
+    WebkitOverflowScrolling: 'touch',
+    gap: 16,
+    scrollbarWidth: 'none',
+    '&::-webkit-scrollbar': { display: 'none' },
+    '& > div': {
+      marginLeft: '0 !important',
+      transform: 'none !important',
+      width: 'min(78vw, 320px) !important',
+      scrollSnapAlign: 'start',
+    },
   },
 });
 
