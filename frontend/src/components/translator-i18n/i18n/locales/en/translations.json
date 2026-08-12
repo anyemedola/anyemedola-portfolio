@@ -13,10 +13,7 @@
     "tag": "Full Stack Engineer. Incurable traveler. Writer in the making. All in the same woman.",
     "sub": "I've been building systems for 5+ years — and collecting sunsets, time zones and chapters of a book I'm yet to write.",
     "cta1": "Let's talk",
-    "cta2": "See my work",
-    "resumeCta": "Resume",
-    "resumeCreative": "Creative version",
-    "resumeATS": "ATS version"
+    "cta2": "See my work"
   },
   "about": {
     "eyebrow": "About me",
@@ -75,7 +72,10 @@
       "company": "Early career",
       "role": "Web Developer",
       "desc": "Full stack web and mobile projects with PHP, JavaScript, Ionic and Angular — campaign sites with backoffice, systems analysis and databases."
-    }
+    },
+    "resumeCta": "Resume",
+    "resumeCreative": "Creative version",
+    "resumeATS": "ATS version"
   },
   "stacks": {
     "eyebrow": "Toolkit",

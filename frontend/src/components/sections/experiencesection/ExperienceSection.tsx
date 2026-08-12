@@ -35,6 +35,12 @@ export default function ExperienceSection() {
             </S.JobRow>
           ))}
         </S.JobList>
+
+        <S.ResumeCta className="reveal">
+          <S.ResumeLabel>{t('work.resumeCta')}</S.ResumeLabel>
+          <S.ResumePill href="/resume/creative">✦ {t('work.resumeCreative')}</S.ResumePill>
+          <S.ResumePill href="/resume/ats">☰ {t('work.resumeATS')}</S.ResumePill>
+        </S.ResumeCta>
       </S.Inner>
     </S.WorkRoot>
   );

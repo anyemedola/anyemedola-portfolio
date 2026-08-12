@@ -1,6 +1,8 @@
 import { styled } from '@mui/material/styles';
+import Link from 'next/link';
 import { tokens } from '@/theme/theme';
 import { SectionTitle } from '@/components/ui/sectionheader/styles';
+import { pillSecondaryBase } from '@/components/ui/button/styles';
 
 export { SectionRoot as WorkRoot } from '@/components/ui/sectionroot/styles';
 export { SectionInner as Inner } from '@/components/ui/sectioninner/styles';
@@ -80,3 +82,23 @@ export const JobDesc = styled('p')({
   color: tokens.warmBrown,
   margin: 0,
 });
+
+export const ResumeCta = styled('div')({
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  flexWrap: 'wrap',
+  gap: 10,
+  marginTop: 48,
+});
+
+export const ResumeLabel = styled('span')({
+  fontFamily: "'Hanken Grotesk', var(--font-hanken), sans-serif",
+  fontSize: 12.5,
+  fontWeight: 700,
+  letterSpacing: '0.06em',
+  textTransform: 'uppercase',
+  color: tokens.warmBrownMid,
+});
+
+export const ResumePill = styled(Link)(pillSecondaryBase);

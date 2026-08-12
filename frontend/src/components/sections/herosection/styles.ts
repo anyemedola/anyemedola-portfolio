@@ -1,9 +1,8 @@
 import { styled } from '@mui/material/styles';
 import { keyframes } from '@emotion/react';
-import Link from 'next/link';
 import { tokens } from '@/theme/theme';
 import { Eyebrow as BaseEyebrow } from '@/components/ui/sectionheader/styles';
-import { ButtonPrimary, ButtonGhost, pillSecondaryBase } from '@/components/ui/button/styles';
+import { ButtonPrimary, ButtonGhost } from '@/components/ui/button/styles';
 
 const portraitDrift = keyframes({
   from: { transform: 'translateY(0)' },
@@ -194,26 +193,6 @@ export const BtnPrimary = styled(ButtonPrimary)({
     padding: '10px 20px',
   },
 });
-
-export const ResumeCta = styled('div')({
-  display: 'flex',
-  alignItems: 'center',
-  flexWrap: 'wrap',
-  gap: 8,
-  marginTop: 14,
-  '@media (max-width: 480px)': { marginTop: 10 },
-});
-
-export const ResumeLabel = styled('span')({
-  fontFamily: "'Hanken Grotesk', var(--font-hanken), sans-serif",
-  fontSize: 12.5,
-  fontWeight: 700,
-  letterSpacing: '0.06em',
-  textTransform: 'uppercase',
-  color: tokens.warmBrownMid,
-});
-
-export const ResumePill = styled(Link)(pillSecondaryBase);
 
 export const BtnGhost = styled(ButtonGhost)({
   '@media (max-width: 480px)': {

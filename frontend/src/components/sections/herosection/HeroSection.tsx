@@ -37,11 +37,6 @@ export default function HeroSection() {
           <S.BtnPrimary type="button" onClick={() => goToSection('contato')}>{t('hero.cta1')}</S.BtnPrimary>
           <S.BtnGhost type="button" onClick={() => goToSection('projetos')}>{t('hero.cta2')}</S.BtnGhost>
         </S.Cta>
-        <S.ResumeCta>
-          <S.ResumeLabel>{t('hero.resumeCta')}</S.ResumeLabel>
-          <S.ResumePill href="/resume/creative">✦ {t('hero.resumeCreative')}</S.ResumePill>
-          <S.ResumePill href="/resume/ats">☰ {t('hero.resumeATS')}</S.ResumePill>
-        </S.ResumeCta>
       </S.Content>
     </S.HeroRoot>
   );

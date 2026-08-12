@@ -13,10 +13,7 @@
     "tag": "Full Stack Engineer. Viajante incurável. Escritora em formação. Tudo na mesma mulher.",
     "sub": "Construo sistemas há mais de 5 anos — e coleciono pores do sol, fusos horários e capítulos de um livro que ainda vou escrever.",
     "cta1": "Vamos conversar",
-    "cta2": "Ver meu trabalho",
-    "resumeCta": "Currículo",
-    "resumeCreative": "Versão criativa",
-    "resumeATS": "Versão ATS"
+    "cta2": "Ver meu trabalho"
   },
   "about": {
     "eyebrow": "Sobre mim",
@@ -75,7 +72,10 @@
       "company": "Início de carreira",
       "role": "Web Developer",
       "desc": "Projetos full stack web e mobile com PHP, JavaScript, Ionic e Angular — sites de campanha com backoffice, análise de sistemas e bancos de dados."
-    }
+    },
+    "resumeCta": "Currículo",
+    "resumeCreative": "Versão criativa",
+    "resumeATS": "Versão ATS"
   },
   "stacks": {
     "eyebrow": "Ferramentas",
