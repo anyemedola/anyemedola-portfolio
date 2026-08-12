@@ -284,45 +284,127 @@
     "projects": {
       "heading": "Projetos pessoais · full stack",
       "items": [
-        { "title": "Portfólio & Blog", "desc": "Site pessoal com blog e back-end em Node.js & Firebase.", "link": "/anyemedola-portfolio" },
-        { "title": "Medola AI", "desc": "Assistente de IA em TypeScript com back-end em Node.js.", "link": "/medola" },
-        { "title": "App Fitness", "desc": "Desafios fitness em React Native com Firebase.", "link": "/app-fitness" }
+        {
+          "title": "Portfólio & Blog",
+          "desc": "Site pessoal com blog e back-end em Node.js & Firebase.",
+          "link": "/anyemedola-portfolio"
+        },
+        {
+          "title": "Medola AI",
+          "desc": "Assistente de IA em TypeScript com back-end em Node.js.",
+          "link": "/medola"
+        },
+        {
+          "title": "App Fitness",
+          "desc": "Desafios fitness em React Native com Firebase.",
+          "link": "/app-fitness"
+        }
       ]
     },
     "toolkit": {
       "heading": "Ferramentas",
-      "items": ["JavaScript", "TypeScript", "React", "Next.js", "Node.js", "React Native · Expo", "Firebase", "DigitalOcean", "PHP", "MySQL · PostgreSQL", "REST APIs", "Ionic · Angular", "Redux · React Query", "Tailwind · MUI", "Backoffice / CRM", "Figma · UX/UI", "Jest · ESLint", "Git · GitLab · Azure"]
+      "items": [
+        "JavaScript",
+        "TypeScript",
+        "React",
+        "Next.js",
+        "Node.js",
+        "React Native · Expo",
+        "Firebase",
+        "DigitalOcean",
+        "PHP",
+        "MySQL · PostgreSQL",
+        "REST APIs",
+        "Ionic · Angular",
+        "Redux · React Query",
+        "Tailwind · MUI",
+        "Backoffice / CRM",
+        "Figma · UX/UI",
+        "Jest · ESLint",
+        "Git · GitLab · Azure"
+      ]
     },
     "languages": {
       "heading": "Idiomas",
       "items": [
-        { "name": "Português", "level": "C2", "pct": 100 },
-        { "name": "Inglês", "level": "C1", "pct": 88 },
-        { "name": "Italiano", "level": "C1", "pct": 88 },
-        { "name": "Francês", "level": "B1", "pct": 58 },
-        { "name": "Espanhol", "level": "B1", "pct": 58 }
+        {
+          "name": "Português",
+          "level": "C2",
+          "pct": 100
+        },
+        {
+          "name": "Inglês",
+          "level": "C1",
+          "pct": 88
+        },
+        {
+          "name": "Italiano",
+          "level": "C1",
+          "pct": 88
+        },
+        {
+          "name": "Francês",
+          "level": "B1",
+          "pct": 58
+        },
+        {
+          "name": "Espanhol",
+          "level": "B1",
+          "pct": 58
+        }
       ]
     },
     "education": {
       "heading": "Formação",
       "items": [
-        { "degree": "Bacharelado em Tecnologia da Informação", "school": "Estácio · em andamento (desde 2022)" },
-        { "degree": "Técnico em Informática · CTI", "school": "Colégio Técnico Industrial \"Prof. Isaac Portal Roldán\"" },
-        { "degree": "Técnico em Informática · ETEC", "school": "Cidade do Livro" }
+        {
+          "degree": "Bacharelado em Tecnologia da Informação",
+          "school": "Estácio · em andamento (desde 2022)"
+        },
+        {
+          "degree": "Técnico em Informática · CTI",
+          "school": "Colégio Técnico Industrial \"Prof. Isaac Portal Roldán\""
+        },
+        {
+          "degree": "Técnico em Informática · ETEC",
+          "school": "Cidade do Livro"
+        }
       ]
     },
     "certifications": {
       "heading": "Certificações",
-      "items": ["Claude Code 101 · Anthropic (2026)", "JS Algorithms & Data Structures · freeCodeCamp", "Front-End Libraries · freeCodeCamp", "Intro to Software Dev · Cubos Academy", "HTML/CSS/JS · Fundação Bradesco"]
+      "items": [
+        "Claude Code 101 · Anthropic (2026)",
+        "JS Algorithms & Data Structures · freeCodeCamp",
+        "Front-End Libraries · freeCodeCamp",
+        "Intro to Software Dev · Cubos Academy",
+        "HTML/CSS/JS · Fundação Bradesco"
+      ]
     },
     "beyond": {
       "heading": "Além do código",
       "subtitle": "As partes de mim que não cabem em um README.",
       "items": [
-        { "icon": "❦", "title": "Escritora em formação", "body": "Ensaios & um livro sobre quem deixa tudo para trás e encontra um lar do outro lado do mundo. Primeiro ensaio: Inteira." },
-        { "icon": "✈", "title": "Viajante & criadora", "body": "Diário de viagem em @anyemedola e a vida de expat na Sicília, em EN & IT, em @anyinsicily." },
-        { "icon": "❧", "title": "Leitora & resenhista", "body": "Resenhas de livros e vídeos de unboxing — ler é viajar sem sair do lugar." },
-        { "icon": "♪", "title": "Música & instrumentos", "body": "Música alta, vida boa — eu toco, eu escuto, deixo a trilha embalar a jornada." }
+        {
+          "icon": "❦",
+          "title": "Escritora em formação",
+          "body": "Ensaios & um livro sobre quem deixa tudo para trás e encontra um lar do outro lado do mundo. Primeiro ensaio: Inteira."
+        },
+        {
+          "icon": "✈",
+          "title": "Viajante & criadora",
+          "body": "Diário de viagem em @anyemedola e a vida de expat na Sicília, em EN & IT, em @anyinsicily."
+        },
+        {
+          "icon": "❧",
+          "title": "Leitora & resenhista",
+          "body": "Resenhas de livros e vídeos de unboxing — ler é viajar sem sair do lugar."
+        },
+        {
+          "icon": "♪",
+          "title": "Música & instrumentos",
+          "body": "Música alta, vida boa — eu toco, eu escuto, deixo a trilha embalar a jornada."
+        }
       ]
     },
     "footer": {
@@ -433,9 +515,18 @@
     "education": {
       "heading": "Formação",
       "items": [
-        { "degree": "Bacharelado em Tecnologia da Informação", "school": "Estácio · em andamento (desde 2022)" },
-        { "degree": "Técnico em Informática", "school": "CTI — Colégio Técnico Industrial \"Prof. Isaac Portal Roldán\"" },
-        { "degree": "Técnico em Informática", "school": "ETEC — Cidade do Livro" }
+        {
+          "degree": "Bacharelado em Tecnologia da Informação",
+          "school": "Estácio · em andamento (desde 2022)"
+        },
+        {
+          "degree": "Técnico em Informática",
+          "school": "CTI — Colégio Técnico Industrial \"Prof. Isaac Portal Roldán\""
+        },
+        {
+          "degree": "Técnico em Informática",
+          "school": "ETEC — Cidade do Livro"
+        }
       ],
       "certsLabel": "Certificações",
       "certsList": "Claude Code 101 — Anthropic (2026) · Front-End Development Libraries — freeCodeCamp (2023) · JavaScript Algorithms & Data Structures — freeCodeCamp (2023) · Intro to Software Development & Soft Skills — Cubos Academy (2023) · HTML / CSS / JavaScript / Redes / Modelagem de Dados / Ética — Fundação Bradesco"
@@ -451,91 +542,110 @@
       ]
     }
   },
-  "travelContent": {
-    "nav": { "back": "Portfolio" },
+  "contentCreator": {
+    "nav": {
+      "back": "Portfolio"
+    },
     "hero": {
-      "label1": "Any Medola",
-      "label2": "Sicily Diaries",
-      "label3": "@anyinsicily",
-      "heading": "About Me",
+      "eyebrow": "Content Creator",
+      "handle": "@anyemedola",
+      "handle2": "+ @anyinsicily",
+      "desc": "Fotografia, vídeo e stories de lifestyle e viagem em dois perfis do Instagram.",
+      "ctaWork": "Ver o Trabalho",
+      "ctaContact": "Entrar em Contato"
+    },
+    "stats": {
+      "stat1Num": "4.8K",
+      "stat1Label": "Seguidores @anyemedola",
+      "stat2Num": "2.1K",
+      "stat2Label": "Seguidores @anyinsicily",
+      "stat3Num": "4M+",
+      "stat3Label": "Visualizações, top vídeos",
+      "stat4Num": "600K",
+      "stat4Label": "Alcance mensal, combinado"
+    },
+    "about": {
+      "title": "Sobre",
       "p1": "Eu não comecei a criar quando cheguei à Sicília — eu só trouxe a criação comigo.",
       "p2": "Antes da ilha, eu era modelo no Brasil, dando vida a histórias para pequenas marcas que confiavam na minha voz. Depois da mudança, virei a câmera para o cotidiano: unboxing de maquiagem, resenhas de livros e os capítulos sobre por que escolhi morar em uma ilha.",
       "p3": "Minha criatividade é brasileira, minha comunicação é instintiva e minha curiosidade é multilíngue. Eu falo cinco idiomas, estou aprendendo um sexto e filmo nos que parecem certos para o momento.",
-      "p4": "Eu persegui histórias não porque elas são bonitas, mas porque são reais — e porque sei como transformá-las em algo que as pessoas querem assistir.",
-      "stat1": "3 IDIOMAS",
-      "stat2": "2 MUNDOS NO IG",
-      "stat3": "∞ LUGARES",
-      "cta": "Ver o trabalho"
-    },
-    "process": {
-      "eyebrow": "O que eu crio",
-      "title": "Por trás do conteúdo.",
-      "lead": "Filmes de viagem, unboxings de livros e roteiros montados à mão — filmados sozinha, editados rápido e contados em três idiomas para que a história realmente chegue em casa.",
-      "tags": ["Filmado sozinha", "Editado no mesmo dia", "Sem banco de imagens"],
-      "steps": [
-        {
-          "num": "1",
-          "title": "Batendo perna",
-          "items": [
-            "Ando pela cidade primeiro, câmera guardada — os cantos bons nunca aparecem no Google Maps.",
-            "Confiro horários de transporte e funcionamento no Moovit e no Rome2Rio antes de fechar uma rota.",
-            "Converso com quem estiver por perto; metade das minhas locações vem da dica de um barista."
-          ]
-        },
-        {
-          "num": "2",
-          "title": "Filmando",
-          "items": [
-            "Câmera na mão, só luz natural — a golden hour dita a agenda do dia inteiro.",
-            "Uma tomada da versão honesta antes da versão editada; os erros costumam performar melhor.",
-            "Tudo filmado sozinha, celular numa mão e gimbal na outra."
-          ]
-        },
-        {
-          "num": "3",
-          "title": "Editando & postando",
-          "items": [
-            "Editado no mesmo dia em que é filmado — postar no mesmo dia mantém a luz e a história consistentes.",
-            "Legendas escritas três vezes: português, inglês, italiano — nunca uma tradução literal.",
-            "Dividido entre @anyinsicily e @anyemedola dependendo do público."
-          ]
-        }
-      ]
+      "p4": "Eu persegui histórias não porque elas são bonitas, mas porque são reais — e porque sei como transformá-las em algo que as pessoas querem assistir."
     },
     "carousel": {
       "eyebrow": "Carrossel",
       "title": "Stories, um swipe de cada vez.",
       "posts": [
-        { "title": "Meu Canto<br>Favorito da Cidade", "pin": "📍 Versão Italiana", "desc": "É com isso que alimentação balanceada se parece, não?"},
-        { "title": "Cantinho<br>da Manhã", "pin": "📍 Sicília", "desc": "A Sicília não muda você com barulho — ela só tira, aos poucos, o que nunca foi seu." },
-        { "title": "Natureza<br>na Cidade", "pin": "📍 Brasil", "desc": "Se essa colagem faz sentido pra você, provavelmente crescemos no mesmo país. 🇧🇷✨" },
-        { "title": "Cantinho<br>Barroco", "pin": "📍 A Sciarria", "desc": "POV: você achou aquele canto da Sicília que parece um segredo guardado só pra você." }
+        {
+          "pin": "📍 Itália",
+          "desc": "é isso que equilíbrio parece, né?"
+        },
+        {
+          "pin": "📍 Sicília",
+          "desc": "A Sicília tem um jeito de tirar, aos poucos, tudo que nunca foi realmente você."
+        },
+        {
+          "pin": "📍 Brasil",
+          "desc": "Se essa colagem faz sentido pra você, provavelmente crescemos no mesmo país."
+        },
+        {
+          "pin": "📍 Ragusa",
+          "desc": "POV: você achou o canto mais bonito da Sicília que ninguém fala.",
+          "overlay": "MEU CANTINHO<br>FAVORITO"
+        }
       ]
     },
     "videos": {
       "eyebrow": "Assista",
-      "title": "Filmes da estrada.",
+      "title": "Reels que valem o replay.",
       "items": [
-        { "title": "Um dia em Ragusa Ibla", "meta": "Filme de viagem · @anyinsicily" },
-        { "title": "Resenha de maquiagem", "meta": "Beleza · @anyinsicily" },
-        { "title": "Como fazer sorvete de Nutella", "meta": "Receita · Ninja Kitchen" },
-        { "title": "curiosidades sobre o Brasil 🇧🇷", "meta": "Talking head" }
+        {
+          "title": "Um dia em Ragusa Ibla",
+          "meta": "Filme de viagem · @anyinsicily"
+        },
+        {
+          "title": "Resenha de maquiagem",
+          "meta": "Beleza · @anyinsicily"
+        },
+        {
+          "title": "Como fazer sorvete de Nutella",
+          "meta": "Receita · Ninja Kitchen"
+        },
+        {
+          "title": "Curiosidades sobre o Brasil 🇧🇷",
+          "meta": "Talking head"
+        },
+        {
+          "title": "Baixe o AirLearn",
+          "meta": "Parceria de marca · @anyemedola"
+        },
+        {
+          "title": "Café A Sciarria",
+          "meta": "Parceria de marca · @anyinsicily"
+        },
+        {
+          "title": "Abrindo meus presentes de aniversário",
+          "meta": "Parceria de marca · @anyemedola"
+        },
+        {
+          "title": "Se arrumando comigo",
+          "meta": "Beleza · @anyemedola"
+        }
       ]
     },
-    "gallery": {
-      "eyebrow": "O feed",
-      "title": "Golden hours & ruas pequenas.",
-      "quoteScript": "pronta pra vagar?",
-      "quoteMain": "ruas pequenas,<br>sentimentos grandes"
-    },
-    "apps": {
-      "eyebrow": "Caixa de ferramentas",
-      "title": "Apps que eu realmente uso."
+    "brands": {
+      "title": "Parcerias com Marcas"
     },
     "contact": {
       "eyebrow": "Vamos construir algo juntos.",
       "title": "Conteúdo em 3 línguas",
       "p": "Marcas, órgãos de turismo, editoras, outros viajantes — ou só alguém caçando o próximo pôr do sol. Tô a uma mensagem de distância."
+    },
+    "form": {
+      "title": "Vamos trabalhar juntos",
+      "namePlaceholder": "Nome",
+      "emailPlaceholder": "Email",
+      "messagePlaceholder": "Mensagem",
+      "submitLabel": "Enviar Mensagem"
     }
   }
 }

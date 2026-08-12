@@ -20,6 +20,7 @@ export default function HeroSection() {
               alt="Any em Ragusa Ibla, Sicília"
               fill
               priority
+              sizes="(max-width: 380px) 136px, (max-width: 480px) 152px, (max-width: 760px) 200px, (max-width: 1024px) 320px, 380px"
             />
           </S.PortraitImgWrap>
         </S.PortraitWrap>

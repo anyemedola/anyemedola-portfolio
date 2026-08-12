@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
 import * as S from './styles';
 
-export type FooterVariant = 'home' | 'travel';
+export type FooterVariant = 'home' | 'creator';
 
 interface FooterProps {
   variant?: FooterVariant;
@@ -12,14 +12,14 @@ interface FooterProps {
 
 const PHRASE_KEYS: Record<FooterVariant, { eyebrow: string; title: string; p: string }> = {
   home: { eyebrow: 'contact.eyebrow', title: 'contact.title', p: 'contact.p' },
-  travel: { eyebrow: 'travelContent.contact.eyebrow', title: 'travelContent.contact.title', p: 'travelContent.contact.p' },
+  creator: { eyebrow: 'contentCreator.contact.eyebrow', title: 'contentCreator.contact.title', p: 'contentCreator.contact.p' },
 };
 
 export default function Footer({ variant = 'home' }: FooterProps) {
   const ref = useScrollReveal();
   const { t } = useTranslation();
   const phrases = PHRASE_KEYS[variant];
-  const sectionId = variant === 'home' ? 'contato' : 'travel-contato';
+  const sectionId = variant === 'home' ? 'contato' : 'creator-contato';
 
   return (
     <S.ContactRoot id={sectionId} aria-labelledby="contact-heading" ref={ref}>

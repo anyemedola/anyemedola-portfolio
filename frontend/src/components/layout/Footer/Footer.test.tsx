@@ -35,12 +35,12 @@ describe('Footer', () => {
     expect(screen.getByText('contact.p')).toBeInTheDocument();
   });
 
-  it('renders the travel variant phrase keys on a distinct section id', () => {
-    render(<Footer variant="travel" />);
-    expect(screen.getByText('travelContent.contact.eyebrow')).toBeInTheDocument();
-    expect(screen.getByText('travelContent.contact.title')).toBeInTheDocument();
-    expect(screen.getByText('travelContent.contact.p')).toBeInTheDocument();
-    expect(document.getElementById('travel-contato')).toBeInTheDocument();
+  it('renders the creator variant phrase keys on a distinct section id', () => {
+    render(<Footer variant="creator" />);
+    expect(screen.getByText('contentCreator.contact.eyebrow')).toBeInTheDocument();
+    expect(screen.getByText('contentCreator.contact.title')).toBeInTheDocument();
+    expect(screen.getByText('contentCreator.contact.p')).toBeInTheDocument();
+    expect(document.getElementById('creator-contato')).toBeInTheDocument();
   });
 
   it('renders the email link with correct href', () => {
@@ -68,7 +68,7 @@ describe('Footer', () => {
   });
 
   it('renders the same email and social links regardless of variant', () => {
-    render(<Footer variant="travel" />);
+    render(<Footer variant="creator" />);
     expect(screen.getByRole('link', { name: /contact@anyemedola\.com/i })).toBeInTheDocument();
     expect(screen.getByRole('link', { name: '@anyinsicily' })).toBeInTheDocument();
   });
@@ -79,7 +79,7 @@ describe('Footer', () => {
   });
 
   it('renders footer made and rights copy identically for both variants', () => {
-    render(<Footer variant="travel" />);
+    render(<Footer variant="creator" />);
     expect(screen.getByText('contact.footerMade')).toBeInTheDocument();
     expect(screen.getByText('contact.footerRights')).toBeInTheDocument();
   });
