@@ -21,7 +21,7 @@ const hanken = Hanken_Grotesk({
 export const metadata: Metadata = {
   title: 'Any Medola — Portfolio Admin',
   description: 'Portfolio admin dashboard',
-  icons: { icon: '/favicon.ico' },
+  icons: { icon: '/favicon-16x16.png' },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

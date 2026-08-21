@@ -45,9 +45,9 @@ export default function Header() {
       <S.Inner>
         <S.LogoBtn onClick={handleLogoClick} aria-label="Any Medola — Home">
           <Image
-            src="/android-chrome-192x192.png"
+            src="/anye-logo.png"
             alt="Logotipo de Any Medola"
-            width={80}
+            width={200}
             height={80}
             priority
             quality={100}
