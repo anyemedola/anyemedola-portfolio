@@ -550,7 +550,8 @@
       "eyebrow": "Content Creator",
       "handle": "@anyemedola",
       "handle2": "+ @anyinsicily",
-      "desc": "Fotografia, video e stories di lifestyle e viaggio su due profili Instagram.",
+      "desc": "Sono Any Medola, content creator UGC con uno sguardo editoriale. Lavoro con brand che vogliono costruire una presenza digitale autentica — senza perdere la cura estetica.",
+      "desc2": "Ogni progetto è pensato come una piccola editoriale: dalla luce naturale al ritmo del montaggio, tutto è scelto per sembrare vicino, ma mai trascurato.",
       "ctaWork": "Vedi il Lavoro",
       "ctaContact": "Contattami"
     },
@@ -571,25 +572,121 @@
       "p3": "La mia creatività è brasiliana, la mia comunicazione è istintiva e la mia curiosità è multilingue. Parlo cinque lingue, sto imparando una sesta e filmo in quelle che sembrano giuste per il momento.",
       "p4": "Ho perseguito storie non perché siano belle, ma perché siano vere — e perché so come trasformarle in qualcosa che le persone vogliono guardare."
     },
+    "process": {
+      "eyebrow": "How I Work",
+      "titleStart": "Il processo, dal",
+      "titleItalic": "hello",
+      "titleEnd": "alla consegna.",
+      "lead": "Un percorso semplice, trasparente e senza drammi — pensato per darti prevedibilità senza perdere il tocco editoriale.",
+      "steps": [
+        {
+          "number": "01",
+          "title": "Chiamata iniziale",
+          "desc": "Una call leggera per capire il brand, gli obiettivi e l'energia che vogliamo trasmettere."
+        },
+        {
+          "number": "02",
+          "title": "Concept e script",
+          "desc": "Invio riferimenti visivi, hook e script. Approviamo tutto prima delle riprese."
+        },
+        {
+          "number": "03",
+          "title": "Riprese e montaggio",
+          "desc": "Luce naturale, ritmo editoriale, consegna entro 10 giorni con sottotitoli pronti."
+        },
+        {
+          "number": "04",
+          "title": "Consegna e performance",
+          "desc": "File organizzati, suggerimenti d’uso e follow-up dei risultati nelle prime settimane."
+        }
+      ]
+    },
+    "scripts": {
+      "eyebrow": "Scripts & Hooks",
+      "titleStart": "Script che partono da un",
+      "titleItalic": "insight.",
+      "lead": "Prima di girare, penso al problema che il brand risolve — e a come trasformarlo in un video che le persone vogliono guardare fino alla fine. Ecco tre esempi reali del mio processo creativo.",
+      "items": [
+        {
+          "tag": "Trend Twist",
+          "title": "Things I don't like — versione lingue",
+          "quote": "“If your language app is in Brazil, we have a trend called ‘things I don’t like’.”",
+          "list": [
+            "1. Non capire i pettegolezzi quando viaggio.",
+            "2. Non riuscire a leggere il menu in un altro paese.",
+            "3. Spingere porte che dicono 'tirare'."
+          ],
+          "conclusion": "Ho risolto tutto scaricando Airlearn — ora pratico più di 50 lingue in un'unica app.",
+          "format": "Reels · 30–45s",
+          "tags": "Relatable · Travel · Humor"
+        },
+        {
+          "tag": "Music Hook",
+          "title": "Ora canto, non solo sento il ritmo",
+          "quote": "“Now I understand enough Spanish to not just vibe to the music, but actually sing it.”",
+          "list": [
+            "Cut: prima — mi limitavo a muovermi senza capire il testo.",
+            "Cut: dopo — canto con sicurezza e mi sento parte della musica.",
+            "Reveal: ho praticato un po' ogni giorno con Airlearn."
+          ],
+          "conclusion": "Dal 'vibe' al testo. La trasformazione avviene con la pratica quotidiana.",
+          "format": "TikTok · 25s",
+          "tags": "Transformation · Music"
+        },
+        {
+          "tag": "Day-in-my-life",
+          "title": "Una routine che ci sta nella giornata",
+          "quote": "“A video showing how I include the app in my daily routine — without looking like an ad.”",
+          "list": [
+            "Mattina: lezione di Airlearn mentre bevo il caffè.",
+            "Pomeriggio: ripasso veloce in metro o prima di uscire.",
+            "Sera: 5 min di pratica prima di dormire."
+          ],
+          "conclusion": "Mostrare che imparare una lingua può essere naturale, leggero e parte della quotidianità.",
+          "format": "Reels · 40s",
+          "tags": "Lifestyle · Routine"
+        }
+      ],
+      "blog": {
+        "tag": "Blog",
+        "title": "Vuoi vedere come penso altri script?",
+        "desc": "Sul blog condivido script completi, analisi dei trend e il processo creativo dietro ai video. È il posto migliore per capire il mio livello di creatività prima di lavorare insieme.",
+        "cta": "Leggi il blog",
+        "chips": [
+          {
+            "title": "Script pronti",
+            "desc": "da adattare al tuo brand"
+          },
+          {
+            "title": "Analisi dei trend",
+            "desc": "come usarli senza forzare"
+          },
+          {
+            "title": "Processo creativo",
+            "desc": "dal brief alla consegna"
+          }
+        ]
+      }
+    },
     "carousel": {
       "eyebrow": "Carosello",
       "title": "Stories, uno swipe alla volta.",
       "posts": [
         {
           "pin": "📍 Italia",
-          "desc": "questo è l'equilibrio, no?"
+          "desc": "Se ami i gattini, la vita in Italia, contenuti multilingue, viaggi low-cost in Europa e una routine non proprio ordinaria… sei nel posto giusto."
         },
         {
           "pin": "📍 Sicilia",
-          "desc": "La Sicilia ha un modo tutto suo di togliere, piano piano, tutto ciò che non è mai stato davvero te."
+          "desc": "kind chic trasferirsi da sola a vent'anni — costruire una carriera da zero e trovare comunque qualcuno per cui tornare a casa."
         },
         {
           "pin": "📍 Brasile",
-          "desc": "Se questo collage ti sembra familiare, probabilmente siamo cresciuti nello stesso paese."
+          "desc": "Ci chiedono sempre chi si occupa di marketing, design, sviluppo e supporto in A&A IT. La verità è: siamo noi due, lavorando dal nostro soggiorno."
         },
         {
           "pin": "📍 Ragusa",
-          "desc": "POV: hai trovato l'angolo più bello della Sicilia di cui nessuno parla.",
+          "desc": "meet me by my favorites — libri, drink e il tramonto di cui non mi stanco mai.",
           "overlay": "IL MIO ANGOLO<br>PREFERITO"
         }
       ]
@@ -635,6 +732,53 @@
     "brands": {
       "title": "Collaborazioni con Brand"
     },
+    "packages": {
+      "eyebrow": "Services & Packages",
+      "titleStart": "Choose your",
+      "titleItalic": "bloom",
+      "lead": "Tre punti di partenza. Ogni progetto è adattato alla voce, ai canali e al mercato del tuo brand — bundle personalizzati su richiesta.",
+      "packageLabel": "Pacchetto",
+      "mostLoved": "Most Loved",
+      "cta": "Inizia questo pacchetto",
+      "items": [
+        {
+          "name": "Essential",
+          "tagline": "Un saluto onesto e diretto.",
+          "price": "a partire da €180",
+          "features": [
+            "1 video UGC (fino a 45s)",
+            "1 turno di revisione",
+            "Verticale 9:16 · grezzo + montato",
+            "Uso: 3 mesi organico"
+          ],
+          "featured": false
+        },
+        {
+          "name": "Storytelling",
+          "tagline": "Un piccolo arco, un'emozione vera.",
+          "price": "a partire da €420",
+          "features": [
+            "3 video UGC + 5 foto",
+            "Script e hook personalizzati",
+            "2 turni di revisione",
+            "Uso: 6 mesi organico + paid"
+          ],
+          "featured": true
+        },
+        {
+          "name": "Complete",
+          "tagline": "L'intero universo editoriale.",
+          "price": "a partire da €780",
+          "features": [
+            "5 video UGC + 10 foto",
+            "Script, montaggio e captions",
+            "Concept board e trend research",
+            "Uso: 12 mesi, tutti i canali"
+          ],
+          "featured": false
+        }
+      ]
+    },
     "contact": {
       "eyebrow": "Costruiamo qualcosa insieme.",
       "title": "Contenuti in 3 lingue.",
@@ -646,6 +790,7 @@
       "emailPlaceholder": "Email",
       "messagePlaceholder": "Messaggio",
       "submitLabel": "Invia Messaggio"
-    }
+    },
+    "mediaKitLabel": "Media Kit"
   }
 }

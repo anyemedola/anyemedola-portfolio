@@ -66,8 +66,8 @@ describe('ContentCreator', () => {
 
   it('renders the carousel posts', () => {
     render(<ContentCreator />);
-    expect(screen.getByText(en.carousel.posts[0].pin)).toBeInTheDocument();
-    expect(screen.getByText(en.carousel.posts[2].pin)).toBeInTheDocument();
+    expect(screen.getByText(en.carousel.posts[0].desc)).toBeInTheDocument();
+    expect(screen.getByText(en.carousel.posts[2].desc)).toBeInTheDocument();
   });
 
   it('renders the featured reel items', () => {

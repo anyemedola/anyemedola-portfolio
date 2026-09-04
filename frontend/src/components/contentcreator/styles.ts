@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { tokens } from '@/theme/theme';
 import { SectionInner } from '@/components/ui/sectioninner/styles';
 import { Eyebrow as BaseEyebrow, SectionTitle as BaseSectionTitle } from '@/components/ui/sectionheader/styles';
-import { ButtonPrimary, ButtonGhost } from '@/components/ui/button/styles';
+import { ButtonPrimary, ButtonGhost, ButtonPrimaryLink } from '@/components/ui/button/styles';
 
 export const TEAL = tokens.gold;
 export const INK = tokens.goldDeep;
@@ -67,6 +67,18 @@ export const SectionHeaderBlock = styled('div')({
   marginBottom: 40,
 });
 
+export const SectionHeaderRow = styled('div')({
+  display: 'flex',
+  alignItems: 'flex-end',
+  justifyContent: 'space-between',
+  gap: 20,
+  flexWrap: 'wrap',
+  marginBottom: 40,
+  '& > div': { marginBottom: 0 },
+});
+
+export const MediaKitLink = ButtonPrimaryLink;
+
 /* ───────────────────────── hero ───────────────────────── */
 
 export const HeroHeader = styled('header')({
@@ -127,13 +139,17 @@ export const HeroHandle2 = styled('div')({
   marginBottom: 20,
 });
 
-export const HeroBody = styled('p')({
+export const HeroBody = styled('div')({
   fontFamily: FONT_BODY,
   fontSize: 16,
   lineHeight: 1.6,
   color: tokens.warmBrown,
-  margin: '0 0 28px',
-  maxWidth: 420,
+  maxWidth: 460,
+  marginBottom: 28,
+  display: 'flex',
+  flexDirection: 'column',
+  gap: 12,
+  '& p': { margin: 0 },
 });
 
 export const HeroCta = styled('div')({
@@ -218,6 +234,335 @@ export const AboutBody = styled('div')({
   display: 'flex',
   flexDirection: 'column',
   gap: 14,
+});
+
+/* ───────────────────────── process ───────────────────────── */
+
+export const ProcessSection = styled('section')({
+  background: tokens.creamLight,
+  padding: '72px 0',
+  scrollMarginTop: 70,
+});
+
+export const ProcessTitle = styled(BaseSectionTitle)({
+  fontSize: 'clamp(36px, 5vw, 56px)',
+});
+
+export const ProcessTitleItalic = styled('span')({
+  fontStyle: 'italic',
+  fontWeight: 500,
+  color: tokens.roseDeep,
+});
+
+export const ProcessLead = styled('p')({
+  fontFamily: FONT_BODY,
+  fontSize: 16,
+  lineHeight: 1.6,
+  color: tokens.ink,
+  maxWidth: 560,
+  margin: '0 0 48px',
+});
+
+export const ProcessGrid = styled('div')({
+  display: 'grid',
+  gridTemplateColumns: 'repeat(4, 1fr)',
+  gap: 20,
+  '@media (max-width: 900px)': { gridTemplateColumns: '1fr', gap: 16 },
+});
+
+export const ProcessCard = styled('div')({
+  background: tokens.cream,
+  borderRadius: 22,
+  padding: '28px 24px 32px',
+  boxShadow: '0 16px 36px rgba(18,59,55,0.1)',
+});
+
+export const ProcessNumber = styled('div')({
+  fontFamily: FONT_HEADING,
+  fontStyle: 'italic',
+  fontWeight: 500,
+  fontSize: 26,
+  color: tokens.rose,
+  marginBottom: 20,
+});
+
+export const ProcessIconWrap = styled('div')({
+  width: 44,
+  height: 44,
+  borderRadius: '50%',
+  background: 'rgba(239,168,172,0.18)',
+  color: tokens.gold,
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  marginBottom: 20,
+});
+
+export const ProcessCardTitle = styled('h3')({
+  fontFamily: FONT_HEADING,
+  fontWeight: 700,
+  fontSize: 21,
+  lineHeight: 1.15,
+  color: tokens.ink,
+  margin: '0 0 10px',
+});
+
+export const ProcessCardDesc = styled('p')({
+  fontFamily: FONT_BODY,
+  fontSize: 14,
+  lineHeight: 1.55,
+  color: tokens.warmBrown,
+  margin: 0,
+});
+
+/* ───────────────────────── scripts ───────────────────────── */
+
+export const ScriptsSection = styled('section')({
+  background: tokens.cream,
+  padding: '72px 0',
+  scrollMarginTop: 70,
+});
+
+export const ScriptsHeader = styled('div')({
+  display: 'flex',
+  justifyContent: 'space-between',
+  alignItems: 'flex-start',
+  gap: 32,
+  marginBottom: 48,
+  '@media (max-width: 900px)': { flexDirection: 'column', gap: 20 },
+});
+
+export const ScriptsTitle = styled(BaseSectionTitle)({
+  fontSize: 'clamp(34px, 4.4vw, 50px)',
+  maxWidth: 460,
+  margin: 0,
+});
+
+export const ScriptsTitleItalic = styled('span')({
+  fontStyle: 'italic',
+  fontWeight: 500,
+  color: tokens.rose,
+  display: 'block',
+});
+
+export const ScriptsLead = styled('p')({
+  fontFamily: FONT_BODY,
+  fontSize: 16,
+  lineHeight: 1.6,
+  color: tokens.warmBrown,
+  maxWidth: 440,
+  margin: 0,
+});
+
+export const ScriptsGrid = styled('div')({
+  display: 'grid',
+  gridTemplateColumns: 'repeat(3, 1fr)',
+  gap: 22,
+  '@media (max-width: 900px)': { gridTemplateColumns: '1fr', gap: 16 },
+});
+
+export const ScriptCard = styled('div')({
+  background: tokens.creamLight,
+  borderRadius: 22,
+  border: `1px solid ${tokens.borderLight}`,
+  padding: '24px 24px 20px',
+});
+
+export const ScriptCardHeader = styled('div')({
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'space-between',
+  marginBottom: 18,
+});
+
+export const ScriptTag = styled('span')({
+  fontFamily: FONT_BODY,
+  fontSize: 11,
+  fontWeight: 700,
+  letterSpacing: '.1em',
+  textTransform: 'uppercase',
+  color: tokens.roseDeep,
+  background: tokens.roseMid,
+  padding: '6px 12px',
+  borderRadius: 999,
+});
+
+export const ScriptIcon = styled('div')({
+  color: tokens.rose,
+  display: 'flex',
+});
+
+export const ScriptCardTitle = styled('h3')({
+  fontFamily: FONT_HEADING,
+  fontWeight: 700,
+  fontSize: 21,
+  lineHeight: 1.2,
+  color: tokens.ink,
+  margin: '0 0 10px',
+});
+
+export const ScriptQuote = styled('p')({
+  fontFamily: FONT_HEADING,
+  fontStyle: 'italic',
+  fontSize: 14.5,
+  lineHeight: 1.45,
+  color: tokens.roseDeep,
+  margin: 0,
+});
+
+export const ScriptDivider = styled('div')({
+  height: 1,
+  background: tokens.borderLight,
+  margin: '18px 0',
+});
+
+export const ScriptList = styled('ul')({
+  listStyle: 'none',
+  margin: 0,
+  padding: 0,
+  display: 'flex',
+  flexDirection: 'column',
+  gap: 10,
+});
+
+export const ScriptListItem = styled('li')({
+  display: 'flex',
+  alignItems: 'flex-start',
+  gap: 9,
+  fontFamily: FONT_BODY,
+  fontSize: 13.5,
+  lineHeight: 1.45,
+  color: tokens.warmBrown,
+});
+
+export const ScriptDot = styled('span')({
+  width: 5,
+  height: 5,
+  borderRadius: '50%',
+  background: tokens.rose,
+  flexShrink: 0,
+  marginTop: 6,
+});
+
+export const ScriptConclusion = styled('p')({
+  fontFamily: FONT_BODY,
+  fontWeight: 700,
+  fontSize: 13.5,
+  lineHeight: 1.5,
+  color: tokens.ink,
+  margin: '18px 0 0',
+});
+
+export const ScriptMetaRow = styled('div')({
+  display: 'flex',
+  justifyContent: 'space-between',
+  flexWrap: 'wrap',
+  gap: 10,
+  marginTop: 20,
+  paddingTop: 16,
+  borderTop: `1px solid ${tokens.borderLight}`,
+});
+
+export const ScriptMetaText = styled('span')({
+  fontFamily: FONT_BODY,
+  fontSize: 10.5,
+  fontWeight: 700,
+  letterSpacing: '.06em',
+  textTransform: 'uppercase',
+  color: tokens.warmBrownLight,
+});
+
+/* blog cta banner */
+
+export const ScriptsBlogBanner = styled('div')({
+  marginTop: 36,
+  background: tokens.gradientDark,
+  borderRadius: 28,
+  padding: '48px 40px',
+  display: 'grid',
+  gridTemplateColumns: '1.3fr 1fr',
+  gap: 32,
+  alignItems: 'center',
+  '@media (max-width: 900px)': { gridTemplateColumns: '1fr', padding: '32px 24px' },
+});
+
+export const ScriptsBlogTag = styled('span')({
+  display: 'inline-flex',
+  alignItems: 'center',
+  gap: 6,
+  background: 'rgba(255,255,255,0.12)',
+  color: '#fff',
+  fontFamily: FONT_BODY,
+  fontSize: 11,
+  fontWeight: 700,
+  letterSpacing: '.1em',
+  textTransform: 'uppercase',
+  padding: '6px 14px',
+  borderRadius: 999,
+  marginBottom: 18,
+});
+
+export const ScriptsBlogTitle = styled('h3')({
+  fontFamily: FONT_HEADING,
+  fontWeight: 700,
+  fontSize: 'clamp(26px, 3vw, 34px)',
+  lineHeight: 1.1,
+  color: '#fff',
+  margin: '0 0 14px',
+});
+
+export const ScriptsBlogDesc = styled('p')({
+  fontFamily: FONT_BODY,
+  fontSize: 15,
+  lineHeight: 1.6,
+  color: 'rgba(255,255,255,0.75)',
+  maxWidth: 440,
+  margin: '0 0 24px',
+});
+
+export const ScriptsBlogCta = styled('a')({
+  fontFamily: FONT_BODY,
+  fontWeight: 700,
+  fontSize: 14.5,
+  padding: '13px 24px',
+  borderRadius: 999,
+  border: 'none',
+  cursor: 'pointer',
+  textDecoration: 'none',
+  display: 'inline-flex',
+  alignItems: 'center',
+  gap: 8,
+  width: 'fit-content',
+  background: tokens.rose,
+  color: tokens.goldDeep,
+  transition: 'transform .2s ease',
+  '&:hover': { transform: 'translateY(-2px)' },
+});
+
+export const ScriptsChipsGrid = styled('div')({
+  display: 'grid',
+  gridTemplateColumns: '1fr 1fr',
+  gap: 14,
+});
+
+export const ScriptsChip = styled('div')({
+  background: '#fff',
+  borderRadius: 16,
+  padding: '16px 18px',
+});
+
+export const ScriptsChipTitle = styled('div')({
+  fontFamily: FONT_HEADING,
+  fontWeight: 700,
+  fontSize: 15,
+  color: tokens.ink,
+  marginBottom: 4,
+});
+
+export const ScriptsChipDesc = styled('div')({
+  fontFamily: FONT_BODY,
+  fontSize: 12.5,
+  color: tokens.warmBrownMid,
 });
 
 /* ───────────────────────── carousel ───────────────────────── */
@@ -307,7 +652,39 @@ export const PostPhotoWrap = styled('div')({
   position: 'relative',
   aspectRatio: '4/5',
   background: tokens.creamLight,
+  cursor: 'pointer',
 });
+
+export const PostPhotoLayer = styled('div', {
+  shouldForwardProp: (prop) => prop !== '$active',
+})<{ $active: boolean }>(({ $active }) => ({
+  position: 'absolute',
+  inset: 0,
+  opacity: $active ? 1 : 0,
+  transition: 'opacity .2s ease',
+}));
+
+export const PostPageDots = styled('div')({
+  position: 'absolute',
+  top: 8,
+  left: 0,
+  right: 0,
+  zIndex: 2,
+  display: 'flex',
+  justifyContent: 'center',
+  gap: 4,
+  pointerEvents: 'none',
+});
+
+export const PostPageDot = styled('span', {
+  shouldForwardProp: (prop) => prop !== '$active',
+})<{ $active: boolean }>(({ $active }) => ({
+  width: 5,
+  height: 5,
+  borderRadius: '50%',
+  background: $active ? '#fff' : 'rgba(255,255,255,0.45)',
+  transition: 'background .2s ease',
+}));
 
 export const PostScrim = styled('div')({
   position: 'absolute',
@@ -606,6 +983,187 @@ export const BrandLogoImg = styled(Image)({
   maxHeight: '100%',
   objectFit: 'contain',
 });
+
+/* ───────────────────────── services & packages ───────────────────────── */
+
+export const PackagesSection = styled('section')({
+  background: tokens.gradientCream,
+  padding: '72px 0',
+  scrollMarginTop: 70,
+});
+
+export const PackagesHeader = styled('div')({
+  display: 'flex',
+  justifyContent: 'space-between',
+  alignItems: 'flex-end',
+  gap: 32,
+  marginBottom: 56,
+  '@media (max-width: 900px)': { flexDirection: 'column', alignItems: 'flex-start', gap: 20 },
+});
+
+export const PackagesTitle = styled(BaseSectionTitle)({
+  fontSize: 'clamp(40px, 5.5vw, 72px)',
+  margin: 0,
+});
+
+export const PackagesTitleItalic = styled('span')({
+  fontStyle: 'italic',
+  fontWeight: 500,
+  color: tokens.rose,
+});
+
+export const PackagesLead = styled('p')({
+  fontFamily: FONT_BODY,
+  fontSize: 17,
+  lineHeight: 1.6,
+  color: tokens.warmBrown,
+  maxWidth: 420,
+  textAlign: 'right',
+  margin: 0,
+  '@media (max-width: 900px)': { textAlign: 'left' },
+});
+
+export const PackagesGrid = styled('div')({
+  display: 'grid',
+  gridTemplateColumns: 'repeat(3, 1fr)',
+  gap: 28,
+  alignItems: 'start',
+  '@media (max-width: 900px)': { gridTemplateColumns: '1fr', gap: 20 },
+});
+
+export const PackageCard = styled('div', {
+  shouldForwardProp: (prop) => prop !== '$featured',
+})<{ $featured?: boolean }>(({ $featured }) => ({
+  position: 'relative',
+  padding: '40px 32px 32px',
+  borderRadius: 28,
+  background: $featured ? tokens.gradientDark : tokens.cream,
+  color: $featured ? '#fff' : tokens.ink,
+  boxShadow: $featured ? '0 30px 60px rgba(18,59,55,0.28)' : '0 16px 36px rgba(18,59,55,0.08)',
+  marginTop: $featured ? -16 : 0,
+  transition: 'transform .3s ease, box-shadow .3s ease',
+  '&:hover': { transform: 'translateY(-6px)' },
+}));
+
+export const PackageBadge = styled('div')({
+  position: 'absolute',
+  top: -16,
+  left: 32,
+  background: tokens.rose,
+  color: tokens.goldDeep,
+  fontFamily: FONT_BODY,
+  fontSize: 11,
+  fontWeight: 700,
+  letterSpacing: '.12em',
+  textTransform: 'uppercase',
+  padding: '7px 14px',
+  borderRadius: 999,
+});
+
+export const PackageLabel = styled('div')({
+  fontFamily: FONT_BODY,
+  fontSize: 12,
+  fontWeight: 700,
+  letterSpacing: '.16em',
+  textTransform: 'uppercase',
+  color: tokens.rose,
+  marginBottom: 10,
+});
+
+export const PackageName = styled('h3')({
+  fontFamily: FONT_HEADING,
+  fontWeight: 700,
+  fontSize: 34,
+  lineHeight: 1.05,
+  letterSpacing: '-0.01em',
+  margin: '0 0 8px',
+});
+
+export const PackageTagline = styled('p')({
+  fontFamily: FONT_HEADING,
+  fontStyle: 'italic',
+  fontSize: 15.5,
+  color: tokens.rose,
+  margin: 0,
+});
+
+export const PackagePrice = styled('div')({
+  fontFamily: FONT_HEADING,
+  fontWeight: 700,
+  fontSize: 30,
+  margin: '28px 0 0',
+});
+
+export const PackageDivider = styled('div', {
+  shouldForwardProp: (prop) => prop !== '$featured',
+})<{ $featured?: boolean }>(({ $featured }) => ({
+  height: 1,
+  background: $featured ? 'rgba(255,255,255,0.16)' : tokens.borderLight,
+  margin: '26px 0 22px',
+}));
+
+export const PackageFeatures = styled('ul')({
+  listStyle: 'none',
+  margin: 0,
+  padding: 0,
+  display: 'flex',
+  flexDirection: 'column',
+  gap: 13,
+  marginBottom: 32,
+});
+
+export const PackageFeatureItem = styled('li')({
+  display: 'flex',
+  alignItems: 'flex-start',
+  gap: 10,
+  fontFamily: FONT_BODY,
+  fontSize: 14.5,
+  lineHeight: 1.4,
+});
+
+export const PackageDot = styled('span')({
+  width: 6,
+  height: 6,
+  borderRadius: '50%',
+  background: tokens.rose,
+  flexShrink: 0,
+  marginTop: 6,
+});
+
+export const PackageCta = styled('button', {
+  shouldForwardProp: (prop) => prop !== '$featured',
+})<{ $featured?: boolean }>(({ $featured }) => ({
+  fontFamily: FONT_BODY,
+  fontWeight: 700,
+  fontSize: 14.5,
+  width: '100%',
+  border: 'none',
+  cursor: 'pointer',
+  borderRadius: 999,
+  padding: '8px 8px 8px 22px',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'space-between',
+  gap: 12,
+  background: $featured ? tokens.rose : tokens.gold,
+  color: $featured ? tokens.goldDeep : '#fff',
+  transition: 'transform .2s ease',
+  '&:hover': { transform: 'translateY(-2px)' },
+}));
+
+export const PackageCtaIcon = styled('span', {
+  shouldForwardProp: (prop) => prop !== '$featured',
+})<{ $featured?: boolean }>(({ $featured }) => ({
+  width: 32,
+  height: 32,
+  borderRadius: '50%',
+  flexShrink: 0,
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  fontSize: 15,
+  background: $featured ? 'rgba(18,59,55,0.12)' : 'rgba(255,255,255,0.18)',
+}));
 
 /* ───────────────────────── work-together form ───────────────────────── */
 
