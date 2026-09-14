@@ -32,7 +32,7 @@
     "title": "Five years building on the web",
     "meta": "Full Stack Engineer",
     "job1": {
-      "period": "Jul 2026 — present",
+      "period": "Jul 2026 — Sep 2026",
       "company": "MIGMA · Los Angeles, USA (Remote)",
       "role": "Full Stack Developer",
       "desc": "Owning the full product cycle — front-end and back-end — within a distributed remote team."
@@ -218,7 +218,7 @@
       "jobs": [
         {
           "period": "Jul 2026",
-          "periodEnd": "present",
+          "periodEnd": "Sep 2026",
           "role": "Full Stack Developer",
           "company": "MIGMA · Los Angeles, USA (Remote)",
           "desc": "Owning the full product cycle — front-end and back-end — within a distributed remote team."
@@ -426,7 +426,7 @@
       "jobs": [
         {
           "role": "Full Stack Developer — MIGMA",
-          "period": "Jul 2026 – Present · Los Angeles, USA (Remote)",
+          "period": "Jul 2026 – Sep 2026 · Los Angeles, USA (Remote)",
           "bullets": [
             "Owning the full product cycle — front-end and back-end — within a distributed remote team."
           ]
