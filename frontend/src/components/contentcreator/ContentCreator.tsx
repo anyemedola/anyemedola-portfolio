@@ -34,6 +34,11 @@ const brandLogos = [
   { src: '/airlearn-logo.png', alt: 'Airlearn', width: 1326, height: 321 },
   { src: '/wise-logo.png', alt: 'Wise', width: 500, height: 500 },
   { src: '/a-sciarria-logo.png', alt: 'A Sciarria', width: 69, height: 60 },
+  { src: '/triips-logo.jpeg', alt: 'Triips', width: 447, height: 447 },
+  { src: '/trendiq-logo.png', alt: 'TrendIQ', width: 800, height: 800 },
+  { src: '/medo-logo.jpg', alt: 'MeDo', width: 900, height: 900 },
+  { src: '/lovable-logo.png', alt: 'Lovable', width: 901, height: 401 },
+  { src: '/eromify-logo.png', alt: 'Eromify', width: 3543, height: 820 },
 ];
 
 const MEDIA_KIT_URL = 'https://1drv.ms/f/c/154c7857f0d1eeff/IgDJTT3LbGTeQbkx1PyUOyS1AWG9s3u-7MQZmEig2hf4UBE?e=Dp1mxQ';
