@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { Bodoni_Moda, Hanken_Grotesk } from 'next/font/google';
+import Script from 'next/script';
 import Providers from './providers';
 import JsonLd from '@/components/seo/JsonLd';
 import './globals.css';
@@ -92,6 +93,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         <JsonLd />
         <Providers>{children}</Providers>
+        <Script
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8520016767385590"
+          strategy="beforeInteractive"
+          crossOrigin="anonymous"
+        />
       </body>
     </html>
   );
