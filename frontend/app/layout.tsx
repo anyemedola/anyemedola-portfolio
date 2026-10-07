@@ -85,6 +85,9 @@ export const metadata: Metadata = {
     ],
     apple: { url: '/favicon-180x180.png', sizes: '180x180', type: 'image/png' },
   },
+  other: {
+    'google-adsense-account': 'ca-pub-8520016767385590',
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
